@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2021 Dr.NooB
  *
- * This file is a part of Data Tracker <https://github.com/itsdrnoob/DataMonitor>
+ * This file is a part of Data Tracker <https://github.com/Sergey842248/DataTracker>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -76,139 +76,152 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         mContributors = (Preference) findPreference("contributors");
         mDonate = (Preference) findPreference("donate");
 
-        String themeSummary = PreferenceManager.getDefaultSharedPreferences(getContext())
-                .getString(APP_THEME_SUMMARY, getString(R.string.system_theme_summary));
-        mAppThemePicker.setSummary(themeSummary);
+        if (mAppThemePicker != null) {
+            String themeSummary = PreferenceManager.getDefaultSharedPreferences(getContext())
+                    .getString(APP_THEME_SUMMARY, getString(R.string.system_theme_summary));
+            mAppThemePicker.setSummary(themeSummary);
 
-        mAppThemePicker.setOnPreferenceClickListener(new androidx.preference.Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(androidx.preference.Preference preference) {
-                BottomSheetDialog dialog = new BottomSheetDialog(getContext(), R.style.BottomSheet);
-                View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.layout_app_theme, null);
+            mAppThemePicker.setOnPreferenceClickListener(new androidx.preference.Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(androidx.preference.Preference preference) {
+                    BottomSheetDialog dialog = new BottomSheetDialog(getContext(), R.style.BottomSheet);
+                    View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.layout_app_theme, null);
 
-                RadioGroup themeGroup = dialogView.findViewById(R.id.themes_group);
-                ConstraintLayout footer = dialogView.findViewById(R.id.footer);
-                TextView cancel = footer.findViewById(R.id.cancel);
-                TextView ok = footer.findViewById(R.id.ok);
+                    RadioGroup themeGroup = dialogView.findViewById(R.id.themes_group);
+                    ConstraintLayout footer = dialogView.findViewById(R.id.footer);
+                    TextView cancel = footer.findViewById(R.id.cancel);
+                    TextView ok = footer.findViewById(R.id.ok);
 
-                String theme = PreferenceManager.getDefaultSharedPreferences(getContext())
-                        .getString(APP_THEME, "system");
-                if (theme.equals("dark")) {
-                    themeGroup.check(R.id.theme_dark);
-                } else if (theme.equals("light")) {
-                    themeGroup.check(R.id.theme_light);
-                } else {
-                    themeGroup.check(R.id.theme_system);
-                }
-
-                cancel.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
+                    String theme = PreferenceManager.getDefaultSharedPreferences(getContext())
+                            .getString(APP_THEME, "system");
+                    if (theme.equals("dark")) {
+                        themeGroup.check(R.id.theme_dark);
+                    } else if (theme.equals("light")) {
+                        themeGroup.check(R.id.theme_light);
+                    } else {
+                        themeGroup.check(R.id.theme_system);
                     }
-                });
 
-                ok.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        String theme;
-                        String summary;
-                        int checkedId = themeGroup.getCheckedRadioButtonId();
-                        if (checkedId == R.id.theme_light) {
-                            theme = "light";
-                            summary = getString(R.string.light_theme_summary);
-                        } else if (checkedId == R.id.theme_dark) {
-                            theme = "dark";
-                            summary = getString(R.string.dark_theme_summary);
-                        } else {
-                            theme = "system";
-                            summary = getString(R.string.system_theme_summary);
+                    cancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
                         }
-                        PreferenceManager.getDefaultSharedPreferences(getContext())
-                                .edit()
-                                .putString(APP_THEME, theme)
-                                .putString(APP_THEME_SUMMARY, summary)
-                                .apply();
+                    });
 
-                        if (theme.equals("dark")) {
-                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                        } else if (theme.equals("light")) {
-                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                        } else {
-                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+                    ok.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            String theme;
+                            String summary;
+                            int checkedId = themeGroup.getCheckedRadioButtonId();
+                            if (checkedId == R.id.theme_light) {
+                                theme = "light";
+                                summary = getString(R.string.light_theme_summary);
+                            } else if (checkedId == R.id.theme_dark) {
+                                theme = "dark";
+                                summary = getString(R.string.dark_theme_summary);
+                            } else {
+                                theme = "system";
+                                summary = getString(R.string.system_theme_summary);
+                            }
+                            PreferenceManager.getDefaultSharedPreferences(getContext())
+                                    .edit()
+                                    .putString(APP_THEME, theme)
+                                    .putString(APP_THEME_SUMMARY, summary)
+                                    .apply();
+
+                            if (theme.equals("dark")) {
+                                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                            } else if (theme.equals("light")) {
+                                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                            } else {
+                                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+                            }
+                            mAppThemePicker.setSummary(summary);
+                            dialog.dismiss();
                         }
-                        mAppThemePicker.setSummary(summary);
-                        dialog.dismiss();
+                    });
+
+                    dialog.setContentView(dialogView);
+                    dialog.show();
+                    return false;
+                }
+            });
+        }
+
+        if (mLanguagePicker != null) {
+            mLanguagePicker.setOnPreferenceClickListener(new androidx.preference.Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(androidx.preference.Preference preference) {
+                    startActivity(new Intent(getContext(), ContainerActivity.class)
+                            .putExtra(GENERAL_FRAGMENT_ID, APP_LANGUAGE_FRAGMENT));
+                    return false;
+                }
+            });
+        }
+
+        if (mDiagnosticsSettings != null) {
+            mDiagnosticsSettings.setOnPreferenceClickListener(new androidx.preference.Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(androidx.preference.Preference preference) {
+                    startActivity(new Intent(getContext(), ContainerActivity.class)
+                            .putExtra(GENERAL_FRAGMENT_ID, DIAGNOSTICS_SETTINGS_FRAGMENT));
+                    return false;
+                }
+            });
+        }
+
+        if (mDisableHaptics != null) {
+            mDisableHaptics.setOnPreferenceClickListener(new androidx.preference.Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(@NonNull androidx.preference.Preference preference) {
+                    boolean isChecked = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("disable_haptics", false);
+                    if (isChecked) {
+                        snackbar = Snackbar.make(getView(), "Haptic feedback disabled", Snackbar.LENGTH_SHORT);
+                    } else {
+                        snackbar = Snackbar.make(getView(), "Haptic feedback enabled", Snackbar.LENGTH_SHORT);
                     }
-                });
-
-                dialog.setContentView(dialogView);
-                dialog.show();
-                return false;
-            }
-        });
-
-        mLanguagePicker.setOnPreferenceClickListener(new androidx.preference.Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(androidx.preference.Preference preference) {
-                startActivity(new Intent(getContext(), ContainerActivity.class)
-                        .putExtra(GENERAL_FRAGMENT_ID, APP_LANGUAGE_FRAGMENT));
-                return false;
-            }
-        });
-
-        mDiagnosticsSettings.setOnPreferenceClickListener(new androidx.preference.Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(androidx.preference.Preference preference) {
-                startActivity(new Intent(getContext(), ContainerActivity.class)
-                        .putExtra(GENERAL_FRAGMENT_ID, DIAGNOSTICS_SETTINGS_FRAGMENT));
-                return false;
-            }
-        });
-
-        mDisableHaptics.setOnPreferenceClickListener(new androidx.preference.Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(@NonNull androidx.preference.Preference preference) {
-                boolean isChecked = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("disable_haptics", false);
-                if (isChecked) {
-                    snackbar = Snackbar.make(getView(), "Haptic feedback disabled", Snackbar.LENGTH_SHORT);
+                    PreferenceManager.getDefaultSharedPreferences(getContext()).edit()
+                            .putBoolean("disable_haptics", isChecked).apply();
+                    snackbar.show();
+                    return false;
                 }
-                else {
-                    snackbar = Snackbar.make(getView(), "Haptic feedback enabled", Snackbar.LENGTH_SHORT);
+            });
+        }
+
+        if (mAbout != null) {
+            mAbout.setOnPreferenceClickListener(new androidx.preference.Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(androidx.preference.Preference preference) {
+                    startActivity(new Intent(getContext(), ContainerActivity.class)
+                            .putExtra(GENERAL_FRAGMENT_ID, ABOUT_FRAGMENT));
+                    return false;
                 }
-                PreferenceManager.getDefaultSharedPreferences(getContext()).edit()
-                                .putBoolean("disable_haptics", isChecked).apply();
-                snackbar.show();
-                return false;
-            }
-        });
+            });
+        }
 
-        mAbout.setOnPreferenceClickListener(new androidx.preference.Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(androidx.preference.Preference preference) {
-                startActivity(new Intent(getContext(), ContainerActivity.class)
-                        .putExtra(GENERAL_FRAGMENT_ID, ABOUT_FRAGMENT));
-                return false;
-            }
-        });
+        if (mContributors != null) {
+            mContributors.setOnPreferenceClickListener(new androidx.preference.Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(androidx.preference.Preference preference) {
+                    startActivity(new Intent(getContext(), ContainerActivity.class)
+                            .putExtra(GENERAL_FRAGMENT_ID, CONTRIBUTORS_FRAGMENT));
+                    return false;
+                }
+            });
+        }
 
-        mContributors.setOnPreferenceClickListener(new androidx.preference.Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(androidx.preference.Preference preference) {
-                startActivity(new Intent(getContext(), ContainerActivity.class)
-                        .putExtra(GENERAL_FRAGMENT_ID, CONTRIBUTORS_FRAGMENT));
-                return false;
-            }
-        });
-
-        mDonate.setOnPreferenceClickListener(new androidx.preference.Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(androidx.preference.Preference preference) {
-                startActivity(new Intent(getContext(), ContainerActivity.class)
-                        .putExtra(GENERAL_FRAGMENT_ID, DONATE_FRAGMENT));
-                return false;
-            }
-        });
+        if (mDonate != null) {
+            mDonate.setOnPreferenceClickListener(new androidx.preference.Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(androidx.preference.Preference preference) {
+                    startActivity(new Intent(getContext(), ContainerActivity.class)
+                            .putExtra(GENERAL_FRAGMENT_ID, DONATE_FRAGMENT));
+                    return false;
+                }
+            });
+        }
 
 
     }

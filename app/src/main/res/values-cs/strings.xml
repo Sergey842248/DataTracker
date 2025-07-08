@@ -31,7 +31,7 @@
     <string name="title_data_usage">Využití dat</string>
     <string name="action_update">Aktualizace</string>
     <string name="data_remaining_placeholder">Zbývá 0,00 GB</string>
-    <string name="label_dev">S ❤ vytvořili Bitdroid</string>
+    <string name="label_dev">S ❤ vytvořili</string>
     <string name="label_loading_apps">Načítání aplikací</string>
     <string name="label_loading">Načítání…</string>
     <string name="label_app_data_usage_session_empty">Žádná dostupná data</string>

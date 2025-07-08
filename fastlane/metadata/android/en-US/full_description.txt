@@ -16,4 +16,4 @@
 <li>Light-weight and Open Source</li>
 
 <p><b>Source:</b></p>
-<p><a href="https://github.com/itsdrnoob/DataMonitor">https://github.com/itsdrnoob/DataMonitor</a></p>
+<p><a href="https://github.com/Sergey842248/DataTracker">https://github.com/Sergey842248/DataTracker</a></p>

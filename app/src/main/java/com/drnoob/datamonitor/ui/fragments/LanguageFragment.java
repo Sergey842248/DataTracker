@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2021 Dr.NooB
  *
- * This file is a part of Data Tracker <https://github.com/itsdrnoob/DataMonitor>
+ * This file is a part of Data Tracker <https://github.com/Sergey842248/DataTracker>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -74,13 +74,6 @@ public class LanguageFragment extends Fragment {
 
         mContribute = view.findViewById(R.id.contribute_language);
 
-        mContribute.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW)
-                        .setData(Uri.parse(getString(R.string.github_contribute_translations))));
-            }
-        });
     }
 
     public static class Language extends PreferenceFragmentCompat {

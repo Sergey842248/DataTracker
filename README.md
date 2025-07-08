@@ -1,4 +1,4 @@
-[![Platform](https://shields.io/badge/platform-android-green.svg)](https://github.com/itsdrnoob/DataMonitor)
+[![Platform](https://shields.io/badge/platform-android-green.svg)](https://github.com/Sergey842248/DataTracker)
 [![License](https://img.shields.io/badge/license-GPL3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 

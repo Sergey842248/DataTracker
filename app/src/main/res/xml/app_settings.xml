@@ -58,25 +58,20 @@
         app:allowDividerBelow="false">
 
         <com.drnoob.datamonitor.core.base.Preference
-            android:title="@string/donate"
-            app:icon="@drawable/ic_donate"
-            android:key="donate"
-            app:summary="@string/donate_summary"
-            android:widgetLayout="@layout/preference_right_arrow" />
-
-        <com.drnoob.datamonitor.core.base.Preference
-            android:title="@string/contributors"
-            app:icon="@drawable/ic_contributors"
-            android:key="contributors"
-            app:summary="@string/contributors_summary"
-            android:widgetLayout="@layout/preference_right_arrow" />
-
-        <com.drnoob.datamonitor.core.base.Preference
             android:title="@string/about"
             app:icon="@drawable/ic_about"
             android:key="about"
             app:summary="@string/about_summary"
             android:widgetLayout="@layout/preference_right_arrow" />
+
+        <com.drnoob.datamonitor.core.base.Preference
+            android:key="contributors"
+            android:title="@string/contributors"
+            app:icon="@drawable/ic_contributors"
+            app:summary="@string/contributors_summary"
+            android:widgetLayout="@layout/preference_right_arrow" />
+
+
 
     </com.drnoob.datamonitor.core.base.PreferenceCategory>
 

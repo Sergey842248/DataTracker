@@ -12,7 +12,7 @@ body:
     attributes:
       label: "Checklist"
       options:
-        - label: "I made sure that there are no similar feature requests - [open](https://github.com/itsdrnoob/DataMonitor/issues) or [closed](https://github.com/itsdrnoob/DataMonitor/issues?q=is%3Aissue+is%3Aclosed)."
+        - label: "I made sure that there are no similar feature requests - [open](https://github.com/Sergey842248/DataTracker/issues) or [closed](https://github.com/Sergey842248/DataTracker/issues?q=is%3Aissue+is%3Aclosed)."
           required: true
         - label: "I have taken the time to fill in all the required details in an appropriate descriptive way. I understand that the feature request will be dismissed otherwise."
           required: true

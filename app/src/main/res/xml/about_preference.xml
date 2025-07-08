@@ -9,7 +9,7 @@
             android:title="@string/support_and_development"
             app:iconSpaceReserved="false"
             app:allowDividerAbove="false"
-            app:allowDividerBelow="false">
+            app:allowDividerBelow="false"/>
 
             <com.drnoob.datamonitor.core.base.Preference
                 android:title="@string/github"
@@ -23,29 +23,6 @@
 
             </com.drnoob.datamonitor.core.base.Preference>
 
-            <com.drnoob.datamonitor.core.base.Preference
-                android:title="@string/xda"
-                app:icon="@drawable/ic_xda"
-                android:key="xda"
-                app:summary="@string/xda_summary"
-                app:widgetLayout="@layout/preference_right_arrow">
-
-                <intent android:action="android.intent.action.VIEW"
-                    android:data="@string/xda_thread"/>
-
-            </com.drnoob.datamonitor.core.base.Preference>
-
-            <com.drnoob.datamonitor.core.base.Preference
-                android:title="@string/telegram_support"
-                app:icon="@drawable/ic_telegram"
-                android:key="xda"
-                app:summary="@string/telegram_summary"
-                app:widgetLayout="@layout/preference_right_arrow">
-
-                <intent android:action="android.intent.action.VIEW"
-                    android:data="@string/telegram_chat"/>
-
-            </com.drnoob.datamonitor.core.base.Preference>
 
             <com.drnoob.datamonitor.core.base.Preference
                 android:title="@string/report"
@@ -60,33 +37,14 @@
             </com.drnoob.datamonitor.core.base.Preference>
 
             <com.drnoob.datamonitor.core.base.Preference
-                android:title="@string/f_droid_page"
-                app:icon="@drawable/ic_f_droid"
-                android:key="rate"
-                app:summary="@string/f_droid_page_summary"
-                app:widgetLayout="@layout/preference_right_arrow">
-
-                <intent android:action="android.intent.action.VIEW"
-                    android:data="@string/f_droid"/>
-
-            </com.drnoob.datamonitor.core.base.Preference>
-
-        </com.drnoob.datamonitor.core.base.PreferenceCategory>
-
-        <com.drnoob.datamonitor.core.base.PreferenceCategory
-            android:title="@string/license"
-            app:iconSpaceReserved="false"
-            app:allowDividerAbove="false"
-            app:allowDividerBelow="false">
-
-            <com.drnoob.datamonitor.core.base.Preference
+                android:key="license"
                 android:title="@string/license"
                 app:icon="@drawable/ic_license"
-                android:key="license"
                 app:summary="@string/license_summary"
-                android:widgetLayout="@layout/preference_right_arrow" />
+                app:widgetLayout="@layout/preference_right_arrow" />
 
-        </com.drnoob.datamonitor.core.base.PreferenceCategory>
+
+
 
     </com.drnoob.datamonitor.core.base.PreferenceHeader>
 

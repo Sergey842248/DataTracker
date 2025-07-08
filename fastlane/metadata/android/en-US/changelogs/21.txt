@@ -4,4 +4,4 @@
 • Fixed many crashes and stability issues.
 • Improved app responsiveness.
 • Added support for Czech, Dutch, Marathi and Vietnamese languages.
-For complete changelog, please check https://github.com/itsdrnoob/DataMonitor/blob/HEAD/CHANGELOG.md#v230  
+For complete changelog, please check https://github.com/Sergey842248/DataTracker/blob/HEAD/CHANGELOG.md#v230

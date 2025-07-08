@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2021 Dr.NooB
  *
- * This file is a part of Data Tracker <https://github.com/itsdrnoob/DataMonitor>
+ * This file is a part of Data Tracker <https://github.com/Sergey842248/DataTracker>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -299,14 +299,16 @@ public class AboutFragment extends Fragment {
 
             mLicense = (Preference) findPreference("license");
 
-            mLicense.setOnPreferenceClickListener(new androidx.preference.Preference.OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(androidx.preference.Preference preference) {
-                    startActivity(new Intent(getContext(), ContainerActivity.class)
-                            .putExtra(GENERAL_FRAGMENT_ID, LICENSE_FRAGMENT));
-                    return false;
-                }
-            });
+            if (mLicense != null) {
+                mLicense.setOnPreferenceClickListener(new androidx.preference.Preference.OnPreferenceClickListener() {
+                    @Override
+                    public boolean onPreferenceClick(androidx.preference.Preference preference) {
+                        startActivity(new Intent(getContext(), ContainerActivity.class)
+                                .putExtra(GENERAL_FRAGMENT_ID, LICENSE_FRAGMENT));
+                        return false;
+                    }
+                });
+            }
         }
     }
 }
