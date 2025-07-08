@@ -3,7 +3,7 @@
 
 
 <div align="center">
-<img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.webp"</img>
+<img src="app/src/main/icon.png"</img>
 
 # Data Tracker
 Track all your data usage - at one place
