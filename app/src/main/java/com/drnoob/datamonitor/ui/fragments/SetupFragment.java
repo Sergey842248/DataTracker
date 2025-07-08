@@ -248,48 +248,28 @@ public class SetupFragment extends Fragment {
             String widgetRefreshSummary = getString(R.string.option_1_min);
             String notificationRefreshSummary = getString(R.string.option_1_min);
 
-            switch (widgetRefreshInterval) {
-                case 60000:
-                    widgetRefreshSummary = getString(R.string.option_1_min);
-                    break;
-
-                case 120000:
-                    widgetRefreshSummary = getString(R.string.option_2_min);
-                    break;
-
-                case 300000:
-                    widgetRefreshSummary = getString(R.string.option_5_min);
-                    break;
-
-                case 600000:
-                    widgetRefreshSummary = getString(R.string.option_10_min);
-                    break;
-
-                case 900000:
-                    widgetRefreshSummary = getString(R.string.option_15_min);
-                    break;
+            if (widgetRefreshInterval == 60000) {
+                widgetRefreshSummary = getString(R.string.option_1_min);
+            } else if (widgetRefreshInterval == 120000) {
+                widgetRefreshSummary = getString(R.string.option_2_min);
+            } else if (widgetRefreshInterval == 300000) {
+                widgetRefreshSummary = getString(R.string.option_5_min);
+            } else if (widgetRefreshInterval == 600000) {
+                widgetRefreshSummary = getString(R.string.option_10_min);
+            } else if (widgetRefreshInterval == 900000) {
+                widgetRefreshSummary = getString(R.string.option_15_min);
             }
 
-            switch (notificationRefreshInterval) {
-                case 60000:
-                    notificationRefreshSummary = getString(R.string.option_1_min);
-                    break;
-
-                case 120000:
-                    notificationRefreshSummary = getString(R.string.option_2_min);
-                    break;
-
-                case 300000:
-                    notificationRefreshSummary = getString(R.string.option_5_min);
-                    break;
-
-                case 600000:
-                    notificationRefreshSummary = getString(R.string.option_10_min);
-                    break;
-
-                case 900000:
-                    notificationRefreshSummary = getString(R.string.option_15_min);
-                    break;
+            if (notificationRefreshInterval == 60000) {
+                notificationRefreshSummary = getString(R.string.option_1_min);
+            } else if (notificationRefreshInterval == 120000) {
+                notificationRefreshSummary = getString(R.string.option_2_min);
+            } else if (notificationRefreshInterval == 300000) {
+                notificationRefreshSummary = getString(R.string.option_5_min);
+            } else if (notificationRefreshInterval == 600000) {
+                notificationRefreshSummary = getString(R.string.option_10_min);
+            } else if (notificationRefreshInterval == 900000) {
+                notificationRefreshSummary = getString(R.string.option_15_min);
             }
 
             mWidgetRefreshInterval.setSummary(widgetRefreshSummary);
@@ -414,26 +394,16 @@ public class SetupFragment extends Fragment {
 
                     int elapsedTIme = PreferenceManager.getDefaultSharedPreferences(getContext())
                             .getInt(WIDGET_REFRESH_INTERVAL, 60000);
-                    switch (elapsedTIme) {
-                        case 60000:
-                            intervalGroup.check(R.id.interval_1_min);
-                            break;
-
-                        case 120000:
-                            intervalGroup.check(R.id.interval_2_min);
-                            break;
-
-                        case 300000:
-                            intervalGroup.check(R.id.interval_5_min);
-                            break;
-
-                        case 600000:
-                            intervalGroup.check(R.id.interval_10_min);
-                            break;
-
-                        case 900000:
-                            intervalGroup.check(R.id.interval_15_min);
-                            break;
+                    if (elapsedTIme == 60000) {
+                        intervalGroup.check(R.id.interval_1_min);
+                    } else if (elapsedTIme == 120000) {
+                        intervalGroup.check(R.id.interval_2_min);
+                    } else if (elapsedTIme == 300000) {
+                        intervalGroup.check(R.id.interval_5_min);
+                    } else if (elapsedTIme == 600000) {
+                        intervalGroup.check(R.id.interval_10_min);
+                    } else if (elapsedTIme == 900000) {
+                        intervalGroup.check(R.id.interval_15_min);
                     }
 
                     cancel.setOnClickListener(new View.OnClickListener() {
@@ -448,31 +418,22 @@ public class SetupFragment extends Fragment {
                         public void onClick(View v) {
                             int elapsedTime = 60000;
                             String refreshGap = getString(R.string.option_1_min);
-                            switch (intervalGroup.getCheckedRadioButtonId()) {
-                                case R.id.interval_1_min:
-                                    elapsedTime = 60000;
-                                    refreshGap = getString(R.string.option_1_min);
-                                    break;
-
-                                case R.id.interval_2_min:
-                                    elapsedTime = 120000;
-                                    refreshGap = getString(R.string.option_2_min);
-                                    break;
-
-                                case R.id.interval_5_min:
-                                    elapsedTime = 300000;
-                                    refreshGap = getString(R.string.option_5_min);
-                                    break;
-
-                                case R.id.interval_10_min:
-                                    elapsedTime = 600000;
-                                    refreshGap = getString(R.string.option_10_min);
-                                    break;
-
-                                case R.id.interval_15_min:
-                                    elapsedTime = 900000;
-                                    refreshGap = getString(R.string.option_15_min);
-                                    break;
+                            int checkedId = intervalGroup.getCheckedRadioButtonId();
+                            if (checkedId == R.id.interval_1_min) {
+                                elapsedTime = 60000;
+                                refreshGap = getString(R.string.option_1_min);
+                            } else if (checkedId == R.id.interval_2_min) {
+                                elapsedTime = 120000;
+                                refreshGap = getString(R.string.option_2_min);
+                            } else if (checkedId == R.id.interval_5_min) {
+                                elapsedTime = 300000;
+                                refreshGap = getString(R.string.option_5_min);
+                            } else if (checkedId == R.id.interval_10_min) {
+                                elapsedTime = 600000;
+                                refreshGap = getString(R.string.option_10_min);
+                            } else if (checkedId == R.id.interval_15_min) {
+                                elapsedTime = 900000;
+                                refreshGap = getString(R.string.option_15_min);
                             }
                             PreferenceManager.getDefaultSharedPreferences(getContext()).edit().putInt(WIDGET_REFRESH_INTERVAL,
                                     elapsedTime).apply();
@@ -638,38 +599,22 @@ public class SetupFragment extends Fragment {
                         }
                     }
 
-                    switch (elapsedTIme) {
-                        case 1000:
-                            intervalGroup.check(R.id.interval_1_sec);
-                            break;
-
-                        case 15000:
-                            intervalGroup.check(R.id.interval_15_sec);
-                            break;
-
-                        case 30000:
-                            intervalGroup.check(R.id.interval_30_sec);
-                            break;
-
-                        case 60000:
-                            intervalGroup.check(R.id.interval_1_min);
-                            break;
-
-                        case 120000:
-                            intervalGroup.check(R.id.interval_2_min);
-                            break;
-
-                        case 300000:
-                            intervalGroup.check(R.id.interval_5_min);
-                            break;
-
-                        case 600000:
-                            intervalGroup.check(R.id.interval_10_min);
-                            break;
-
-                        case 900000:
-                            intervalGroup.check(R.id.interval_15_min);
-                            break;
+                    if (elapsedTIme == 1000) {
+                        intervalGroup.check(R.id.interval_1_sec);
+                    } else if (elapsedTIme == 15000) {
+                        intervalGroup.check(R.id.interval_15_sec);
+                    } else if (elapsedTIme == 30000) {
+                        intervalGroup.check(R.id.interval_30_sec);
+                    } else if (elapsedTIme == 60000) {
+                        intervalGroup.check(R.id.interval_1_min);
+                    } else if (elapsedTIme == 120000) {
+                        intervalGroup.check(R.id.interval_2_min);
+                    } else if (elapsedTIme == 300000) {
+                        intervalGroup.check(R.id.interval_5_min);
+                    } else if (elapsedTIme == 600000) {
+                        intervalGroup.check(R.id.interval_10_min);
+                    } else if (elapsedTIme == 900000) {
+                        intervalGroup.check(R.id.interval_15_min);
                     }
 
                     cancel.setOnClickListener(new View.OnClickListener() {
@@ -684,46 +629,31 @@ public class SetupFragment extends Fragment {
                         public void onClick(View v) {
                             int elapsedTime = 60000;
                             String refreshGap = getString(R.string.option_1_min);
-                            switch (intervalGroup.getCheckedRadioButtonId()) {
-                                case R.id.interval_1_sec:
-                                    elapsedTime = 1000;
-                                    refreshGap = getString(R.string.option_1_sec);
-                                    break;
-
-                                case R.id.interval_15_sec:
-                                    elapsedTime = 15000;
-                                    refreshGap = getString(R.string.option_15_sec);
-                                    break;
-
-                                case R.id.interval_30_sec:
-                                    elapsedTime = 30000;
-                                    refreshGap = getString(R.string.option_30_sec);
-                                    break;
-
-                                case R.id.interval_1_min:
-                                    elapsedTime = 60000;
-                                    refreshGap = getString(R.string.option_1_min);
-                                    break;
-
-                                case R.id.interval_2_min:
-                                    elapsedTime = 120000;
-                                    refreshGap = getString(R.string.option_2_min);
-                                    break;
-
-                                case R.id.interval_5_min:
-                                    elapsedTime = 300000;
-                                    refreshGap = getString(R.string.option_5_min);
-                                    break;
-
-                                case R.id.interval_10_min:
-                                    elapsedTime = 600000;
-                                    refreshGap = getString(R.string.option_10_min);
-                                    break;
-
-                                case R.id.interval_15_min:
-                                    elapsedTime = 900000;
-                                    refreshGap = getString(R.string.option_15_min);
-                                    break;
+                            int checkedId = intervalGroup.getCheckedRadioButtonId();
+                            if (checkedId == R.id.interval_1_sec) {
+                                elapsedTime = 1000;
+                                refreshGap = getString(R.string.option_1_sec);
+                            } else if (checkedId == R.id.interval_15_sec) {
+                                elapsedTime = 15000;
+                                refreshGap = getString(R.string.option_15_sec);
+                            } else if (checkedId == R.id.interval_30_sec) {
+                                elapsedTime = 30000;
+                                refreshGap = getString(R.string.option_30_sec);
+                            } else if (checkedId == R.id.interval_1_min) {
+                                elapsedTime = 60000;
+                                refreshGap = getString(R.string.option_1_min);
+                            } else if (checkedId == R.id.interval_2_min) {
+                                elapsedTime = 120000;
+                                refreshGap = getString(R.string.option_2_min);
+                            } else if (checkedId == R.id.interval_5_min) {
+                                elapsedTime = 300000;
+                                refreshGap = getString(R.string.option_5_min);
+                            } else if (checkedId == R.id.interval_10_min) {
+                                elapsedTime = 600000;
+                                refreshGap = getString(R.string.option_10_min);
+                            } else if (checkedId == R.id.interval_15_min) {
+                                elapsedTime = 900000;
+                                refreshGap = getString(R.string.option_15_min);
                             }
                             PreferenceManager.getDefaultSharedPreferences(getContext()).edit().putInt(NOTIFICATION_REFRESH_INTERVAL,
                                     elapsedTime).apply();
@@ -1052,14 +982,10 @@ public class SetupFragment extends Fragment {
                         public void onClick(View view) {
                             int selectedIcon = iconGroup.getCheckedRadioButtonId();
                             String icon = "";
-                            switch (selectedIcon) {
-                                case R.id.icon_data_usage_percent:
-                                    icon = ICON_DATA_USAGE;
-                                    break;
-
-                                case R.id.icon_network_speed:
-                                    icon = ICON_NETWORK_SPEED;
-                                    break;
+                            if (selectedIcon == R.id.icon_data_usage_percent) {
+                                icon = ICON_DATA_USAGE;
+                            } else if (selectedIcon == R.id.icon_network_speed) {
+                                icon = ICON_NETWORK_SPEED;
                             }
 
                             PreferenceManager.getDefaultSharedPreferences(getContext()).edit()

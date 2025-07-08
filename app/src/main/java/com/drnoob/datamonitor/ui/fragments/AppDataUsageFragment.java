@@ -275,48 +275,30 @@ public class AppDataUsageFragment extends Fragment {
                     }
                 });
 
-                switch (getSession()) {
-                    case SESSION_TODAY:
-                        sessionGroup.check(R.id.session_today);
-                        break;
-
-                    case SESSION_YESTERDAY:
-                        sessionGroup.check(R.id.session_yesterday);
-                        break;
-
-                    case SESSION_THIS_MONTH:
-                        sessionGroup.check(R.id.session_this_month);
-                        break;
-
-                    case SESSION_LAST_MONTH:
-                        sessionGroup.check(R.id.session_last_month);
-                        break;
-
-                    case SESSION_THIS_YEAR:
-                        sessionGroup.check(R.id.session_this_year);
-                        break;
-
-                    case SESSION_ALL_TIME:
-                        sessionGroup.check(R.id.session_all_time);
-                        break;
-
-                    case SESSION_CUSTOM:
-                        sessionGroup.check(R.id.session_current_plan);
-                        break;
-
-                    case SESSION_CUSTOM_FILTER:
-                        sessionGroup.check(R.id.session_custom);
-
+                int session = getSession();
+                if (session == SESSION_TODAY) {
+                    sessionGroup.check(R.id.session_today);
+                } else if (session == SESSION_YESTERDAY) {
+                    sessionGroup.check(R.id.session_yesterday);
+                } else if (session == SESSION_THIS_MONTH) {
+                    sessionGroup.check(R.id.session_this_month);
+                } else if (session == SESSION_LAST_MONTH) {
+                    sessionGroup.check(R.id.session_last_month);
+                } else if (session == SESSION_THIS_YEAR) {
+                    sessionGroup.check(R.id.session_this_year);
+                } else if (session == SESSION_ALL_TIME) {
+                    sessionGroup.check(R.id.session_all_time);
+                } else if (session == SESSION_CUSTOM) {
+                    sessionGroup.check(R.id.session_current_plan);
+                } else if (session == SESSION_CUSTOM_FILTER) {
+                    sessionGroup.check(R.id.session_custom);
                 }
 
-                switch (getType()) {
-                    case TYPE_MOBILE_DATA:
-                        typeGroup.check(R.id.type_mobile);
-                        break;
-
-                    case TYPE_WIFI:
-                        typeGroup.check(R.id.type_wifi);
-                        break;
+                int type = getType();
+                if (type == TYPE_MOBILE_DATA) {
+                    typeGroup.check(R.id.type_mobile);
+                } else if (type == TYPE_WIFI) {
+                    typeGroup.check(R.id.type_wifi);
                 }
 
                 cancel.setOnClickListener(new View.OnClickListener() {
@@ -330,52 +312,30 @@ public class AppDataUsageFragment extends Fragment {
                     @SuppressLint("NonConstantResourceId")
                     @Override
                     public void onClick(View v) {
-                        switch (sessionGroup.getCheckedChipId()) {
-                            case R.id.session_yesterday:
-                                selectedSession = SESSION_YESTERDAY;
-                                break;
-
-                            case R.id.session_this_month:
-                                selectedSession = SESSION_THIS_MONTH;
-                                break;
-
-                            case R.id.session_last_month:
-                                selectedSession = SESSION_LAST_MONTH;
-                                break;
-
-                            case R.id.session_this_year:
-                                selectedSession = SESSION_THIS_YEAR;
-                                break;
-
-                            case R.id.session_all_time:
-                                selectedSession = SESSION_ALL_TIME;
-                                break;
-
-                            case R.id.session_current_plan:
-                                selectedSession = SESSION_CUSTOM;
-                                break;
-
-                            case R.id.session_custom:
-                                selectedSession = SESSION_CUSTOM_FILTER;
-                                break;
-
-                            case R.id.session_today:
-
-                            default:
-                                selectedSession = SESSION_TODAY;
-                                break;
+                        int checkedSessionId = sessionGroup.getCheckedChipId();
+                        if (checkedSessionId == R.id.session_yesterday) {
+                            selectedSession = SESSION_YESTERDAY;
+                        } else if (checkedSessionId == R.id.session_this_month) {
+                            selectedSession = SESSION_THIS_MONTH;
+                        } else if (checkedSessionId == R.id.session_last_month) {
+                            selectedSession = SESSION_LAST_MONTH;
+                        } else if (checkedSessionId == R.id.session_this_year) {
+                            selectedSession = SESSION_THIS_YEAR;
+                        } else if (checkedSessionId == R.id.session_all_time) {
+                            selectedSession = SESSION_ALL_TIME;
+                        } else if (checkedSessionId == R.id.session_current_plan) {
+                            selectedSession = SESSION_CUSTOM;
+                        } else if (checkedSessionId == R.id.session_custom) {
+                            selectedSession = SESSION_CUSTOM_FILTER;
+                        } else {
+                            selectedSession = SESSION_TODAY;
                         }
 
-                        switch (typeGroup.getCheckedChipId()) {
-                            case R.id.type_wifi:
-                                selectedType = TYPE_WIFI;
-                                break;
-
-                            case R.id.type_mobile:
-
-                            default:
-                                selectedType = TYPE_MOBILE_DATA;
-                                break;
+                        int checkedTypeId = typeGroup.getCheckedChipId();
+                        if (checkedTypeId == R.id.type_wifi) {
+                            selectedType = TYPE_WIFI;
+                        } else {
+                            selectedType = TYPE_MOBILE_DATA;
                         }
 
                         if (!MainActivity.isDataLoading()) {

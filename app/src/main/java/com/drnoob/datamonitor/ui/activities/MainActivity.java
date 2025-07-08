@@ -457,19 +457,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull @NotNull MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                if (value == DATA_USAGE_SYSTEM) {
-                    value = 0;
-                    finish();
-                }
-                break;
-
-            case R.id.toolbar_settings:
-                startActivity(new Intent(MainActivity.this, ContainerActivity.class)
-                        .putExtra(GENERAL_FRAGMENT_ID, BOTTOM_NAVBAR_ITEM_SETTINGS));
-//                startActivity(new Intent(MainActivity.this, MainActivity.class));
-                break;
+        int itemId = item.getItemId();
+        if (itemId == android.R.id.home) {
+            if (value == DATA_USAGE_SYSTEM) {
+                value = 0;
+                finish();
+            }
+        } else if (itemId == R.id.toolbar_settings) {
+            startActivity(new Intent(MainActivity.this, ContainerActivity.class)
+                    .putExtra(GENERAL_FRAGMENT_ID, BOTTOM_NAVBAR_ITEM_SETTINGS));
         }
         return super.onOptionsItemSelected(item);
     }
@@ -956,23 +952,12 @@ public class MainActivity extends AppCompatActivity {
 
     public static void setTheme(Activity activity) {
         String theme = PreferenceManager.getDefaultSharedPreferences(activity).getString(APP_THEME, "system");
-        switch (theme) {
-            case "dark":
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                break;
-
-            case "light":
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                break;
-
-            case "system":
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-                break;
-
-            default:
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-                break;
+        if (theme.equals("dark")) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else if (theme.equals("light")) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
         }
-
     }
 }

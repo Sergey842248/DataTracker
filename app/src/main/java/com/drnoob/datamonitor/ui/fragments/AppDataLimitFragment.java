@@ -252,7 +252,7 @@ public class AppDataLimitFragment extends Fragment {
                 Drawable drawable = getResources().getDrawable(R.drawable.ic_baseline_close_24, null);
                 drawable.setTint(Color.RED);
                 drawable.setTintMode(PorterDuff.Mode.SRC_ATOP);
-                Button action = snackbar.getView().findViewById(R.id.snackbar_action);
+                Button action = snackbar.getView().findViewById(com.google.android.material.R.id.snackbar_action);
 //                action.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_close_24, 0, 0, 0);
 //                action.setCompoundDrawablePadding(getResources().getDimensionPixelOffset(R.dimen.margin_small));
 //                action.setGravity(Gravity.CENTER);

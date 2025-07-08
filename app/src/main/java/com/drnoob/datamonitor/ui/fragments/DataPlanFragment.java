@@ -305,12 +305,17 @@ public class DataPlanFragment extends Fragment {
         Float dataLimit = PreferenceManager.getDefaultSharedPreferences(getContext())
                 .getFloat(DATA_LIMIT, -1);
         if (dataLimit > 0) {
-            if (dataLimit >= 1024) {
-                String data = String.format("%.2f", dataLimit / 1024) + "";
+            int dataType = PreferenceManager.getDefaultSharedPreferences(getContext()).getInt(DATA_TYPE, 0);
+            if (dataType == 1) { // Is GB
+                String data = String.format(Locale.US, "%.2f", dataLimit / 1024f);
+                if (data.endsWith(".00")) {
+                    data = data.substring(0, data.length() - 3);
+                } else if (data.endsWith("0") && data.contains(".")) {
+                    data = data.substring(0, data.length() - 1);
+                }
                 binding.dataLimit.setText(data);
-            } else {
-                binding.dataLimit.setText(PreferenceManager.getDefaultSharedPreferences(getContext())
-                        .getString(LIMIT, null));
+            } else { // Is MB
+                binding.dataLimit.setText(String.valueOf(dataLimit.intValue()));
             }
         }
 

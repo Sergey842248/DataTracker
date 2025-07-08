@@ -670,55 +670,41 @@ public class HomeFragment extends Fragment implements View.OnLongClickListener {
             long wifiReceived = wifiSent;
             String data = formatData(mobileSent, mobileReceived)[2];
             String wifi = formatData(wifiSent, wifiReceived)[2];
-            switch (i) {
-                case 0:
-                    mMobileMon.setProgress((model.getTotalMobile() / 25) + 2);  // 500 MB is 20 in the progressBar, so divided by 25. Added 2 to fix margin issue
-                    mWifiMon.setProgress((model.getTotalWifi() / 25) + 2);
-                    mMobileMon.setLabelText(data);
-                    mWifiMon.setLabelText(wifi);
-                    break;
-
-                case 1:
-                    mMobileTue.setProgress((model.getTotalMobile() / 25) + 2);
-                    mWifiTue.setProgress((model.getTotalWifi() / 25) + 2);
-                    mMobileTue.setLabelText(data);
-                    mWifiTue.setLabelText(wifi);
-                    break;
-
-                case 2:
-                    mMobileWed.setProgress((model.getTotalMobile() / 25) + 2);
-                    mWifiWed.setProgress((model.getTotalWifi() / 25) + 2);
-                    mMobileWed.setLabelText(data);
-                    mWifiWed.setLabelText(wifi);
-                    break;
-
-                case 3:
-                    mMobileThurs.setProgress((model.getTotalMobile() / 25) + 2);
-                    mWifiThurs.setProgress((model.getTotalWifi() / 25) + 2);
-                    mMobileThurs.setLabelText(data);
-                    mWifiThurs.setLabelText(wifi);
-                    break;
-
-                case 4:
-                    mMobileFri.setProgress((model.getTotalMobile() / 25) + 2);
-                    mWifiFri.setProgress((model.getTotalWifi() / 25) + 2);
-                    mMobileFri.setLabelText(data);
-                    mWifiFri.setLabelText(wifi);
-                    break;
-
-                case 5:
-                    mMobileSat.setProgress((model.getTotalMobile() / 25) + 2);
-                    mWifiSat.setProgress((model.getTotalWifi() / 25) + 2);
-                    mMobileSat.setLabelText(data);
-                    mWifiSat.setLabelText(wifi);
-                    break;
-
-                case 6:
-                    mMobileSun.setProgress((model.getTotalMobile() / 25) + 2);
-                    mWifiSun.setProgress((model.getTotalWifi() / 25) + 2);
-                    mMobileSun.setLabelText(data);
-                    mWifiSun.setLabelText(wifi);
-                    break;
+            if (i == 0) {
+                mMobileMon.setProgress((model.getTotalMobile() / 25) + 2);  // 500 MB is 20 in the progressBar, so divided by 25. Added 2 to fix margin issue
+                mWifiMon.setProgress((model.getTotalWifi() / 25) + 2);
+                mMobileMon.setLabelText(data);
+                mWifiMon.setLabelText(wifi);
+            } else if (i == 1) {
+                mMobileTue.setProgress((model.getTotalMobile() / 25) + 2);
+                mWifiTue.setProgress((model.getTotalWifi() / 25) + 2);
+                mMobileTue.setLabelText(data);
+                mWifiTue.setLabelText(wifi);
+            } else if (i == 2) {
+                mMobileWed.setProgress((model.getTotalMobile() / 25) + 2);
+                mWifiWed.setProgress((model.getTotalWifi() / 25) + 2);
+                mMobileWed.setLabelText(data);
+                mWifiWed.setLabelText(wifi);
+            } else if (i == 3) {
+                mMobileThurs.setProgress((model.getTotalMobile() / 25) + 2);
+                mWifiThurs.setProgress((model.getTotalWifi() / 25) + 2);
+                mMobileThurs.setLabelText(data);
+                mWifiThurs.setLabelText(wifi);
+            } else if (i == 4) {
+                mMobileFri.setProgress((model.getTotalMobile() / 25) + 2);
+                mWifiFri.setProgress((model.getTotalWifi() / 25) + 2);
+                mMobileFri.setLabelText(data);
+                mWifiFri.setLabelText(wifi);
+            } else if (i == 5) {
+                mMobileSat.setProgress((model.getTotalMobile() / 25) + 2);
+                mWifiSat.setProgress((model.getTotalWifi() / 25) + 2);
+                mMobileSat.setLabelText(data);
+                mWifiSat.setLabelText(wifi);
+            } else if (i == 6) {
+                mMobileSun.setProgress((model.getTotalMobile() / 25) + 2);
+                mWifiSun.setProgress((model.getTotalWifi() / 25) + 2);
+                mMobileSun.setLabelText(data);
+                mWifiSun.setLabelText(wifi);
             }
         }
     }
@@ -738,55 +724,41 @@ public class HomeFragment extends Fragment implements View.OnLongClickListener {
                 long wifiReceived = wifiSent;
                 String data = formatData(mobileSent, mobileReceived)[2];
                 String wifi = formatData(wifiSent, wifiReceived)[2];
-                switch (i) {
-                    case 0:
-                        mMobileMon.setProgress((model.getTotalMobile() / 25) + 2);  // 500 MB is 20 in the progressBar, so divided by 25. Added 2 to fix margin issue
-                        mWifiMon.setProgress((model.getTotalWifi() / 25) + 2);
-                        mMobileMon.setLabelText(data);
-                        mWifiMon.setLabelText(wifi);
-                        break;
-
-                    case 1:
-                        mMobileTue.setProgress((model.getTotalMobile() / 25) + 2);
-                        mWifiTue.setProgress((model.getTotalWifi() / 25) + 2);
-                        mMobileTue.setLabelText(data);
-                        mWifiTue.setLabelText(wifi);
-                        break;
-
-                    case 2:
-                        mMobileWed.setProgress((model.getTotalMobile() / 25) + 2);
-                        mWifiWed.setProgress((model.getTotalWifi() / 25) + 2);
-                        mMobileWed.setLabelText(data);
-                        mWifiWed.setLabelText(wifi);
-                        break;
-
-                    case 3:
-                        mMobileThurs.setProgress((model.getTotalMobile() / 25) + 2);
-                        mWifiThurs.setProgress((model.getTotalWifi() / 25) + 2);
-                        mMobileThurs.setLabelText(data);
-                        mWifiThurs.setLabelText(wifi);
-                        break;
-
-                    case 4:
-                        mMobileFri.setProgress((model.getTotalMobile() / 25) + 2);
-                        mWifiFri.setProgress((model.getTotalWifi() / 25) + 2);
-                        mMobileFri.setLabelText(data);
-                        mWifiFri.setLabelText(wifi);
-                        break;
-
-                    case 5:
-                        mMobileSat.setProgress((model.getTotalMobile() / 25) + 2);
-                        mWifiSat.setProgress((model.getTotalWifi() / 25) + 2);
-                        mMobileSat.setLabelText(data);
-                        mWifiSat.setLabelText(wifi);
-                        break;
-
-                    case 6:
-                        mMobileSun.setProgress((model.getTotalMobile() / 25) + 2);
-                        mWifiSun.setProgress((model.getTotalWifi() / 25) + 2);
-                        mMobileSun.setLabelText(data);
-                        mWifiSun.setLabelText(wifi);
-                        break;
+                if (i == 0) {
+                    mMobileMon.setProgress((model.getTotalMobile() / 25) + 2);  // 500 MB is 20 in the progressBar, so divided by 25. Added 2 to fix margin issue
+                    mWifiMon.setProgress((model.getTotalWifi() / 25) + 2);
+                    mMobileMon.setLabelText(data);
+                    mWifiMon.setLabelText(wifi);
+                } else if (i == 1) {
+                    mMobileTue.setProgress((model.getTotalMobile() / 25) + 2);
+                    mWifiTue.setProgress((model.getTotalWifi() / 25) + 2);
+                    mMobileTue.setLabelText(data);
+                    mWifiTue.setLabelText(wifi);
+                } else if (i == 2) {
+                    mMobileWed.setProgress((model.getTotalMobile() / 25) + 2);
+                    mWifiWed.setProgress((model.getTotalWifi() / 25) + 2);
+                    mMobileWed.setLabelText(data);
+                    mWifiWed.setLabelText(wifi);
+                } else if (i == 3) {
+                    mMobileThurs.setProgress((model.getTotalMobile() / 25) + 2);
+                    mWifiThurs.setProgress((model.getTotalWifi() / 25) + 2);
+                    mMobileThurs.setLabelText(data);
+                    mWifiThurs.setLabelText(wifi);
+                } else if (i == 4) {
+                    mMobileFri.setProgress((model.getTotalMobile() / 25) + 2);
+                    mWifiFri.setProgress((model.getTotalWifi() / 25) + 2);
+                    mMobileFri.setLabelText(data);
+                    mWifiFri.setLabelText(wifi);
+                } else if (i == 5) {
+                    mMobileSat.setProgress((model.getTotalMobile() / 25) + 2);
+                    mWifiSat.setProgress((model.getTotalWifi() / 25) + 2);
+                    mMobileSat.setLabelText(data);
+                    mWifiSat.setLabelText(wifi);
+                } else if (i == 6) {
+                    mMobileSun.setProgress((model.getTotalMobile() / 25) + 2);
+                    mWifiSun.setProgress((model.getTotalWifi() / 25) + 2);
+                    mMobileSun.setLabelText(data);
+                    mWifiSun.setLabelText(wifi);
                 }
             }
         } else {
@@ -850,114 +822,86 @@ public class HomeFragment extends Fragment implements View.OnLongClickListener {
 
     private String[] getDataUsage(View view) {
         String mobile, wifi;
-        switch (view.getId()) {
-            case R.id.view_mon:
-                mobile = mMobileMon.getLabelText().toString();
-                wifi = mWifiMon.getLabelText().toString();
-                break;
-
-            case R.id.view_tue:
-                mobile = mMobileTue.getLabelText().toString();
-                wifi = mWifiTue.getLabelText().toString();
-                break;
-
-            case R.id.view_wed:
-                mobile = mMobileWed.getLabelText().toString();
-                wifi = mWifiWed.getLabelText().toString();
-                break;
-
-            case R.id.view_thurs:
-                mobile = mMobileThurs.getLabelText().toString();
-                wifi = mWifiThurs.getLabelText().toString();
-                break;
-
-            case R.id.view_fri:
-                mobile = mMobileFri.getLabelText().toString();
-                wifi = mWifiFri.getLabelText().toString();
-                break;
-
-            case R.id.view_sat:
-                mobile = mMobileSat.getLabelText().toString();
-                wifi = mWifiSat.getLabelText().toString();
-                break;
-
-            case R.id.view_sun:
-                mobile = mMobileSun.getLabelText().toString();
-                wifi = mWifiSun.getLabelText().toString();
-                break;
-
-            default:
-                mobile = getString(R.string.app_data_usage_placeholder);
-                wifi = getString(R.string.app_data_usage_placeholder);
+        int viewId = view.getId();
+        if (viewId == R.id.view_mon) {
+            mobile = mMobileMon.getLabelText().toString();
+            wifi = mWifiMon.getLabelText().toString();
+        } else if (viewId == R.id.view_tue) {
+            mobile = mMobileTue.getLabelText().toString();
+            wifi = mWifiTue.getLabelText().toString();
+        } else if (viewId == R.id.view_wed) {
+            mobile = mMobileWed.getLabelText().toString();
+            wifi = mWifiWed.getLabelText().toString();
+        } else if (viewId == R.id.view_thurs) {
+            mobile = mMobileThurs.getLabelText().toString();
+            wifi = mWifiThurs.getLabelText().toString();
+        } else if (viewId == R.id.view_fri) {
+            mobile = mMobileFri.getLabelText().toString();
+            wifi = mWifiFri.getLabelText().toString();
+        } else if (viewId == R.id.view_sat) {
+            mobile = mMobileSat.getLabelText().toString();
+            wifi = mWifiSat.getLabelText().toString();
+        } else if (viewId == R.id.view_sun) {
+            mobile = mMobileSun.getLabelText().toString();
+            wifi = mWifiSun.getLabelText().toString();
+        } else {
+            mobile = getString(R.string.app_data_usage_placeholder);
+            wifi = getString(R.string.app_data_usage_placeholder);
         }
         return new String[]{mobile, wifi};
     }
 
     private Float getTranslation(View view) {
         float translation;
-        switch (view.getId()) {
-            case R.id.view_mon:
-                if (mMobileMon.getProgress() > 90 || mWifiMon.getProgress() > 90) {
-                    translation = 230;
-                } else if (mMobileMon.getProgress() < 20 || mWifiMon.getProgress() > 20) {
-                    translation = 230;
-                } else {
-                    translation = 100;
-                }
-                break;
-
-            case R.id.view_tue:
-                if (mMobileTue.getProgress() > 90 || mWifiTue.getProgress() > 90) {
-                    translation = 230;
-                } else {
-                    translation = 100;
-                }
-                break;
-
-            case R.id.view_wed:
-                if (mMobileWed.getProgress() > 90 || mWifiWed.getProgress() > 90) {
-                    translation = -230;
-                } else {
-                    translation = 100;
-                }
-                break;
-
-            case R.id.view_thurs:
-                if (mMobileThurs.getProgress() > 90 || mWifiThurs.getProgress() > 90) {
-                    translation = 230;
-                } else {
-                    translation = 100;
-                }
-                break;
-
-            case R.id.view_fri:
-                if (mMobileFri.getProgress() > 90 || mWifiFri.getProgress() > 90) {
-                    translation = 230;
-                } else {
-                    translation = 100;
-                }
-                break;
-
-            case R.id.view_sat:
-                if (mMobileSat.getProgress() > 90 || mWifiSat.getProgress() > 90) {
-                    translation = 230;
-                } else if (mMobileSat.getProgress() < 20 || mWifiSat.getProgress() > 20) {
-                    translation = -230;
-                } else {
-                    translation = 100;
-                }
-                break;
-
-            case R.id.view_sun:
-                if (mMobileSun.getProgress() > 90 || mWifiSun.getProgress() > 90) {
-                    translation = 230;
-                } else {
-                    translation = 100;
-                }
-                break;
-
-            default:
+        int viewId = view.getId();
+        if (viewId == R.id.view_mon) {
+            if (mMobileMon.getProgress() > 90 || mWifiMon.getProgress() > 90) {
+                translation = 230;
+            } else if (mMobileMon.getProgress() < 20 || mWifiMon.getProgress() > 20) {
+                translation = 230;
+            } else {
                 translation = 100;
+            }
+        } else if (viewId == R.id.view_tue) {
+            if (mMobileTue.getProgress() > 90 || mWifiTue.getProgress() > 90) {
+                translation = 230;
+            } else {
+                translation = 100;
+            }
+        } else if (viewId == R.id.view_wed) {
+            if (mMobileWed.getProgress() > 90 || mWifiWed.getProgress() > 90) {
+                translation = -230;
+            } else {
+                translation = 100;
+            }
+        } else if (viewId == R.id.view_thurs) {
+            if (mMobileThurs.getProgress() > 90 || mWifiThurs.getProgress() > 90) {
+                translation = 230;
+            } else {
+                translation = 100;
+            }
+        } else if (viewId == R.id.view_fri) {
+            if (mMobileFri.getProgress() > 90 || mWifiFri.getProgress() > 90) {
+                translation = 230;
+            } else {
+                translation = 100;
+            }
+        } else if (viewId == R.id.view_sat) {
+            if (mMobileSat.getProgress() > 90 || mWifiSat.getProgress() > 90) {
+                translation = 230;
+            } else if (mMobileSat.getProgress() < 20 || mWifiSat.getProgress() > 20) {
+                translation = -230;
+            } else {
+                translation = 100;
+            }
+        } else if (viewId == R.id.view_sun) {
+            if (mMobileSun.getProgress() > 90 || mWifiSun.getProgress() > 90) {
+                translation = 230;
+            } else {
+                translation = 100;
+            }
+        } else {
+            translation = 100;
         }
         return translation;
     }
@@ -988,41 +932,25 @@ public class HomeFragment extends Fragment implements View.OnLongClickListener {
             int day = calendar.get(Calendar.DAY_OF_WEEK);
             int[] days;
             List<OverviewModel> list = null;
-            switch (day) {
-                case Calendar.MONDAY:
-                    days = new int[]{Calendar.MONDAY};
-                    break;
-
-                case Calendar.TUESDAY:
-                    days = new int[]{Calendar.MONDAY, Calendar.TUESDAY};
-                    break;
-
-                case Calendar.WEDNESDAY:
-                    days = new int[]{Calendar.MONDAY, Calendar.TUESDAY, Calendar.WEDNESDAY};
-                    break;
-
-                case Calendar.THURSDAY:
-                    days = new int[]{Calendar.MONDAY, Calendar.TUESDAY, Calendar.WEDNESDAY, Calendar.THURSDAY};
-                    break;
-
-                case Calendar.FRIDAY:
-                    days = new int[]{Calendar.MONDAY, Calendar.TUESDAY, Calendar.WEDNESDAY,
-                            Calendar.THURSDAY, Calendar.FRIDAY};
-                    break;
-
-                case Calendar.SATURDAY:
-                    days = new int[]{Calendar.MONDAY, Calendar.TUESDAY, Calendar.WEDNESDAY,
-                            Calendar.THURSDAY, Calendar.FRIDAY, Calendar.SATURDAY};
-                    break;
-
-                case Calendar.SUNDAY:
-                    days = new int[]{Calendar.MONDAY, Calendar.TUESDAY, Calendar.WEDNESDAY,
-                            Calendar.THURSDAY, Calendar.FRIDAY, Calendar.SATURDAY, Calendar.SUNDAY};
-                    break;
-
-                default:
-                    days = new int[]{0};
-                    break;
+            if (day == Calendar.MONDAY) {
+                days = new int[]{Calendar.MONDAY};
+            } else if (day == Calendar.TUESDAY) {
+                days = new int[]{Calendar.MONDAY, Calendar.TUESDAY};
+            } else if (day == Calendar.WEDNESDAY) {
+                days = new int[]{Calendar.MONDAY, Calendar.TUESDAY, Calendar.WEDNESDAY};
+            } else if (day == Calendar.THURSDAY) {
+                days = new int[]{Calendar.MONDAY, Calendar.TUESDAY, Calendar.WEDNESDAY, Calendar.THURSDAY};
+            } else if (day == Calendar.FRIDAY) {
+                days = new int[]{Calendar.MONDAY, Calendar.TUESDAY, Calendar.WEDNESDAY,
+                        Calendar.THURSDAY, Calendar.FRIDAY};
+            } else if (day == Calendar.SATURDAY) {
+                days = new int[]{Calendar.MONDAY, Calendar.TUESDAY, Calendar.WEDNESDAY,
+                        Calendar.THURSDAY, Calendar.FRIDAY, Calendar.SATURDAY};
+            } else if (day == Calendar.SUNDAY) {
+                days = new int[]{Calendar.MONDAY, Calendar.TUESDAY, Calendar.WEDNESDAY,
+                        Calendar.THURSDAY, Calendar.FRIDAY, Calendar.SATURDAY, Calendar.SUNDAY};
+            } else {
+                days = new int[]{0};
             }
 
             try {

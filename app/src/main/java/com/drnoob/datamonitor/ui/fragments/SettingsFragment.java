@@ -93,22 +93,12 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
                 String theme = PreferenceManager.getDefaultSharedPreferences(getContext())
                         .getString(APP_THEME, "system");
-                switch (theme) {
-                    case "dark":
-                        themeGroup.check(R.id.theme_dark);
-                        break;
-
-                    case "light":
-                        themeGroup.check(R.id.theme_light);
-                        break;
-
-                    case "system":
-                        themeGroup.check(R.id.theme_system);
-                        break;
-
-                    default:
-                        themeGroup.check(R.id.theme_system);
-                        break;
+                if (theme.equals("dark")) {
+                    themeGroup.check(R.id.theme_dark);
+                } else if (theme.equals("light")) {
+                    themeGroup.check(R.id.theme_light);
+                } else {
+                    themeGroup.check(R.id.theme_system);
                 }
 
                 cancel.setOnClickListener(new View.OnClickListener() {
@@ -123,52 +113,29 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                     public void onClick(View v) {
                         String theme;
                         String summary;
-                        switch (themeGroup.getCheckedRadioButtonId()) {
-                            case R.id.theme_light:
-                                // Light theme
-                                theme = "light";
-                                summary = getString(R.string.light_theme_summary);
-                                break;
-
-                            case R.id.theme_dark:
-                                // Dark theme
-                                theme = "dark";
-                                summary = getString(R.string.dark_theme_summary);
-                                break;
-
-                            case R.id.theme_system:
-                                // System theme
-                                theme = "system";
-                                summary = getString(R.string.system_theme_summary);
-                                break;
-
-                            default:
-                                // Set system theme as default
-                                theme = "system";
-                                summary = getString(R.string.system_theme_summary);
-                                break;
+                        int checkedId = themeGroup.getCheckedRadioButtonId();
+                        if (checkedId == R.id.theme_light) {
+                            theme = "light";
+                            summary = getString(R.string.light_theme_summary);
+                        } else if (checkedId == R.id.theme_dark) {
+                            theme = "dark";
+                            summary = getString(R.string.dark_theme_summary);
+                        } else {
+                            theme = "system";
+                            summary = getString(R.string.system_theme_summary);
                         }
                         PreferenceManager.getDefaultSharedPreferences(getContext())
                                 .edit()
                                 .putString(APP_THEME, theme)
                                 .putString(APP_THEME_SUMMARY, summary)
                                 .apply();
-                        switch (theme) {
-                            case "dark":
-                                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                                break;
 
-                            case "light":
-                                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                                break;
-
-                            case "system":
-                                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-                                break;
-
-                            default:
-                                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-                                break;
+                        if (theme.equals("dark")) {
+                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                        } else if (theme.equals("light")) {
+                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                        } else {
+                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
                         }
                         mAppThemePicker.setSummary(summary);
                         dialog.dismiss();

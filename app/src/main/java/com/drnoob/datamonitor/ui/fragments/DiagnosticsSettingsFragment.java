@@ -180,7 +180,7 @@ public class DiagnosticsSettingsFragment extends PreferenceFragmentCompat {
                             @Override
                             public void run() {
                                 BottomSheetDialog d = (BottomSheetDialog) dialog;
-                                FrameLayout bottomSheet = d.findViewById(R.id.design_bottom_sheet);
+                                FrameLayout bottomSheet = d.findViewById(com.google.android.material.R.id.design_bottom_sheet);
                                 BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
                                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                             }
@@ -299,7 +299,7 @@ public class DiagnosticsSettingsFragment extends PreferenceFragmentCompat {
                             @Override
                             public void run() {
                                 BottomSheetDialog d = (BottomSheetDialog) dialog;
-                                FrameLayout bottomSheet = d.findViewById(R.id.design_bottom_sheet);
+                                FrameLayout bottomSheet = d.findViewById(com.google.android.material.R.id.design_bottom_sheet);
                                 BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
                                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                             }
