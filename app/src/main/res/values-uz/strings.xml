@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Data Monitor</string>
+    <string name="app_name">Data Tracker</string>
     <string name="appwidget_text">Namuna</string>
     <string name="add_widget">Vidjet qo\'shish</string>
     <string name="widget_mobile_data_usage" translatable="false">%1$s %2$s</string>
@@ -40,7 +40,7 @@
     <string name="label_loading_apps">Ilovalar yuklanmoqda</string>
     <string name="label_loading">Yuklanmoqda…</string>
     <string name="label_app_data_usage_session_empty">Trafik mavjud emas</string>
-    <string name="label_want_to_contribute">Data Monitorga qanday hissa qo\'shishni bilish uchun shu yerni bosing.</string>
+    <string name="label_want_to_contribute">Data Trackerga qanday hissa qo\'shishni bilish uchun shu yerni bosing.</string>
     <string name="setup_image_footer">Vidjetlar va/yoki bildirishnomalar ishlatiladigan ma\'lumotlar miqdoriga oson kirish imkonini beradi</string>
     <string name="heading_data_reset">Hisoblagichni qaytadan boshlash</string>
     <string name="daily">Kunlik</string>
@@ -160,7 +160,7 @@
     <string name="label_data_remaining">%1$s qoldi</string>
     <string name="label_data_remaining_used_excess">Qo\'shimcha %1$s foydalanilgan</string>
     <string name="disable_battery_optimisation">Batereya optimizatsiyasini o\'chiring</string>
-    <string name="disable_battery_optimisation_body">Prevents killing Data Monitor when running in the background.\nAks holda ko\'rsatkichlarda xatolik bo\'lishi mumkin.</string>
+    <string name="disable_battery_optimisation_body">Prevents killing Data Tracker when running in the background.\nAks holda ko\'rsatkichlarda xatolik bo\'lishi mumkin.</string>
     <string name="extra_optimisation_tips">Qo\'shimcha optimizatsiya maslahatlari</string>
     <string name="oem_battery_settings">OEM batareya sozlanmalari</string>
     <string name="action_next">Keyingi</string>

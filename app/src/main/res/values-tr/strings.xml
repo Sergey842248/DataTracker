@@ -271,7 +271,7 @@
     <string name="error_unknown_telegram_client">Telegram yüklü değil veya bilinmeyen istemci mevcut. Lütfen başka bir yöntem deneyin.</string>
     <string name="label_select_app">Uygulama seç</string>
     <string name="label_crash_logs">Çökme günlükleri</string>
-    <string name="crash_report_body">Data Monitor çökmüş gibi görünüyor. Sorunu analiz etmeye ve daha hızlı çözmeye yardımcı olması için kilitlenme raporunu geliştiriciye gönderebilirsiniz. Herhangi bir kaza meydana gelmediyse, lütfen görmezden gelin.</string>
+    <string name="crash_report_body">Data Tracker çökmüş gibi görünüyor. Sorunu analiz etmeye ve daha hızlı çözmeye yardımcı olması için kilitlenme raporunu geliştiriciye gönderebilirsiniz. Herhangi bir kaza meydana gelmediyse, lütfen görmezden gelin.</string>
     <string name="label_telegram">Telegram</string>
     <string name="report_telegram_summary">Kilitlenme raporunu Telegram destek sohbetinde gönderin</string>
     <string name="auto_hide_live_network">Ağ hızını otomatik gizle</string>
@@ -406,7 +406,7 @@
     <string name="label_select_date">Tarih seçin</string>
     <string name="bluehomewu_summary">Geleneksel Çince</string>
     <string name="label_data_plan_updated">Veri planı güncellendi!</string>
-    <string name="wall_of_thanks_body">Data Monitor kuruluşundan bu yana uzun bir yol kat etti ve cömert bağışçılarımızın desteği olmadan bunu başaramazdık.</string>
+    <string name="wall_of_thanks_body">Data Tracker kuruluşundan bu yana uzun bir yol kat etti ve cömert bağışçılarımızın desteği olmadan bunu başaramazdık.</string>
     <string name="label_all_donors">Tüm donörler</string>
     <string name="error_data_fetch_failed">Veri alınamadı</string>
     <string name="rezaalmanda_summary">Endonezce</string>
@@ -440,7 +440,7 @@
     <string name="timtcg_summary">Vietnamca</string>
     <string name="chin_housin_summary">Basitleştirilmiş Çince</string>
     <string name="detrimental_god">Zararlı Tanrı</string>
-    <string name="label_welcome_header">Data Monitor\'e hoş geldin</string>
+    <string name="label_welcome_header">Data Tracker\'e hoş geldin</string>
     <string name="label_plan_details_title_daily">Günlük plan aktif</string>
     <string name="label_plan_details_title_custom">Özel plan aktif</string>
     <string name="fjuro_summary">Çek</string>

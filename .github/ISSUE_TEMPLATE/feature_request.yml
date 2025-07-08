@@ -4,7 +4,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you for contributing to make Data Monitor better by suggesting a feature.
+        Thank you for contributing to make Data Tracker better by suggesting a feature.
 
         Your ideas are highly welcome!
   - type: checkboxes

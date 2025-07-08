@@ -209,7 +209,7 @@
     <string name="heading_data_reset_custom_counter">Valabilitatea planului</string>
     <string name="title_data_plan_expired">Planul de date a expirat!</string>
     <string name="summary_data_plan_expired">S-ar putea să doriți să vă actualizați planul</string>
-    <string name="battery_optimisation_enabled_info">Optimizarea bateriei este activată. Acest lucru va interfera cu funcționarea Data Monitor.</string>
+    <string name="battery_optimisation_enabled_info">Optimizarea bateriei este activată. Acest lucru va interfera cu funcționarea Data Tracker.</string>
     <string name="label_crash_logs_copied">Jurnalele de accident copiate în clipboard</string>
     <string name="label_permission_denied">Permisiunea refuzată!</string>
     <string name="notification_permission_denied_body">Caracteristicile, inclusiv notificarea monitorului de date, viteza live a rețelei și avertizarea de utilizare a datelor nu vor funcționa corect fără permisiunea de notificare. Vă rugăm să-l acordați manual.</string>
@@ -258,7 +258,7 @@
     <string name="label_device_info">Informații despre dispozitiv</string>
     <string name="report_mail_summary">Trimiteți raportul de accident prin poștă</string>
     <string name="error_unknown_telegram_client">Telegram nu este instalat sau este prezent un client necunoscut. Vă rugăm să încercați o altă metodă.</string>
-    <string name="crash_logs_extra_text">Jurnalele de accident Data Monitor</string>
+    <string name="crash_logs_extra_text">Jurnalele de accident Data Tracker</string>
     <string name="label_crash_logs_share_chat">Distribuie pe chat: @datamonitor</string>
     <string name="label_custom_server">Server personalizat</string>
     <string name="device_info_body">Informațiile despre dispozitiv includ:
@@ -287,7 +287,7 @@
     <string name="network_diagnostics_info">Diagnosticarea rețelei poate utiliza în jur de 20-30 MB de date. Asigurați-vă că aveți acest lucru disponibil în planul dvs., altfel se pot aplica taxe de rețea.</string>
     <string name="error_permission_denied">Acces refuzat. Vă rugăm să o acordați manual.</string>
     <string name="telegram_summary">Alăturați-vă grupului de asistență</string>
-    <string name="crash_report_body">Se pare ca Data Monitor sa prăbușit. Puteți trimite raportul de cădere dezvoltatorului pentru a vă ajuta să analizați problema și să o rezolvați mai rapid. Dacă nu a avut loc nici un accident, vă rugăm să ignorați.</string>
+    <string name="crash_report_body">Se pare ca Data Tracker sa prăbușit. Puteți trimite raportul de cădere dezvoltatorului pentru a vă ajuta să analizați problema și să o rezolvați mai rapid. Dacă nu a avut loc nici un accident, vă rugăm să ignorați.</string>
     <string name="label_custom_start_date">Data începerii: %1$s</string>
     <string name="label_select_start_date">Selectați data de început</string>
     <string name="label_plan_end_date">Selectați data de sfârșit</string>

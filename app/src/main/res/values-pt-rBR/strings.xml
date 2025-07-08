@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">"Data Monitor"</string>
+    <string name="app_name">"Data Tracker"</string>
     <string name="appwidget_text">Exemplo</string>
     <string name="add_widget">"Adicionar widget"</string>
     <string name="notification_mobile_data_usage">"Dados móveis: %1$s"</string>
@@ -41,7 +41,7 @@
     <string name="label_dev">"Feito com ❤ por Bitroid"</string>
     <string name="label_loading_apps">Carregando aplicativos</string>
     <string name="label_app_data_usage_session_empty">"Nenhum dado disponível para a sessão selecionada"</string>
-    <string name="label_want_to_contribute">Clique aqui para saber como contribuir com o Data Monitor.</string>
+    <string name="label_want_to_contribute">Clique aqui para saber como contribuir com o Data Tracker.</string>
     <string name="setup_image_footer">Widgets e/ou notificações fornecem acesso fácil à quantidade de dados usados</string>
     <string name="heading_data_reset">Redefinir contador</string>
     <string name="daily">"Diário"</string>
@@ -60,13 +60,13 @@
     <string name="title_widget_setup">"Configurar Widget"</string>
     <string name="widget_setup_step_1">1. Toque e mantenha pressionado um espaço vazio na tela inicial.</string>
     <string name="widget_setup_step_2">"2. Toque em Widgets."</string>
-    <string name="widget_setup_step_3">3. Arraste e solte o widget Data Monitor na tela inicial.</string>
+    <string name="widget_setup_step_3">3. Arraste e solte o widget Data Tracker na tela inicial.</string>
     <string name="heading_data_usage_today">"Uso de dados de hoje"</string>
     <string name="action_add_data_plan_home">Adicione seu plano de dados para começar a monitorá-lo</string>
     <string name="heading_week_overview">"Visão geral desta semana"</string>
     <string name="error_loading_overview">Não foi possível carregar a visão geral desta semana.
 \nTente novamente mais tarde.</string>
-    <string name="title_setup">"Configure o Data monitor"</string>
+    <string name="title_setup">"Configure o Data Tracker"</string>
     <string name="setup_widget">"Configure o widget"</string>
     <string name="setup_notification">"Configure a notificação"</string>
     <string name="title_configure">Configurar</string>
@@ -142,14 +142,14 @@ Perguntas e respostas, ajuda e solução de problemas
     <string name="upi_unknown_error">Erro desconhecido.
 \nTente novamente ou outro método.</string>
     <string name="label_no_additional_lang">Clique aqui para ajudar a traduzir o aplicativo.</string>
-    <string name="notification_disabled">"Notificação do Data monitor desativada"</string>
+    <string name="notification_disabled">"Notificação do Data Tracker desativada"</string>
     <string name="label_widget_refresh_interval_change">"O widget será atualizado a cada %1$s"</string>
     <string name="label_notification_refresh_interval_change">"A notificação será atualizada a cada %1$s"</string>
     <string name="remaining_data_info_enabled">"Informações de dados restantes ativadas"</string>
     <string name="remaining_data_info_disabled">"Informações de dados restantes desativadas"</string>
     <string name="label_monitoring_no_plan">Adicione um plano de dados para iniciar o monitoramento</string>
     <string name="label_widget_refreshed">"O widget foi atualizado"</string>
-    <string name="label_notification_enabled">"Notificação do Data monitor ativada"</string>
+    <string name="label_notification_enabled">"Notificação do Data Tracker ativada"</string>
     <string name="label_notification_cannot_disable_both">"Não é possível desativar ambos os elementos"</string>
     <string name="label_setup_notification_first">"Configure a notificação primeiro"</string>
     <string name="label_data_plan_saved">"Plano de dados salvo"</string>
@@ -164,7 +164,7 @@ Perguntas e respostas, ajuda e solução de problemas
     <string name="label_data_remaining">"%1$s restante"</string>
     <string name="label_data_remaining_used_excess">"%1$s extra usado"</string>
     <string name="disable_battery_optimisation">"Desativar otimização de bateria"</string>
-    <string name="disable_battery_optimisation_body">Evita matar o Data Monitor ao executar em segundo plano.
+    <string name="disable_battery_optimisation_body">Evita matar o Data Tracker ao executar em segundo plano.
 \nCaso contrário, os valores podem estar incorretos.</string>
     <string name="extra_optimisation_tips">"Dicas extras de otimização"</string>
     <string name="oem_battery_settings">"Configurações OEM da bateria"</string>
@@ -257,7 +257,7 @@ Perguntas e respostas, ajuda e solução de problemas
     <string name="dark_theme_summary">"Tema escuro selecionado"</string>
     <string name="system_theme_summary">"Seguindo o tema do sistema"</string>
     <string name="network_diagnostics_info">O diagnóstico de rede pode usar cerca de 20 a 30 MB de dados. Certifique-se de ter isso disponível em seu plano, caso contrário, as taxas de rede podem ser aplicadas.</string>
-    <string name="crash_report_body">Parece que o Data Monitor travou. Você pode enviar o relatório de falhas para o desenvolvedor para ajudar a analisar o problema e resolvê-lo mais rapidamente. Se nenhuma falha ocorreu, gentilmente ignore.</string>
+    <string name="crash_report_body">Parece que o Data Tracker travou. Você pode enviar o relatório de falhas para o desenvolvedor para ajudar a analisar o problema e resolvê-lo mais rapidamente. Se nenhuma falha ocorreu, gentilmente ignore.</string>
     <string name="auto_hide_live_network_summary">Notificação de velocidade de interrupção da rede quando a rede não está conectada</string>
     <string name="label_crash_logs_share_chat">Compartilhar no bate-papo: @datamonitor</string>
     <string name="title_device_info_contents">Conteúdo das informações do dispositivo</string>
@@ -328,7 +328,7 @@ Perguntas e respostas, ajuda e solução de problemas
     <string name="action_reset">Redefinir</string>
     <string name="label_select_date">Selecionar data</string>
     <string name="action_apply_filter">Aplicar Filtro</string>
-    <string name="label_welcome_header">Bem-vindo ao Data Monitor</string>
+    <string name="label_welcome_header">Bem-vindo ao Data Tracker</string>
     <string name="combine_notifications">Combinar notificações</string>
     <string name="combine_notifications_summary">Combine o monitor de dados e a velocidade da rede em uma única notificação.</string>
     <string name="bluehomewu_summary">Chinês tradicional</string>
@@ -376,7 +376,7 @@ Perguntas e respostas, ajuda e solução de problemas
     <string name="atharvshinde_translation_summary">Marata</string>
     <string name="hinamechan_summary">Turco</string>
     <string name="graphixmedia_summary">Holandês</string>
-    <string name="donate_info">O Data Monitor é um aplicativo gratuito e de código aberto e sempre permanecerá assim :)
+    <string name="donate_info">O Data Tracker é um aplicativo gratuito e de código aberto e sempre permanecerá assim :)
 \n
 \nSe você quiser apoiar o desenvolvimento do aplicativo, uma doação será muito bem-vinda.</string>
     <string name="label_paypal">PayPal</string>
@@ -388,7 +388,7 @@ Perguntas e respostas, ajuda e solução de problemas
     <string name="upi_summary">Doar via UPI</string>
     <string name="label_upi">BHIM-UPI</string>
     <string name="label_data_plan_updated">Plano de dados atualizado!</string>
-    <string name="error_alarm_permission_denied_dialog_summary">O Data Monitor requer a permissão SCHEDULE_EXACT_ALARM para funcionar corretamente. Você ainda pode usar o aplicativo, mas alguns recursos podem não funcionar corretamente.</string>
+    <string name="error_alarm_permission_denied_dialog_summary">O Data Tracker requer a permissão SCHEDULE_EXACT_ALARM para funcionar corretamente. Você ainda pode usar o aplicativo, mas alguns recursos podem não funcionar corretamente.</string>
     <string name="label_plan_validity">Válido até %1$s | %2$s</string>
     <string name="always_show_total">Sempre mostra o total</string>
     <string name="always_show_total_summary">Sempre mostrar o total de dados usados na notificação, independentemente das opções selecionadas.</string>
@@ -419,7 +419,7 @@ Perguntas e respostas, ajuda e solução de problemas
     <string name="Kefir2105_summary">Ucraniano</string>
     <string name="rex07_summary">Árabe</string>
     <string name="label_all_donors">Todos os doadores</string>
-    <string name="wall_of_thanks_body">O Data Monitor percorreu um longo caminho desde sua criação e não teria sido possível sem o apoio de nossos generosos doadores.</string>
+    <string name="wall_of_thanks_body">O Data Tracker percorreu um longo caminho desde sua criação e não teria sido possível sem o apoio de nossos generosos doadores.</string>
     <string name="label_top_donors">Principais doadores</string>
     <string name="setup_smart_data_allocation">Alocação inteligente de dados</string>
     <string name="app_contributors_summary">Uma lista de colaboradores que apoiam o desenvolvimento do aplicativo.</string>

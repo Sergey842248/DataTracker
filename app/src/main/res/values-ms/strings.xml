@@ -12,7 +12,7 @@
 \nMenerima</string>
     <string name="home_wifi_data_received">%1$s
 \nMenerima</string>
-    <string name="app_name">Data Monitor</string>
+    <string name="app_name">Data Tracker</string>
     <string name="label_data_trigger_level">Apabila %1$s%% daripada data digunakan</string>
     <string name="app_label_package_name">Nama pakej: %1$s</string>
     <string name="app_label_uid">UID: %1$d</string>
@@ -32,7 +32,7 @@
     <string name="label_loading_apps">Memuatkan apl</string>
     <string name="label_loading">Memuatkan…</string>
     <string name="label_app_data_usage_session_empty">Tiada data tersedia</string>
-    <string name="label_want_to_contribute">Klik sini untuk menyumbang kepada Data Monitor.</string>
+    <string name="label_want_to_contribute">Klik sini untuk menyumbang kepada Data Tracker.</string>
     <string name="daily">Harian</string>
     <string name="monthly">Bulanan</string>
     <string name="heading_data_limit">Limit data</string>
@@ -46,12 +46,12 @@
     <string name="title_widget_setup">Sediakan widget</string>
     <string name="widget_setup_step_1">1. Sentuh dan tahan ruang kosong pada skrin utama anda.</string>
     <string name="widget_setup_step_2">Ketik \"Widget\".</string>
-    <string name="widget_setup_step_3">Seret dan lepas widget Data Monitor ke skrin utama anda.</string>
+    <string name="widget_setup_step_3">Seret dan lepas widget Data Tracker ke skrin utama anda.</string>
     <string name="heading_data_usage_today">Penggunaan data hari ini</string>
     <string name="heading_week_overview">Gambaran keseluruhan bulan ini</string>
     <string name="error_loading_overview">Tidak boleh memuatkan gambaran keseluruhan minggu ini.
 \nCuba lagi nanti.</string>
-    <string name="title_setup">Persediaan Data Monitor</string>
+    <string name="title_setup">Persediaan Data Tracker</string>
     <string name="setup_widget">Sediakan widget</string>
     <string name="setup_notification">Sediakan pemberitahuan</string>
     <string name="title_configure">Konfigurasi</string>

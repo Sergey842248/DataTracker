@@ -3,8 +3,8 @@
     <string name="label_data_plan_updated">Adatforgalom frissítve!</string>
     <string name="setup_auto_update_data_plan">Adatforgalmi csomag automatikus frissítése</string>
     <string name="auto_update_data_plan_summary">Frissítse automatikusan adatforgalmi csomagját egy hasonlóra.</string>
-    <string name="wall_of_thanks_body">A Data Monitor hosszú utat tett meg a megalakulása óta, és ezt nem tudtuk volna megtenni nagylelkű adományozóink támogatása nélkül.</string>
-    <string name="app_name">Data Monitor</string>
+    <string name="wall_of_thanks_body">A Data Tracker hosszú utat tett meg a megalakulása óta, és ezt nem tudtuk volna megtenni nagylelkű adományozóink támogatása nélkül.</string>
+    <string name="app_name">Data Tracker</string>
     <string name="notification_mobile_data_usage">Mobiladatok: %1$s</string>
     <string name="notification_wifi_data_usage">Wi-Fi: %1$s</string>
     <string name="home_mobile_data_sent">%1$s
@@ -52,7 +52,7 @@
     <string name="title_widget_setup">Widget beállítása</string>
     <string name="widget_setup_step_1">1. Érintsen meg és tartson lenyomva egy üres helyet a kezdőképernyőn.</string>
     <string name="widget_setup_step_2">2. Koppintson a \"Widget\"-ekre.</string>
-    <string name="widget_setup_step_3">3. Húzza a Data Monitor widgetet kezdőképernyőjére.</string>
+    <string name="widget_setup_step_3">3. Húzza a Data Tracker widgetet kezdőképernyőjére.</string>
     <string name="heading_data_usage_today">Mai adathasználat</string>
     <string name="action_add_data_plan_home">Adja hozzá adatforgalmi csomagját a felügyelet megkezdéséhez</string>
     <string name="heading_week_overview">Heti áttekintés</string>
@@ -214,7 +214,7 @@
     <string name="label_custom_start_date">Kezdés dátuma: %1$s</string>
     <string name="title_data_plan_expired">Az adatforgalmi csomag lejárt!</string>
     <string name="summary_data_plan_expired">Lehet, hogy frissítenie kell adatforgalmi csomagját</string>
-    <string name="crash_logs_extra_text">Data Monitor összeomlás naplók</string>
+    <string name="crash_logs_extra_text">Data Tracker összeomlás naplók</string>
     <string name="label_select_app">Válasszon alkalmazást</string>
     <string name="label_crash_logs_share_chat">Megosztás a csevegéshez: @datamonitor</string>
     <string name="crash_logs_warning">Összeomlás naplók; Ne módosítsa</string>
@@ -353,7 +353,7 @@
     <string name="add_time">Idő hozzáadása</string>
     <string name="action_apply_filter">Szűrő alkalmazása</string>
     <string name="label_select_date">Válasszon dátumot</string>
-    <string name="label_welcome_header">Üdvözli a Data Monitor</string>
+    <string name="label_welcome_header">Üdvözli a Data Tracker</string>
     <string name="label_welcome_body">Kövesse nyomon teljes adathasználatát - egy helyen</string>
     <string name="flix_summary">Német</string>
     <string name="xxx_summary">Orosz</string>
@@ -367,7 +367,7 @@
     <string name="label_current_data_warning_trigger_level_limit_not_set">Jelenlegi kiváltási szint: %1$s%%</string>
     <string name="label_data_trigger_level">Amikor az adatok %1$s%%-át felhasználják</string>
     <string name="app_contributors_summary">Az alkalmazás fejlesztését támogató közreműködők listája.</string>
-    <string name="label_want_to_contribute">Kattintson ide, ha meg szeretné tudni, hogyan járulhat hozzá a Data Monitor-hoz.</string>
+    <string name="label_want_to_contribute">Kattintson ide, ha meg szeretné tudni, hogyan járulhat hozzá a Data Tracker-hoz.</string>
     <string name="label_loading_apps">Alkalmazások betöltése</string>
     <string name="monthly">Havonta</string>
     <string name="option_1_min">1 perc</string>
@@ -395,7 +395,7 @@
     <string name="label_data_usage_reset_date_change">Az adathasználat minden hónap %1$s napján visszaállításra kerül</string>
     <string name="disable_battery_optimisation">Akku optimalizálás kikapcsolása</string>
     <string name="label_notification_enabled">Adatfigyelő értesítés engedélyezve</string>
-    <string name="disable_battery_optimisation_body">Megakadályozza a Data Monitor leállítását, amikor az a háttérben fut.
+    <string name="disable_battery_optimisation_body">Megakadályozza a Data Tracker leállítását, amikor az a háttérben fut.
 \nMáskülönben az értékek helytelenek lehetnek.</string>
     <string name="day">nap</string>
     <string name="overview_wednesday">Sze</string>
@@ -419,7 +419,7 @@
     <string name="f_droid_page_summary">Ellenőrizze az alkalmazást a hivatalos F-Droid csatornán</string>
     <string name="network_signal_notification">Élő hálózati sebesség</string>
     <string name="label_network_signal_notification_enabled">Élő hálózati sebesség engedélyezve</string>
-    <string name="crash_report_body">Úgy tűnik, hogy a Data Monitor összeomlott. Az összeomlásról szóló jelentést elküldheti a fejlesztőnek, hogy segítsen elemezni a problémát és gyorsabban megoldani azt. Ha nem történt összeomlás, hagyja figyelmen kívül.</string>
+    <string name="crash_report_body">Úgy tűnik, hogy a Data Tracker összeomlott. Az összeomlásról szóló jelentést elküldheti a fejlesztőnek, hogy segítsen elemezni a problémát és gyorsabban megoldani azt. Ha nem történt összeomlás, hagyja figyelmen kívül.</string>
     <string name="crash_report_title">Összeomlás jelentés</string>
     <string name="network_signal_summary">Béta funkció</string>
     <string name="device_info_content_label">Tekintse meg, mit tartalmaz az Eszközinformáció</string>
@@ -439,7 +439,7 @@
 \nKészülék kódneve
 \nAndroid verziója</string>
     <string name="label_mail">E-mail</string>
-    <string name="battery_optimisation_enabled_info">Az akkumulátor-optimalizálás engedélyezve van. Ez zavarja a Data Monitor működését.</string>
+    <string name="battery_optimisation_enabled_info">Az akkumulátor-optimalizálás engedélyezve van. Ez zavarja a Data Tracker működését.</string>
     <string name="label_battery_optimisation">Akkumulátor-optimalizálás</string>
     <string name="error_no_crash_logs">Nem találtunk összeomlásnaplót. Biztos, hogy összeomlás történt?</string>
     <string name="settings_diagnostics_server">Kiszolgáló</string>
@@ -451,7 +451,7 @@
     <string name="label_no_apps_added">Nem lettek hozzáadva alkalmazások. Kattintson az alábbi gombra egy alkalmazás hozzáadásához.</string>
     <string name="label_show_system_apps">Rendszeralkalmazások megjelenítése</string>
     <string name="title_delete_results">Törli a kijelölt eredményeket?</string>
-    <string name="donate_info">A Data Monitor egy ingyenes és nyílt forráskódú alkalmazás, és ez mindig így is marad :)
+    <string name="donate_info">A Data Tracker egy ingyenes és nyílt forráskódú alkalmazás, és ez mindig így is marad :)
 \n
 \nHa támogatni szeretné az alkalmazás fejlesztését, adományát nagyra értékelnénk.</string>
     <string name="gallegonovato_summary">Spanyol</string>

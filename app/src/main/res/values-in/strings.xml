@@ -33,7 +33,7 @@
     <string name="heading_data_usage_today">Penggunaan data hari ini</string>
     <string name="action_add_data_plan_home">Tambahkan paket data untuk mulai pantau</string>
     <string name="heading_week_overview">Penggunaan rata-rata mingguan</string>
-    <string name="title_setup">Atur Data monitor</string>
+    <string name="title_setup">Atur Data Tracker</string>
     <string name="setup_widget">Atur widget</string>
     <string name="setup_notification">Atur notifikasi</string>
     <string name="title_configure">Konfigurasi</string>
@@ -126,7 +126,7 @@
     <string name="title_data_warning_trigger">Tingkat pemicu peringatan data</string>
     <string name="title_widget_setup">Atur widget</string>
     <string name="widget_setup_step_1">1. Sentuh dan tahan ruang kosong di layar utama Anda.</string>
-    <string name="label_want_to_contribute">Klik di sini untuk mengetahui bagaimana berkontribusi pada Data Monitor.</string>
+    <string name="label_want_to_contribute">Klik di sini untuk mengetahui bagaimana berkontribusi pada Data Tracker.</string>
     <string name="setup_image_footer">Widget dan/atau notifikasi memberikan akses mudah pada jumlah data yang digunakan</string>
     <string name="oem_skin_warning">%1$s Harap periksa tip pengoptimalan tambahan untuk memastikan aplikasi berfungsi dengan baik.</string>
     <string name="oem_skin_miui">MIUI terdeteksi.</string>
@@ -263,10 +263,10 @@
     <string name="license_summary">Lihat lisensi aplikasi</string>
     <string name="network_diagnostics_info">Diagnostik jaringan dapat menggunakan sekitar 20-30 MB data. Pastikan anda memiliki data yang cukup, biaya jaringan mungkin berlaku.</string>
     <string name="f_droid_page_summary">Lihat aplikasi di repositori resmi F-Droid</string>
-    <string name="crash_report_body">Sepertinya Data Monitor telah mengalami crash. Anda dapat mengirimkan laporan crash kepada pengembang untuk menganalisis masalah dan memperbaikinya lebih cepat. Jika tidak ada crash yang terjadi tolong abaikan pesan ini.</string>
+    <string name="crash_report_body">Sepertinya Data Tracker telah mengalami crash. Anda dapat mengirimkan laporan crash kepada pengembang untuk menganalisis masalah dan memperbaikinya lebih cepat. Jika tidak ada crash yang terjadi tolong abaikan pesan ini.</string>
     <string name="total_usage">Total Penggunaan: %1$s</string>
     <string name="label_unknown">Tidak diketahui</string>
-    <string name="error_alarm_permission_denied_dialog_summary">Data Monitor memerlukan izin SCHEDULE_EXACT_ALARM agar dapat berfungsi semestinya. Anda masih dapat menggunakan aplikasi, namun beberapa fitur mungkin tidak dapat berfungsi dengan baik.</string>
+    <string name="error_alarm_permission_denied_dialog_summary">Data Tracker memerlukan izin SCHEDULE_EXACT_ALARM agar dapat berfungsi semestinya. Anda masih dapat menggunakan aplikasi, namun beberapa fitur mungkin tidak dapat berfungsi dengan baik.</string>
     <string name="error_alarm_permission_denied_feature_summary">Anda tidak dapat menggunakan fitur ini tanpa memberikan izin SCHEDULE_EXACT_ALARM.</string>
     <string name="label_do_not_show_again">Jangan tampilkan lagi</string>
     <string name="setup_auto_update_data_plan">Perbaharui paket data secara otomatis</string>
@@ -279,7 +279,7 @@
     <string name="label_plan_details_title_unknown">Paket data tidak diketahui aktif</string>
     <string name="label_plan_details_title_monthly">Paket data bulanan aktif</string>
     <string name="label_plan_details_title_daily">Paket data harian aktif</string>
-    <string name="donate_info">Data Monitor adalah aplikasi gratis dengan sumber terbuka dan akan tetap seperti itu:)
+    <string name="donate_info">Data Tracker adalah aplikasi gratis dengan sumber terbuka dan akan tetap seperti itu:)
 \n
 \nJika anda ingin mendukung pengembangan aplikasi, sebuah donasi akan sangat dihargai.</string>
     <string name="paypal_summary">Donasi melalui PayPal</string>
@@ -319,7 +319,7 @@
     <string name="title_data_plan_expired">Paket data telah berakhir!</string>
     <string name="summary_data_plan_expired">Anda mungkin ingin memperbaharui paket data anda</string>
     <string name="error_unknown_telegram_client">Telegram tidak terpasang atau klien tidak diketahui hadir. Mohon coba cara lainnya.</string>
-    <string name="crash_logs_extra_text">Laporan crash Data Monitor</string>
+    <string name="crash_logs_extra_text">Laporan crash Data Tracker</string>
     <string name="label_select_app">Pilih aplikasi</string>
     <string name="label_crash_logs_share_chat">Bagikan ke chat: @datamonitor</string>
     <string name="label_mail">Email</string>
@@ -384,10 +384,10 @@
 \nKodenama Perangkat
 \nVersi Android</string>
     <string name="error_url_verification_failed">Tidak dapat memverifikasi URL! Mohon coba lagi atau coba URL lain yang berbeda.</string>
-    <string name="battery_optimisation_enabled_info">Optimisasi baterai aktif. Ini dapat mengganggu kinerja Data Monitor.</string>
+    <string name="battery_optimisation_enabled_info">Optimisasi baterai aktif. Ini dapat mengganggu kinerja Data Tracker.</string>
     <string name="settings_download_server">Server download</string>
     <string name="label_permission_denied">Izin ditolak!</string>
-    <string name="notification_permission_denied_body">Fitur seperti notifikasi Data Monitor, kecepatan jaringan saat ini dan peringatan penggunaan data tidak dapat berjalan dengan normal tanpa izin notifikasi. Mohon berikan izin secara manual.</string>
+    <string name="notification_permission_denied_body">Fitur seperti notifikasi Data Tracker, kecepatan jaringan saat ini dan peringatan penggunaan data tidak dapat berjalan dengan normal tanpa izin notifikasi. Mohon berikan izin secara manual.</string>
     <string name="settings_disable_haptics">Matikan haptic</string>
     <string name="disable_haptics_summary">Matikan umpan balik haptic diseluruh aplikasi</string>
     <string name="label_select_start_date">Pilih tanggal dimulai</string>
@@ -404,14 +404,14 @@
     <string name="error_alarm_permission_denied">Izin alarm ditolak!</string>
     <string name="rex07_summary">Arab</string>
     <string name="iqb4lsp_summary">Indonesia</string>
-    <string name="label_welcome_header">Selamat datang di Data Monitor</string>
+    <string name="label_welcome_header">Selamat datang di Data Tracker</string>
     <string name="label_welcome_body">Monitor semua penggunaan data anda - dalam satu tempat</string>
     <string name="label_top_donors">Donatur Teratas</string>
     <string name="error_data_fetch_failed">Gagal mengambil data</string>
     <string name="app_contributors_summary">Daftar kontributor yang telah mendukung pengembangan aplikasi.</string>
     <string name="data_plan_updated_summary">Paket data baru anda aktif hingga %1$s</string>
     <string name="app_contributors">Kontributor Aplikasi</string>
-    <string name="wall_of_thanks_body">Data Monitor telah sampai sejauh ini sejak dimulai, dan kami tidak dapat melakukannya tanpa dukungan dari para donatur dermawan kami.</string>
+    <string name="wall_of_thanks_body">Data Tracker telah sampai sejauh ini sejak dimulai, dan kami tidak dapat melakukannya tanpa dukungan dari para donatur dermawan kami.</string>
     <string name="label_all_donors">Semua Donatur</string>
     <string name="label_plan_details_title_custom">Paket data kustom aktif</string>
 </resources>

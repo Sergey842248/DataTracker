@@ -41,7 +41,7 @@
 "No hay datos disponibles en la sección seleccionada"
 </string>
     <string name="label_want_to_contribute">
-"Si quieres contribuir con Data Monitor haz click aquí para saber como."
+"Si quieres contribuir con Data Tracker haz click aquí para saber como."
 </string>
     <string name="setup_image_footer">
 "Los widgets y las notificaciones pueden proveer un acceso rápido a la cantidad de datos que has utilizado"
@@ -136,10 +136,10 @@
     <string name="mail_uri">mailto:%1$s\?&amp;subject=%2$s&amp;body=%3$s</string>
     <string name="auto_hide_live_network">Ocultar automáticamente la velocidad de la red</string>
     <string name="title_device_info_contents">Contenido de la información del dispositivo</string>
-    <string name="crash_report_body">Parece que Data Monitor se ha bloqueado. Puede enviar el informe de fallos al desarrollador para ayudar a analizar el problema y resolverlo más rápido. Si no se produjo ningún bloqueo, por favor ignórelo.</string>
+    <string name="crash_report_body">Parece que Data Tracker se ha bloqueado. Puede enviar el informe de fallos al desarrollador para ayudar a analizar el problema y resolverlo más rápido. Si no se produjo ningún bloqueo, por favor ignórelo.</string>
     <string name="error_unknown_telegram_client">Telegram no instalado o cliente desconocido presente. Por favor, pruebe otro método.</string>
     <string name="notification_permission_denied_body">Las funciones que incluyen la notificación del monitor de datos, la velocidad de la red en vivo y la alerta de uso de datos no funcionarán correctamente sin el permiso de notificación. Por favor, concédalo manualmente.</string>
-    <string name="battery_optimisation_enabled_info">La optimización de la batería está activada. Esto interferirá con el funcionamiento de Data Monitor.</string>
+    <string name="battery_optimisation_enabled_info">La optimización de la batería está activada. Esto interferirá con el funcionamiento de Data Tracker.</string>
     <string name="settings_upload_server">Subir servidor</string>
     <string name="label_custom_server_save_success">Preferencia de servidor guardada</string>
     <string name="disable_haptics_summary">Deshabilitar la retroalimentación háptica en toda la aplicación</string>
@@ -207,7 +207,7 @@
     <string name="body_app_data_warning_notification">%1$s ha agotado su cuota de datos</string>
     <string name="body_data_usage_notification_loading">Cargando…</string>
     <string name="label_data_remaining_used_excess">%1$s adicional usado</string>
-    <string name="disable_battery_optimisation_body">Evita matar a Data Monitor cuando se ejecuta en segundo plano.
+    <string name="disable_battery_optimisation_body">Evita matar a Data Tracker cuando se ejecuta en segundo plano.
 \nDe lo contrario, los valores pueden ser incorrectos.</string>
     <string name="oem_battery_settings">Configuración de la batería OEM</string>
     <string name="action_next">Siguiente</string>
@@ -291,7 +291,7 @@
     <string name="setup_usage_reset_date_custom_selected">El plan de datos personalizado está activo</string>
     <string name="title_data_plan_expired">¡El plan de datos ha caducado!</string>
     <string name="summary_data_plan_expired">Es posible que desee actualizar su plan</string>
-    <string name="crash_logs_extra_text">Registros de fallos de Data Monitor</string>
+    <string name="crash_logs_extra_text">Registros de fallos de Data Tracker</string>
     <string name="label_select_app">Seleccionar aplicación</string>
     <string name="label_crash_logs_share_chat">Compartir para chatear: @datamonitor</string>
     <string name="crash_logs_warning">Registros de fallos; No modificar</string>
@@ -379,7 +379,7 @@
     <string name="hinamechan">HinameChan</string>
     <string name="hinamechan_summary">Turco</string>
     <string name="atharvshinde_translation_summary">Maratí</string>
-    <string name="donate_info">Data Monitor es una aplicación gratuita y de código abierto y siempre lo seguirá siendo :)
+    <string name="donate_info">Data Tracker es una aplicación gratuita y de código abierto y siempre lo seguirá siendo :)
 \n
 \nSi desea apoyar el desarrollo de la aplicación, una donación sería muy apreciada.</string>
     <string name="label_paypal">PayPal</string>
@@ -406,7 +406,7 @@
     <string name="error_network_monitor_start">No se ha podido iniciar Network Monitor. Abre la aplicación para actualizar.</string>
     <string name="always_show_total">Mostrar siempre el total</string>
     <string name="error_alarm_permission_denied_summary">Has intentado realizar una acción que requiere el permiso Alarmas y recordatorios, que no está concedido a la aplicación. Haz clic aquí para conceder el permiso.</string>
-    <string name="error_alarm_permission_denied_dialog_summary">Data Monitor requiere el permiso de Alarmas y Recordatorios para funcionar correctamente. Puedes seguir utilizando la aplicación, pero es posible que algunas funciones no funcionen correctamente.</string>
+    <string name="error_alarm_permission_denied_dialog_summary">Data Tracker requiere el permiso de Alarmas y Recordatorios para funcionar correctamente. Puedes seguir utilizando la aplicación, pero es posible que algunas funciones no funcionen correctamente.</string>
     <string name="error_alarm_permission_denied_feature_summary">No puede utilizar esta función sin conceder permiso a alarmas y recordatorios.</string>
     <string name="label_do_not_show_again">No volver a mostrar</string>
     <string name="fjuro_summary">Checo</string>
@@ -437,7 +437,7 @@
     <string name="gnu_ewm">Eryk Michalak</string>
     <string name="rintan">Rintan</string>
     <string name="rintan_summary">Japonés</string>
-    <string name="wall_of_thanks_body">Data Monitor ha recorrido un largo camino desde su creación, y no podríamos haberlo hecho sin el apoyo de nuestros generosos donantes.</string>
+    <string name="wall_of_thanks_body">Data Tracker ha recorrido un largo camino desde su creación, y no podríamos haberlo hecho sin el apoyo de nuestros generosos donantes.</string>
     <string name="wall_of_thanks_summary">Un lugar para mostrar nuestro agradecimiento a quienes apoyan la aplicación.</string>
     <string name="app_contributors">Colaboradores de la aplicación</string>
     <string name="label_learn_more">Más información</string>
@@ -473,7 +473,7 @@
     <string name="time">Horario</string>
     <string name="label_welcome_body">Controla todo el uso de tus datos en un solo sitio</string>
     <string name="get_started">Empezar</string>
-    <string name="label_welcome_header">Bienvenido a Data Monitor</string>
+    <string name="label_welcome_header">Bienvenido a Data Tracker</string>
     <string name="skip_setup">Omitir la configuración</string>
     <string name="flix_summary">Alemán</string>
     <string name="ofermar_summary">Hebreo</string>

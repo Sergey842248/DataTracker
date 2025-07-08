@@ -1,4 +1,4 @@
-## Contributing to Data Monitor
+## Contributing to Data Tracker
 Contributions are always welcome.
 
 ### Improvements, bug fixes or new features
@@ -7,7 +7,7 @@ Contributions are always welcome.
 - Pull requests will be merged after checking the code and testing it.
 
 ### Translations
-Want to see Data Monitor using your local language? Help us by translating contents to your local language.<br>
+Want to see Data Tracker using your local language? Help us by translating contents to your local language.<br>
 Submit translations using <a href = "https://hosted.weblate.org/git/datamonitor/strings/">Weblate</a> or fork the repo.
 
 ### Note

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Data Monitor</string>
+    <string name="app_name">Data Tracker</string>
     <string name="appwidget_text">Example</string>
     <string name="add_widget">Add widget</string>
 
@@ -44,7 +44,7 @@
     <string name="label_loading_apps">Loading apps</string>
     <string name="label_loading">Loading…</string>
     <string name="label_app_data_usage_session_empty">No data available</string>
-    <string name="label_want_to_contribute">Click here to find out how to contribute to Data Monitor.</string>
+    <string name="label_want_to_contribute">Click here to find out how to contribute to Data Tracker.</string>
     <string name="setup_image_footer">Widgets and/or notification provide easy access to the amount of data used</string>
     <string name="heading_data_reset">Reset counter</string>
     <string name="daily">Daily</string>
@@ -64,12 +64,12 @@
     <string name="title_widget_setup">Set up the widget</string>
     <string name="widget_setup_step_1">1. Touch and hold an empty space on your home screen.</string>
     <string name="widget_setup_step_2">2. Tap \"Widgets\".</string>
-    <string name="widget_setup_step_3">3. Drag and drop the Data Monitor widget onto your home screen.</string>
+    <string name="widget_setup_step_3">3. Drag and drop the Data Tracker widget onto your home screen.</string>
     <string name="heading_data_usage_today">Today\'s data usage</string>
     <string name="action_add_data_plan_home">Add your data plan to start monitoring it</string>
     <string name="heading_week_overview">This week\'s overview</string>
     <string name="error_loading_overview">Could not load this week\'s overview.\nTry again later.</string>
-    <string name="title_setup">Setup Data monitor</string>
+    <string name="title_setup">Setup Data Tracker</string>
     <string name="setup_widget">Set up the widget</string>
     <string name="setup_notification">Set up notifications</string>
     <string name="title_configure">Configure</string>
@@ -140,7 +140,7 @@
     <string name="upi_app_not_found">Install an app that can do this first</string>
     <string name="upi_unknown_error">Unknown error.\nPlease try again or another method.</string>
     <string name="label_no_additional_lang">Click here to help translate the app.</string>
-    <string name="notification_disabled">Data monitor notification disabled</string>
+    <string name="notification_disabled">Data Tracker notification disabled</string>
     <string name="label_widget_refresh_interval_change">Widget will be updated every %1$s</string>
     <string name="label_notification_refresh_interval_change">Notification will be updated every %1$s</string>
     <string name="label_data_usage_reset_time_change">Reset data usage every %1$s at %2$s</string>
@@ -149,7 +149,7 @@
     <string name="remaining_data_info_disabled">Remaining data info disabled</string>
     <string name="label_monitoring_no_plan">Add a data plan to start monitoring</string>
     <string name="label_widget_refreshed">Widget refreshed</string>
-    <string name="label_notification_enabled">Data monitor notification enabled</string>
+    <string name="label_notification_enabled">Data Tracker notification enabled</string>
     <string name="label_notification_cannot_disable_both">Cannot turn off both elements</string>
     <string name="label_setup_notification_first">Please set up the notification first</string>
     <string name="label_data_plan_saved">Data plan saved</string>
@@ -165,7 +165,7 @@
     <string name="label_data_remaining_used_excess">%1$s extra used</string>
     <string name="label_days_remaining">%1$s day(s) remaining</string>
     <string name="disable_battery_optimisation">Turn off battery optimisation</string>
-    <string name="disable_battery_optimisation_body">Prevents killing Data Monitor when running in the background.\nOtherwise values might be incorrect.</string>
+    <string name="disable_battery_optimisation_body">Prevents killing Data Tracker when running in the background.\nOtherwise values might be incorrect.</string>
     <string name="extra_optimisation_tips">Extra optimisation tips</string>
     <string name="oem_battery_settings">OEM battery settings</string>
     <string name="action_next">Next</string>
@@ -277,7 +277,7 @@
     <string name="f_droid_page_summary">Check the app on the official F-Droid repo</string>
     <string name="label_crash_logs">Crash logs</string>
     <string name="label_device_info">Device info</string>
-    <string name="crash_report_body">It seems like Data Monitor has crashed. You can send the crash report to the developer to help analyse the problem and solve it quicker. If no crash occurred, kindly ignore.</string>
+    <string name="crash_report_body">It seems like Data Tracker has crashed. You can send the crash report to the developer to help analyse the problem and solve it quicker. If no crash occurred, kindly ignore.</string>
     <string name="crash_report_title">Crash Report</string>
     <string name="device_info_content_label">See what\'s included in Device info</string>
     <string name="label_telegram">Telegram</string>
@@ -297,7 +297,7 @@
     <string name="title_data_plan_expired">Data plan expired!</string>
     <string name="summary_data_plan_expired">You might want to update your plan</string>
     <string name="error_unknown_telegram_client">Telegram not installed or unknown client present. Please try another method.</string>
-    <string name="crash_logs_extra_text">Data Monitor crash logs</string>
+    <string name="crash_logs_extra_text">Data Tracker crash logs</string>
     <string name="label_select_app">Select app</string>
     <string name="label_crash_logs_share_chat">Share to chat: @datamonitor</string>
     <string name="crash_logs_warning">Crash Logs; Do Not modify</string>
@@ -305,7 +305,7 @@
     <string name="device_info_body">Device info includes: \nDevice Manufacturer\nDevice Brand\nDevice Model\nDevice Codename\nAndroid Version</string>
     <string name="label_crash_logs_copied">Crash logs copied to clipboard</string>
     <string name="label_mail">Mail</string>
-    <string name="battery_optimisation_enabled_info">Battery optimisation is enabled. This will interfere with the working of Data Monitor.</string>
+    <string name="battery_optimisation_enabled_info">Battery optimisation is enabled. This will interfere with the working of Data Tracker.</string>
     <string name="label_battery_optimisation">Battery optimisation</string>
     <string name="error_no_crash_logs">No crash logs found. Are you sure a crash occurred?</string>
     <string name="label_copy_logs">Copy logs</string>
@@ -356,7 +356,7 @@
     <string name="error_invalid_plan">Invalid plan!</string>
     <string name="label_send_report">Send report via</string>
     <string name="label_permission_denied">Permission denied!</string>
-    <string name="notification_permission_denied_body">Features including Data monitor notification, Live network speed and Data usage alert won\'t work properly without notification permission. Please grant it manually.</string>
+    <string name="notification_permission_denied_body">Features including Data Tracker notification, Live network speed and Data usage alert won\'t work properly without notification permission. Please grant it manually.</string>
     <string name="settings_disable_haptics">Disable haptics</string>
     <string name="disable_haptics_summary">Disable haptic feedback across the app</string>
     <string name="action_dismiss">Dismiss</string>
@@ -364,7 +364,7 @@
     <string name="label_select_start_date">Select start date</string>
     <string name="label_plan_end_date">Select end date</string>
     <string name="combine_notifications">Combine notifications</string>
-    <string name="combine_notifications_summary">Combine Data monitor and Network speed into one notification.</string>
+    <string name="combine_notifications_summary">Combine Data Tracker and Network speed into one notification.</string>
     <string name="combined_notification_icon">Combined notification icon</string>
     <string name="combined_notification_icon_summary">Choose the icon to be displayed for the combined notification</string>
     <string name="error_combine_notifications_enabled">Combined notification enabled. Cannot disable individual notification.</string>
@@ -420,7 +420,7 @@
     <string name="action_save">Save</string>
     <string name="label_custom_end_time">End time: %1$s</string>
     <string name="error_invalid_plan_duration">Invalid plan duration</string>
-    <string name="donate_info">Data Monitor is a Free and Open-Source application and will always remain that way :)\n\nIf you like to support the development of the app, a donation would be greatly appreciated.</string>
+    <string name="donate_info">Data Tracker is a Free and Open-Source application and will always remain that way :)\n\nIf you like to support the development of the app, a donation would be greatly appreciated.</string>
     <string name="label_paypal">PayPal</string>
     <string name="paypal_summary">Donate via PayPal</string>
     <string name="label_upi">BHIM-UPI</string>
@@ -441,7 +441,7 @@
     <string name="app_label_combined_total">Total data usage: %1$s</string>
     <string name="error_alarm_permission_denied">Alarm permission denied!</string>
     <string name="error_alarm_permission_denied_summary">You tried to perform an action that requires the Alarms &amp; Reminders permission, which is not granted to the app. Click here to grant the permission.</string>
-    <string name="error_alarm_permission_denied_dialog_summary">Data Monitor requires Alarms &amp; Reminders permission to work properly. You can still use the app, but some features might not work properly.</string>
+    <string name="error_alarm_permission_denied_dialog_summary">Data Tracker requires Alarms &amp; Reminders permission to work properly. You can still use the app, but some features might not work properly.</string>
     <string name="error_alarm_permission_denied_feature_summary">You cannot use this feature without granting Alarms &amp; Reminders permission.</string>
     <string name="label_do_not_show_again">Do not show again</string>
     <string name="fjuro">Fjuro</string>
@@ -460,7 +460,7 @@
     <string name="app_contributors">App Contributors</string>
     <string name="label_thank_you">Thank You</string>
     <string name="label_learn_more">Learn more</string>
-    <string name="wall_of_thanks_body">Data Monitor has come a long way since its inception, and we couldn\'t have done it without the support of our generous donors.</string>
+    <string name="wall_of_thanks_body">Data Tracker has come a long way since its inception, and we couldn\'t have done it without the support of our generous donors.</string>
     <string name="label_top_donors">Top Donors</string>
     <string name="label_all_donors">All Donors</string>
     <string name="error_data_fetch_failed">Failed to fetch data</string>
@@ -505,7 +505,7 @@
     <string name="add_time">Add time</string>
     <string name="action_apply_filter">Apply Filter</string>
     <string name="label_select_date">Select date</string>
-    <string name="label_welcome_header">Welcome to Data Monitor</string>
+    <string name="label_welcome_header">Welcome to Data Tracker</string>
     <string name="label_welcome_body">Track all your data usage - at one place</string>
     <string name="get_started">Get started</string>
     <string name="skip_setup">Skip setup</string>

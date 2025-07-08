@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2021 Dr.NooB
  *
- * This file is a part of Data Monitor <https://github.com/itsdrnoob/DataMonitor>
+ * This file is a part of Data Tracker <https://github.com/itsdrnoob/DataMonitor>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

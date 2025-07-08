@@ -1,6 +1,6 @@
 ## Privacy Policy
 This Privacy Policy statement is made by Bitroid Inc consisting of all the entities listed here (collectively, "Bitroid", "we", "us" or "our").
-Our mission is to help people protect their privacy, data, and devices from threats.Data Monitor doesn't track you with ads or abuse your privacy.
+Our mission is to help people protect their privacy, data, and devices from threats.Data Tracker doesn't track you with ads or abuse your privacy.
 We ask for only the least amount of information necessary, gathering only what we believe is for the specific task at hand. We let customers know the information we have on them and allow them to opt out of specific engagements.
 We avoid the fundamental conflict of interest between gathering customer information and fueling advertising revenue, and the unavoidable compromises in customer privacy that it brings.
 
@@ -12,20 +12,20 @@ Usage access permission is required to gather data about app and network usage, 
 All such data collected stays on your device.
 
 #### Why is Read Phone State permission required?
-Data Monitor requires the "READ_PHONE_STATE" permission to get data regarding your mobile network. Without this mobile phone permission, it’s impossible for our app to get your phone's data usage. All similar Android apps work the same way.
+Data Tracker requires the "READ_PHONE_STATE" permission to get data regarding your mobile network. Without this mobile phone permission, it’s impossible for our app to get your phone's data usage. All similar Android apps work the same way.
 
 #### How do we collect information?
-We collect information about you only if we need the information for some legitimate purpose. Data Monitor will have information about you only if (a) you have provided the information yourself, (b) Data Monitor has automatically collected the information, or (c) Data Monitor has obtained the information from a third party.
+We collect information about you only if we need the information for some legitimate purpose. Data Tracker will have information about you only if (a) you have provided the information yourself, (b) Data Tracker has automatically collected the information, or (c) Data Tracker has obtained the information from a third party.
 
 If you provide us information about another person, or if another person gives us your information, we will only use that information for the specific reason for which it was provided to us.
 
-Most of our information collection and processing activities are typically based on (i) contractual necessity, (ii) one or more legitimate interests of Data Monitor or a third party that are not overridden by your data protection interests, or (iii) your consent.
+Most of our information collection and processing activities are typically based on (i) contractual necessity, (ii) one or more legitimate interests of Data Tracker or a third party that are not overridden by your data protection interests, or (iii) your consent.
 
 
-#### What does Data Monitor use your information for?
+#### What does Data Tracker use your information for?
 Any of the information we collect from you may be used in one of the following ways:
 To personalize your experience
-(Your information helps us to better respond to your individual needs. For example if we notice a lot of users from France installing Data monitor or visiting our website we may decide to add a French translation of our software.)
+(Your information helps us to better respond to your individual needs. For example if we notice a lot of users from France installing Data Tracker or visiting our website we may decide to add a French translation of our software.)
 To improve our service
 (We continually work to improve our service offerings based on the information and feedback we receive from you.)
 To improve customer service
@@ -45,7 +45,7 @@ If you have any concerns regarding the security of your data, we encourage you t
  
  
 #### Terms of Use
-Thank you for using Data monitor. To protect Data Monitor and our users we need this user agreement to set rules that are required to use our software.
-Data Monitor’s free software is currently free to use for non-commercial use as long as you agree to our privacy policies.
-If you have found a bug or vulnerability in the Data Monitor software there are several ways to report the problem so we can fix it , we encourage you to write to us at mail.
+Thank you for using Data Tracker. To protect Data Tracker and our users we need this user agreement to set rules that are required to use our software.
+Data Tracker’s free software is currently free to use for non-commercial use as long as you agree to our privacy policies.
+If you have found a bug or vulnerability in the Data Tracker software there are several ways to report the problem so we can fix it , we encourage you to write to us at mail.
 This Privacy Policy is bound to updation without any prior notice.

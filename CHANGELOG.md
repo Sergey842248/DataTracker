@@ -1,11 +1,11 @@
 # Changelogs
 
-All notable changes to Data Monitor will be documented in this file.
+All notable changes to Data Tracker will be documented in this file.
 
 
 ## v2.4.0
 
-Data Monitor v2.4.0 release <br>
+Data Tracker v2.4.0 release <br>
 This release features multiple changes and improvements.
 
 ### What's new?
@@ -26,7 +26,7 @@ This release features multiple changes and improvements.
 
 ## v2.3.2
 
-Data Monitor v2.3.2 release <br>
+Data Tracker v2.3.2 release <br>
 This release includes certain changes and improvements.
 
 ### What's new?
@@ -43,7 +43,7 @@ This release includes certain changes and improvements.
 
 ## v2.3.1
 
-Data Monitor v2.3.1 release <br>
+Data Tracker v2.3.1 release <br>
 This is a hotfix release with certain changes and bug fixes.
 
 - Fixed a crash caused by a NullPointerException while starting and stopping the DataMonitor service.
@@ -56,7 +56,7 @@ This is a hotfix release with certain changes and bug fixes.
 
 ## v2.3.0
 
-Data Monitor v2.3.0 release <br>
+Data Tracker v2.3.0 release <br>
 This release includes many changes and improvements.
 
 ### What's new?
@@ -96,7 +96,7 @@ This release includes many changes and improvements.
 
 ## v2.2.0
 
-Data Monitor v2.2.0 release <br>
+Data Tracker v2.2.0 release <br>
 This release includes many changes and improvements.
 
 - Introducing Material You! A closer experience to your device with a new & revamped User Interface.
@@ -121,7 +121,7 @@ This release includes many changes and improvements.
 
 ## v2.1.0
 
-Data Monitor v2.1.0 release <br>
+Data Tracker v2.1.0 release <br>
 This release includes many changes and improvements.
 
 - Added custom data plan
@@ -149,7 +149,7 @@ This release includes many changes and improvements.
 
 ## v2.0.0
 
-Data Monitor v2.0.0 release <br>
+Data Tracker v2.0.0 release <br>
 This major release includes many changes and improvements.
 
 - Added live network speed monitor
@@ -175,7 +175,7 @@ This major release includes many changes and improvements.
 
 ## v1.6.9
 
-Data Monitor v1.6.9 release <br>
+Data Tracker v1.6.9 release <br>
 
 - Added Romanian Language
 - Added Data usage in notification title
@@ -185,14 +185,14 @@ Data Monitor v1.6.9 release <br>
 
 ## v1.6.1
 
-Data Monitor v1.6.1 release <br>
+Data Tracker v1.6.1 release <br>
 
 - Fixed crash while starting Data Usage receiver
 
 
 ## v1.6.0
 
-Data Monitor v1.6.0 release <br>
+Data Tracker v1.6.0 release <br>
 
 - Added app usage time
 - Minimal core changes
@@ -200,14 +200,14 @@ Data Monitor v1.6.0 release <br>
 
 ## v1.5.1
 
-Data Monitor v1.5.1 hotfix release
+Data Tracker v1.5.1 hotfix release
 
 - Fixed crash when using network diagnostics without network connection
 - Optimized code
 
 # v1.5
 
-Data Monitor v1.5 release
+Data Tracker v1.5 release
 
 - Added feature Network diagnostics
 - Check Data speed and latency
@@ -220,6 +220,6 @@ Data Monitor v1.5 release
 
 ## v1.0
 
-Data Monitor v1.0
+Data Tracker v1.0
 
 - Initial release

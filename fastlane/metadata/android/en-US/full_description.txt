@@ -1,4 +1,4 @@
-<p>Data Monitor is a user-friendly, free and open source app for you to manage your data usage. Data Monitor helps you to accurately measure your daily data traffic, and analyze the data in a way easy to understand.</p>
+<p>Data Tracker is a user-friendly, free and open source app for you to manage your data usage. Data Tracker helps you to accurately measure your daily data traffic, and analyze the data in a way easy to understand.</p>
 
 <p><b>Features:</b></p><ul>
 <li>Track daily data usage</li>
@@ -6,7 +6,7 @@
 <li>Stats for different time period (last month, this year, all time etc)</li>
 <li>Mobile data as well as Wifi usage stats</li>
 <li>Weekly data usage overview</li>
-<li>Data Monitor widget and notification</li>
+<li>Data Tracker widget and notification</li>
 <li>Data usage alert</li>
 <li>Custom mobile data reset time</li>
 <li>Network diagnostics</li>

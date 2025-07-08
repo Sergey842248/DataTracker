@@ -1,4 +1,4 @@
-package com.drnoob.datamonitor;
+package com.sergey842248.datatracker;
 
 import org.junit.Test;
 

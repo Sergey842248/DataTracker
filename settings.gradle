@@ -1,2 +1,2 @@
-rootProject.name = "Data Monitor"
+rootProject.name = "Data Tracker"
 include ':app'

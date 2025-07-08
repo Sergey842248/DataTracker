@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">"Data Monitor"</string>
+    <string name="app_name">"Data Tracker"</string>
     <string name="appwidget_text">"ESEMPIO"</string>
     <string name="add_widget">"Aggiungi widget"</string>
     <string name="notification_mobile_data_usage">"Dati mobili : %1$s"</string>
@@ -41,7 +41,7 @@
     <string name="label_dev">"Made with ❤ by Bitroid"</string>
     <string name="label_loading_apps">"Caricamento app"</string>
     <string name="label_app_data_usage_session_empty">"Non ci sono dati disponibili per l'intervallo scelto"</string>
-    <string name="label_want_to_contribute">Per sapere come contribuire all\'app Data Monitor clicca qui.</string>
+    <string name="label_want_to_contribute">Per sapere come contribuire all\'app Data Tracker clicca qui.</string>
     <string name="setup_image_footer">"Widget e notifiche rendono aiutano a visualizzare quanti data hai usato"</string>
     <string name="heading_data_reset">"Reset dei dati"</string>
     <string name="daily">"Giornaliero"</string>
@@ -60,13 +60,13 @@
     <string name="title_widget_setup">"Impostazioni del widget"</string>
     <string name="widget_setup_step_1">1. Nella Home tieni premuto su uno spazio vuoto.</string>
     <string name="widget_setup_step_2">2. Clicca \"Widgets\".</string>
-    <string name="widget_setup_step_3">3. Trascina e rilascia il widget \"Data monitor\" sulla Home.</string>
+    <string name="widget_setup_step_3">3. Trascina e rilascia il widget \"Data Tracker\" sulla Home.</string>
     <string name="heading_data_usage_today">"Uso dati di oggi"</string>
     <string name="action_add_data_plan_home">"Aggiungi il tuo piano dati per iniziare il monitoraggio dati"</string>
     <string name="heading_week_overview">"Riassunto di questa settimana"</string>
     <string name="error_loading_overview">Non è stato possibile caricare i dati di questa settimana.
 \nRiprova più tardi.</string>
-    <string name="title_setup">"Impostazioni di Data monitor"</string>
+    <string name="title_setup">"Impostazioni di Data Tracker"</string>
     <string name="setup_widget">"Impostazioni del widget"</string>
     <string name="setup_notification">"Impostazioni della notifica"</string>
     <string name="title_configure">"Configura"</string>
@@ -134,7 +134,7 @@
     <string name="upi_unknown_error">Errore sconosciuto.
 \nRiprova oppure prova un altro modo.</string>
     <string name="label_no_additional_lang">"Altre lingue saranno aggiunte presto. Vuoi contribuire? Clicca per sapere come."</string>
-    <string name="notification_disabled">"Notifica di Data monitor disabilitata"</string>
+    <string name="notification_disabled">"Notifica di Data Tracker disabilitata"</string>
     <string name="label_widget_refresh_interval_change">"Il widget sarà aggiornato ogni %1$s"</string>
     <string name="label_notification_refresh_interval_change">"La notifica sarà aggiornata ogni %1$s"</string>
     <string name="remaining_data_info_enabled">"Dati rimanenti abilitati"</string>
@@ -156,7 +156,7 @@
     <string name="label_data_remaining">"%1$s rimanenti"</string>
     <string name="label_data_remaining_used_excess">"%1$s extra usati"</string>
     <string name="disable_battery_optimisation">"Disabilita ottimizzazione della batteria"</string>
-    <string name="disable_battery_optimisation_body">Impedisce di fermare l\'esecuzione di Data Monitor quando viene eseguito in background.
+    <string name="disable_battery_optimisation_body">Impedisce di fermare l\'esecuzione di Data Tracker quando viene eseguito in background.
 \nAltrimenti i valori potrebbero non essere corretti.</string>
     <string name="extra_optimisation_tips">"Suggerimenti di ottimizzazione extra"</string>
     <string name="oem_battery_settings">"Impostazioni della batteria OEM"</string>
@@ -293,7 +293,7 @@
     <string name="network_diagnostics_info">La diagnostica di rete può utilizzare circa 20-30 MB di dati. Assicurati di averli a disposizione nel tuo piano, altrimenti potrebbero essere applicati costi di rete.</string>
     <string name="label_crash_logs">Registro dei crash</string>
     <string name="label_device_info">Info dispositivo</string>
-    <string name="crash_report_body">Sembra che Data Monitor si sia bloccato. È possibile inviare il rapporto di arresto anomalo allo sviluppatore per analizzare il problema e risolverlo più rapidamente. Se non si è verificato alcun arresto anomalo, ignorare gentilmente.</string>
+    <string name="crash_report_body">Sembra che Data Tracker si sia bloccato. È possibile inviare il rapporto di arresto anomalo allo sviluppatore per analizzare il problema e risolverlo più rapidamente. Se non si è verificato alcun arresto anomalo, ignorare gentilmente.</string>
     <string name="device_info_content_label">Vedi cosa è incluso in Informazioni sul dispositivo</string>
     <string name="label_select_app">Seleziona app</string>
     <string name="report_mail_summary">Inviare il rapporto sull\'incidente per email</string>
@@ -308,14 +308,14 @@
     <string name="title_device_info_contents">Contenuto delle informazioni sul dispositivo</string>
     <string name="heading_data_reset_custom_counter">Validità del piano</string>
     <string name="label_custom_end_date">Data di fine: %1$s</string>
-    <string name="crash_logs_extra_text">Registri degli arresti anomali di Data Monitor</string>
+    <string name="crash_logs_extra_text">Registri degli arresti anomali di Data Tracker</string>
     <string name="setup_usage_reset_date_custom_selected">Il piano dati personalizzato è attivo</string>
     <string name="label_mail">Email</string>
     <string name="label_battery_optimisation">Ottimizzazione batteria</string>
     <string name="label_copy_logs">Copia i registri</string>
     <string name="settings_network_diagnostics">Diagnostica di rete</string>
     <string name="label_crash_logs_copied">Registri degli arresti anomali copiati negli appunti</string>
-    <string name="battery_optimisation_enabled_info">L\'ottimizzazione della batteria è attivata. Ciò interferisce con il funzionamento di Data Monitor.</string>
+    <string name="battery_optimisation_enabled_info">L\'ottimizzazione della batteria è attivata. Ciò interferisce con il funzionamento di Data Tracker.</string>
     <string name="network_diagnostics_summary">Cambia server di diagnostica</string>
     <string name="settings_download_server">Server scaricamento</string>
     <string name="settings_diagnostics_server">Server</string>
@@ -373,7 +373,7 @@
     <string name="label_custom_start_time">Ora inizio: %1$s</string>
     <string name="action_save">Salva</string>
     <string name="error_invalid_plan_duration">Durata piano non valida</string>
-    <string name="donate_info">Data Monitor è un\'applicazione gratis ed Open-Source e rimarrà sempre tale.
+    <string name="donate_info">Data Tracker è un\'applicazione gratis ed Open-Source e rimarrà sempre tale.
 \n
 \nSe vuoi supportare lo sviluppo dell\'app, una donazione sarebbe molto apprezzata.</string>
     <string name="label_paypal">PayPal</string>

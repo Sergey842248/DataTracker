@@ -9,7 +9,7 @@ android {
 //    buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.drnoob.datamonitor"
+        applicationId "com.sergey842248.datatracker"
         minSdkVersion 23
         targetSdkVersion 34
         versionCode 30

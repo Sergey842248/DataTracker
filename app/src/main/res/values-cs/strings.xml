@@ -35,7 +35,7 @@
     <string name="label_loading_apps">Načítání aplikací</string>
     <string name="label_loading">Načítání…</string>
     <string name="label_app_data_usage_session_empty">Žádná dostupná data</string>
-    <string name="label_want_to_contribute">Kliknutím sem zjistíte, jak přispět do Data Monitoru.</string>
+    <string name="label_want_to_contribute">Kliknutím sem zjistíte, jak přispět do Data Tracker.</string>
     <string name="setup_image_footer">Widgety a/nebo oznámení umožňují snadný přístup k množství použitých dat</string>
     <string name="heading_data_reset">Vynulovat počítadlo</string>
     <string name="daily">Denně</string>
@@ -53,7 +53,7 @@
     <string name="title_widget_setup">Nastavit widget</string>
     <string name="widget_setup_step_1">1. Dotkněte se a podržte prázdné místo na domovské obrazovce.</string>
     <string name="widget_setup_step_2">2. Klepněte na „Widgety“.</string>
-    <string name="widget_setup_step_3">3. Přetáhněte widget Data Monitor na domovskou obrazovku.</string>
+    <string name="widget_setup_step_3">3. Přetáhněte widget Data Tracker na domovskou obrazovku.</string>
     <string name="heading_data_usage_today">Dnešní využití dat</string>
     <string name="action_add_data_plan_home">Přidejte svůj datový plán a začněte jej sledovat</string>
     <string name="heading_week_overview">Přehled pro tento týden</string>
@@ -239,7 +239,7 @@
     <string name="label_data_plan_saved">Ušetřená data</string>
     <string name="body_data_usage_notification_loading">Načítání…</string>
     <string name="label_translators">Překladatelé</string>
-    <string name="disable_battery_optimisation_body">Zabrání ukončení aplikace Data Monitor na pozadí.
+    <string name="disable_battery_optimisation_body">Zabrání ukončení aplikace Data Tracker na pozadí.
 \nV opačném případě mohou být hodnoty nesprávné.</string>
     <string name="overview_tuesday">Út</string>
     <string name="app_label_background_time">Využití na pozadí: %1$s</string>
@@ -259,7 +259,7 @@
     <string name="liviogasp_summary">Italština</string>
     <string name="label_crash_logs">Protokoly o pádech</string>
     <string name="label_device_info">Informace o zařízení</string>
-    <string name="crash_report_body">Zdá se, že aplikace Data Monitor spadla. Hlášení o pádu můžete poslat vývojáři, aby pomohl problém analyzovat a rychleji vyřešit. Pokud k žádnému pádu nedošlo, ignorujte prosím tuto zprávu.</string>
+    <string name="crash_report_body">Zdá se, že aplikace Data Tracker spadla. Hlášení o pádu můžete poslat vývojáři, aby pomohl problém analyzovat a rychleji vyřešit. Pokud k žádnému pádu nedošlo, ignorujte prosím tuto zprávu.</string>
     <string name="crash_report_title">Hlášení o pádu</string>
     <string name="device_info_content_label">Podívejte se, co je zahrnuté v informacích o zařízení</string>
     <string name="label_telegram">Telegram</string>
@@ -279,7 +279,7 @@
     <string name="summary_data_plan_expired">Možná budete chtít aktualizovat svůj plán</string>
     <string name="error_unknown_telegram_client">Telegram není nainstalován nebo je přítomen neznámý klient. Zkuste jiný způsob.</string>
     <string name="label_select_app">Vybrat aplikaci</string>
-    <string name="crash_logs_extra_text">Protokoly o pádech aplikace Data Monitor</string>
+    <string name="crash_logs_extra_text">Protokoly o pádech aplikace Data Tracker</string>
     <string name="label_crash_logs_share_chat">Sdílejte do chatu: @datamonitor</string>
     <string name="title_device_info_contents">Obsah informací o zařízení</string>
     <string name="device_info_body">Informace o zařízení zahrnují:
@@ -292,7 +292,7 @@
     <string name="label_crash_logs_copied">Protokoly o pádech zkopírovány do schránky</string>
     <string name="error_no_crash_logs">Nenalezeny žádné protokoly. Jste si jisti, že došlo k pádu\?</string>
     <string name="label_mail">E-mail</string>
-    <string name="battery_optimisation_enabled_info">Je povolena optimalizace baterie. Tím se naruší fungování aplikace Data Monitor.</string>
+    <string name="battery_optimisation_enabled_info">Je povolena optimalizace baterie. Tím se naruší fungování aplikace Data Tracker.</string>
     <string name="label_battery_optimisation">Optimalizace baterie</string>
     <string name="label_copy_logs">Kopírovat protokoly</string>
     <string name="settings_network_diagnostics">Diagnostika sítě</string>
@@ -373,7 +373,7 @@
     <string name="label_buymeacoffee">Buy Me A Coffee</string>
     <string name="MarongHappy_summary">Korejština</string>
     <string name="hinamechan">HinameChan</string>
-    <string name="donate_info">Data Monitor je svobodná aplikace s otevřeným zdrojovým kódem a tak to i zůstane :)
+    <string name="donate_info">Data Tracker je svobodná aplikace s otevřeným zdrojovým kódem a tak to i zůstane :)
 \n
 \nPokud byste rádi podpořili vývoj aplikace, velmi oceníme finanční příspěvek.</string>
     <string name="MarongHappy">JungHee Lee</string>
@@ -396,7 +396,7 @@
     <string name="error_alarm_permission_denied_summary">Pokusili jste se provést akci, která vyžaduje oprávnění k nastavování budíků a připomenutí, které není aplikaci uděleno. Klepnutím sem toto oprávnění udělíte.</string>
     <string name="app_label_combined_total">Celkové využití dat: %1$s</string>
     <string name="error_alarm_permission_denied">Povolení k poplachu zamítnuto!</string>
-    <string name="error_alarm_permission_denied_dialog_summary">Nástroj Data Monitor vyžaduje pro správnou funkci oprávnění k nastavování budíků a připomenutí. Aplikaci můžete používat i nadále, ale některé funkce nemusí fungovat správně.</string>
+    <string name="error_alarm_permission_denied_dialog_summary">Nástroj Data Tracker vyžaduje pro správnou funkci oprávnění k nastavování budíků a připomenutí. Aplikaci můžete používat i nadále, ale některé funkce nemusí fungovat správně.</string>
     <string name="error_alarm_permission_denied_feature_summary">Tuto funkci nelze použít bez udělení oprávnění k nastavování budíků a připomenutí.</string>
     <string name="fjuro">Fjuro</string>
     <string name="croxz900">Croxz</string>
@@ -416,7 +416,7 @@
     <string name="label_learn_more">Zjistit více</string>
     <string name="wall_of_thanks_summary">Místo, kde můžeme vyjádřit uznání podporovatelům aplikace.</string>
     <string name="app_contributors_summary">Seznam přispěvatelů, kteří podporují vývoj aplikace.</string>
-    <string name="wall_of_thanks_body">Od svého vzniku urazil Data Monitor dlouhou cestu a bez podpory našich štědrých dárců bychom to nedokázali.</string>
+    <string name="wall_of_thanks_body">Od svého vzniku urazil Data Tracker dlouhou cestu a bez podpory našich štědrých dárců bychom to nedokázali.</string>
     <string name="label_top_donors">Největší dárci</string>
     <string name="label_all_donors">Všichni dárci</string>
     <string name="error_data_fetch_failed">Nepodařilo se načíst data</string>
@@ -462,7 +462,7 @@
     <string name="time">Čas</string>
     <string name="label_welcome_body">Sledujte veškeré využití svých dat - na jednom místě</string>
     <string name="get_started">Začínáme</string>
-    <string name="label_welcome_header">Vítejte v aplikaci Data Monitor</string>
+    <string name="label_welcome_header">Vítejte v aplikaci Data Tracker</string>
     <string name="skip_setup">Přeskočit nastavení</string>
     <string name="ofermar">ofermar</string>
     <string name="flix">Flix</string>

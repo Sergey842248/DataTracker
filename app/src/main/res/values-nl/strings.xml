@@ -38,7 +38,7 @@
     <string name="label_dev">Met ❤ door Bitroid</string>
     <string name="label_loading_apps">Apps laden</string>
     <string name="label_loading">Laden…</string>
-    <string name="label_want_to_contribute">Klik hier voor meer informatie over hoe u kunt bijdragen aan Data Monitor.</string>
+    <string name="label_want_to_contribute">Klik hier voor meer informatie over hoe u kunt bijdragen aan Data Tracker.</string>
     <string name="heading_data_reset">Teller opnieuw instellen</string>
     <string name="daily">Dagelijks</string>
     <string name="monthly">Maandelijks</string>
@@ -52,11 +52,11 @@
     <string name="option_15_min">15 minuten</string>
     <string name="title_widget_setup">Widget instellen</string>
     <string name="widget_setup_step_2">2. Tik op \"Widgets\".</string>
-    <string name="widget_setup_step_3">3. Sleep de Data Monitor-widget naar uw startscherm.</string>
+    <string name="widget_setup_step_3">3. Sleep de Data Tracker-widget naar uw startscherm.</string>
     <string name="heading_data_usage_today">Het huidige dataverbruik</string>
     <string name="action_add_data_plan_home">Voeg uw data gegevens toe om het te monitoren</string>
     <string name="heading_week_overview">Overzicht van deze week</string>
-    <string name="title_setup">Data monitor instellen</string>
+    <string name="title_setup">Data Tracker instellen</string>
     <string name="setup_widget">Widget instellen</string>
     <string name="setup_notification">Meldingen instellen</string>
     <string name="title_configure">Configureren</string>
@@ -114,7 +114,7 @@
     <string name="upi_app_not_found">Installeer eerst een app die dit kan uitvoeren</string>
     <string name="upi_unknown_error">Onbekende fout. 
 \nProbeer het opnieuw of op een andere manier.</string>
-    <string name="notification_disabled">Meldingen van data monitor zijn uitgeschakeld</string>
+    <string name="notification_disabled">Meldingen van Data Tracker zijn uitgeschakeld</string>
     <string name="label_widget_refresh_interval_change">Widget wordt elke %1$s bijgewerkt</string>
     <string name="label_notification_refresh_interval_change">Melding wordt elke %1$s bijgewerkt</string>
     <string name="MarongHappy_summary">Koreaans</string>
@@ -134,7 +134,7 @@
     <string name="rex07">Rex_sa</string>
     <string name="shailendramaurya_summary">Hindoestaans Bhojpuri</string>
     <string name="iqb4lsp_summary">Indonesisch</string>
-    <string name="app_name">Data Monitor</string>
+    <string name="app_name">Data Tracker</string>
     <string name="notification_mobile_data_usage">Mobiele data: %1$s</string>
     <string name="U1M450W">U1M450W</string>
     <string name="U1M450W_summary">Uzbekistan</string>
@@ -167,7 +167,7 @@
     <string name="remaining_data_info_disabled">Resterende gegevensinformatie ingeschakeld</string>
     <string name="label_monitoring_no_plan">Data gegevens toevoegen om de monitoring te starten</string>
     <string name="label_widget_refreshed">Widget vernieuwd</string>
-    <string name="label_notification_enabled">Data monitor meldingen aangezet</string>
+    <string name="label_notification_enabled">Data Tracker meldingen aangezet</string>
     <string name="label_notification_cannot_disable_both">Kan niet beide elementen uitschakelen</string>
     <string name="label_setup_notification_first">Zet eerst de meldingen aan</string>
     <string name="label_data_plan_saved">Data gegevens opgeslagen</string>
@@ -286,7 +286,7 @@
     <string name="setup_usage_reset_date_custom_selected">Aangepast gegevensgebruik is actief</string>
     <string name="title_data_plan_expired">Gegevensgebruik is verlopen!</string>
     <string name="error_unknown_telegram_client">Telegram niet geïnstalleerd of onbekende client aanwezig. Probeer een andere methode.</string>
-    <string name="crash_logs_extra_text">Crashlogboeken van Data Monitor</string>
+    <string name="crash_logs_extra_text">Crashlogboeken van Data Tracker</string>
     <string name="label_select_app">Selecteer app</string>
     <string name="label_crash_logs_share_chat">Delen naar chat: @datamonitor</string>
     <string name="crash_logs_warning">Crashlogboeken; Niet wijzigen</string>
@@ -329,7 +329,7 @@
     <string name="save_results_summary">Diagnostische netwerkresultaten opslaan</string>
     <string name="label_mail">Email</string>
     <string name="custom_upload_url_hint">Voer de complete upload URL in</string>
-    <string name="battery_optimisation_enabled_info">Batterijoptimalisatie is ingeschakeld. Dit zal de werking van Data Monitor verstoren. Klik om uit te schakelen.</string>
+    <string name="battery_optimisation_enabled_info">Batterijoptimalisatie is ingeschakeld. Dit zal de werking van Data Tracker verstoren. Klik om uit te schakelen.</string>
     <string name="network_diagnostics_summary">Overschakelen naar Diagnostische server</string>
     <string name="label_custom_server">Eigen server</string>
     <string name="label_custom_server_save_success">Server voorkeuren opgeslagen</string>
@@ -337,7 +337,7 @@
     <string name="error_combine_notifications_enabled">Gecombineerde melding ingeschakeld. Kan individuele meldingen niet uitschakelen.</string>
     <string name="label_data_remaining">%1$s over</string>
     <string name="disable_battery_optimisation">Batterijoptimalisatie uitschakelen</string>
-    <string name="disable_battery_optimisation_body">Voorkomt het sluiten van Data Monitor wanneer deze op de achtergrond wordt uitgevoerd. 
+    <string name="disable_battery_optimisation_body">Voorkomt het sluiten van Data Tracker wanneer deze op de achtergrond wordt uitgevoerd.
 \nAnders zijn de waarden mogelijk onjuist.</string>
     <string name="overview_sunday">Zo</string>
     <string name="max_upload_speed">Max upload snelheid</string>
@@ -352,7 +352,7 @@
     <string name="new_update_available">Een nieuwe versie is beschikbaar!</string>
     <string name="label_update_available">Nieuwe versie is beschikbaar!</string>
     <string name="dark_theme_summary">Donker thema geselecteerd</string>
-    <string name="crash_report_body">Het lijkt erop dat Data Monitor is gecrasht. U kunt het crashrapport naar de ontwikkelaar sturen om het probleem te analyseren en sneller op te lossen. Als er geen crash heeft plaatsgevonden, negeer dit dan, bij voorbaat dank.</string>
+    <string name="crash_report_body">Het lijkt erop dat Data Tracker is gecrasht. U kunt het crashrapport naar de ontwikkelaar sturen om het probleem te analyseren en sneller op te lossen. Als er geen crash heeft plaatsgevonden, negeer dit dan, bij voorbaat dank.</string>
     <string name="label_custom_end_date">Eind datum: %1$s</string>
     <string name="summary_data_plan_expired">Misschien wilt u uw gegevensgebruik bijwerken</string>
     <string name="device_info_body">Apparaatinformatie omvat:

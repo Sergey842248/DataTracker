@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Data Monitor</string>
+    <string name="app_name">Data Tracker</string>
     <string name="appwidget_text">示例</string>
     <string name="add_widget">添加微件</string>
     <string name="notification_mobile_data_usage">移动数据 : %1$s</string>
@@ -56,13 +56,13 @@
     <string name="title_widget_setup">配置微件</string>
     <string name="widget_setup_step_1">1. 在主屏幕上长按空白处.</string>
     <string name="widget_setup_step_2">2. 点击 微件.</string>
-    <string name="widget_setup_step_3">3. 将 Data Monitor 提供的微件拖动到桌面上.</string>
+    <string name="widget_setup_step_3">3. 将 Data Tracker 提供的微件拖动到桌面上.</string>
     <string name="heading_data_usage_today">今日数据用量</string>
     <string name="action_add_data_plan_home">添加一个流量使用计划以继续</string>
     <string name="heading_week_overview">本周总览</string>
     <string name="error_loading_overview">无法加载本周概览。
 \n稍后再试。</string>
-    <string name="title_setup">配置 Data Monitor</string>
+    <string name="title_setup">配置 Data Tracker</string>
     <string name="setup_widget">配置微件</string>
     <string name="setup_notification">配置通知</string>
     <string name="title_configure">配置</string>
@@ -132,7 +132,7 @@
     <string name="upi_unknown_error">未知错误。
 \n请重试或其他方法。</string>
     <string name="label_no_additional_lang">更多语言即将到来。想帮助我们？点击了解详情。</string>
-    <string name="notification_disabled">Data monitor 通知已关闭</string>
+    <string name="notification_disabled">Data Tracker 通知已关闭</string>
     <string name="label_widget_refresh_interval_change">微件将每 %1$s 更新</string>
     <string name="label_notification_refresh_interval_change">通知将每 %1$s 更新</string>
     <string name="label_data_usage_reset_time_change">数据用量将在每 %1$s %2$s 重置</string>
@@ -156,7 +156,7 @@
     <string name="label_data_remaining">剩余 %1$s</string>
     <string name="label_data_remaining_used_excess">超出 %1$s</string>
     <string name="disable_battery_optimisation">关闭电池优化</string>
-    <string name="disable_battery_optimisation_body">防止在后台运行时杀死 Data Monitor。
+    <string name="disable_battery_optimisation_body">防止在后台运行时杀死 Data Tracker。
 \n否则值可能不正确。</string>
     <string name="extra_optimisation_tips">更多优化建议</string>
     <string name="oem_battery_settings">制造商电池设置</string>

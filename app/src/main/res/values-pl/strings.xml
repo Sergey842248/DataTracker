@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Data Monitor</string>
+    <string name="app_name">Data Tracker</string>
     <string name="appwidget_text">Przykład</string>
     <string name="home_wifi_data_sent">%1$s
 \nWysłano</string>
@@ -41,7 +41,7 @@
     <string name="label_mobile_data">Dane mobilne</string>
     <string name="label_dev">Stworzone z ❤ przez Bitroid</string>
     <string name="label_loading">Ładowanie…</string>
-    <string name="label_want_to_contribute">Kliknij, aby sprawdzić, jak możesz pomóc w tworzeniu Data Monitor.</string>
+    <string name="label_want_to_contribute">Kliknij, aby sprawdzić, jak możesz pomóc w tworzeniu Data Tracker.</string>
     <string name="daily">Dziennie</string>
     <string name="heading_data_limit">Limit danych</string>
     <string name="data_type_gb">GB</string>
@@ -51,7 +51,7 @@
     <string name="option_10_min">10 minut</string>
     <string name="title_refresh_interval">Wybierz interwał odświeżania</string>
     <string name="option_15_min">15 minut</string>
-    <string name="widget_setup_step_3">3. Przeciągnij i upuść widget Data Monitor na ekran domowy.</string>
+    <string name="widget_setup_step_3">3. Przeciągnij i upuść widget Data Tracker na ekran domowy.</string>
     <string name="monthly">Miesięcznie</string>
     <string name="option_2_min">2 minuty</string>
     <string name="option_1_min">1 minuta</string>
@@ -178,7 +178,7 @@
     <string name="upi_unknown_error">Nieznany błąd.
 \nSpróbuj ponownie lub użyj innej metody.</string>
     <string name="label_widget_refresh_interval_change">Widget będzie aktualizowany co %1$s</string>
-    <string name="notification_disabled">Powiadomienie Data Monitor jest wyłączone</string>
+    <string name="notification_disabled">Powiadomienie Data Tracker jest wyłączone</string>
     <string name="label_notification_refresh_interval_change">Powiadomienie będzie aktualizowane co %1$s</string>
     <string name="label_data_usage_reset_time_change">Resetuj użycie danych każdego %1$s o %2$s</string>
     <string name="label_notification_cannot_disable_both">Nie można wyłączyć obu elementów</string>
@@ -186,7 +186,7 @@
     <string name="remaining_data_info_disabled">Informacja o ilości danych, które można wykorzystać jest wyłączona</string>
     <string name="remaining_data_info_enabled">Informacja o ilości danych, które można wykorzystać jest włączona</string>
     <string name="label_monitoring_no_plan">Dodaj plan danych, aby rozpocząć monitorowanie</string>
-    <string name="label_notification_enabled">Powiadomienie Data Monitor jest włączone</string>
+    <string name="label_notification_enabled">Powiadomienie Data Tracker jest włączone</string>
     <string name="disable_battery_optimisation">Wyłącz optymalizację baterii</string>
     <string name="label_data_remaining_used_excess">Przekroczono limit o %1$s</string>
     <string name="error_permission_denied">Uprawnienie zostało zabronione. Należy udzielić je ręcznie.</string>
@@ -318,7 +318,7 @@
     <string name="upi_summary">Wspomóż przez UPI</string>
     <string name="label_do_not_show_again">Nie pokazuj ponownie</string>
     <string name="ngocanhtve_summary">Wietnamski</string>
-    <string name="donate_info">Data Monitor jest darmową aplikacją o otwartym kodzie źródłowym i nic tego nie zmieni :)
+    <string name="donate_info">Data Tracker jest darmową aplikacją o otwartym kodzie źródłowym i nic tego nie zmieni :)
 \n
 \nJeśli chcesz wesprzeć rozwój aplikacji, darowizna byłaby bardzo mile widziana.</string>
     <string name="app_label_combined_total">Całkowite użycie danych: %1$s</string>

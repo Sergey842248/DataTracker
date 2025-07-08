@@ -41,7 +41,7 @@
     <string name="label_dev">"Fait avec ❤ par Bitroid"</string>
     <string name="label_loading_apps">"Chargement des applications"</string>
     <string name="label_app_data_usage_session_empty">"Pas de données disponibles pour la session sélectionnée"</string>
-    <string name="label_want_to_contribute">Cliquez ici pour savoir comment contribuer à Data Monitor.</string>
+    <string name="label_want_to_contribute">Cliquez ici pour savoir comment contribuer à Data Tracker.</string>
     <string name="setup_image_footer">"Les widgets et/ou les notifications peuvent fournir un accès facile à la quantité de données que vous utilisez"</string>
     <string name="heading_data_reset">"Remise à zéro des données"</string>
     <string name="daily">"Quotidiennement"</string>
@@ -60,7 +60,7 @@
     <string name="title_widget_setup">"Réglages du widget"</string>
     <string name="widget_setup_step_1">1. Sur l\'écran d\'accueil, appuyez longtemps sur un espace vide.</string>
     <string name="widget_setup_step_2">2. Appuyez sur \"Widgets\".</string>
-    <string name="widget_setup_step_3">3. Glissez-déposez le widget de Data Monitor sur votre écran d\'accueil.</string>
+    <string name="widget_setup_step_3">3. Glissez-déposez le widget de Data Tracker sur votre écran d\'accueil.</string>
     <string name="heading_data_usage_today">"Usage de données d'aujourd'hui"</string>
     <string name="action_add_data_plan_home">"Ajoutez votre limite de données pour démarrer le monitoring"</string>
     <string name="heading_week_overview">"Aperçu de cette semaine"</string>
@@ -156,7 +156,7 @@
     <string name="label_data_remaining">"%1$s restant"</string>
     <string name="label_data_remaining_used_excess">"%1$s utilisé en plus"</string>
     <string name="disable_battery_optimisation">"Désactiver l'optimisation de la batterie"</string>
-    <string name="disable_battery_optimisation_body">Empêche de tuer Data Monitor lors de l’exécution en arrière-plan.
+    <string name="disable_battery_optimisation_body">Empêche de tuer Data Tracker lors de l’exécution en arrière-plan.
 \nSinon, les valeurs peuvent être incorrectes.</string>
     <string name="extra_optimisation_tips">"Points d'optimisation supplémentaires"</string>
     <string name="oem_battery_settings">"Réglages OEM de la batterie"</string>
@@ -257,7 +257,7 @@
     <string name="license_summary">Afficher les licences d’application</string>
     <string name="f_droid_page">Voir l\'application sur F-Droid</string>
     <string name="f_droid_page_summary">Voir l\'application sur le dépôt officiel de F-Droid</string>
-    <string name="crash_logs_extra_text">Journaux d’incident de Data Monitor</string>
+    <string name="crash_logs_extra_text">Journaux d’incident de Data Tracker</string>
     <string name="label_custom_server">Serveur personnalisé</string>
     <string name="error_url_verification_failed">Impossible de vérifier l\'URL ! Veuillez réessayer ou en utiliser un autre.</string>
     <string name="label_crash_logs_share_chat">Partager pour chat : @datamonitor</string>
@@ -300,10 +300,10 @@
     <string name="settings_disable_haptics">Désactiver l’haptique</string>
     <string name="action_dismiss">Rejeter</string>
     <string name="action_add_data_plan_home_summary">Aucun plan de données trouvé ! Ajoutez un plan de données pour commencer à le suivre.</string>
-    <string name="crash_report_body">Il semble que Data Monitor se soit écrasé. Vous pouvez envoyer le rapport d’incident au développeur pour l’aider à analyser le problème et à le résoudre plus rapidement. Si aucun crash ne s’est produit, veuillez l’ignorer.</string>
+    <string name="crash_report_body">Il semble que Data Tracker se soit écrasé. Vous pouvez envoyer le rapport d’incident au développeur pour l’aider à analyser le problème et à le résoudre plus rapidement. Si aucun crash ne s’est produit, veuillez l’ignorer.</string>
     <string name="auto_hide_live_network_summary">Arrêter la notification de vitesse du réseau lorsque le réseau n’est pas connecté</string>
     <string name="label_mail">Courrier</string>
-    <string name="battery_optimisation_enabled_info">L’optimisation de la batterie est activée. Cela interférera avec le fonctionnement de Data Monitor.</string>
+    <string name="battery_optimisation_enabled_info">L’optimisation de la batterie est activée. Cela interférera avec le fonctionnement de Data Tracker.</string>
     <string name="error_no_crash_logs">Aucun journal de plantage trouvé. Êtes-vous sûr qu’un crash s’est produit \?</string>
     <string name="label_copy_logs">Copier les journaux</string>
     <string name="settings_network_diagnostics">Diagnostics réseau</string>
@@ -351,7 +351,7 @@
     <string name="app_label_combined_total">Total de la consommation des données : %1$s</string>
     <string name="error_alarm_permission_denied">Autorisation de l\'alarme refusée !</string>
     <string name="error_alarm_permission_denied_summary">Vous avez tenté d\'effectuer une action qui nécessite l\'autorisation SCHEDULE_EXACT_ALARM, qui n\'est pas accordée à l\'application. Cliquez ici pour accorder l\'autorisation.</string>
-    <string name="error_alarm_permission_denied_dialog_summary">Data Monitor a besoin de la permission SCHEDULE_EXACT_ALARM pour fonctionner normalement. Vous pouvez toujours utiliser l\'application, mais certaines fonctionnialités pourraient dysfonctionner.</string>
+    <string name="error_alarm_permission_denied_dialog_summary">Data Tracker a besoin de la permission SCHEDULE_EXACT_ALARM pour fonctionner normalement. Vous pouvez toujours utiliser l\'application, mais certaines fonctionnialités pourraient dysfonctionner.</string>
     <string name="daily_quota_alert_body">Vous avez épuisé votre quota de données journalier.</string>
     <string name="error_alarm_permission_denied_feature_summary">Vous ne pouvez pas utiliser cette fonctionnalité sans accorder la permission SCHEDULE_EXACT_ALARM.</string>
     <string name="label_learn_more">En savoir plus</string>
@@ -368,7 +368,7 @@
     <string name="atharvshinde_translation_summary">Marathi</string>
     <string name="label_custom_start_time">Date de Début : %1$s</string>
     <string name="error_invalid_plan_duration">Durée de forfait invalide</string>
-    <string name="donate_info">Data Monitor est une application Libre et Open-Source et le restera toujours :)
+    <string name="donate_info">Data Tracker est une application Libre et Open-Source et le restera toujours :)
 \n
 \nSi vous souhaitez soutenir le développement de l\'application, un don serait grandement apprécié.</string>
     <string name="label_paypal">PayPal</string>
@@ -418,7 +418,7 @@
     <string name="U1M450W">U1M450W</string>
     <string name="wall_of_thanks">Mur des Remerciements</string>
     <string name="app_contributors">Contributeurs de l\'Application</string>
-    <string name="wall_of_thanks_body">Data Monitor a parcouru un long chemin depuis sa création et nous n\'aurions pas pu le faire sans le soutien de nos généreux donateurs.</string>
+    <string name="wall_of_thanks_body">Data Tracker a parcouru un long chemin depuis sa création et nous n\'aurions pas pu le faire sans le soutien de nos généreux donateurs.</string>
     <string name="label_top_donors">Principaux Donateurs</string>
     <string name="label_all_donors">Tous les Donateurs</string>
     <string name="wall_of_thanks_summary">Un endroit pour montrer notre reconnaissance aux personnes ayant soutenu l\'application.</string>
@@ -441,7 +441,7 @@
     <string name="label_select_date">Sélectionner une date</string>
     <string name="get_started">Commencer</string>
     <string name="jonnysemon_summary">Arabe</string>
-    <string name="label_welcome_header">Bienvenue dans Data Monitor</string>
+    <string name="label_welcome_header">Bienvenue dans Data Tracker</string>
     <string name="Atalanttore">Ettore Atalan</string>
     <string name="add_time">Ajouter un horaire</string>
     <string name="label_select_end_time">Sélectionner l\'horaire de fin</string>

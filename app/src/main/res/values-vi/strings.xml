@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appwidget_text">Ví dụ</string>
-    <string name="app_name">Data Monitor</string>
+    <string name="app_name">Data Tracker</string>
     <string name="add_widget">Thêm tiện ích</string>
     <string name="notification_mobile_data_usage">Dữ liệu di động: %1$s</string>
     <string name="notification_wifi_data_usage">Wi-Fi: %1$s</string>
@@ -346,7 +346,7 @@
     <string name="Atalanttore_summary">Đức</string>
     <string name="action_select_all">Chọn tất cả</string>
     <string name="title_delete_results">Xóa kết quả đã chọn\?</string>
-    <string name="donate_info">Data Monitor là một ứng dụng mã nguồn mở và miễn phí và sẽ luôn như vậy :)
+    <string name="donate_info">Data Tracker là một ứng dụng mã nguồn mở và miễn phí và sẽ luôn như vậy :)
 \n
 \nNếu bạn muốn hỗ trợ sự phát triển của ứng dụng, một khoản đóng góp sẽ được đánh giá rất cao.</string>
     <string name="error_network_monitor_start">Không thể khởi động Giám sát mạng. Mở ứng dụng để làm mới.</string>
