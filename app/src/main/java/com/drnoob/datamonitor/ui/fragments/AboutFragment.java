@@ -90,11 +90,19 @@ public class AboutFragment extends Fragment {
             currentVersionName = currentVersionName.split("-")[0];
         }
 
-        int currentVersion = Integer.parseInt(currentVersionName.split("v")[1]
-                .replace(".", ""));
-        int newVersion = Integer.parseInt(SharedPreferences.getAppPrefs(getContext()).getString(UPDATE_VERSION,
-                        currentVersionName)
-                .split("v")[1].replace(".", ""));
+        String currentVersionNameNoV = currentVersionName;
+        if (currentVersionName.contains("v")) {
+            currentVersionNameNoV = currentVersionName.split("v")[1];
+        }
+
+        String newVersionName = SharedPreferences.getAppPrefs(getContext()).getString(UPDATE_VERSION, currentVersionName);
+        String newVersionNameNoV = newVersionName;
+        if (newVersionName.contains("v")) {
+            newVersionNameNoV = newVersionName.split("v")[1];
+        }
+
+        int currentVersion = Integer.parseInt(currentVersionNameNoV.replace(".", ""));
+        int newVersion = Integer.parseInt(newVersionNameNoV.replace(".", ""));
 
         if (newVersion > currentVersion) {
             isUpdateAvailable = true;
@@ -204,8 +212,18 @@ public class AboutFragment extends Fragment {
                 if (currentVersion.contains("-")) {
                     currentVersion = currentVersion.split("-")[0];
                 }
-                String currentVersionNumber = currentVersion.split("v")[1].replace(".", "");
-                String newVersionNumber = s.split("v")[1].replace(".", "");
+                String currentVersionNumber = currentVersion;
+                if (currentVersion.contains("v")) {
+                    currentVersionNumber = currentVersion.split("v")[1];
+                }
+                currentVersionNumber = currentVersionNumber.replace(".", "");
+
+                String newVersionNumber = s;
+                if (newVersionNumber.contains("v")) {
+                    newVersionNumber = newVersionNumber.split("v")[1];
+                }
+                newVersionNumber = newVersionNumber.replace(".", "");
+
                 if (!isCancelled()) {
                     if (Float.parseFloat(newVersionNumber) > Float.parseFloat(currentVersionNumber)) {
                         isUpdateAvailable = true;
