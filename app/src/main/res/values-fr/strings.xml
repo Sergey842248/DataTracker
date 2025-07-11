@@ -461,6 +461,7 @@
     <string name="jonnysemon">jonnysemon</string>
     <string name="action_apply_filter">Appliquer le Filtre</string>
     <string name="label_days_remaining">%1$s jour(s) restant(s)</string>
+    <string name="label_hours_remaining">%1$s heure(s) restante(s)</string>
     <string name="error_invalid_session">Durée de session invalide.</string>
     <string name="jean_mareilles_summary">Français</string>
     <string name="jean_mareilles">Jean Mareilles</string>

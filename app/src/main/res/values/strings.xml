@@ -164,6 +164,7 @@
     <string name="label_data_remaining">%1$s remaining</string>
     <string name="label_data_remaining_used_excess">%1$s extra used</string>
     <string name="label_days_remaining">%1$s day(s) remaining</string>
+    <string name="label_hours_remaining">%1$s hour(s) remaining</string>
     <string name="disable_battery_optimisation">Turn off battery optimisation</string>
     <string name="disable_battery_optimisation_body">Prevents killing Data Tracker when running in the background.\nOtherwise values might be incorrect.</string>
     <string name="extra_optimisation_tips">Extra optimisation tips</string>

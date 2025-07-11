@@ -435,6 +435,7 @@
     <string name="daily_quota_alert_summary">Отримувати сповіщення, коли ваша денний ліміт буде вичерпано.</string>
     <string name="daily_quota_alert_body">Ви вичерпали свій денний ліміт даних.</string>
     <string name="label_days_remaining">%1$s день(дні), що залишилися</string>
+    <string name="label_hours_remaining">%1$s годин(и) залишилося</string>
     <string name="ecogaming">Eco-Gaming</string>
     <string name="dan_summary">Українська</string>
     <string name="detrimental_god_summary">Малаялам</string>

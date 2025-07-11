@@ -586,27 +586,20 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         Calendar calendar = Calendar.getInstance();
         String month, ordinal, end;
         int endDate;
-        int daysRemaining;
+        long currentTimeMillis = System.currentTimeMillis();
+        long endTimeMillis;
+
         if (session == SESSION_MONTHLY) {
             int planReset = preferences.getInt(DATA_RESET_DATE, 1);
-            int daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
-            int currentReset = Math.min(planReset, daysInMonth);
-            int today = calendar.get(Calendar.DAY_OF_MONTH);
-            if (today >= currentReset) {
-                calendar.set(Calendar.MONTH, calendar.get(Calendar.MONTH) + 1);
-                daysRemaining = daysInMonth - today + planReset;
+            calendar.set(Calendar.DAY_OF_MONTH, planReset);
+            if (calendar.getTimeInMillis() < currentTimeMillis) {
+                calendar.add(Calendar.MONTH, 1);
             }
-            else {
-                daysRemaining = planReset - today;
-            }
+            endTimeMillis = calendar.getTimeInMillis();
             month = new SimpleDateFormat("MMMM", getCurrentLocale(requireContext())).format(calendar.getTime());
             endDate = planReset;
         }
         else {
-            calendar.set(Calendar.HOUR_OF_DAY, 0);
-            calendar.set(Calendar.MINUTE, 0);
-            calendar.set(Calendar.SECOND, 0);
-
             long planEndDateMillis;
             try {
                 planEndDateMillis = preferences.getLong(DATA_RESET_CUSTOM_DATE_END, -1);
@@ -620,24 +613,29 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             int planEndMin = preferences.getInt(DATA_RESET_CUSTOM_DATE_END_MIN, 0);
 
             calendar.setTimeInMillis(planEndDateMillis);
-            calendar.set(Calendar.HOUR, planEndHour);
+            calendar.set(Calendar.HOUR_OF_DAY, planEndHour);
             calendar.set(Calendar.MINUTE, planEndMin);
 
+            endTimeMillis = calendar.getTimeInMillis();
             month = new SimpleDateFormat("MMMM", getCurrentLocale(requireContext())).format(calendar.getTime());
             endDate = calendar.get(Calendar.DAY_OF_MONTH);
-
-            long currentTimeMillis = System.currentTimeMillis();
-            long endTimeMillis = calendar.getTimeInMillis();
-
-            long remainingMillis = endTimeMillis - currentTimeMillis;
-            daysRemaining = (int) Math.round((remainingMillis / (24 * 60 * 60 * 1000.0)));
         }
+
+        long remainingMillis = endTimeMillis - currentTimeMillis;
+        int daysRemaining = (int) Math.round((remainingMillis / (24 * 60 * 60 * 1000.0)));
+
         ordinal = formatOrdinalNumber(endDate, requireContext());
         end = ordinal + " " + month;
         if (daysRemaining < 0) {
             daysRemaining = 0;
         }
-        String remaining = requireContext().getString(R.string.label_days_remaining, Integer.toString(daysRemaining));
+        String remaining;
+        if (daysRemaining < 1 && remainingMillis > 0) {
+            int hoursRemaining = (int) Math.round(remainingMillis / (60 * 60 * 1000.0));
+            remaining = requireContext().getString(R.string.label_hours_remaining, Integer.toString(hoursRemaining));
+        } else {
+            remaining = requireContext().getString(R.string.label_days_remaining, Integer.toString(daysRemaining));
+        }
         validity = requireContext().getString(R.string.label_plan_validity, end, remaining);
         return validity;
     }
