@@ -90,8 +90,6 @@
     <string name="overview_saturday">"Сб"</string>
     <string name="overview_sunday">"Нд"</string>
     <string name="network_diagnostics">"Перевірка Мережі"</string>
-    <string name="run_diagnostics">"Запустити Перевірку"</string>
-    <string name="running_diagnostics">"Запущена Перевірка"</string>
     <string name="connecting">"Підключення"</string>
     <string name="testing_download">"Перевірка швидкості завантаження"</string>
     <string name="testing_upload">"Перевірка швидкості вивантаження"</string>
@@ -237,10 +235,7 @@
     <string name="battery_optimisation_enabled_info">Увімкнено оптимізацію батареї. Це заважатиме роботі Data Tracker.</string>
     <string name="error_no_crash_logs">Журналів збоїв не знайдено. Ви впевнені, що стався збій\?</string>
     <string name="label_copy_logs">Скопіювати журнали</string>
-    <string name="settings_network_diagnostics">Діагностика мережі</string>
     <string name="network_diagnostics_summary">Перемикання сервера діагностики</string>
-    <string name="settings_diagnostics_server">Сервер</string>
-    <string name="settings_upload_server">Сервер завантаження</string>
     <string name="custom_upload_url_hint">Введення повної URL-адреси завантаження</string>
     <string name="label_custom_server">Користувацький сервер</string>
     <string name="label_custom_server_save_success">Переважний сервер збережено</string>
@@ -304,7 +299,6 @@
     <string name="label_battery_optimisation">Оптимізація батареї</string>
     <string name="error_url_verification_failed">Не вдалося перевірити URL! Будь ласка, спробуйте ще раз або використовуйте інший.</string>
     <string name="error_invalid_plan">Неприпустимий план!</string>
-    <string name="settings_download_server">Сервер скачування</string>
     <string name="custom_download_url_hint">Введення повної URL-адреси скачування</string>
     <string name="notification_permission_denied_body">Такі функції, як повідомлення про моніторинг даних, швидкість мережі в реальному часі та повідомлення про використання даних, не працюватимуть належним чином без дозволу на повідомлення. Будь ласка, дозвольте його вручну.</string>
     <string name="disable_haptics_summary">Вимкнення тактильного зворотного зв\'язку в застосунку</string>
@@ -333,8 +327,6 @@
     <string name="title_remove_apps">Видалити вибрані застосунки\?</string>
     <string name="action_delete">Видалити</string>
     <string name="diagnostics_history">Історія діагностики</string>
-    <string name="settings_save_results">Зберігати результати</string>
-    <string name="save_results_summary">Збереження результатів діагностики мережі</string>
     <string name="title_delete_results">Видалити вибрані результати\?</string>
     <string name="action_select_all">Вибрати все</string>
     <string name="Atalanttore_summary">Німецька</string>

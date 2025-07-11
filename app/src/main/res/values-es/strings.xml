@@ -141,7 +141,6 @@
     <string name="error_unknown_telegram_client">Telegram no instalado o cliente desconocido presente. Por favor, pruebe otro método.</string>
     <string name="notification_permission_denied_body">Las funciones que incluyen la notificación del monitor de datos, la velocidad de la red en vivo y la alerta de uso de datos no funcionarán correctamente sin el permiso de notificación. Por favor, concédalo manualmente.</string>
     <string name="battery_optimisation_enabled_info">La optimización de la batería está activada. Esto interferirá con el funcionamiento de Data Tracker.</string>
-    <string name="settings_upload_server">Subir servidor</string>
     <string name="label_custom_server_save_success">Preferencia de servidor guardada</string>
     <string name="disable_haptics_summary">Deshabilitar la retroalimentación háptica en toda la aplicación</string>
     <string name="refresh_list">Actualizar lista</string>
@@ -223,8 +222,6 @@
     <string name="setup_app_data_usage_alert">Alerta de uso de datos de la aplicación</string>
     <string name="title_app_data_limit">Límite de datos de la aplicación</string>
     <string name="network_diagnostics">Diagnósticos</string>
-    <string name="run_diagnostics">Ejecutar diagnósticos</string>
-    <string name="running_diagnostics">Ejecución de diagnósticos</string>
     <string name="connecting">Conectando</string>
     <string name="testing_download">Probando velocidades de descarga</string>
     <string name="testing_upload">Prueba de velocidades de carga</string>
@@ -307,10 +304,7 @@
     <string name="label_battery_optimisation">Optimización de batería</string>
     <string name="error_no_crash_logs">No se encontraron registros de bloqueo. ¿Está seguro de que se produjo un bloqueo\?</string>
     <string name="label_copy_logs">Copiar registros</string>
-    <string name="settings_network_diagnostics">Diagnóstico de red</string>
     <string name="network_diagnostics_summary">Cambiar servidor de diagnóstico</string>
-    <string name="settings_diagnostics_server">Servidor</string>
-    <string name="settings_download_server">Servidor de descargas</string>
     <string name="custom_upload_url_hint">Introduce la URL de carga completa</string>
     <string name="label_custom_server">Servidor personalizado</string>
     <string name="custom_download_url_hint">Introduzca la URL de descarga completa</string>
@@ -348,10 +342,8 @@
     <string name="exclude_apps">Excluir aplicaciones</string>
     <string name="label_no_apps_added">No hay aplicaciones añadidas. Haga clic en el botón de abajo para añadir una aplicación.</string>
     <string name="title_remove_apps">¿Eliminar las aplicaciones seleccionadas\?</string>
-    <string name="save_results_summary">Guardar los resultados del diagnóstico de red</string>
     <string name="action_select_all">Seleccionar todo</string>
     <string name="diagnostics_history">Historial del diagnóstico</string>
-    <string name="settings_save_results">Guardar los resultados</string>
     <string name="title_delete_results">¿Borrar los resultados seleccionados\?</string>
     <string name="Atalanttore">Ettore Atalan</string>
     <string name="gallegonovato_summary">Español</string>

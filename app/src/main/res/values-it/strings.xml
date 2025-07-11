@@ -173,8 +173,6 @@
     <string name="setup_app_data_usage_alert">"Avviso di uso dati"</string>
     <string name="title_app_data_limit">"Limite uso dati"</string>
     <string name="network_diagnostics">"Diagnostica di rete"</string>
-    <string name="run_diagnostics">"Esegui diagnostica"</string>
-    <string name="running_diagnostics">"Esecuzione diagnostica in corso"</string>
     <string name="connecting">"Connessione in corso"</string>
     <string name="testing_download">"Test di velocità download in corso"</string>
     <string name="testing_upload">"Test di velocità upload in corso"</string>
@@ -314,19 +312,14 @@
     <string name="label_mail">Email</string>
     <string name="label_battery_optimisation">Ottimizzazione batteria</string>
     <string name="label_copy_logs">Copia i registri</string>
-    <string name="settings_network_diagnostics">Diagnostica di rete</string>
     <string name="label_crash_logs_copied">Registri degli arresti anomali copiati negli appunti</string>
     <string name="battery_optimisation_enabled_info">L\'ottimizzazione della batteria è attivata. Ciò interferisce con il funzionamento di Data Tracker.</string>
     <string name="network_diagnostics_summary">Cambia server di diagnostica</string>
-    <string name="settings_download_server">Server scaricamento</string>
-    <string name="settings_diagnostics_server">Server</string>
     <string name="custom_upload_url_hint">Inserisci l\'URL di caricamento completo</string>
     <string name="custom_download_url_hint">Inserire l\'URL completo per il download</string>
-    <string name="settings_upload_server">Server caricamento</string>
     <string name="label_custom_server_save_success">Preferenza del server salvata</string>
     <string name="error_invaliid_url">URL di download non valido!</string>
     <string name="error_url_verification_failed">Impossibile verificare l\'URL! Riprovare o utilizzarne uno diverso.</string>
-    <string name="settings_save_results">Salva risultati</string>
     <string name="iqb4lsp">iqb4lsp</string>
     <string name="Master2050">Master2050</string>
     <string name="error_unknown">Si è verificato un errore sconosciuto. Riprova.</string>
@@ -350,7 +343,6 @@
 \nModello del dispositivo
 \nNome in codice del dispositivo
 \nVersione Android</string>
-    <string name="save_results_summary">Salva i risultati delle diagnostiche di rete</string>
     <string name="title_delete_results">Eliminare i risultati selezionati\?</string>
     <string name="action_select_all">Seleziona tutti</string>
     <string name="louis_leblanc_summary">Francese</string>

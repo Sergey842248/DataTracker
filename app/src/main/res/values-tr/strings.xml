@@ -167,7 +167,6 @@
     <string name="setup_app_data_usage_alert">Uygulama veri kullanım uyarısı</string>
     <string name="title_app_data_limit">Uygulama veri sınırı</string>
     <string name="network_diagnostics">Ağ Tanılama</string>
-    <string name="running_diagnostics">Tanılama Çalışıyor</string>
     <string name="connecting">Bağlanıyor</string>
     <string name="testing_download">İndirme hızları test ediliyor</string>
     <string name="testing_upload">Yükleme hızları test ediliyor</string>
@@ -219,7 +218,6 @@
     <string name="isp_region">Bölge</string>
     <string name="rate_app_summary">Geri bildiriminiz için teşekkür ederiz</string>
     <string name="overview_sunday">Pzr</string>
-    <string name="run_diagnostics">Tanılamayı Çalıştır</string>
     <string name="current_connection">Güncel bağlantı: %1$s</string>
     <string name="network_stats">Ağ istatistikleri</string>
     <string name="network_speed_mbps">%1$s Mbit/sn</string>
@@ -262,8 +260,6 @@
     <string name="mail_uri">mailto:%1$s\?&amp;konu=%2$s&amp;body=%3$s</string>
     <string name="label_unknown">Bilinmiyor</string>
     <string name="network_diagnostics_summary">Teşhis sunucusunu değiştir</string>
-    <string name="settings_diagnostics_server">Sunucu</string>
-    <string name="settings_download_server">İndirme sunucusu</string>
     <string name="custom_upload_url_hint">Tam yükleme URL\'sini girin</string>
     <string name="label_device_info">Cihaz bilgisi</string>
     <string name="crash_report_title">Çökme Raporu</string>
@@ -280,7 +276,6 @@
     <string name="crash_logs_extra_text">Veri İzleyicisi kilitlenme günlükleri</string>
     <string name="label_crash_logs_share_chat">Sohbet için paylaşın: @datamonitor</string>
     <string name="label_mail">Posta</string>
-    <string name="settings_upload_server">Yükleme sunucusu</string>
     <string name="error_invalid_plan">Geçersiz plan!</string>
     <string name="label_send_report">Raporunuzu şu yolla gönderin</string>
     <string name="label_permission_denied">İzin reddedildi!</string>
@@ -298,7 +293,6 @@
 \nCihaz Modeli
 \nCihaz Kod Adı
 \nAndroid Sürümü</string>
-    <string name="settings_network_diagnostics">Ağ teşhisi</string>
     <string name="label_custom_start_date">Başlangıç tarihi: %1$s</string>
     <string name="label_select_start_date">Başlangıç tarihini seçin</string>
     <string name="label_plan_end_date">Bitiş tarihini seçin</string>
@@ -336,8 +330,6 @@
     <string name="title_remove_apps">Seçilen uygulamalar kaldırılsın mı\?</string>
     <string name="action_delete">Kaldır</string>
     <string name="error_unknown">Bilinmeyen bir hata oluştu. Lütfen tekrar deneyin.</string>
-    <string name="settings_save_results">Sonuçları kaydet</string>
-    <string name="save_results_summary">Ağ tanılama sonuçlarını kaydet</string>
     <string name="title_delete_results">Seçilen sonuçlar silinsin mi\?</string>
     <string name="action_select_all">Tümünü seç</string>
     <string name="Atalanttore_summary">Almanca</string>

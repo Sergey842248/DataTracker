@@ -173,8 +173,6 @@
     <string name="title_app_data_limit">数据用量限制</string>
     <string name="network_diagnostics">网速测试</string>
     <string name="network_diagnostics_info">网速测试可能需要使用 20-30 Mb 数据。请确保您有足够的数据流量，否则可能会收取费用.</string>
-    <string name="run_diagnostics">开始测试</string>
-    <string name="running_diagnostics">测试中</string>
     <string name="connecting">连接中</string>
     <string name="testing_download">测试下载速度中</string>
     <string name="testing_upload">测试上传速度中</string>
@@ -253,11 +251,7 @@
     <string name="label_battery_optimisation">电池优化</string>
     <string name="error_no_crash_logs">未找到崩溃日志。你确定发生了崩溃？</string>
     <string name="label_copy_logs">复制日志</string>
-    <string name="settings_network_diagnostics">网络诊断</string>
     <string name="network_diagnostics_summary">交换机诊断服务器</string>
-    <string name="settings_diagnostics_server">服务器</string>
-    <string name="settings_download_server">下载服务器</string>
-    <string name="settings_upload_server">上传服务器</string>
     <string name="custom_upload_url_hint">输入完整的上传网址</string>
     <string name="error_invaliid_url">下载网址无效！</string>
     <string name="error_url_verification_failed">无法验证URL!请再试一次或使用不同的网址。</string>

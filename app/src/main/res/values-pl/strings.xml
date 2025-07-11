@@ -117,8 +117,6 @@
     <string name="label_translators">Tłumacze</string>
     <string name="title_app_data_limit">Limit danych aplikacji</string>
     <string name="network_diagnostics">Diagnostyka</string>
-    <string name="run_diagnostics">Uruchom diagnostykę</string>
-    <string name="running_diagnostics">Uruchomiono diagnostykę</string>
     <string name="connecting">Łączenie</string>
     <string name="current_connection">Obecna lokalizacja: %1$s</string>
     <string name="network_speed_mbps">%1$s MB/s</string>
@@ -265,8 +263,6 @@
     <string name="label_mail">E-mail</string>
     <string name="label_battery_optimisation">Optymalizacja baterii</string>
     <string name="label_copy_logs">Kopiuj dzienniki</string>
-    <string name="settings_network_diagnostics">Diagnostyka sieci</string>
-    <string name="settings_diagnostics_server">Serwer</string>
     <string name="label_custom_server">Niestandardowy serwer</string>
     <string name="error_invalid_plan">Nieprawidłowy plan!</string>
     <string name="label_send_report">Wyślij zgłoszenie przez</string>
@@ -287,7 +283,6 @@
     <string name="action_delete">Usuń</string>
     <string name="error_unknown">Wystąpił nieznany błąd. Proszę spróbować później.</string>
     <string name="diagnostics_history">Historia diagnostyki</string>
-    <string name="settings_save_results">Zapisz wyniki</string>
     <string name="action_select_all">Wybierz wszystko</string>
     <string name="Atalanttore_summary">Niemiecki</string>
     <string name="gallegonovato_summary">Hiszpański</string>
@@ -308,7 +303,6 @@
     <string name="tadekdudek">tadekdudek</string>
     <string name="tadekdudek_summary">Polski</string>
     <string name="U1M450W">U1M450W</string>
-    <string name="settings_download_server">Serwer pobierania</string>
     <string name="bonbonboi">bonbonboi</string>
     <string name="MarongHappy_summary">Koreański</string>
     <string name="action_save">Zapisz</string>
@@ -340,11 +334,9 @@
     <string name="auto_hide_live_network_summary">Zatrzymaj powiadomienie o szybkości sieci, gdy sieć nie jest połączona</string>
     <string name="title_data_plan_expired">Plan danych wygasł!</string>
     <string name="title_device_info_contents">Zawartość informacji o urządzeniu</string>
-    <string name="settings_upload_server">Serwer wysyłania</string>
     <string name="network_diagnostics_summary">Przełącz serwer diagnostyczny</string>
     <string name="error_invaliid_url">Nieprawidłowy URL pobierania!</string>
     <string name="combine_notifications_summary">Połącz monitor danych i szybkość sieci w jedno powiadomienie.</string>
-    <string name="save_results_summary">Zapisz wyniki diagnostyki sieci</string>
     <string name="title_delete_results">Usunąć wybrane wyniki\?</string>
     <string name="Atalanttore">Ettore Atalan</string>
     <string name="iqb4lsp_summary">Indonezyjski</string>

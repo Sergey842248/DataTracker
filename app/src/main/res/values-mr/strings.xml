@@ -49,9 +49,7 @@
     <string name="label_crash_logs_copied">क्रॅश लॉग क्लिपबोर्डवर कॉपी केले</string>
     <string name="custom_upload_url_hint">पूर्ण अपलोड URL एंटर करा</string>
     <string name="error_unknown_telegram_client">टेलिग्राम स्थापित नाही किंवा अज्ञात क्लायंट उपस्थित आहे. कृपया दुसरी पद्धत वापरून पहा.</string>
-    <string name="settings_download_server">सर्व्हर डाउनलोड करा</string>
     <string name="label_custom_server">सानुकूल सर्व्हर</string>
-    <string name="settings_upload_server">सर्व्हर अपलोड करा</string>
     <string name="error_url_verification_failed">URL सत्यापित करू शकलो नाही! कृपया पुन्हा प्रयत्न करा किंवा दुसरा वापरा.</string>
     <string name="error_invaliid_url">अवैध डाउनलोड URL!</string>
     <string name="body_app_data_warning_notification">%1$s ने त्याचा डेटा कोटा वापरला आहे</string>
@@ -81,10 +79,8 @@
     <string name="title_app_data_limit">अॅप डेटा मर्यादा</string>
     <string name="network_diagnostics">निदान</string>
     <string name="action_add_application">अर्ज जोडा</string>
-    <string name="running_diagnostics">डायग्नोस्टिक्स चालवा</string>
     <string name="title_app_picker">एक अर्ज निवडा</string>
     <string name="exclude_apps_summary">डेटा वापरातून अॅप ट्रॅफिक वगळा</string>
-    <string name="run_diagnostics">डायग्नोस्टिक्स चालवा</string>
     <string name="label_no_apps_added">कोणतेही अॅप्स जोडलेले नाहीत. अर्ज जोडण्यासाठी खालील बटणावर क्लिक करा.</string>
     <string name="connecting">कनेक्ट करत आहे</string>
     <string name="testing_download">डाउनलोड गतीची चाचणी करत आहे</string>
@@ -145,7 +141,6 @@
     <string name="network_speed_download">डाउनलोड: %1$s</string>
     <string name="data_plan_saved">डेटा योजना संचयीत केली</string>
     <string name="label_update_available">नवीन आवृत्ती उपलब्ध आहे!</string>
-    <string name="settings_network_diagnostics">नेटवर्क डायग्नोस्टिक्स</string>
     <string name="network_signal_notification">लाइव नेटवर्क की गति</string>
     <string name="label_network_signal_notification_enabled">लाइव नेटवर्क स्पीड कार्यान्वीत</string>
     <string name="label_network_signal_notification_disabled">थेट नेटवर्क गती अक्षम</string>
@@ -288,8 +283,6 @@
     <string name="label_show_system_apps">सिस्टम अॅप्स दाखवा</string>
     <string name="title_remove_apps">निवडलेले अॅप्स काढायचे\?</string>
     <string name="diagnostics_history">निदान इतिहास</string>
-    <string name="settings_save_results">परिणाम जतन करा</string>
-    <string name="save_results_summary">नेटवर्क निदान परिणाम जतन करा</string>
     <string name="Atalanttore_summary">जर्मन</string>
     <string name="gallegonovato_summary">स्पॅनिश</string>
     <string name="rex07_summary">अरबी</string>
@@ -341,7 +334,6 @@
     <string name="data_alert_summary">डेटा मर्यादा केव्हा गाठली जाते हे सूचित करा</string>
     <string name="refresh_interval_placeholder">1 मिनिट</string>
     <string name="month">महिना</string>
-    <string name="settings_diagnostics_server">सर्व्हर</string>
     <string name="action_add_data_plan_home_summary">कोणतीही डेटा योजना आढळली नाही! त्याचा मागोवा घेणे सुरू करण्यासाठी डेटा प्लॅन जोडा.</string>
     <string name="heading_data_reset_custom_counter">प्लान वैधता</string>
     <string name="battery_optimisation_enabled_info">बॅटरी ऑप्टिमायझेशन सक्षम केले आहे. यामुळे डेटा मॉनिटरच्या कामात व्यत्यय येईल. अक्षम करण्यासाठी क्लिक करा.</string>

@@ -192,9 +192,7 @@
     <string name="label_translators">Vertalers</string>
     <string name="setup_app_data_usage_alert">Waarschuwing voor app gegevensgebruik</string>
     <string name="title_app_data_limit">Limiet app gegevensgebruik</string>
-    <string name="run_diagnostics">Diagnostische gegevens uitvoeren</string>
     <string name="network_diagnostics">Diagnostische gegevens</string>
-    <string name="running_diagnostics">Diagnostische gegevens uitvoeren</string>
     <string name="connecting">Verbinden</string>
     <string name="testing_download">Download snelheden testen</string>
     <string name="testing_upload">Upload snelheden testen</string>
@@ -260,10 +258,6 @@
     <string name="label_battery_optimisation">Batterijoptimalisatie</string>
     <string name="error_no_crash_logs">Geen crashlogboeken gevonden. Weet je zeker dat er een crash heeft plaatsgevonden\?</string>
     <string name="label_copy_logs">Logboeken kopiëren</string>
-    <string name="settings_network_diagnostics">Netwerkdiagnose</string>
-    <string name="settings_diagnostics_server">Server</string>
-    <string name="settings_download_server">Download server</string>
-    <string name="settings_upload_server">Upload server</string>
     <string name="liviogasp_summary">Italiaans</string>
     <string name="comradekingu_summary">Vertalingsondersteuning</string>
     <string name="f_droid_page">Bekijk app op F-Droid</string>
@@ -325,8 +319,6 @@
     <string name="action_delete">Verwijderen</string>
     <string name="error_unknown">Er is een onbekende fout opgetreden. Probeer het opnieuw.</string>
     <string name="diagnostics_history">Diagnostische geschiedenis</string>
-    <string name="settings_save_results">Resultaten opslaan</string>
-    <string name="save_results_summary">Diagnostische netwerkresultaten opslaan</string>
     <string name="label_mail">Email</string>
     <string name="custom_upload_url_hint">Voer de complete upload URL in</string>
     <string name="battery_optimisation_enabled_info">Batterijoptimalisatie is ingeschakeld. Dit zal de werking van Data Tracker verstoren. Klik om uit te schakelen.</string>

@@ -224,7 +224,6 @@
     <string name="label_telegram">טלגרם</string>
     <string name="action_dismiss">ביטול</string>
     <string name="overview_monday">יום ב\'</string>
-    <string name="running_diagnostics">איבחון מופעל</string>
     <string name="device_info_body">המידע על המכשיר כולל:
 \nיצרן המכשיר
 \nמותג המכשיר
@@ -245,7 +244,6 @@
     <string name="read_phone_state_permission">הרשאה לקראת מצב המכשיר</string>
     <string name="swipe_right_to_delete">החלקה ימינה למחיקת פריט</string>
     <string name="iqb4lsp">iqb4lsp</string>
-    <string name="settings_network_diagnostics">איבחוני הרשת</string>
     <string name="option_30_sec">30 שניות</string>
     <string name="action_add_data_plan_home_summary">לא נמצאה חבילת גלישה! הוסיפו חבילת גלישה כדי להתחיל לנטר אותה.</string>
     <string name="label_send_report">שליחת דו\"ח באמצעות</string>
@@ -262,7 +260,6 @@
     <string name="label_crash_logs">רישומי התקלות</string>
     <string name="auto_hide_live_network_summary">השעיית התראת מהירות הרשת כאשר הרשת איננה מחוברת</string>
     <string name="exclude_apps">החרגת יישומים</string>
-    <string name="save_results_summary">שמירת תוצאות איבחוני הרשת</string>
     <string name="crash_logs_warning">יומני קריסה; אל תבצעו שינויים</string>
     <string name="xmr_address_copied">כתובת ארנק ה-Monero הועתקה ללוח</string>
     <string name="MarongHappy_summary">קוריאנית</string>
@@ -298,7 +295,6 @@
     <string name="label_unknown">לא ידוע</string>
     <string name="extra_optimisation_tips">עצות נוספות למיטוב</string>
     <string name="label_notification_enabled">התראת מנטר הנתונים מופעלת</string>
-    <string name="run_diagnostics">הפעלת איבחון</string>
     <string name="avg_latency">השהייה ממוצעת</string>
     <string name="notification_permission_denied_body">תכולות ובהן התראת מנטר הנתונים, מהירות רשת \"חיה\" והתראת שימוש בנתונים לא יפעלו באופן תקין ללא הרשאות להתראות. יש לתת את ההרשאות ידנית.</string>
     <string name="title_data_warning_notification">אזהרת שימוש בנתונים</string>
@@ -326,7 +322,6 @@
     <string name="app_theme_summary">בחירת ערכת הנושא של היישום</string>
     <string name="action_save">שמירה</string>
     <string name="combined_notification_icon">סמל ההתראה הממוזגת</string>
-    <string name="settings_download_server">שרת ההורדות</string>
     <string name="louis_leblanc_summary">צרפתית</string>
     <string name="label_changelogs">גלו מה חדש</string>
     <string name="report_telegram_summary">שליחת דו\"ח הקריסה בקבוצת התמיכה בטלגרם</string>
@@ -336,7 +331,6 @@
     <string name="iqb4lsp_summary">אינדונזית</string>
     <string name="oem_battery_settings">הגדרות סוללה OEM</string>
     <string name="telegram_support">תמיכה בטלגרם</string>
-    <string name="settings_diagnostics_server">שרת</string>
     <string name="label_days_remaining">%1$s יום/ימים נותרו</string>
     <string name="liviogasp_summary">איטלקית</string>
     <string name="label_want_to_contribute_language">ליחצו כאן כדי לסייע בתרגום היישום לשפתכם.</string>
@@ -354,8 +348,6 @@
     <string name="max_download_speed">מהירות הורדה מירבית</string>
     <string name="label_select_app">בחירת יישום</string>
     <string name="available_languages">זמינה</string>
-    <string name="settings_save_results">שמירת התוצאות</string>
-    <string name="settings_upload_server">שרת ההעלאות</string>
     <string name="label_custom_server">שרת מותאם</string>
     <string name="connection_error">לא ניתן היה להתחבר.
 \nנא לוודא שיש לך חיבור לאינטרנט.</string>

@@ -219,14 +219,12 @@
     <string name="disable_battery_optimisation">バッテリーの最適化を無効化する</string>
     <string name="title_data_usage_notification">今日のデータ使用量: %1$s</string>
     <string name="overview_tuesday">火</string>
-    <string name="run_diagnostics">診断を実行</string>
     <string name="extra_optimisation_tips">さらなる最適化のヒント</string>
     <string name="oem_battery_settings">OEMバッテリー設定</string>
     <string name="action_next">次へ</string>
     <string name="overview_sunday">日</string>
     <string name="label_translators">翻訳者</string>
     <string name="overview_wednesday">水</string>
-    <string name="running_diagnostics">診断を実行中</string>
     <string name="testing_download">ダウンロード速度をテスト中</string>
     <string name="overview_friday">金</string>
     <string name="network_diagnostics">診断</string>
@@ -291,7 +289,6 @@
     <string name="battery_optimisation_enabled_info">バッテリー最適化が有効です。これはデータ使用量モニターの動作に影響を及ぼす可能性があります。</string>
     <string name="label_battery_optimisation">バッテリー最適化</string>
     <string name="label_copy_logs">ログをコピー</string>
-    <string name="settings_upload_server">アップロードサーバー</string>
     <string name="custom_upload_url_hint">完全なアップロードURLを入力する</string>
     <string name="label_custom_server_save_success">サーバー設定を保存しました</string>
     <string name="error_invaliid_url">無効なダウンロードURLです！</string>
@@ -325,8 +322,6 @@
     <string name="action_delete">削除</string>
     <string name="error_unknown">不明なエラーが発生しました。もう一度お試しください。</string>
     <string name="diagnostics_history">診断履歴</string>
-    <string name="settings_save_results">結果を保存</string>
-    <string name="save_results_summary">ネットワーク診断の結果を保存します</string>
     <string name="title_delete_results">選択した結果を削除しますか？</string>
     <string name="action_select_all">全て選択</string>
     <string name="Atalanttore_summary">ドイツ語</string>
@@ -358,14 +353,11 @@
     <string name="action_save">保存</string>
     <string name="label_custom_end_time">終了時刻: %1$s</string>
     <string name="title_device_info_contents">端末情報の内容</string>
-    <string name="settings_network_diagnostics">ネットワーク診断</string>
-    <string name="settings_diagnostics_server">サーバー</string>
     <string name="label_crash_logs_copied">クラッシュログをクリップボードにコピーしました</string>
     <string name="label_mail">メール</string>
     <string name="label_custom_server">カスタムサーバー</string>
     <string name="network_diagnostics_summary">診断サーバーを切り替え</string>
     <string name="error_no_crash_logs">クラッシュログが見つかりません。実際にクラッシュしたか確認してください。</string>
-    <string name="settings_download_server">ダウンロードサーバー</string>
     <string name="custom_download_url_hint">完全なダウンロードURLを入力する</string>
     <string name="combine_notifications">通知をまとめる</string>
     <string name="action_dismiss">無視</string>

@@ -181,8 +181,6 @@
     <string name="setup_app_data_usage_alert">資料用量警報</string>
     <string name="title_app_data_limit">資料用量限制</string>
     <string name="network_diagnostics">網路診斷</string>
-    <string name="run_diagnostics">開始診斷</string>
-    <string name="running_diagnostics">診斷中</string>
     <string name="connecting">連線中</string>
     <string name="testing_download">測試下載速度中</string>
     <string name="testing_upload">測試上傳速度中</string>
@@ -295,11 +293,7 @@
     <string name="label_battery_optimisation">電池最佳化</string>
     <string name="error_no_crash_logs">未找到錯誤日誌。你確定發生了錯誤？</string>
     <string name="label_copy_logs">複製日誌</string>
-    <string name="settings_network_diagnostics">網路診斷</string>
     <string name="network_diagnostics_summary">切換診斷伺服器</string>
-    <string name="settings_diagnostics_server">伺服器</string>
-    <string name="settings_download_server">下載伺服器</string>
-    <string name="settings_upload_server">上傳伺服器</string>
     <string name="custom_upload_url_hint">輸入完整的上傳網址</string>
     <string name="label_custom_server">自訂伺服器</string>
     <string name="custom_download_url_hint">輸入完整的下載網址</string>
@@ -338,8 +332,6 @@
     <string name="action_delete">刪除</string>
     <string name="error_unknown">出現未知錯誤。請再試一次。</string>
     <string name="diagnostics_history">診斷紀錄</string>
-    <string name="settings_save_results">儲存結果</string>
-    <string name="save_results_summary">儲存網路診斷結果</string>
     <string name="title_delete_results">刪除所選結果？</string>
     <string name="action_select_all">選擇全部</string>
     <string name="Atalanttore_summary">德語</string>

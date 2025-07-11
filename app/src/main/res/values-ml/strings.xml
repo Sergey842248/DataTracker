@@ -172,8 +172,6 @@
     <string name="setup_app_data_usage_alert">"ആപ്പ് ഡാറ്റ ഉപയോഗ മുന്നറിയിപ്പ്"</string>
     <string name="title_app_data_limit">"ആപ്പ് ഡാറ്റ പരിധി"</string>
     <string name="network_diagnostics">ഡയഗ്നോസ്റ്റിക്സ്</string>
-    <string name="run_diagnostics">"ഡയഗ്നോസ്റ്റിക്സ് പ്രവർത്തിപ്പിക്കുക"</string>
-    <string name="running_diagnostics">"ഡയഗ്നോസ്റ്റിക്സ് പ്രവർത്തിപ്പിക്കുന്നു"</string>
     <string name="connecting">"കണക്റ്റുചെയ്യുന്നു"</string>
     <string name="testing_download">"ഡൗൺലോഡ് വേഗത പരിശോധിക്കുന്നു"</string>
     <string name="testing_upload">"അപ്‌ലോഡ് വേഗത പരിശോധിക്കുന്നു"</string>
@@ -273,11 +271,7 @@
     <string name="label_battery_optimisation">ബാറ്ററി ഒപ്റ്റിമൈസേഷൻ</string>
     <string name="error_no_crash_logs">ക്രാഷ് ലോഗുകളൊന്നും കണ്ടെത്തിയില്ല. ക്രാഷ് സംഭവിച്ചുവെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ\?</string>
     <string name="label_copy_logs">ലോഗുകൾ പകർത്തുക</string>
-    <string name="settings_network_diagnostics">നെറ്റ്‌വർക്ക് ഡയഗ്നോസ്റ്റിക്സ്</string>
     <string name="network_diagnostics_summary">ഡയഗ്നോസ്റ്റിക്സ് സെർവർ മാറ്റുക</string>
-    <string name="settings_diagnostics_server">സെർവർ</string>
-    <string name="settings_download_server">ഡൗൺലോഡ് സെർവർ</string>
-    <string name="settings_upload_server">അപ് ലോഡ് സെർവർ</string>
     <string name="custom_upload_url_hint">പൂർണ്ണമായ അപ് ലോഡ് യുആർഎൽ നൽകുക</string>
     <string name="label_custom_server_save_success">സെർവർ മുൻഗണന സേവ് ചെയ്തു</string>
     <string name="error_invaliid_url">അസാധുവായ ഡൗൺലോഡ് യു ആർ എൽ!</string>
@@ -294,7 +288,6 @@
     <string name="app_already_present">ആപ്പ് ഇതിനകം തന്നെ ലിസ്റ്റിൽ ഉണ്ട്.</string>
     <string name="action_delete">നീക്കം ചെയ്യുക</string>
     <string name="error_unknown">ഒരു അജ്ഞാത പിശക് സംഭവിച്ചു. ദയവായി വീണ്ടും ശ്രമിക്കുക.</string>
-    <string name="settings_save_results">ഫലങ്ങൾ സെയിവ് ചെയുക</string>
     <string name="title_delete_results">തെരഞ്ഞെടുത്ത ഫലങ്ങള് ഇല്ലാതാക്കണമോ\?</string>
     <string name="action_select_all">എല്ലാം തിരഞ്ഞെടുക്കുക</string>
     <string name="heading_data_reset_custom_counter">പ്ലാൻ വാലിഡിറ്റി</string>
@@ -331,7 +324,6 @@
     <string name="action_dismiss">പിരിച്ചുവിടുക</string>
     <string name="action_add_data_plan_home_summary">ഡാറ്റ പ്ലാനൊന്നും കണ്ടെത്തിയില്ല! അത് ട്രാക്ക് ചെയ്യാൻ തുടങ്ങാൻ ഒരു ഡാറ്റ പ്ലാൻ ചേർക്കുക.</string>
     <string name="lockscreen_notification">ലോക്ക് സ്ക്രീനിൽ അറിയിപ്പ് കാണിക്കുക</string>
-    <string name="save_results_summary">നെറ്റ്‌വർക്ക് ഡയഗ്‌നോസ്റ്റിക്‌സ് ഫലങ്ങൾ സെയിവ് ചെയുക</string>
     <string name="exclude_apps">ആപ്ലിക്കേഷനുകൾ ഒഴിവാക്കുക</string>
     <string name="exclude_apps_summary">ഡാറ്റാ ഉപയോഗത്തിൽ നിന്ന് ആപ്ലിക്കേഷൻ ട്രാഫിക് ഒഴിവാക്കുക</string>
     <string name="diagnostics_history">ഡയഗ്നോസ്റ്റിക്സ് ചരിത്രം</string>

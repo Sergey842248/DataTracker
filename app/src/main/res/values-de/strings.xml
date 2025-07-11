@@ -91,7 +91,6 @@
     <string name="label_days_remaining">%1$s Tag(e) verbleibend</string>
     <string name="label_hours_remaining">%1$s Stunde(n) verbleibend</string>
     <string name="overview_tuesday">Di</string>
-    <string name="running_diagnostics">Laufende Diagnose</string>
     <string name="connecting">Verbinden</string>
     <string name="testing_download">Testen der Download-Geschwindigkeit</string>
     <string name="testing_upload">Testen der Upload-Geschwindigkeiten</string>
@@ -203,7 +202,6 @@
     <string name="setup_usage_reset_date">Datum des Zurücksetzens der Datennutzung</string>
     <string name="body_data_usage_notification_loading">Laden…</string>
     <string name="setup_app_data_usage_alert">App-Datenverbrauchswarnung</string>
-    <string name="run_diagnostics">Diagnostik durchführen</string>
     <string name="read_phone_state_permission">Berechtigung zum Lesen des Telefonstatus</string>
     <string name="title_app_data_limit">App-Datenlimit</string>
     <string name="testing_latency">Testen der Netzwerklatenz</string>
@@ -267,7 +265,6 @@
 \nCodename des Geräts
 \nAndroid-Version</string>
     <string name="label_battery_optimisation">Akku-Optimierung</string>
-    <string name="settings_download_server">Download-Server</string>
     <string name="label_custom_server_save_success">Server-Einstellung gespeichert</string>
     <string name="disable_haptics_summary">Haptisches Feedback in der App deaktivieren</string>
     <string name="action_dismiss">Verwerfen</string>
@@ -299,10 +296,7 @@
     <string name="label_crash_logs_copied">Absturzprotokolle in die Zwischenablage kopiert</string>
     <string name="label_mail">E-Mail</string>
     <string name="label_copy_logs">Protokolle kopieren</string>
-    <string name="settings_network_diagnostics">Netzwerk Diagnose</string>
     <string name="network_diagnostics_summary">Diagnostik-Server wechseln</string>
-    <string name="settings_diagnostics_server">Server</string>
-    <string name="settings_upload_server">Upload-Server</string>
     <string name="custom_download_url_hint">Geben Sie die vollständige Download-URL ein</string>
     <string name="error_url_verification_failed">URL konnte nicht überprüft werden! Bitte versuchen Sie es erneut oder verwenden Sie ein anderes.</string>
     <string name="error_invalid_plan">Ungültiger Plan!</string>
@@ -352,8 +346,6 @@
     <string name="error_unknown">Unbekannter Fehler. Bitte nochmal versuchen.</string>
     <string name="action_select_all">Alles auswählen</string>
     <string name="diagnostics_history">Ergebnis-Archiv</string>
-    <string name="settings_save_results">Speichere Ergebnisse</string>
-    <string name="save_results_summary">Netzwerk Diagnose Ergebnisse speichern</string>
     <string name="title_delete_results">Lösche ausgewählte Ergebnisse\?</string>
     <string name="Atalanttore_summary">Deutsch</string>
     <string name="Atalanttore">Ettore Atalan</string>

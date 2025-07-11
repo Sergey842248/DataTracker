@@ -227,8 +227,6 @@
     <string name="setup_app_data_usage_alert">Cảnh báo sử dụng dữ liệu</string>
     <string name="title_app_data_limit">Giới hạn dữ liệu</string>
     <string name="network_diagnostics">Chẩn đoán</string>
-    <string name="run_diagnostics">Chạy chẩn đoán</string>
-    <string name="running_diagnostics">Đang chạy chẩn đoán</string>
     <string name="connecting">Đang kết nối</string>
     <string name="testing_upload">Đang kiểm tra tốc độ tải lên</string>
     <string name="testing_latency">Đang kiểm tra độ trễ của mạng</string>
@@ -295,10 +293,6 @@
     <string name="label_mail">Mail</string>
     <string name="error_no_crash_logs">Không tìm thấy nhật ký sự cố. Bạn có chắc chắn đã xảy ra sự cố không\?</string>
     <string name="label_copy_logs">Sao chép nhật ký</string>
-    <string name="settings_network_diagnostics">Chẩn đoán mạng</string>
-    <string name="settings_diagnostics_server">Máy chủ</string>
-    <string name="settings_download_server">Máy chủ tải xuống</string>
-    <string name="settings_upload_server">Máy chủ tải lên</string>
     <string name="label_custom_server">Máy chủ tùy chỉnh</string>
     <string name="custom_download_url_hint">Nhập đường dẫn tải xuống hoàn chỉnh</string>
     <string name="custom_upload_url_hint">Nhập đường dẫn tải lên hoàn chỉnh</string>
@@ -317,8 +311,6 @@
     <string name="option_30_sec">30 giây</string>
     <string name="lockscreen_notification">Bật thông báo trên màn hình khóa</string>
     <string name="exclude_apps">Loại trừ ứng dụng</string>
-    <string name="save_results_summary">Lưu kết quả chẩn đoán mạng</string>
-    <string name="settings_save_results">Lưu kết quả</string>
     <string name="diagnostics_history">Lịch sử chẩn đoán</string>
     <string name="error_unknown">Một lỗi không rõ đã xảy ra. Hãy thử lại.</string>
     <string name="action_delete">Xóa</string>

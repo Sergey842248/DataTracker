@@ -74,8 +74,6 @@
     <string name="setup_app_data_usage_alert">Amaran penggunaan data apl</string>
     <string name="title_app_data_limit">Had data apl</string>
     <string name="network_diagnostics">Diagnostik</string>
-    <string name="run_diagnostics">Jalankan Diagnostik</string>
-    <string name="running_diagnostics">Menjalankan Diagnostik</string>
     <string name="connecting">Menyambung</string>
     <string name="testing_download">Menguji kelajuan muat turun</string>
     <string name="testing_upload">Menguji kelajuan muat naik</string>

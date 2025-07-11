@@ -172,8 +172,6 @@
     <string name="setup_app_data_usage_alert">"تنبيه استخدام بيانات التطبيق"</string>
     <string name="title_app_data_limit">"حد بيانات التطبيق"</string>
     <string name="network_diagnostics">التشخيص</string>
-    <string name="run_diagnostics">"قم بتشغيل التشخيص"</string>
-    <string name="running_diagnostics">"التشخيصات المفعلة"</string>
     <string name="connecting">"توصيل"</string>
     <string name="testing_download">"اختبار سرعات التنزيل"</string>
     <string name="testing_upload">"اختبار سرعات التحميل"</string>
@@ -277,9 +275,6 @@
     <string name="battery_optimisation_enabled_info">تحسين البطارية مٌفعل. سيتداخل هذا مع عمل مراقب البيانات.</string>
     <string name="label_battery_optimisation">تحسينات البطارية</string>
     <string name="error_no_crash_logs">لم يتم العثور على سجلات الأعطال. هل أنت متأكد من حدوث مشكلة؟</string>
-    <string name="settings_diagnostics_server">الخادم</string>
-    <string name="settings_download_server">خادم التحميل</string>
-    <string name="settings_upload_server">خادم الرفع</string>
     <string name="label_custom_server">خادم مخصص</string>
     <string name="custom_download_url_hint">أدخل عنوان URL الكامل للتنزيل</string>
     <string name="label_custom_server_save_success">تم حفظ تفضيلات الخادم</string>
@@ -305,7 +300,6 @@
     <string name="label_custom_end_date">تاريخ الانتهاء: %1$s</string>
     <string name="error_unknown_telegram_client">Telegram غير مثبت أو عميل غير معروف موجود. يرجى تجربة طريقة أخرى.</string>
     <string name="label_crash_logs_copied">سجلات الأعطال التي تم نسخها إلى الحافظة</string>
-    <string name="settings_network_diagnostics">تشخيصات الشبكة</string>
     <string name="error_invalid_plan">خطة غير صالحة!</string>
     <string name="label_copy_logs">نسخ السجلات</string>
     <string name="network_diagnostics_summary">خادم تبديل التشخيص</string>
@@ -341,9 +335,7 @@
     <string name="app_search_hint">ابحث عن تطبيق</string>
     <string name="label_show_system_apps">إظهار تطبيقات النظام</string>
     <string name="diagnostics_history">سجل التشخيص</string>
-    <string name="settings_save_results">حفظ النتائج</string>
     <string name="action_select_all">حدد الكل</string>
-    <string name="save_results_summary">حفظ نتائج تشخيص الشبكة</string>
     <string name="title_delete_results">حذف النتائج المحددة؟</string>
     <string name="Atalanttore_summary">الألمانية</string>
     <string name="bonbonboi_summary">العربيّة</string>

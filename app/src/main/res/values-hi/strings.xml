@@ -128,7 +128,6 @@
     <string name="setup_app_data_usage_alert">ऐप्लिकेशन डेटा उपयोग चेतावनी</string>
     <string name="title_app_data_limit">ऐप डेटा सीमा</string>
     <string name="network_diagnostics">निदानिकी</string>
-    <string name="run_diagnostics">निदानिकी चलिये</string>
     <string name="connecting">कनेक्ट किया जा रहा है....</string>
     <string name="testing_upload">अपलोड गति का परीक्षण किया जा रहा है</string>
     <string name="current_connection">वर्तमान कनेक्शन: %1$s</string>
@@ -224,11 +223,7 @@
     <string name="label_battery_optimisation">बैटरी अनुकूलन</string>
     <string name="error_no_crash_logs">कोई क्रैश लॉग नहीं मिला. क्या आप सुनिश्चित हैं कि कोई क्रैश हुई है\?</string>
     <string name="label_copy_logs">लॉग की प्रतिलिपि बनाएँ</string>
-    <string name="settings_network_diagnostics">नेटवर्क निदान</string>
     <string name="network_diagnostics_summary">डायग्नोस्टिक्स सर्वर स्विच करें</string>
-    <string name="settings_diagnostics_server">सर्वर</string>
-    <string name="settings_download_server">डाउनलोड सर्वर</string>
-    <string name="settings_upload_server">अपलोड सर्वर</string>
     <string name="label_custom_server">कस्टम सर्वर</string>
     <string name="label_custom_server_save_success">सर्वर वरीयता सहेजी गई</string>
     <string name="error_invaliid_url">अमान्य डाउनलोड URL!</string>
@@ -290,7 +285,6 @@
     <string name="testing_download">डाउनलोड गति का परीक्षण किया जा रहा है</string>
     <string name="overview_thursday">गुरु</string>
     <string name="overview_tuesday">मंगल</string>
-    <string name="running_diagnostics">निदानिकी चलाई जा रही है</string>
     <string name="testing_latency">नेटवर्क विलंबता का परीक्षण किया जा रहा है</string>
     <string name="oem_battery_settings">ओईएम बैटरी सेटिंग्स</string>
     <string name="read_phone_state_body">एंड्रॉइड संस्करण 9 और नीचे चलाने वाले उपकरणों को मैन्युअल रूप से यह अनुमति देनी होगी. कोई व्यक्तिगत डेटा एकत्र नहीं किया जाएगा।</string>

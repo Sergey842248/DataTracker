@@ -187,8 +187,6 @@
     <string name="setup_app_data_usage_alert">App data usage alert</string>
     <string name="title_app_data_limit">App data limit</string>
     <string name="network_diagnostics">Diagnostics</string>
-    <string name="run_diagnostics">Run Diagnostics</string>
-    <string name="running_diagnostics">Running Diagnostics</string>
     <string name="connecting">Connecting</string>
     <string name="testing_download">Testing download speeds</string>
     <string name="testing_upload">Testing upload speeds</string>
@@ -310,11 +308,7 @@
     <string name="label_battery_optimisation">Battery optimisation</string>
     <string name="error_no_crash_logs">No crash logs found. Are you sure a crash occurred?</string>
     <string name="label_copy_logs">Copy logs</string>
-    <string name="settings_network_diagnostics">Network diagnostics</string>
     <string name="network_diagnostics_summary">Switch diagnostics server</string>
-    <string name="settings_diagnostics_server">Server</string>
-    <string name="settings_download_server">Download server</string>
-    <string name="settings_upload_server">Upload server</string>
     <string name="download_url_1_summary" translatable="false">http://speedtest.ftp.otenet.gr</string>
     <string name="download_url_2_summary" translatable="false">https://github.com</string>
     <string name="download_url_3_summary" translatable="false">http://xcal1.vodafone.co.uk</string>
@@ -386,8 +380,6 @@
     <string name="action_delete">Delete</string>
     <string name="error_unknown">An unknown error occurred. Please try again.</string>
     <string name="diagnostics_history">Diagnostics History</string>
-    <string name="settings_save_results">Save results</string>
-    <string name="save_results_summary">Save Network diagnostics results</string>
     <string name="title_delete_results">Delete selected results?</string>
     <string name="action_select_all">Select all</string>
     <string name="Atalanttore_summary">German</string>

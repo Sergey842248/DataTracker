@@ -171,8 +171,6 @@
     <string name="setup_app_data_usage_alert">Alertă utilizare date aplicație</string>
     <string name="title_app_data_limit">Limita datelor aplicației</string>
     <string name="network_diagnostics">Diagnosticare rețea</string>
-    <string name="run_diagnostics">Rulează diagnosticarea</string>
-    <string name="running_diagnostics">Rulează diagnosticarea</string>
     <string name="connecting">Conectare</string>
     <string name="testing_download">Testarea vitezelor de descărcare</string>
     <string name="testing_upload">Testarea vitezelor de încărcare</string>
@@ -217,7 +215,6 @@
     <string name="label_unknown">Necunoscut</string>
     <string name="label_select_app">Selectați aplicația</string>
     <string name="label_copy_logs">Copiere jurnale</string>
-    <string name="settings_upload_server">Încărcare server</string>
     <string name="label_data_usage_reset_date_change">Utilizarea datelor va fi resetată pe %1$s din fiecare lună</string>
     <string name="setup_usage_reset_date">Data de resetare a utilizării datelor</string>
     <string name="label_network_signal_notification_disabled">Viteza rețelei live a fost dezactivată</string>
@@ -245,7 +242,6 @@
     <string name="label_battery_optimisation">Optimizarea bateriei</string>
     <string name="error_no_crash_logs">Nu s-au găsit jurnale de accident. Sunteți sigur că a avut loc un accident\?</string>
     <string name="network_diagnostics_summary">Comutare server de diagnosticare</string>
-    <string name="settings_diagnostics_server">Serverul</string>
     <string name="custom_download_url_hint">Introduceți adresa URL de descărcare completă</string>
     <string name="error_invalid_plan">Plan nevalid!</string>
     <string name="label_send_report">Trimiteți raportul prin</string>
@@ -268,8 +264,6 @@
 \nModelul dispozitivului
 \nNume de cod al dispozitivului
 \nVersiunea Android</string>
-    <string name="settings_network_diagnostics">Diagnosticare rețea</string>
-    <string name="settings_download_server">Descărcați serverul</string>
     <string name="custom_upload_url_hint">Introduceți adresa URL de încărcare completă</string>
     <string name="label_custom_server_save_success">Preferința serverului salvată</string>
     <string name="error_url_verification_failed">Nu a putut verifica URL-ul! Vă rugăm să încercați din nou sau să utilizați unul diferit.</string>
@@ -331,7 +325,6 @@
     <string name="app_already_present">Aplicația este deja prestabilită în listă.</string>
     <string name="title_remove_apps">Elimini aplicațiile selectate\?</string>
     <string name="error_unknown">A apărut o eroare necunoscută. Încearcă din nou.</string>
-    <string name="settings_save_results">Salvează rezultatele</string>
     <string name="action_select_all">Selectează tot</string>
     <string name="diagnostics_history">Istoric de diagnosticare</string>
     <string name="title_delete_results">Ștergi rezultatele selectate\?</string>
@@ -356,7 +349,6 @@
     <string name="MarongHappy_summary">Coreeană</string>
     <string name="MarongHappy">JungHee Lee</string>
     <string name="action_delete">Șterge</string>
-    <string name="save_results_summary">Salvează rezultatele diagnosticării rețelei</string>
     <string name="label_plan_details_title_unknown">Plan necunoscut activ</string>
     <string name="label_plan_details_title_monthly">Plan lunar activ</string>
     <string name="label_plan_details_title_daily">Plan zilnic activ</string>

@@ -142,8 +142,6 @@
     <string name="overview_friday">P</string>
     <string name="label_translators">Fordítók</string>
     <string name="setup_app_data_usage_alert">Alkalmazás adathasználati figyelmeztetés</string>
-    <string name="run_diagnostics">Diagnosztika futtatása</string>
-    <string name="running_diagnostics">Diagnosztika futtatása</string>
     <string name="connecting">Csatlakoztatás</string>
     <string name="testing_download">Letöltési sebességek tesztelése</string>
     <string name="testing_upload">Feltöltési sebességek tesztelése</string>
@@ -221,10 +219,7 @@
     <string name="title_device_info_contents">Eszközinformáció tartalma</string>
     <string name="label_crash_logs_copied">Az összeomlásnaplók a vágólapra lettek másolva</string>
     <string name="label_copy_logs">Naplók másolása</string>
-    <string name="settings_network_diagnostics">Hálózati diagnosztika</string>
     <string name="network_diagnostics_summary">Diagnosztikai kiszolgáló váltása</string>
-    <string name="settings_download_server">Letöltési kiszolgáló</string>
-    <string name="settings_upload_server">Feltöltési kiszolgáló</string>
     <string name="custom_upload_url_hint">Adja meg a teljes feltöltési URL-címet</string>
     <string name="label_custom_server">Egyéni kiszolgáló</string>
     <string name="label_custom_server_save_success">Kiszolgálói beállítás mentve</string>
@@ -256,8 +251,6 @@
     <string name="action_delete">Törlés</string>
     <string name="error_unknown">Ismeretlen hiba történt. Kérjük, próbálja meg újra.</string>
     <string name="diagnostics_history">Diagnosztikai előzmények</string>
-    <string name="settings_save_results">Eredmények mentése</string>
-    <string name="save_results_summary">Hálózati diagnosztikai eredmények mentése</string>
     <string name="action_select_all">Összes kijelölése</string>
     <string name="Atalanttore_summary">Német</string>
     <string name="Atalanttore">Ettore Atalan</string>
@@ -443,7 +436,6 @@
     <string name="battery_optimisation_enabled_info">Az akkumulátor-optimalizálás engedélyezve van. Ez zavarja a Data Tracker működését.</string>
     <string name="label_battery_optimisation">Akkumulátor-optimalizálás</string>
     <string name="error_no_crash_logs">Nem találtunk összeomlásnaplót. Biztos, hogy összeomlás történt?</string>
-    <string name="settings_diagnostics_server">Kiszolgáló</string>
     <string name="custom_download_url_hint">Adja meg a teljes letöltési URL-címet</string>
     <string name="notification_permission_denied_body">Az olyan funkciók, mint az adatfigyelő értesítés, az élő hálózati sebesség és az adathasználati riasztás nem fognak megfelelően működni az értesítés engedélyezése nélkül. Kérjük, adja meg manuálisan az engedélyt.</string>
     <string name="action_dismiss">Elvetés</string>

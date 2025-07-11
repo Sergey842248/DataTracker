@@ -204,8 +204,6 @@
     <string name="connecting">Подключение</string>
     <string name="testing_download">Проверка входящей скорости</string>
     <string name="setup_app_data_usage_alert">Уведомление об использовании данных приложения</string>
-    <string name="run_diagnostics">Выполнить диагностику</string>
-    <string name="running_diagnostics">Выполняется диагностика</string>
     <string name="min_download_speed">Минимальная скорость загрузки</string>
     <string name="testing_latency">Проверка задержки в сети</string>
     <string name="available_languages">Доступно</string>
@@ -280,7 +278,6 @@
     <string name="label_crash_logs_share_chat">Отправить в чат: @datamonitor</string>
     <string name="error_invalid_plan">Недопустимый план!</string>
     <string name="label_copy_logs">Скопировать журналы</string>
-    <string name="settings_network_diagnostics">Диагностика сети</string>
     <string name="label_permission_denied">В разрешении отказано!</string>
     <string name="notification_permission_denied_body">Такие функции, как уведомление о мониторинге данных, скорость сети в реальном времени и уведомление об использовании данных, не будут работать должным образом без разрешения на уведомление. Пожалуйста, разрешите его вручную.</string>
     <string name="label_custom_server_save_success">Предпочтительный сервер сохранён</string>
@@ -300,9 +297,6 @@
     <string name="crash_logs_extra_text">Журналы сбоев Монитора данных</string>
     <string name="title_device_info_contents">Сведения об устройстве</string>
     <string name="network_diagnostics_summary">Переключение сервера диагностики</string>
-    <string name="settings_diagnostics_server">Сервер</string>
-    <string name="settings_download_server">Входящий сервер</string>
-    <string name="settings_upload_server">Исходящий сервер</string>
     <string name="device_info_body">Информация об устройстве включает в себя:
 \nПроизводитель устройства
 \nМарка устройства
@@ -337,8 +331,6 @@
     <string name="action_delete">Удалить</string>
     <string name="error_unknown">Произошла неизвестная ошибка. Пожалуйста, попробуйте еще раз.</string>
     <string name="diagnostics_history">История диагностики</string>
-    <string name="settings_save_results">Сохранять результаты</string>
-    <string name="save_results_summary">Сохранение результатов диагностики сети</string>
     <string name="title_delete_results">Удалить выбранные результаты\?</string>
     <string name="action_select_all">Выбрать всё</string>
     <string name="Atalanttore_summary">Немецкий</string>

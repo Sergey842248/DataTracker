@@ -170,7 +170,6 @@
     <string name="title_app_data_limit">Limit dat aplikace</string>
     <string name="setup_app_data_usage_alert">Upozornění o vyčerpání dat aplikace</string>
     <string name="network_diagnostics">Diagnostika</string>
-    <string name="run_diagnostics">Spustit diagnostiku</string>
     <string name="connecting">Připojování</string>
     <string name="testing_download">Testování rychlosti připojení</string>
     <string name="testing_upload">Testování rychlosti nahrávání</string>
@@ -243,7 +242,6 @@
 \nV opačném případě mohou být hodnoty nesprávné.</string>
     <string name="overview_tuesday">Út</string>
     <string name="app_label_background_time">Využití na pozadí: %1$s</string>
-    <string name="running_diagnostics">Spouštění diagnostiky</string>
     <string name="network_ip">IP sítě</string>
     <string name="current_connection">Aktuální připojení: %1$s</string>
     <string name="max_upload_speed">Maximální rychlost nahrávání</string>
@@ -295,11 +293,7 @@
     <string name="battery_optimisation_enabled_info">Je povolena optimalizace baterie. Tím se naruší fungování aplikace Data Tracker.</string>
     <string name="label_battery_optimisation">Optimalizace baterie</string>
     <string name="label_copy_logs">Kopírovat protokoly</string>
-    <string name="settings_network_diagnostics">Diagnostika sítě</string>
     <string name="network_diagnostics_summary">Přepnout server diagnostiky</string>
-    <string name="settings_diagnostics_server">Server</string>
-    <string name="settings_download_server">Server pro stahování</string>
-    <string name="settings_upload_server">Server pro nahrávání</string>
     <string name="custom_upload_url_hint">Zadejte úplnou adresu URL pro nahrávání</string>
     <string name="label_custom_server">Vlastní server</string>
     <string name="custom_download_url_hint">Zadejte úplnou adresu URL pro stahování</string>
@@ -333,7 +327,6 @@
     <string name="action_delete">Odstranit</string>
     <string name="error_unknown">Došlo k neznámé chybě. Zkuste to prosím znovu.</string>
     <string name="diagnostics_history">Historie diagnostiky</string>
-    <string name="settings_save_results">Uložit výsledky</string>
     <string name="title_delete_results">Odstranit vybrané výsledky\?</string>
     <string name="action_select_all">Vybrat vše</string>
     <string name="Atalanttore_summary">Němčina</string>
@@ -365,7 +358,6 @@
     <string name="paypal_summary">Přispět pomocí PayPalu</string>
     <string name="label_upi">BHIM-UPI</string>
     <string name="tadekdudek">tadekdudek</string>
-    <string name="save_results_summary">Uložit výsledky diagnostiky sítě</string>
     <string name="Kefir2105">Kefir2105</string>
     <string name="bonbonboi">bonbonboi</string>
     <string name="U1M450W">U1M450W</string>

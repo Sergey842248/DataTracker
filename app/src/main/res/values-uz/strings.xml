@@ -181,8 +181,6 @@
     <string name="setup_app_data_usage_alert">Ilova ma\'lumoti ogohlantirishi</string>
     <string name="title_app_data_limit">Ilova ma\'lumoti chegarasi</string>
     <string name="network_diagnostics">Diagnostika</string>
-    <string name="run_diagnostics">Diagnostikani boshlash</string>
-    <string name="running_diagnostics">Diagnostika ishlamoqda</string>
     <string name="connecting">Ulanmoqda</string>
     <string name="testing_download">Yuklab olish tezligi test qilinmoqda</string>
     <string name="testing_upload">Yuklash tezligi test qilinmoqda</string>
@@ -304,11 +302,7 @@
     <string name="label_battery_optimisation">Batareya optimizatsiyasi</string>
     <string name="error_no_crash_logs">Xatolik jurnallari topilmadi. Xatolik yuz berganiga ishonchingiz komilmi?</string>
     <string name="label_copy_logs">Jurnallarni nusxalash</string>
-    <string name="settings_network_diagnostics">Tarmoq diagnostikasi</string>
     <string name="network_diagnostics_summary">Diagnostika serverini o\'zgartirish</string>
-    <string name="settings_diagnostics_server">Server</string>
-    <string name="settings_download_server">Yuklab olish serveri</string>
-    <string name="settings_upload_server">Yuklash serveri</string>
     <string name="download_url_1_summary" translatable="false">http://speedtest.ftp.otenet.gr</string>
     <string name="download_url_2_summary" translatable="false">https://github.com</string>
     <string name="download_url_3_summary" translatable="false">http://xcal1.vodafone.co.uk</string>

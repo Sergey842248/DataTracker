@@ -177,8 +177,6 @@
     <string name="setup_app_data_usage_alert">Peringatan penggunaan data aplikasi</string>
     <string name="title_app_data_limit">Batas data aplikasi</string>
     <string name="network_diagnostics">Diagnostik</string>
-    <string name="run_diagnostics">Jalankan Diagnostik</string>
-    <string name="running_diagnostics">Menjalankan Diagnostik</string>
     <string name="connecting">Menghubungkan</string>
     <string name="testing_download">Menguji kecepatan unduh</string>
     <string name="testing_upload">Menguji kecepatan unggah</string>
@@ -298,10 +296,7 @@
     <string name="label_telegram">Telegram</string>
     <string name="label_custom_end_date">Tanggal berakhir: %1$s</string>
     <string name="label_crash_logs_copied">Laporan crash dicopy ke clipboard</string>
-    <string name="settings_network_diagnostics">Diagnostik jaringan</string>
     <string name="network_diagnostics_summary">Ganti server diagnostik</string>
-    <string name="settings_diagnostics_server">Server</string>
-    <string name="settings_upload_server">Server upload</string>
     <string name="custom_upload_url_hint">Masukkan alamat URL upload</string>
     <string name="label_custom_server">Server kustom</string>
     <string name="action_dismiss">Tolak</string>
@@ -372,8 +367,6 @@
     <string name="app_already_present">Aplikasi sudah ada didalam daftar.</string>
     <string name="title_remove_apps">Hapus aplikasi yang dipilih?</string>
     <string name="diagnostics_history">Riwayat diagnostik</string>
-    <string name="settings_save_results">Simpan hasil</string>
-    <string name="save_results_summary">Simpan riwayat diagnostik</string>
     <string name="action_select_all">Pilih semua</string>
     <string name="setup_usage_reset_date_custom_selected">Paket data kustom telah aktif</string>
     <string name="crash_logs_warning">Laporan crash; Jangan dimodifikasi</string>
@@ -386,7 +379,6 @@
 \nVersi Android</string>
     <string name="error_url_verification_failed">Tidak dapat memverifikasi URL! Mohon coba lagi atau coba URL lain yang berbeda.</string>
     <string name="battery_optimisation_enabled_info">Optimisasi baterai aktif. Ini dapat mengganggu kinerja Data Tracker.</string>
-    <string name="settings_download_server">Server download</string>
     <string name="label_permission_denied">Izin ditolak!</string>
     <string name="notification_permission_denied_body">Fitur seperti notifikasi Data Tracker, kecepatan jaringan saat ini dan peringatan penggunaan data tidak dapat berjalan dengan normal tanpa izin notifikasi. Mohon berikan izin secara manual.</string>
     <string name="settings_disable_haptics">Matikan haptic</string>

@@ -212,11 +212,9 @@
     <string name="error_permission_denied">Tilgang nektet. Innvilg den manuelt.</string>
     <string name="oem_battery_settings">OEM-batteri-innstillinger</string>
     <string name="overview_tuesday">Tir</string>
-    <string name="run_diagnostics">Kjør diagnostikk</string>
     <string name="overview_wednesday">Ons</string>
     <string name="overview_thursday">Tors</string>
     <string name="network_diagnostics">Nettverksdiagnostikk</string>
-    <string name="running_diagnostics">Diagnostikk-kjøring</string>
     <string name="network_latency_ms">%1$s ms</string>
     <string name="current_version">Nåværende versjon: %1$s</string>
     <string name="avg_latency">Gjen. forsinkelse</string>
@@ -298,11 +296,7 @@
     <string name="label_crash_logs_copied">Krasjlogger kopiert til utklippstavle</string>
     <string name="label_mail">E-post</string>
     <string name="battery_optimisation_enabled_info">Batterioptimalisering er aktivert. Dette vil forstyrre driften av Data Tracker. Klikk for å deaktivere.</string>
-    <string name="settings_network_diagnostics">Nettverksdiagnostikk</string>
     <string name="network_diagnostics_summary">Server for svitsjdiagnostikk</string>
-    <string name="settings_diagnostics_server">Tjener</string>
-    <string name="settings_download_server">Last ned server</string>
-    <string name="settings_upload_server">Last opp server</string>
     <string name="custom_upload_url_hint">Skriv inn fullstendig URL-adresse for opplasting</string>
     <string name="label_custom_server">Egendefinert tjener</string>
     <string name="custom_download_url_hint">Skriv inn fullstendig nettadresse for nedlasting</string>
@@ -345,7 +339,6 @@
     <string name="title_remove_apps">Fjern valgte programmer\?</string>
     <string name="action_delete">Slett</string>
     <string name="diagnostics_history">Diagnostikk-historikk</string>
-    <string name="settings_save_results">Lagre resultat</string>
     <string name="title_delete_results">Slett valgte resultat\?</string>
     <string name="action_select_all">Velg alle</string>
     <string name="Atalanttore_summary">Tysk</string>

@@ -172,8 +172,6 @@
     <string name="setup_app_data_usage_alert">"Avertissement d'usage de données d'application"</string>
     <string name="title_app_data_limit">"Limite d'usage de données de l'application"</string>
     <string name="network_diagnostics">Diagnostiques</string>
-    <string name="run_diagnostics">"Lancer les diagnostics"</string>
-    <string name="running_diagnostics">"Diagnostics lancés"</string>
     <string name="connecting">"Connection"</string>
     <string name="testing_download">"Test de la vitesse de téléchargement"</string>
     <string name="testing_upload">"Test de la vitesse d'upload"</string>
@@ -287,9 +285,6 @@
     <string name="title_data_plan_expired">Le plan de données a expiré !</string>
     <string name="label_battery_optimisation">Optimisation de la batterie</string>
     <string name="network_diagnostics_summary">Serveur de diagnostic de commutation</string>
-    <string name="settings_diagnostics_server">Serveur</string>
-    <string name="settings_download_server">Serveur de téléchargement</string>
-    <string name="settings_upload_server">Télécharger le serveur</string>
     <string name="label_custom_server_save_success">Préférences de serveur enregistrées</string>
     <string name="disable_haptics_summary">Désactiver le retour haptique dans l’application</string>
     <string name="crash_logs_warning">journaux d’incident ; Ne pas modifier</string>
@@ -306,7 +301,6 @@
     <string name="battery_optimisation_enabled_info">L’optimisation de la batterie est activée. Cela interférera avec le fonctionnement de Data Tracker.</string>
     <string name="error_no_crash_logs">Aucun journal de plantage trouvé. Êtes-vous sûr qu’un crash s’est produit \?</string>
     <string name="label_copy_logs">Copier les journaux</string>
-    <string name="settings_network_diagnostics">Diagnostics réseau</string>
     <string name="custom_upload_url_hint">Entrez l’URL de téléchargement complète</string>
     <string name="custom_download_url_hint">Entrez l’URL de téléchargement complète</string>
     <string name="error_invaliid_url">URL de téléchargement invalide !</string>
@@ -399,8 +393,6 @@
     <string name="action_delete">Supprimer</string>
     <string name="error_unknown">Une erreur inconnue s\'est produite. Veuillez réessayer.</string>
     <string name="diagnostics_history">Historique des Diagnostics</string>
-    <string name="settings_save_results">Enregistrer les résultats</string>
-    <string name="save_results_summary">Enregistrer les résultats des diagnostics Réseau</string>
     <string name="title_delete_results">Supprimer les résultats sélectionnés \?</string>
     <string name="action_select_all">Sélectionner tout</string>
     <string name="label_do_not_show_again">Ne plus afficher</string>

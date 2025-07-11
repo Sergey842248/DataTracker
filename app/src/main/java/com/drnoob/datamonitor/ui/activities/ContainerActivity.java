@@ -35,7 +35,6 @@ import static com.drnoob.datamonitor.core.Values.DATA_USAGE_SYSTEM;
 import static com.drnoob.datamonitor.core.Values.DATA_USAGE_TODAY;
 import static com.drnoob.datamonitor.core.Values.DATA_USAGE_WEEKDAY;
 import static com.drnoob.datamonitor.core.Values.DIAGNOSTICS_HISTORY_FRAGMENT;
-import static com.drnoob.datamonitor.core.Values.DIAGNOSTICS_SETTINGS_FRAGMENT;
 import static com.drnoob.datamonitor.core.Values.DISABLE_BATTERY_OPTIMISATION_FRAGMENT;
 import static com.drnoob.datamonitor.core.Values.DONATE_FRAGMENT;
 import static com.drnoob.datamonitor.core.Values.EXCLUDE_APPS_FRAGMENT;
@@ -69,8 +68,6 @@ import com.drnoob.datamonitor.ui.fragments.AppDataUsageFragment;
 import com.drnoob.datamonitor.ui.fragments.ContributorsFragment;
 import com.drnoob.datamonitor.ui.fragments.CustomSessionFragment;
 import com.drnoob.datamonitor.ui.fragments.DataPlanFragment;
-import com.drnoob.datamonitor.ui.fragments.DiagnosticsHistoryFragment;
-import com.drnoob.datamonitor.ui.fragments.DiagnosticsSettingsFragment;
 import com.drnoob.datamonitor.ui.fragments.DonateFragment;
 import com.drnoob.datamonitor.ui.fragments.ExcludeAppsFragment;
 import com.drnoob.datamonitor.ui.fragments.LanguageFragment;
@@ -208,20 +205,12 @@ public class ContainerActivity extends AppCompatActivity {
                 title = getString(R.string.label_battery_optimisation);
                 break;
 
-            case DIAGNOSTICS_SETTINGS_FRAGMENT:
-                fragment = new DiagnosticsSettingsFragment();
-                title = getString(R.string.settings_network_diagnostics);
-                break;
 
             case EXCLUDE_APPS_FRAGMENT:
                 fragment = new ExcludeAppsFragment();
                 title = getString(R.string.exclude_apps);
                 break;
 
-            case DIAGNOSTICS_HISTORY_FRAGMENT:
-                fragment = new DiagnosticsHistoryFragment();
-                title = getString(R.string.diagnostics_history);
-                break;
 
             case DATA_PLAN_FRAGMENT:
                 fragment = new DataPlanFragment();

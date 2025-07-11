@@ -181,8 +181,6 @@ Perguntas e respostas, ajuda e solução de problemas
     <string name="setup_app_data_usage_alert">"Alerta de uso de dados do aplicativo"</string>
     <string name="title_app_data_limit">"Limite de dados do aplicativo"</string>
     <string name="network_diagnostics">"Diagnóstico de rede"</string>
-    <string name="run_diagnostics">"Executar diagnóstico"</string>
-    <string name="running_diagnostics">"Executando diagnósticos"</string>
     <string name="connecting">"Conectando"</string>
     <string name="testing_download">"Testando velocidade de download"</string>
     <string name="testing_upload">"Testando velocidade de upload"</string>
@@ -306,11 +304,7 @@ Perguntas e respostas, ajuda e solução de problemas
     <string name="label_battery_optimisation">Otimização da bateria</string>
     <string name="error_no_crash_logs">Nenhum registro de falha encontrado. Tem certeza de que ocorreu uma falha\?</string>
     <string name="label_copy_logs">Copiar logs</string>
-    <string name="settings_network_diagnostics">Diagnóstico de rede</string>
     <string name="network_diagnostics_summary">Alternar servidor de diagnóstico</string>
-    <string name="settings_diagnostics_server">Servidor</string>
-    <string name="settings_download_server">Baixar servidor</string>
-    <string name="settings_upload_server">Servidor de upload</string>
     <string name="custom_upload_url_hint">Insira o URL de upload completo</string>
     <string name="custom_download_url_hint">Insira o URL completo do download</string>
     <string name="label_custom_server_save_success">Preferência de servidor salva</string>
@@ -411,7 +405,6 @@ Perguntas e respostas, ajuda e solução de problemas
     <string name="action_delete">Excluir</string>
     <string name="title_remove_apps">Remover aplicativos selecionados?</string>
     <string name="app_already_present">O aplicativo já está predefinido na lista.</string>
-    <string name="save_results_summary">Salvar os resultados do diagnóstico de rede</string>
     <string name="title_delete_results">Excluir resultados selecionados?</string>
     <string name="action_select_all">Selecionar tudo</string>
     <string name="label_do_not_show_again">Não mostrar novamente</string>
@@ -432,7 +425,6 @@ Perguntas e respostas, ajuda e solução de problemas
     <string name="add_time">Adicionar tempo</string>
     <string name="skip_setup">Pular configuração</string>
     <string name="diagnostics_history">Histórico de Diagnósticos</string>
-    <string name="settings_save_results">Salvar resultados</string>
     <string name="error_alarm_permission_denied">Permissão de alarme negada!</string>
     <string name="error_alarm_permission_denied_summary">Você tentou executar uma ação que requer a permissão SCHEDULE_EXACT_ALARM, que não foi concedida ao aplicativo. Clique aqui para conceder a permissão.</string>
     <string name="error_alarm_permission_denied_feature_summary">Você não pode usar esse recurso sem conceder a permissão SCHEDULE_EXACT_ALARM.</string>
