@@ -49,6 +49,7 @@ import com.drnoob.datamonitor.utils.NetworkStatsHelper.getDeviceMobileDataUsage
 import java.util.Calendar
 import java.util.concurrent.TimeUnit
 import kotlin.math.max
+import kotlin.math.min
 import kotlin.math.round
 import kotlin.math.roundToInt
 
@@ -128,6 +129,10 @@ class SmartDataAllocationService(context: Context, workerParams: WorkerParameter
                     dailyQuota = round(dailyQuota * 100) / 100
                     dailyQuota = max(dailyQuota, 0f)
 
+                    val totalDataRemaining = dataLimit - dataUsage
+                    dailyQuota = min(dailyQuota, totalDataRemaining)
+
+
                     preferences.edit().putFloat(DATA_QUOTA, dailyQuota).apply()
                 }
                 DATA_RESET_CUSTOM -> {
@@ -171,6 +176,9 @@ class SmartDataAllocationService(context: Context, workerParams: WorkerParameter
                     dailyQuota = dataRemaining / daysRemaining.toFloat()
                     dailyQuota = round(dailyQuota * 100) / 100
                     dailyQuota = max(dailyQuota, 0f)
+
+                    val totalDataRemaining = dataLimit - dataUsage
+                    dailyQuota = min(dailyQuota, totalDataRemaining)
 
                     preferences.edit().putFloat(DATA_QUOTA, dailyQuota).apply()
                 }

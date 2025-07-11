@@ -446,7 +446,19 @@ public class HomeFragment extends Fragment implements View.OnLongClickListener {
 
                 if (isSmartAllocationEnabled) {
                     Float quota = preferences.getFloat(DATA_QUOTA, 0F);
-                    String dailyQuota = formatData(0L, (quota.longValue() * 1024 * 1024))[2];
+                    long remainingDataBytes = 0L;
+                    if (dataLimit > 0 && mobileData != null) {
+                        long totalUsage = mobileData[2];
+                        long limitBytes = (long) (dataLimit * 1024 * 1024);
+                        if (limitBytes > totalUsage) {
+                            remainingDataBytes = limitBytes - totalUsage;
+                        }
+                    }
+
+                    long dailyQuotaBytes = (long) (quota * 1024 * 1024);
+                    long finalQuota = Math.min(dailyQuotaBytes, remainingDataBytes);
+
+                    String dailyQuota = formatData(0L, finalQuota)[2];
                     mDailyQuota.setText(getString(R.string.label_daily_quota, dailyQuota));
                     mDailyQuota.setVisibility(View.VISIBLE);
                 } else {
@@ -470,7 +482,19 @@ public class HomeFragment extends Fragment implements View.OnLongClickListener {
                 mPlanValidity.setText(validity);
                 if (isSmartAllocationEnabled) {
                     Float quota = preferences.getFloat(DATA_QUOTA, 0F);
-                    String dailyQuota = formatData(0L, (quota.longValue() * 1024 * 1024))[2];
+                    long remainingDataBytes = 0L;
+                    if (dataLimit > 0 && mobileData != null) {
+                        long totalUsage = mobileData[2];
+                        long limitBytes = (long) (dataLimit * 1024 * 1024);
+                        if (limitBytes > totalUsage) {
+                            remainingDataBytes = limitBytes - totalUsage;
+                        }
+                    }
+
+                    long dailyQuotaBytes = (long) (quota * 1024 * 1024);
+                    long finalQuota = Math.min(dailyQuotaBytes, remainingDataBytes);
+
+                    String dailyQuota = formatData(0L, finalQuota)[2];
                     mDailyQuota.setText(getString(R.string.label_daily_quota, dailyQuota));
                     mDailyQuota.setVisibility(View.VISIBLE);
                 } else {
@@ -501,7 +525,19 @@ public class HomeFragment extends Fragment implements View.OnLongClickListener {
                 mPlanValidity.setText(validity);
                 if (isSmartAllocationEnabled) {
                     Float quota = preferences.getFloat(DATA_QUOTA, 0F);
-                    String dailyQuota = formatData(0L, (quota.longValue() * 1024 * 1024))[2];
+                    long remainingDataBytes = 0L;
+                    if (dataLimit > 0 && mobileData != null) {
+                        long totalUsage = mobileData[2];
+                        long limitBytes = (long) (dataLimit * 1024 * 1024);
+                        if (limitBytes > totalUsage) {
+                            remainingDataBytes = limitBytes - totalUsage;
+                        }
+                    }
+
+                    long dailyQuotaBytes = (long) (quota * 1024 * 1024);
+                    long finalQuota = Math.min(dailyQuotaBytes, remainingDataBytes);
+
+                    String dailyQuota = formatData(0L, finalQuota)[2];
                     mDailyQuota.setText(getString(R.string.label_daily_quota, dailyQuota));
                     mDailyQuota.setVisibility(View.VISIBLE);
                 } else {
