@@ -833,17 +833,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         int popupWidth = popupView.getMeasuredWidth();
         int popupHeight = popupView.getMeasuredHeight();
 
-        int[] location = new int[2];
-        anchorView.getLocationOnScreen(location);
-        int x = location[0] + (anchorView.getWidth() - popupWidth) / 2;
-        int y = location[1] - popupHeight - 20; // 20px margin from the top
-
         int width = LinearLayout.LayoutParams.WRAP_CONTENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         boolean focusable = true;
         final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
 
-        popupWindow.showAtLocation(anchorView, Gravity.NO_GRAVITY, x, y);
+        int xOffset = (anchorView.getWidth() - popupWidth) / 2;
+        int yOffset = -anchorView.getHeight() - popupHeight;
+
+        popupWindow.showAsDropDown(anchorView, xOffset, yOffset);
     }
 
     private String[] getDataUsage(View view) {
