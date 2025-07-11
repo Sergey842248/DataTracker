@@ -7,12 +7,4 @@
             android:gravity="center"
             android:src="@drawable/splash"/>
     </item>
-
-    <item
-        android:height="80dp"
-        android:width="200dp"
-        android:gravity="bottom|center_horizontal"
-        android:bottom="80dp"
-        android:drawable="@drawable/ic_bitroid"/>
-
 </layer-list>
