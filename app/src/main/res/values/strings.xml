@@ -67,7 +67,7 @@
     <string name="widget_setup_step_3">3. Drag and drop the Data Tracker widget onto your home screen.</string>
     <string name="heading_data_usage_today">Today\'s data usage</string>
     <string name="action_add_data_plan_home">Add your data plan to start monitoring it</string>
-    <string name="heading_week_overview">This week\'s overview</string>
+    <string name="heading_week_overview">Week overview</string>
     <string name="error_loading_overview">Could not load this week\'s overview.\nTry again later.</string>
     <string name="title_setup">Setup Data Tracker</string>
     <string name="setup_widget">Set up the widget</string>

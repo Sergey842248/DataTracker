@@ -110,7 +110,7 @@ import java.util.Calendar;
 import java.util.List;
 
 
-public class HomeFragment extends Fragment implements View.OnLongClickListener {
+public class HomeFragment extends Fragment implements View.OnClickListener {
     private static final String TAG = HomeFragment.class.getSimpleName();
     private static final int MODE_LOAD_OVERVIEW = 0;
     private static final int MODE_REFRESH_OVERVIEW = 1;
@@ -258,13 +258,13 @@ public class HomeFragment extends Fragment implements View.OnLongClickListener {
         mSatView = view.findViewById(R.id.view_sat);
         mSunView = view.findViewById(R.id.view_sun);
 
-        mMonView.setOnLongClickListener(this::onLongClick);
-        mTueView.setOnLongClickListener(this::onLongClick);
-        mWedView.setOnLongClickListener(this::onLongClick);
-        mThursView.setOnLongClickListener(this::onLongClick);
-        mFriView.setOnLongClickListener(this::onLongClick);
-        mSatView.setOnLongClickListener(this::onLongClick);
-        mSunView.setOnLongClickListener(this::onLongClick);
+        mMonView.setOnClickListener(this);
+        mTueView.setOnClickListener(this);
+        mWedView.setOnClickListener(this);
+        mThursView.setOnClickListener(this);
+        mFriView.setOnClickListener(this);
+        mSatView.setOnClickListener(this);
+        mSunView.setOnClickListener(this);
 
         mRefreshOverview = view.findViewById(R.id.overview_refresh);
 
@@ -709,38 +709,38 @@ public class HomeFragment extends Fragment implements View.OnLongClickListener {
             if (i == 0) {
                 mMobileMon.setProgress((model.getTotalMobile() / 25) + 2);  // 500 MB is 20 in the progressBar, so divided by 25. Added 2 to fix margin issue
                 mWifiMon.setProgress((model.getTotalWifi() / 25) + 2);
-                mMobileMon.setLabelText(data);
-                mWifiMon.setLabelText(wifi);
+                mMobileMon.setLabelText("");
+                mWifiMon.setLabelText("");
             } else if (i == 1) {
                 mMobileTue.setProgress((model.getTotalMobile() / 25) + 2);
                 mWifiTue.setProgress((model.getTotalWifi() / 25) + 2);
-                mMobileTue.setLabelText(data);
-                mWifiTue.setLabelText(wifi);
+                mMobileTue.setLabelText("");
+                mWifiTue.setLabelText("");
             } else if (i == 2) {
                 mMobileWed.setProgress((model.getTotalMobile() / 25) + 2);
                 mWifiWed.setProgress((model.getTotalWifi() / 25) + 2);
-                mMobileWed.setLabelText(data);
-                mWifiWed.setLabelText(wifi);
+                mMobileWed.setLabelText("");
+                mWifiWed.setLabelText("");
             } else if (i == 3) {
                 mMobileThurs.setProgress((model.getTotalMobile() / 25) + 2);
                 mWifiThurs.setProgress((model.getTotalWifi() / 25) + 2);
-                mMobileThurs.setLabelText(data);
-                mWifiThurs.setLabelText(wifi);
+                mMobileThurs.setLabelText("");
+                mWifiThurs.setLabelText("");
             } else if (i == 4) {
                 mMobileFri.setProgress((model.getTotalMobile() / 25) + 2);
                 mWifiFri.setProgress((model.getTotalWifi() / 25) + 2);
-                mMobileFri.setLabelText(data);
-                mWifiFri.setLabelText(wifi);
+                mMobileFri.setLabelText("");
+                mWifiFri.setLabelText("");
             } else if (i == 5) {
                 mMobileSat.setProgress((model.getTotalMobile() / 25) + 2);
                 mWifiSat.setProgress((model.getTotalWifi() / 25) + 2);
-                mMobileSat.setLabelText(data);
-                mWifiSat.setLabelText(wifi);
+                mMobileSat.setLabelText("");
+                mWifiSat.setLabelText("");
             } else if (i == 6) {
                 mMobileSun.setProgress((model.getTotalMobile() / 25) + 2);
                 mWifiSun.setProgress((model.getTotalWifi() / 25) + 2);
-                mMobileSun.setLabelText(data);
-                mWifiSun.setLabelText(wifi);
+                mMobileSun.setLabelText("");
+                mWifiSun.setLabelText("");
             }
         }
     }
@@ -763,38 +763,38 @@ public class HomeFragment extends Fragment implements View.OnLongClickListener {
                 if (i == 0) {
                     mMobileMon.setProgress((model.getTotalMobile() / 25) + 2);  // 500 MB is 20 in the progressBar, so divided by 25. Added 2 to fix margin issue
                     mWifiMon.setProgress((model.getTotalWifi() / 25) + 2);
-                    mMobileMon.setLabelText(data);
-                    mWifiMon.setLabelText(wifi);
+                    mMobileMon.setLabelText("");
+                    mWifiMon.setLabelText("");
                 } else if (i == 1) {
                     mMobileTue.setProgress((model.getTotalMobile() / 25) + 2);
                     mWifiTue.setProgress((model.getTotalWifi() / 25) + 2);
-                    mMobileTue.setLabelText(data);
-                    mWifiTue.setLabelText(wifi);
+                    mMobileTue.setLabelText("");
+                    mWifiTue.setLabelText("");
                 } else if (i == 2) {
                     mMobileWed.setProgress((model.getTotalMobile() / 25) + 2);
                     mWifiWed.setProgress((model.getTotalWifi() / 25) + 2);
-                    mMobileWed.setLabelText(data);
-                    mWifiWed.setLabelText(wifi);
+                    mMobileWed.setLabelText("");
+                    mWifiWed.setLabelText("");
                 } else if (i == 3) {
                     mMobileThurs.setProgress((model.getTotalMobile() / 25) + 2);
                     mWifiThurs.setProgress((model.getTotalWifi() / 25) + 2);
-                    mMobileThurs.setLabelText(data);
-                    mWifiThurs.setLabelText(wifi);
+                    mMobileThurs.setLabelText("");
+                    mWifiThurs.setLabelText("");
                 } else if (i == 4) {
                     mMobileFri.setProgress((model.getTotalMobile() / 25) + 2);
                     mWifiFri.setProgress((model.getTotalWifi() / 25) + 2);
-                    mMobileFri.setLabelText(data);
-                    mWifiFri.setLabelText(wifi);
+                    mMobileFri.setLabelText("");
+                    mWifiFri.setLabelText("");
                 } else if (i == 5) {
                     mMobileSat.setProgress((model.getTotalMobile() / 25) + 2);
                     mWifiSat.setProgress((model.getTotalWifi() / 25) + 2);
-                    mMobileSat.setLabelText(data);
-                    mWifiSat.setLabelText(wifi);
+                    mMobileSat.setLabelText("");
+                    mWifiSat.setLabelText("");
                 } else if (i == 6) {
                     mMobileSun.setProgress((model.getTotalMobile() / 25) + 2);
                     mWifiSun.setProgress((model.getTotalWifi() / 25) + 2);
-                    mMobileSun.setLabelText(data);
-                    mWifiSun.setLabelText(wifi);
+                    mMobileSun.setLabelText("");
+                    mWifiSun.setLabelText("");
                 }
             }
         } else {
@@ -808,138 +808,89 @@ public class HomeFragment extends Fragment implements View.OnLongClickListener {
     }
 
     @Override
-    public boolean onLongClick(View view) {
-        setOpenQuickView(true);
-        float translation = getTranslation(view);
-        float finalTranslation = translation;
+    public void onClick(View v) {
+        showPopupWindow(v);
+    }
 
-        View popupView = LayoutInflater.from(getContext()).inflate(R.layout.layout_overview_quick_view, null);
+    private void showPopupWindow(View anchorView) {
+        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View popupView = inflater.inflate(R.layout.layout_overview_popup, null);
+        TextView overviewDay = popupView.findViewById(R.id.overview_day);
         TextView overviewMobile = popupView.findViewById(R.id.overview_mobile_data);
         TextView overviewWifi = popupView.findViewById(R.id.overview_wifi);
 
-        PopupWindow popupWindow = new PopupWindow(popupView,
-                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT,
-                true);
-        popupWindow.setAnimationStyle(R.style.PopupAnimation);
-
-        if (!preferences.getBoolean("disable_haptics", false)) {
-            VibrationUtils.hapticMajor(getContext());
-        }
         if (isOverviewAvailable()) {
             try {
-                String[] dataUsage = getDataUsage(view);
-                overviewMobile.setText(dataUsage[0]);
-                overviewWifi.setText(dataUsage[1]);
-                popupWindow.setElevation(100);
-                view.setElevation(100);
-                popupWindow.showAtLocation(getView(), Gravity.CENTER, 0, 0);
+                String[] dataUsage = getDataUsage(anchorView);
+                overviewDay.setText(dataUsage[2]);
+                overviewMobile.setText("Mobile: " + dataUsage[0]);
+                overviewWifi.setText("WiFi: " + dataUsage[1]);
             } catch (NullPointerException e) {
                 e.printStackTrace();
             }
         }
-        view.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (isOpenQuickView()) {
-                    if (motionEvent.getAction() == MotionEvent.ACTION_UP ||
-                            motionEvent.getAction() == MotionEvent.ACTION_CANCEL) {
-                        if (!preferences.getBoolean("disable_haptics", false)) {
-                            VibrationUtils.hapticMinor(getContext());
-                        }
-                        popupWindow.dismiss();
-                        setOpenQuickView(false);
-                    }
-                }
-                return false;
-            }
-        });
-        return false;
+
+        popupView.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
+                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+        int popupWidth = popupView.getMeasuredWidth();
+        int popupHeight = popupView.getMeasuredHeight();
+
+        int[] location = new int[2];
+        anchorView.getLocationOnScreen(location);
+        int x = location[0] + (anchorView.getWidth() - popupWidth) / 2;
+        int y = location[1] - popupHeight - 20; // 20px margin from the top
+
+        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        boolean focusable = true;
+        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+
+        popupWindow.showAtLocation(anchorView, Gravity.NO_GRAVITY, x, y);
     }
 
     private String[] getDataUsage(View view) {
-        String mobile, wifi;
+        String mobile, wifi, day;
         int viewId = view.getId();
+        int dayIndex = -1;
+
         if (viewId == R.id.view_mon) {
-            mobile = mMobileMon.getLabelText().toString();
-            wifi = mWifiMon.getLabelText().toString();
+            dayIndex = 0;
+            day = getString(R.string.overview_monday);
         } else if (viewId == R.id.view_tue) {
-            mobile = mMobileTue.getLabelText().toString();
-            wifi = mWifiTue.getLabelText().toString();
+            dayIndex = 1;
+            day = getString(R.string.overview_tuesday);
         } else if (viewId == R.id.view_wed) {
-            mobile = mMobileWed.getLabelText().toString();
-            wifi = mWifiWed.getLabelText().toString();
+            dayIndex = 2;
+            day = getString(R.string.overview_wednesday);
         } else if (viewId == R.id.view_thurs) {
-            mobile = mMobileThurs.getLabelText().toString();
-            wifi = mWifiThurs.getLabelText().toString();
+            dayIndex = 3;
+            day = getString(R.string.overview_thursday);
         } else if (viewId == R.id.view_fri) {
-            mobile = mMobileFri.getLabelText().toString();
-            wifi = mWifiFri.getLabelText().toString();
+            dayIndex = 4;
+            day = getString(R.string.overview_friday);
         } else if (viewId == R.id.view_sat) {
-            mobile = mMobileSat.getLabelText().toString();
-            wifi = mWifiSat.getLabelText().toString();
+            dayIndex = 5;
+            day = getString(R.string.overview_saturday);
         } else if (viewId == R.id.view_sun) {
-            mobile = mMobileSun.getLabelText().toString();
-            wifi = mWifiSun.getLabelText().toString();
+            dayIndex = 6;
+            day = getString(R.string.overview_sunday);
+        } else {
+            day = "";
+        }
+
+        if (dayIndex != -1 && mList.size() > dayIndex) {
+            OverviewModel model = mList.get(dayIndex);
+            long mobileSent = (model.getTotalMobile() / 2L) * 1048576;
+            long mobileReceived = mobileSent;
+            long wifiSent = (model.getTotalWifi() / 2L) * 1048576;
+            long wifiReceived = wifiSent;
+            mobile = formatData(mobileSent, mobileReceived)[2];
+            wifi = formatData(wifiSent, wifiReceived)[2];
         } else {
             mobile = getString(R.string.app_data_usage_placeholder);
             wifi = getString(R.string.app_data_usage_placeholder);
         }
-        return new String[]{mobile, wifi};
-    }
-
-    private Float getTranslation(View view) {
-        float translation;
-        int viewId = view.getId();
-        if (viewId == R.id.view_mon) {
-            if (mMobileMon.getProgress() > 90 || mWifiMon.getProgress() > 90) {
-                translation = 230;
-            } else if (mMobileMon.getProgress() < 20 || mWifiMon.getProgress() > 20) {
-                translation = 230;
-            } else {
-                translation = 100;
-            }
-        } else if (viewId == R.id.view_tue) {
-            if (mMobileTue.getProgress() > 90 || mWifiTue.getProgress() > 90) {
-                translation = 230;
-            } else {
-                translation = 100;
-            }
-        } else if (viewId == R.id.view_wed) {
-            if (mMobileWed.getProgress() > 90 || mWifiWed.getProgress() > 90) {
-                translation = -230;
-            } else {
-                translation = 100;
-            }
-        } else if (viewId == R.id.view_thurs) {
-            if (mMobileThurs.getProgress() > 90 || mWifiThurs.getProgress() > 90) {
-                translation = 230;
-            } else {
-                translation = 100;
-            }
-        } else if (viewId == R.id.view_fri) {
-            if (mMobileFri.getProgress() > 90 || mWifiFri.getProgress() > 90) {
-                translation = 230;
-            } else {
-                translation = 100;
-            }
-        } else if (viewId == R.id.view_sat) {
-            if (mMobileSat.getProgress() > 90 || mWifiSat.getProgress() > 90) {
-                translation = 230;
-            } else if (mMobileSat.getProgress() < 20 || mWifiSat.getProgress() > 20) {
-                translation = -230;
-            } else {
-                translation = 100;
-            }
-        } else if (viewId == R.id.view_sun) {
-            if (mMobileSun.getProgress() > 90 || mWifiSun.getProgress() > 90) {
-                translation = 230;
-            } else {
-                translation = 100;
-            }
-        } else {
-            translation = 100;
-        }
-        return translation;
+        return new String[]{mobile, wifi, day};
     }
 
     private static class UpdateOverview extends AsyncTask<Object, Object, List<OverviewModel>> {
