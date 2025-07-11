@@ -156,6 +156,7 @@
     <string name="title_data_usage_notification">Bugünkü veri kullanımı: %1$s</string>
     <string name="body_data_usage_notification_loading">Yükleniyor…</string>
     <string name="label_data_remaining">%1$s kalan</string>
+    <string name="label_hours_remaining">kalan saat(ler)</string>
     <string name="disable_battery_optimisation">Pil optimizasyonunu kapat</string>
     <string name="disable_battery_optimisation_body">Arka planda çalışırken Veri Monitörünün işleminin sonlandırılmasını önler.
 \nAksi takdirde değerler yanlış olabilir.</string>

@@ -166,6 +166,7 @@
     <string name="widget_setup_step_3">3. Dra og slipp Datamonitor-miniprogrammet til hjemmeskjermen.</string>
     <string name="heading_data_usage_today">Databruk i dag</string>
     <string name="setup_widget">Sett opp miniprogrammet</string>
+    <string name="label_hours_remaining">gjenværende time(r)</string>
     <string name="disable_battery_optimisation">Skru av batterioptimalisering</string>
     <string name="action_add_data_plan_home">Legg til din dataplan for å begynne å holde øye med den</string>
     <string name="heading_week_overview">Denne ukens oversikt</string>

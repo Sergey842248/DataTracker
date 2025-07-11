@@ -438,6 +438,7 @@
     <string name="gnu_ewm">إريك ميشالاك</string>
     <string name="rintan_summary">اليابانية</string>
     <string name="label_days_remaining">%1$s يوم/ايام متبقية</string>
+    <string name="label_hours_remaining">%1$s ساعة (ساعات) متبقية</string>
     <string name="ecogaming">Eco-Gaming</string>
     <string name="dan_summary">الأوكرانيّة</string>
     <string name="detrimental_god_summary">المالايالامية</string>

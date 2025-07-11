@@ -125,6 +125,7 @@
     <string name="remaining_data_info_enabled">Información de datos restantes habilitada</string>
     <string name="title_data_usage_notification">Uso de datos hoy: %1$s</string>
     <string name="label_data_remaining">%1$s restante</string>
+    <string name="label_hours_remaining">hora(s) restante(s)</string>
     <string name="disable_battery_optimisation">Desactivar la optimización de la batería</string>
     <string name="extra_optimisation_tips">Consejos adicionales de optimización</string>
     <string name="connection_error">No podía conectar.

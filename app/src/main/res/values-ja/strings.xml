@@ -215,6 +215,7 @@
     <string name="body_data_usage_notification_loading">読み込み中…</string>
     <string name="label_setup_notification_first">通知を最初に設定してください</string>
     <string name="title_data_warning_notification">データ使用量の警告</string>
+    <string name="label_hours_remaining">残り時間</string>
     <string name="disable_battery_optimisation">バッテリーの最適化を無効化する</string>
     <string name="title_data_usage_notification">今日のデータ使用量: %1$s</string>
     <string name="overview_tuesday">火</string>

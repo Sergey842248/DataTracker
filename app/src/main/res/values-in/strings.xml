@@ -159,6 +159,7 @@
     <string name="body_data_usage_notification_loading">Memuat…</string>
     <string name="label_data_remaining">%1$s tersisa</string>
     <string name="label_data_remaining_used_excess">%1$s ekstra digunakan</string>
+    <string name="label_hours_remaining">jam yang tersisa</string>
     <string name="disable_battery_optimisation">Matikan pengoptimalan baterai</string>
     <string name="disable_battery_optimisation_body">Mencegah mematikan Monitor Data saat berjalan di latar belakang.
 \nJika tidak, nilainya mungkin salah.</string>

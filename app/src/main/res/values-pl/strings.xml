@@ -187,6 +187,7 @@
     <string name="remaining_data_info_enabled">Informacja o ilości danych, które można wykorzystać jest włączona</string>
     <string name="label_monitoring_no_plan">Dodaj plan danych, aby rozpocząć monitorowanie</string>
     <string name="label_notification_enabled">Powiadomienie Data Tracker jest włączone</string>
+    <string name="label_hours_remaining">pozostała godzina (godziny)</string>
     <string name="disable_battery_optimisation">Wyłącz optymalizację baterii</string>
     <string name="label_data_remaining_used_excess">Przekroczono limit o %1$s</string>
     <string name="error_permission_denied">Uprawnienie zostało zabronione. Należy udzielić je ręcznie.</string>

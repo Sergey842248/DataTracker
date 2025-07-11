@@ -105,6 +105,7 @@
     <string name="notification_disabled">Thông báo giám sát dữ liệu đã tắt</string>
     <string name="label_data_usage_reset_date_change">Dữ liệu sử dụng sẽ được đặt lại vào %1$s của mỗi tháng</string>
     <string name="day">ngày</string>
+    <string name="label_hours_remaining">Số giờ còn lại</string>
     <string name="disable_battery_optimisation">Tắt tối ưu hóa pin</string>
     <string name="title_data_warning_notification">Cảnh báo dữ liệu sử dụng</string>
     <string name="body_data_warning_notification">Bạn đã sử dụng %1$d%% giới hạn dữ liệu của bạn</string>

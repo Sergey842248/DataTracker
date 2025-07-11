@@ -336,6 +336,7 @@
     <string name="notification_permission_denied_body">Functies zoals gegevensmonitor meldingen, live netwerksnelheid en waarschuwing voor gegevensgebruik werken niet goed zonder meldingsmachtiging. Handmatig toestaan.</string>
     <string name="error_combine_notifications_enabled">Gecombineerde melding ingeschakeld. Kan individuele meldingen niet uitschakelen.</string>
     <string name="label_data_remaining">%1$s over</string>
+    <string name="label_hours_remaining">resterende time(r)</string>
     <string name="disable_battery_optimisation">Batterijoptimalisatie uitschakelen</string>
     <string name="disable_battery_optimisation_body">Voorkomt het sluiten van Data Tracker wanneer deze op de achtergrond wordt uitgevoerd.
 \nAnders zijn de waarden mogelijk onjuist.</string>

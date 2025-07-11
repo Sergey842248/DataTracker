@@ -434,6 +434,7 @@
     <string name="label_daily_quota">Denní kvóta: %1$s</string>
     <string name="daily_quota_alert_summary">Získat upozornění po vyčerpání denní kvóty.</string>
     <string name="label_days_remaining">Zbývá %1$s dní</string>
+    <string name="label_hours_remaining">Zbývá %1$s hodin(y)</string>
     <string name="ecogaming">Eco-Gaming</string>
     <string name="dan_summary">Ukrajinština</string>
     <string name="detrimental_god_summary">Malajálamština</string>

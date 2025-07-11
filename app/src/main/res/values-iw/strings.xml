@@ -343,6 +343,7 @@
     <string name="label_do_not_show_again">לא להציג שוב</string>
     <string name="title_data_plan_expired">פג תוקף חבילת הגלישה!</string>
     <string name="app_search_hint">חיפוש יישום</string>
+    <string name="label_hours_remaining">שעה/שעות שנותרו</string>
     <string name="disable_battery_optimisation">השבתת מיטוב הסוללה</string>
     <string name="testing_download">בדיקת מהירויות הורדה</string>
     <string name="max_upload_speed">מהירות העלאה מירבית</string>

@@ -393,6 +393,7 @@
     <string name="upi_app_not_found">Először telepítsen egy olyan alkalmazást, amely képes erre</string>
     <string name="label_widget_refresh_interval_change">A widget minden %1$s alkalommal frissül</string>
     <string name="label_data_usage_reset_date_change">Az adathasználat minden hónap %1$s napján visszaállításra kerül</string>
+    <string name="label_hours_remaining">hátralévő óra(k)</string>
     <string name="disable_battery_optimisation">Akku optimalizálás kikapcsolása</string>
     <string name="label_notification_enabled">Adatfigyelő értesítés engedélyezve</string>
     <string name="disable_battery_optimisation_body">Megakadályozza a Data Tracker leállítását, amikor az a háttérben fut.

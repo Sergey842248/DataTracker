@@ -157,6 +157,7 @@
     <string name="body_data_usage_notification_loading">로드 중…</string>
     <string name="label_data_remaining">%1$s 남음</string>
     <string name="label_data_remaining_used_excess">%1$s 추가 사용</string>
+    <string name="label_hours_remaining">남은 시간</string>
     <string name="disable_battery_optimisation">배터리 최적화 끄기</string>
     <string name="disable_battery_optimisation_body">백그라운드에서 실행할 때 데이터 모니터가 종료되는 것을 방지합니다.
 \n그렇지 않으면 값이 올바르지 않을 수 있습니다.</string>

@@ -155,6 +155,7 @@
     <string name="body_data_usage_notification_loading">Caricamento…</string>
     <string name="label_data_remaining">"%1$s rimanenti"</string>
     <string name="label_data_remaining_used_excess">"%1$s extra usati"</string>
+    <string name="label_hours_remaining">ore rimanenti</string>
     <string name="disable_battery_optimisation">"Disabilita ottimizzazione della batteria"</string>
     <string name="disable_battery_optimisation_body">Impedisce di fermare l\'esecuzione di Data Tracker quando viene eseguito in background.
 \nAltrimenti i valori potrebbero non essere corretti.</string>

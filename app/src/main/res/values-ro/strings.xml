@@ -153,6 +153,7 @@
     <string name="body_data_usage_notification_loading">Încărcare…</string>
     <string name="label_data_remaining">%1$s rămas</string>
     <string name="label_data_remaining_used_excess">%1$s extra folosit</string>
+    <string name="label_hours_remaining">oră(e) rămasă(e)</string>
     <string name="disable_battery_optimisation">Dezactivați funcția de optimizare a bateriei</string>
     <string name="disable_battery_optimisation_body">Previne uciderea Monitorului de date atunci când rulează în fundal.
 \nÎn caz contrar, valorile ar putea fi incorecte.</string>

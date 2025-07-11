@@ -163,6 +163,7 @@ Perguntas e respostas, ajuda e solução de problemas
     <string name="body_data_usage_notification_loading">Carregando…</string>
     <string name="label_data_remaining">"%1$s restante"</string>
     <string name="label_data_remaining_used_excess">"%1$s extra usado"</string>
+    <string name="label_hours_remaining">hora(s) restante(s)</string>
     <string name="disable_battery_optimisation">"Desativar otimização de bateria"</string>
     <string name="disable_battery_optimisation_body">Evita matar o Data Tracker ao executar em segundo plano.
 \nCaso contrário, os valores podem estar incorretos.</string>
