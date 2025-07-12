@@ -240,6 +240,16 @@
 
         </LinearLayout>
 
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/recurring_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:text="@string/recurring"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+            android:paddingStart="@dimen/margin_small"
+            android:paddingEnd="@dimen/margin_small"/>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

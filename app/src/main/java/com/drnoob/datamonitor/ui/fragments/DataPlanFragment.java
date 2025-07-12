@@ -31,6 +31,7 @@ import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_DATE_END;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_DATE_END_HOUR;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_DATE_END_MIN;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_DATE_RESTART;
+import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_RECURRING;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_DATE_START;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_DATE_START_HOUR;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_DATE_START_MIN;
@@ -101,10 +102,11 @@ public class DataPlanFragment extends Fragment {
 
     FragmentDataPlanBinding binding;
 
-    private Long planStartDateMillis, planEndDateMillis;
+    private Long planStartDateMillis, planEndDateMillis,
+            originalPlanStartDateMillis, originalPlanEndDateMillis;
     private int startHour, startMinute, endHour, endMinute;
     private long startMillis, endMillis; // Absolute start and end time in millis
-    private boolean is12HourView;
+    private boolean is12HourView, isRecurring;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -132,6 +134,19 @@ public class DataPlanFragment extends Fragment {
         binding.containerToolbar.setBackgroundColor(SurfaceColors.SURFACE_2.getColor(getContext()));
         binding.toolbarSave.setVisibility(View.VISIBLE);
 
+        isRecurring = PreferenceManager.getDefaultSharedPreferences(requireContext())
+                .getBoolean(DATA_RESET_CUSTOM_RECURRING, false);
+        binding.recurringSwitch.setChecked(isRecurring);
+
+        binding.recurringSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            isRecurring = isChecked;
+            if (isChecked) {
+                updateDatesForRecurring();
+            } else {
+                restoreOriginalDates();
+            }
+        });
+
         Calendar calendar = Calendar.getInstance();
         int daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
 
@@ -155,6 +170,9 @@ public class DataPlanFragment extends Fragment {
             planEndDateMillis = ((Number) planEndIntValue).longValue();
         }
 
+        originalPlanStartDateMillis = planStartDateMillis;
+        originalPlanEndDateMillis = planEndDateMillis;
+
         startHour = PreferenceManager.getDefaultSharedPreferences(getContext())
                 .getInt(DATA_RESET_CUSTOM_DATE_START_HOUR, -1);
         startMinute = PreferenceManager.getDefaultSharedPreferences(getContext())
@@ -171,19 +189,7 @@ public class DataPlanFragment extends Fragment {
             endMinute = 59;
         }
 
-        String planStart = new SimpleDateFormat("dd/MM/yyyy").format(planStartDateMillis);
-        String planEnd = new SimpleDateFormat("dd/MM/yyyy").format(planEndDateMillis);
-        String startTime, endTime;
-        startTime = getContext().getString(R.string.label_custom_start_time, getTime(startHour, startMinute, is12HourView));
-        endTime = getContext().getString(R.string.label_custom_end_time, getTime(endHour, endMinute, is12HourView));
-        String startDateToday = getContext().getString(R.string.label_custom_start_date, planStart);
-        String endDateToday = getContext().getString(R.string.label_custom_end_date, planEnd);
-
-
-        binding.customStartDate.setText(setBoldSpan(startDateToday, planStart));
-        binding.customEndDate.setText(setBoldSpan(endDateToday, planEnd));
-        binding.customStartTime.setText(setBoldSpan(startTime, getTime(startHour, startMinute, is12HourView)));
-        binding.customEndTime.setText(setBoldSpan(endTime, getTime(endHour, endMinute, is12HourView)));
+        updateDateViews();
 
         binding.customStartDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -207,20 +213,15 @@ public class DataPlanFragment extends Fragment {
                                 .build();
 
 
-                startDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
-                    @Override
-                    public void onPositiveButtonClick(Object selection) {
-                        planStartDateMillis = Long.parseLong(selection.toString());
-                        Log.d(TAG, "onPositiveButtonClick: UTC: " + planStartDateMillis );
-                        Log.d(TAG, "onPositiveButtonClick: Local: " + UTCToLocal(planStartDateMillis));
-                        planStartDateMillis = UTCToLocal(planStartDateMillis);
-                        Log.d(TAG, "onPositiveButtonClick: UTC: " + localToUTC(planStartDateMillis));
-                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                        dateFormat.setTimeZone(TimeZone.getDefault());
-                        String date = dateFormat.format(new Date(planStartDateMillis));
+                startDatePicker.addOnPositiveButtonClickListener(selection -> {
+                    long selectionMillis = UTCToLocal(selection);
+                    originalPlanStartDateMillis = selectionMillis;
+                    planStartDateMillis = selectionMillis;
 
-                        String startDateString = getContext().getString(R.string.label_custom_start_date, date);
-                        binding.customStartDate.setText(setBoldSpan(startDateString, date));
+                    if (isRecurring) {
+                        updateDatesForRecurring();
+                    } else {
+                        updateDateViews();
                     }
                 });
 
@@ -240,7 +241,7 @@ public class DataPlanFragment extends Fragment {
                 CalendarConstraints.Builder constraintsBuilder = new CalendarConstraints.Builder()
                         .setStart(startYear)
                         .setEnd(endYear)
-                        .setValidator(DateValidatorPointForward.now());
+                        .setValidator(DateValidatorPointForward.from(originalPlanStartDateMillis));
 
                 MaterialDatePicker<Long> endDatePicker =
                         MaterialDatePicker.Builder.datePicker()
@@ -249,14 +250,15 @@ public class DataPlanFragment extends Fragment {
                                 .setCalendarConstraints(constraintsBuilder.build())
                                 .build();
 
-                endDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
-                    @Override
-                    public void onPositiveButtonClick(Object selection) {
-                        planEndDateMillis = Long.parseLong(selection.toString());
-                        planEndDateMillis = UTCToLocal(planEndDateMillis);
-                        String date = new SimpleDateFormat("dd/MM/yyyy").format(planEndDateMillis);
-                        String endDateString = getContext().getString(R.string.label_custom_end_date, date);
-                        binding.customEndDate.setText(setBoldSpan(endDateString, date));
+                endDatePicker.addOnPositiveButtonClickListener(selection -> {
+                    long selectionMillis = UTCToLocal(selection);
+                    originalPlanEndDateMillis = selectionMillis;
+                    planEndDateMillis = selectionMillis;
+
+                    if (isRecurring) {
+                        updateDatesForRecurring();
+                    } else {
+                        updateDateViews();
                     }
                 });
 
@@ -372,6 +374,8 @@ public class DataPlanFragment extends Fragment {
                     binding.dataLimitView.setError(getString(R.string.error_invalid_plan));
                 }
                 else {
+                    // The planStartDateMillis and planEndDateMillis are already correctly set by the interactive logic.
+                    // We just need to get the absolute start/end millis for the final validation check.
                     String startDate = new SimpleDateFormat("yyyy/MM/dd").format(planStartDateMillis);
                     String endDate = new SimpleDateFormat("yyyy/MM/dd").format(planEndDateMillis);
                     String start = startDate + " " + startHour + ":" + startMinute + ":00";
@@ -389,9 +393,9 @@ public class DataPlanFragment extends Fragment {
                         e.printStackTrace();
                     }
 
+                    // Validation: If not recurring, end date must not be in the past.
                     if ((binding.dataReset.getCheckedRadioButtonId() == R.id.custom_reset &&
-                            startMillis > System.currentTimeMillis()) ||
-                            (binding.dataReset.getCheckedRadioButtonId() == R.id.custom_reset &&
+                            !binding.recurringSwitch.isChecked() &&
                             endMillis < System.currentTimeMillis())) {
                         Snackbar snackbar = Snackbar.make(binding.getRoot(),
                                 requireContext().getString(R.string.error_invalid_plan_duration),
@@ -438,6 +442,7 @@ public class DataPlanFragment extends Fragment {
                                     .putLong(DATA_RESET_CUSTOM_DATE_START, planStartDateMillis)
                                     .putLong(DATA_RESET_CUSTOM_DATE_END, planEndDateMillis)
                                     .putLong(DATA_RESET_CUSTOM_DATE_RESTART, calendar.getTimeInMillis())
+                                    .putBoolean(DATA_RESET_CUSTOM_RECURRING, binding.recurringSwitch.isChecked())
                                     .apply();
                         }
 
@@ -460,8 +465,8 @@ public class DataPlanFragment extends Fragment {
                             DataUsageMonitor.updateServiceRestart(requireContext());
                         }
 
-                        Intent data = new Intent();
-                        requireActivity().setResult(Activity.RESULT_OK, data);
+                        Intent resultData = new Intent();
+                        requireActivity().setResult(Activity.RESULT_OK, resultData);
                         requireActivity().finish();
                     }
                 }
@@ -476,10 +481,7 @@ public class DataPlanFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (binding.dataLimit.getText().toString().length() <= 0) {
-
-                }
-                else {
+                if (binding.dataLimit.getText().toString().length() > 0) {
                     binding.dataLimitView.setError(null);
                 }
             }
@@ -489,6 +491,80 @@ public class DataPlanFragment extends Fragment {
 
             }
         });
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    private void updateDatesForRecurring() {
+        calculateNewDates();
+        updateDateViews();
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    private void restoreOriginalDates() {
+        planStartDateMillis = originalPlanStartDateMillis;
+        planEndDateMillis = originalPlanEndDateMillis;
+        updateDateViews();
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    private void calculateNewDates() {
+        // Use temporary variables for calculation, starting from the user's chosen original dates
+        long tempStartDateMillis = originalPlanStartDateMillis;
+        long tempEndDateMillis = originalPlanEndDateMillis;
+
+        // Combine date with time for accurate comparison
+        Calendar endCal = Calendar.getInstance();
+        endCal.setTimeInMillis(tempEndDateMillis);
+        endCal.set(Calendar.HOUR_OF_DAY, endHour);
+        endCal.set(Calendar.MINUTE, endMinute);
+        endCal.set(Calendar.SECOND, 59);
+
+        // Check if the calculated end time is in the past
+        if (endCal.getTimeInMillis() < System.currentTimeMillis()) {
+            long planDuration = originalPlanEndDateMillis - originalPlanStartDateMillis;
+
+            // Ensure duration is positive to prevent infinite loops
+            if (planDuration <= 0) {
+                // If duration is invalid, just use the original dates
+                planStartDateMillis = originalPlanStartDateMillis;
+                planEndDateMillis = originalPlanEndDateMillis;
+                return;
+            }
+
+            // Loop until the end date is in the future
+            while (endCal.getTimeInMillis() < System.currentTimeMillis()) {
+                tempStartDateMillis += planDuration;
+                tempEndDateMillis += planDuration;
+
+                // Update calendar with the new end date for the next loop check
+                endCal.setTimeInMillis(tempEndDateMillis);
+                endCal.set(Calendar.HOUR_OF_DAY, endHour);
+                endCal.set(Calendar.MINUTE, endMinute);
+                endCal.set(Calendar.SECOND, 59);
+            }
+        }
+
+        // Update the actual plan dates that will be displayed and saved
+        planStartDateMillis = tempStartDateMillis;
+        planEndDateMillis = tempEndDateMillis;
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    private void updateDateViews() {
+        String planStart = new SimpleDateFormat("dd/MM/yyyy").format(planStartDateMillis);
+        String planEnd = new SimpleDateFormat("dd/MM/yyyy").format(planEndDateMillis);
+        String startTime = getTime(startHour, startMinute, is12HourView);
+        String endTime = getTime(endHour, endMinute, is12HourView);
+
+        String startDateToday = getContext().getString(R.string.label_custom_start_date, planStart);
+        String endDateToday = getContext().getString(R.string.label_custom_end_date, planEnd);
+        String startTimeString = getContext().getString(R.string.label_custom_start_time, startTime);
+        String endTimeString = getContext().getString(R.string.label_custom_end_time, endTime);
+
+        binding.customStartDate.setText(setBoldSpan(startDateToday, planStart));
+        binding.customEndDate.setText(setBoldSpan(endDateToday, planEnd));
+        binding.customStartTime.setText(setBoldSpan(startTimeString, startTime));
+        binding.customEndTime.setText(setBoldSpan(endTimeString, endTime));
     }
 
     private void showTimePicker(int type) {
@@ -534,32 +610,19 @@ public class DataPlanFragment extends Fragment {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getContext(), NotificationService.NotificationUpdater.class);
-                getContext().sendBroadcast(i);
-                AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getContext());
-                int[] ids = appWidgetManager.getAppWidgetIds(new ComponentName(getContext(), DataUsageWidget.class));
-                Intent intent = new Intent(getContext(), DataUsageWidget.class);
-                intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
-                intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
-                getContext().sendBroadcast(intent);
-
-                String time, timeText;
-
-                time = getTime(timePicker.getHour(), timePicker.getMinute(), is12HourView);
-
                 if (type == TYPE_PLAN_START) {
-                    timeText = getContext().getString(R.string.label_custom_start_time, time);
-                    binding.customStartTime.setText(setBoldSpan(timeText, time));
-
                     startHour = timePicker.getHour();
                     startMinute = timePicker.getMinute();
                 }
                 else {
-                    timeText = getContext().getString(R.string.label_custom_end_time, time);
-                    binding.customEndTime.setText(setBoldSpan(timeText, time));
-
                     endHour = timePicker.getHour();
                     endMinute = timePicker.getMinute();
+                }
+
+                if (isRecurring) {
+                    updateDatesForRecurring();
+                } else {
+                    updateDateViews();
                 }
 
                 dialog.dismiss();

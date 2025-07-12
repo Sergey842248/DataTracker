@@ -29,6 +29,7 @@ import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_DATE_END;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_DATE_END_HOUR;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_DATE_END_MIN;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_DATE_RESTART;
+import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_RECURRING;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_DATE_START;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_DATE_START_HOUR;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_DATE_START_MIN;
@@ -85,11 +86,14 @@ public class DataPlanRefreshReceiver extends BroadcastReceiver {
             postNotification(context, managerCompat, builder, OTHER_NOTIFICATION_ID);
         }
         else {
-            try {
-                refreshDataPlan(context);
-            }
-            catch (ParseException e) {
-                e.printStackTrace();
+            boolean isRecurring = PreferenceManager.getDefaultSharedPreferences(context)
+                    .getBoolean(DATA_RESET_CUSTOM_RECURRING, false);
+            if (isRecurring) {
+                try {
+                    refreshDataPlan(context);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

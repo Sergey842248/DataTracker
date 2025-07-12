@@ -111,6 +111,7 @@ public class Values {
     public static final String DATA_RESET_CUSTOM_DATE_START = "custom_reset_date_start";
     public static final String DATA_RESET_CUSTOM_DATE_END = "custom_reset_date_end";
     public static final String DATA_RESET_CUSTOM_DATE_RESTART = "custom_reset_date_restart";
+    public static final String DATA_RESET_CUSTOM_RECURRING = "custom_recurring";
     public static final String DATA_WARNING_TRIGGER_LEVEL = "data_warning_trigger_level";
     public static final String DATA_USAGE_WARNING_SHOWN = "data_usage_warning_shown";
     public static final String DATA_QUOTA_WARNING_SHOWN = "data_quota_warning_shown";

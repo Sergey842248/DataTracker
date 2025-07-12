@@ -514,4 +514,5 @@
     <string name="label_plan_details_title_custom">Custom plan active</string>
     <string name="buttercookie42">buttercookie42</string>
     <string name="buttercookie42_summary">Developer</string>
+    <string name="recurring">Recurring</string>
 </resources>
