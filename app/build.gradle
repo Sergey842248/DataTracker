@@ -11,8 +11,8 @@ android {
         applicationId "com.sergey842248.datatracker"
         minSdkVersion 23
         targetSdkVersion 36
-        versionCode 260
-        versionName '2.6.0'
+        versionCode 270
+        versionName '2.7.0'
         resConfigs "en", "ar", "cs", "de", "es", "fr", "hi", "in", "it", "iw", "ja", "ko", "ml", "mr", "ms",
                 "nb-rNO", "nl", "pl", "pt-rBR", "ro", "ru", "tr", "uk", "uz", "vi", "zh-rCN", "zh-rTW"
 
