@@ -69,25 +69,27 @@ public class DataPlanRefreshReceiver extends BroadcastReceiver {
         /*
         Throw a notification when plan ends.
          */
+        boolean isRecurring = PreferenceManager.getDefaultSharedPreferences(context)
+                .getBoolean(DATA_RESET_CUSTOM_RECURRING, false);
+
         if (intent.getStringExtra(INTENT_ACTION) != null &&
                 intent.getStringExtra(INTENT_ACTION).equals(ACTION_SHOW_DATA_PLAN_NOTIFICATION)) {
-            Intent action = new Intent(context, MainActivity.class)
-                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            PendingIntent pendingIntent = PendingIntent.getActivity(context, 1003, action,
-                    PendingIntent.FLAG_IMMUTABLE|PendingIntent.FLAG_UPDATE_CURRENT);
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(context, OTHER_NOTIFICATION_CHANNEL_ID);
-            builder.setContentTitle(context.getString(R.string.title_data_plan_expired))
-                    .setContentText(context.getString(R.string.summary_data_plan_expired))
-                    .setAutoCancel(true)
-                    .setSmallIcon(R.drawable.ic_info)
-                    .setGroup(DEFAULT_NOTIFICATION_GROUP)
-                    .setContentIntent(pendingIntent);
-            NotificationManagerCompat managerCompat = NotificationManagerCompat.from(context);
-            postNotification(context, managerCompat, builder, OTHER_NOTIFICATION_ID);
-        }
-        else {
-            boolean isRecurring = PreferenceManager.getDefaultSharedPreferences(context)
-                    .getBoolean(DATA_RESET_CUSTOM_RECURRING, false);
+            if (!isRecurring) {
+                Intent action = new Intent(context, MainActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                PendingIntent pendingIntent = PendingIntent.getActivity(context, 1003, action,
+                        PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(context, OTHER_NOTIFICATION_CHANNEL_ID);
+                builder.setContentTitle(context.getString(R.string.title_data_plan_expired))
+                        .setContentText(context.getString(R.string.summary_data_plan_expired))
+                        .setAutoCancel(true)
+                        .setSmallIcon(R.drawable.ic_info)
+                        .setGroup(DEFAULT_NOTIFICATION_GROUP)
+                        .setContentIntent(pendingIntent);
+                NotificationManagerCompat managerCompat = NotificationManagerCompat.from(context);
+                postNotification(context, managerCompat, builder, OTHER_NOTIFICATION_ID);
+            }
+        } else {
             if (isRecurring) {
                 try {
                     refreshDataPlan(context);

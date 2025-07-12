@@ -389,8 +389,8 @@
     <string name="ngocanhtve_summary">Vietnamesich</string>
     <string name="bluehomewu">EdwardWu</string>
     <string name="bluehomewu_summary">Traditionelles Chinesisch</string>
-    <string name="label_data_plan_updated">Datenplan aktualisiert!</string>
-    <string name="data_plan_updated_summary">Ihr neuer Plan ist gültig bis %1$s</string>
+    <string name="label_data_plan_updated">Datentarif erneuert</string>
+    <string name="data_plan_updated_summary">Ihr Datentarif wurde erfolgreich erneuert und ist bis zum %1$s gültig</string>
     <string name="setup_auto_update_data_plan">Datenplan automatisch aktualisieren</string>
     <string name="auto_update_data_plan_summary">Aktualisieren Sie Ihren Datenplan automatisch mit einem ähnlichen Plan.</string>
     <string name="donate_info">Data Tracker ist eine Freie und Open-Source Anwendung und wird dies auch immer bleiben :)
