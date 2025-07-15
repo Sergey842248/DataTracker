@@ -194,7 +194,7 @@ class SmartDataAllocationService(context: Context, workerParams: WorkerParameter
 
             workManager.enqueueUniquePeriodicWork(
                 "data_rollover",
-                ExistingPeriodicWorkPolicy.KEEP,
+                ExistingPeriodicWorkPolicy.REPLACE,
                 dataRolloverWorkRequest
             )
         }

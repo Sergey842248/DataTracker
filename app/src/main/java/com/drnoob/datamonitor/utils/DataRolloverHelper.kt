@@ -44,83 +44,18 @@ class DataRolloverHelper(context: Context, workerParams: WorkerParameters) :
     }
 
     override fun doWork(): Result {
-        /*
-        Divide plan into two first: 1. Daily, 2. Monthly and Custom
-        > if daily, just check if there is any data left at the end of the day,
-        If there is, add it to the data plan of the next day, if nothing is left or excess is used, do nothing
+        Log.d(TAG, "Recalculating data quota.")
 
-        > If monthly or custom, plan should be divided into daily quotas,
-        if there is balance left at the end of the day, add it to the next day's quota.
-        If excess is used, decrease it from the next days quota.
-         */
+        val workManager = WorkManager.getInstance(applicationContext)
+        val smartDataAllocationWorkRequest = OneTimeWorkRequest
+            .Builder(SmartDataAllocationService::class.java)
+            .build()
+        workManager.enqueueUniqueWork(
+            "smart_data_allocation",
+            ExistingWorkPolicy.REPLACE,
+            smartDataAllocationWorkRequest
+        )
 
-        Log.d(TAG, "Updating data quota.")
-        val preference = PreferenceManager.getDefaultSharedPreferences(applicationContext)
-
-        val planType = preference.getString(DATA_RESET, "null")
-        val dailyQuota = preference.getFloat(DATA_QUOTA, -1f)
-
-        if (dailyQuota > 0) {
-            when (planType) {
-                DATA_RESET_DAILY -> {
-                    val dataUsage = round(
-                        (NetworkStatsHelper.getDeviceMobileDataUsage(
-                            applicationContext,
-                            SESSION_YESTERDAY, -1
-                        )[2] / 1024f / 1024f) * 100
-                    ) / 100 // rounds the usage value to 2 decimals
-                    if (dailyQuota > dataUsage) {
-                        val remainingData = dailyQuota - dataUsage
-                        val newDataQuota = dailyQuota + remainingData
-                        Log.d(
-                            TAG,
-                            "doWork: used: $dataUsage, remaining: $remainingData, new: $newDataQuota"
-                        )
-                        preference.edit().putFloat(DATA_QUOTA, newDataQuota).apply()
-                    }
-                }
-
-                else -> {
-                    val dataUsage = round(
-                        (NetworkStatsHelper.getDeviceMobileDataUsage(
-                            applicationContext,
-                            SESSION_YESTERDAY, -1
-                        )[2] / 1024f / 1024f) * 100
-                    ) / 100 // rounds the usage value to 2 decimals
-                    var newDataQuota = if (dailyQuota > dataUsage) {
-                        val remainingData = dailyQuota - dataUsage
-                        dailyQuota + remainingData
-                    } else {
-                        val excessUsage = dataUsage - dailyQuota
-                        dailyQuota - excessUsage
-                    }
-
-                    if (newDataQuota < 0f) {
-                        newDataQuota = 0f
-                    }
-                    Log.d(TAG, "doWork: usage: $dataUsage, new quota: $newDataQuota")
-                    preference.edit().putFloat(DATA_QUOTA, newDataQuota).apply()
-                }
-            }
-
-
-//            val dataUsage = round((NetworkStatsHelper.getDeviceMobileDataUsage(applicationContext,
-//                SESSION_YESTERDAY, -1)[2] / 1024f / 1024f) * 100) / 100 // rounds the usage value to 2 decimals
-//            val newDataQuota = if (dailyQuota > dataUsage) {
-//                val remainingData = dailyQuota - dataUsage
-//                dailyQuota + remainingData
-//            }
-//            else {
-//                val excessUsage = dataUsage - dailyQuota
-//                dailyQuota - excessUsage
-//            }
-//            Log.d(TAG, "doWork: usage: $dataUsage, new quota: $newDataQuota")
-//            preference.edit().putFloat(DATA_QUOTA, newDataQuota).apply()
-        } else {
-            return Result.failure()
-        }
-
-        Log.d(TAG, "Updated data quota.")
         return Result.success()
     }
 
