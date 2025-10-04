@@ -117,12 +117,12 @@ public class ContainerActivity extends AppCompatActivity {
 //        getSupportActionBar().setHomeAsUpIndicator(getDrawable(R.drawable.ic_arrow));
 
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-//            binding.containerToolbar.setBackgroundColor(SurfaceColors.SURFACE_2.getColor(this));
+//            binding.containerToolbar.setBackgroundColor(getResources().getColor(android.R.color.transparent));
 //        }
 //        else {
 //            binding.containerToolbar.setBackgroundColor(getResources().getColor(R.color.surface, null));
 //        }
-        binding.containerToolbar.setBackgroundColor(SurfaceColors.SURFACE_2.getColor(this));
+        binding.containerToolbar.setBackgroundColor(getResources().getColor(android.R.color.transparent));
         getWindow().setStatusBarColor(SurfaceColors.SURFACE_2.getColor(this));
 
         /*

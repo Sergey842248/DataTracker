@@ -7,6 +7,8 @@ android {
     namespace "com.drnoob.datamonitor"
     compileSdk 36
 
+    ndkVersion '27.0.12077973'
+
     defaultConfig {
         applicationId "com.sergey842248.datatracker"
         minSdkVersion 23

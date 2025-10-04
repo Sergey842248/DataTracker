@@ -83,7 +83,7 @@ public class CrashReportActivity extends AppCompatActivity {
         binding = ActivityCrashReportBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setSupportActionBar(binding.toolbar);
-        binding.toolbar.setBackgroundColor(SurfaceColors.SURFACE_2.getColor(this));
+        binding.toolbar.setBackgroundColor(getResources().getColor(android.R.color.transparent));
         getWindow().setStatusBarColor(SurfaceColors.SURFACE_2.getColor(this));
         getSupportActionBar().setTitle(R.string.crash_report_title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

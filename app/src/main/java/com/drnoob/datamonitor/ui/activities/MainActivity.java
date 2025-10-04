@@ -175,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
                 setTheme(R.style.Theme_DataMonitor);
                 setContentView(binding.getRoot());
                 setSupportActionBar(binding.mainToolbar);
-                binding.mainToolbar.setBackgroundColor(SurfaceColors.SURFACE_2.getColor(this));
+                binding.mainToolbar.setBackgroundColor(getColor(android.R.color.transparent));
                 getWindow().setStatusBarColor(SurfaceColors.SURFACE_2.getColor(this));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
                     getWindow().setNavigationBarColor(SurfaceColors.SURFACE_2.getColor(this));
