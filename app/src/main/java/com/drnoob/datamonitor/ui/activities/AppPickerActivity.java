@@ -99,8 +99,8 @@ public class AppPickerActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        binding.toolbar.setBackgroundColor(SurfaceColors.SURFACE_2.getColor(this));
-        binding.searchView.setBackgroundColor(SurfaceColors.SURFACE_2.getColor(this));
+        binding.toolbar.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+        binding.searchView.setBackgroundColor(getResources().getColor(android.R.color.transparent));
         getWindow().setStatusBarColor(SurfaceColors.SURFACE_2.getColor(this));
 
         /*

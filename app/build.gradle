@@ -6,14 +6,15 @@ plugins {
 android {
     namespace "com.drnoob.datamonitor"
     compileSdk 36
-    ndkVersion '26.3.11579264'
+
+    ndkVersion '27.0.12077973'
 
     defaultConfig {
         applicationId "com.sergey842248.datatracker"
         minSdkVersion 23
         targetSdkVersion 36
-        versionCode 271
-        versionName '2.7.1'
+        versionCode 272
+        versionName '2.7.2'
         resConfigs "en", "ar", "cs", "de", "es", "fr", "hi", "in", "it", "iw", "ja", "ko", "ml", "mr", "ms",
                 "nb-rNO", "nl", "pl", "pt-rBR", "ro", "ru", "tr", "uk", "uz", "vi", "zh-rCN", "zh-rTW"
 
@@ -22,14 +23,13 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
             minifyEnabled false
             shrinkResources false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
     externalNativeBuild {
@@ -38,11 +38,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '17'
+        jvmTarget = '1.8'
     }
     buildFeatures {
         viewBinding true
@@ -79,8 +79,6 @@ dependencies {
     implementation 'fr.bmartel:jspeedtest:1.32.1'
     implementation 'io.ipinfo:ipinfo-api:2.1'
     implementation 'com.squareup.okhttp3:okhttp:4.9.3'
-    implementation 'org.conscrypt:conscrypt-android:2.5.2'
-    implementation 'org.bouncycastle:bctls-jdk15on:1.70'
     implementation 'com.github.bumptech.glide:glide:4.15.1'
     implementation "androidx.work:work-runtime:2.8.1"
     implementation "androidx.work:work-runtime-ktx:2.8.1"

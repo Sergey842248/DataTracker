@@ -57,6 +57,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.graphics.Color;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -161,6 +162,7 @@ public class AppDataUsageFragment extends Fragment {
         mDataRefresh = view.findViewById(R.id.refresh_data_usage);
         mEmptyList = view.findViewById(R.id.empty_list);
         mTotalUsage = view.findViewById(R.id.current_session_total);
+        mTotalUsage.setBackgroundColor(Color.TRANSPARENT);
         mFilter = view.findViewById(R.id.filter_app_usage);
 
         mAdapter = new AppDataUsageAdapter(mList, mContext);
