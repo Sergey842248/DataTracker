@@ -7,14 +7,12 @@ android {
     namespace "com.drnoob.datamonitor"
     compileSdk 36
 
-    ndkVersion '27.0.12077973'
-
     defaultConfig {
         applicationId "com.sergey842248.datatracker"
         minSdkVersion 23
         targetSdkVersion 36
-        versionCode 272
-        versionName '2.7.2'
+        versionCode 271
+        versionName '2.7.1'
         resConfigs "en", "ar", "cs", "de", "es", "fr", "hi", "in", "it", "iw", "ja", "ko", "ml", "mr", "ms",
                 "nb-rNO", "nl", "pl", "pt-rBR", "ro", "ru", "tr", "uk", "uz", "vi", "zh-rCN", "zh-rTW"
 

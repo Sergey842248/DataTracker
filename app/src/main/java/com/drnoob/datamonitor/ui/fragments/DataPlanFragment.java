@@ -131,7 +131,7 @@ public class DataPlanFragment extends Fragment {
                 .setDisplayHomeAsUpEnabled(true);
         Objects.requireNonNull(((AppCompatActivity) requireActivity()).getSupportActionBar())
                 .setDisplayShowHomeEnabled(true);
-        binding.containerToolbar.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+        binding.containerToolbar.setBackgroundColor(SurfaceColors.SURFACE_2.getColor(getContext()));
         binding.toolbarSave.setVisibility(View.VISIBLE);
 
         isRecurring = PreferenceManager.getDefaultSharedPreferences(requireContext())

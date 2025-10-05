@@ -89,7 +89,7 @@ class CustomSessionFragment: Fragment() {
         baseActivity.setSupportActionBar(binding.containerToolbar)
         baseActivity.supportActionBar?.title = context?.getString(R.string.add_custom_session)
         baseActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        binding.containerToolbar.setBackgroundColor(android.graphics.Color.TRANSPARENT)
+        binding.containerToolbar.setBackgroundColor(SurfaceColors.SURFACE_2.getColor(requireContext()))
 
         val date = Date()
         val time = DateFormat.getTimeInstance(DateFormat.SHORT).format(date.time).lowercase()
