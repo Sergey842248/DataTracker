@@ -10,7 +10,7 @@ android {
     ndkVersion '27.0.12077973'
 
     defaultConfig {
-        applicationId "com.future.datatracker"
+        applicationId "com.future2.datatracker"
         minSdkVersion 23
         targetSdkVersion 36
         versionCode 272
