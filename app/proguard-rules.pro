@@ -22,3 +22,47 @@
 
 -keep class io.ipinfo.api.** { *; }
 -keepattributes SourceFile,LineNumberTable
+
+# OkHttp and SSL/TLS classes
+-keep class okhttp3.** { *; }
+-keep class org.bouncycastle.** { *; }
+-keep class org.conscrypt.** { *; }
+-keep class org.openjsse.** { *; }
+
+# SSL/TLS configuration
+-keep class javax.net.ssl.** { *; }
+-keep class com.android.org.conscrypt.** { *; }
+
+# Platform specific implementations
+-keep class okhttp3.internal.platform.** { *; }
+
+# BouncyCastle specific classes
+-keep class org.bouncycastle.jsse.BCSSLParameters { *; }
+-keep class org.bouncycastle.jsse.BCSSLSocket { *; }
+-keep class org.bouncycastle.jsse.provider.BouncyCastleJsseProvider { *; }
+
+# Conscrypt specific classes
+-keep class org.conscrypt.Conscrypt { *; }
+-keep class org.conscrypt.Conscrypt$Version { *; }
+-keep class org.conscrypt.ConscryptHostnameVerifier { *; }
+
+# OpenJSSE specific classes
+-keep class org.openjsse.javax.net.ssl.SSLParameters { *; }
+-keep class org.openjsse.javax.net.ssl.SSLSocket { *; }
+-keep class org.openjsse.net.ssl.OpenJSSE { *; }
+
+# Please add these rules to your existing keep rules in order to suppress warnings.
+# This is generated automatically by the Android Gradle plugin.
+-dontwarn com.android.org.conscrypt.SSLParametersImpl
+-dontwarn javax.naming.NamingEnumeration
+-dontwarn javax.naming.NamingException
+-dontwarn javax.naming.directory.Attribute
+-dontwarn javax.naming.directory.Attributes
+-dontwarn javax.naming.directory.DirContext
+-dontwarn javax.naming.directory.InitialDirContext
+-dontwarn javax.naming.directory.SearchControls
+-dontwarn javax.naming.directory.SearchResult
+-dontwarn org.apache.harmony.xnet.provider.jsse.SSLParametersImpl
+-dontwarn org.openjsse.javax.net.ssl.SSLParameters
+-dontwarn org.openjsse.javax.net.ssl.SSLSocket
+-dontwarn org.openjsse.net.ssl.OpenJSSE

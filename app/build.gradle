@@ -6,6 +6,7 @@ plugins {
 android {
     namespace "com.drnoob.datamonitor"
     compileSdk 36
+    ndkVersion '26.3.11579264'
 
     defaultConfig {
         applicationId "com.sergey842248.datatracker"
@@ -28,6 +29,7 @@ android {
         debug {
             minifyEnabled false
             shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
     externalNativeBuild {
@@ -36,11 +38,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
     buildFeatures {
         viewBinding true
@@ -77,6 +79,8 @@ dependencies {
     implementation 'fr.bmartel:jspeedtest:1.32.1'
     implementation 'io.ipinfo:ipinfo-api:2.1'
     implementation 'com.squareup.okhttp3:okhttp:4.9.3'
+    implementation 'org.conscrypt:conscrypt-android:2.5.2'
+    implementation 'org.bouncycastle:bctls-jdk15on:1.70'
     implementation 'com.github.bumptech.glide:glide:4.15.1'
     implementation "androidx.work:work-runtime:2.8.1"
     implementation "androidx.work:work-runtime-ktx:2.8.1"
