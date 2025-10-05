@@ -10,7 +10,7 @@ android {
     ndkVersion '27.0.12077973'
 
     defaultConfig {
-        applicationId "com.sergey842248.datatracker"
+        applicationId "com.future.datatracker"
         minSdkVersion 23
         targetSdkVersion 36
         versionCode 272
@@ -24,7 +24,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            shrinkResources true
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
