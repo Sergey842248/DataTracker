@@ -198,6 +198,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:id="@+id/label_top"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="end"
@@ -210,6 +211,7 @@
                 android:layout_weight="1" />
 
             <TextView
+                android:id="@+id/label_second"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="end"
@@ -222,6 +224,7 @@
                 android:layout_weight="1" />
 
             <TextView
+                android:id="@+id/label_third"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="end"
@@ -234,6 +237,7 @@
                 android:layout_weight="1" />
 
             <TextView
+                android:id="@+id/label_fourth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="end"
@@ -246,6 +250,7 @@
                 android:layout_weight="1" />
 
             <TextView
+                android:id="@+id/label_fifth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="end"
@@ -258,6 +263,7 @@
                 android:layout_weight="1" />
 
             <TextView
+                android:id="@+id/label_bottom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="end"
