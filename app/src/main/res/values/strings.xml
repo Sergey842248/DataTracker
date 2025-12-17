@@ -354,6 +354,12 @@
     <string name="notification_permission_denied_body">Features including Data Tracker notification, Live network speed and Data usage alert won\'t work properly without notification permission. Please grant it manually.</string>
     <string name="settings_disable_haptics">Disable haptics</string>
     <string name="disable_haptics_summary">Disable haptic feedback across the app</string>
+    <string name="settings_data_unit">Data unit</string>
+    <string name="data_unit_summary">Choose between binary (1024) or decimal (1000) conversion</string>
+    <string name="data_unit_binary">Binary (1024)</string>
+    <string name="data_unit_decimal">Decimal (1000)</string>
+    <string name="data_unit_binary_summary">1 GB = 1024 MB (IEC standard)</string>
+    <string name="data_unit_decimal_summary">1 GB = 1000 MB (SI standard)</string>
     <string name="action_dismiss">Dismiss</string>
     <string name="action_add_data_plan_home_summary">No data plan found! Add a data plan to start tracking it.</string>
     <string name="label_select_start_date">Select start date</string>

@@ -1444,7 +1444,7 @@ public class SetupFragment extends Fragment {
                                 try {
                                     int trigger = PreferenceManager.getDefaultSharedPreferences(getContext()).getInt(DATA_WARNING_TRIGGER_LEVEL, 85);
 
-                                    String totalUsage = formatData(getDeviceMobileDataUsage(getContext(), SESSION_TODAY, 1)[0],
+                                    String totalUsage = formatData(getContext(), getDeviceMobileDataUsage(getContext(), SESSION_TODAY, 1)[0],
                                             getDeviceMobileDataUsage(getContext(), SESSION_TODAY, 1)[1])[2]
                                             .replace(" MB", "").replace(" GB", "");
                                     if (totalUsage.contains(",")) {

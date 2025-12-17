@@ -131,7 +131,7 @@ public class AppDataUsageMonitor extends Service {
                             }
 
                             try {
-                                String totalData = formatData(getAppMobileDataUsage(context, context.getPackageManager().getApplicationInfo(list.get(i).getPackageName(), 0).uid, SESSION_TODAY)[0],
+                                String totalData = formatData(context, getAppMobileDataUsage(context, context.getPackageManager().getApplicationInfo(list.get(i).getPackageName(), 0).uid, SESSION_TODAY)[0],
                                         getAppMobileDataUsage(context, context.getPackageManager().getApplicationInfo(list.get(i).getPackageName(), 0).uid, SESSION_TODAY)[1])[2];
                                 String totalDataType = totalData.split("\\s+")[1];
                                 Float totalDataUsed = Float.parseFloat(totalData.split("\\s+")[0]);

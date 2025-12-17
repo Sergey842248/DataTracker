@@ -196,10 +196,10 @@ public class NotificationService extends Service {
 
                 try {
                     mobile = getDeviceMobileDataUsage(context, SESSION_TODAY, 1);
-                    String[] mobileData = formatData(mobile[0], mobile[1]);
+                    String[] mobileData = formatData(context, mobile[0], mobile[1]);
 
                     wifi = getDeviceWifiDataUsage(context, SESSION_TODAY);
-                    String[] wifiData = formatData(wifi[0], wifi[1]);
+                    String[] wifiData = formatData(context, wifi[0], wifi[1]);
 
                     long totalSent = mobile[0] + wifi[0];
                     long totalReceived = mobile[1] + wifi[1];
@@ -215,7 +215,7 @@ public class NotificationService extends Service {
                         }
                     }
 
-                    String[] total = formatData(totalSent, totalReceived);
+                    String[] total = formatData(context, totalSent, totalReceived);
                     totalDataUsage = context.getResources().getString(R.string.title_data_usage_notification, total[2]);
                     mobileDataUsage = context.getResources().getString(R.string.notification_mobile_data_usage,
                             mobileData[2]);

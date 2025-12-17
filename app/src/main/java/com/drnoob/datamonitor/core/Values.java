@@ -195,4 +195,6 @@ public class Values {
     public static final String DATA_QUOTA_SCHEDULED_RESET = "quota_scheduled_reset";
     public static final String DATA_QUOTA_PERFORMED_RESET = "quota_performed_reset";
 
+    public static final String DATA_UNIT_BINARY = "data_unit_binary"; // true = 1024 (binary), false = 1000 (decimal)
+
 }

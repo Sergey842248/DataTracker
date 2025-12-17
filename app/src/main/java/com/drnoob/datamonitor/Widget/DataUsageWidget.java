@@ -104,10 +104,10 @@ public class DataUsageWidget extends AppWidgetProvider {
                 mobile = getDeviceMobileDataUsage(context, SESSION_TODAY, -1);
             }
 
-            mobileData = formatData(mobile[0], mobile[1])[2];
+            mobileData = formatData(context, mobile[0], mobile[1])[2];
 
             wifi = getDeviceWifiDataUsage(context, SESSION_TODAY);
-            wifiData = formatData(wifi[0], wifi[1])[2];
+            wifiData = formatData(context, wifi[0], wifi[1])[2];
 
         } catch (ParseException e) {
             e.printStackTrace();
@@ -156,12 +156,12 @@ public class DataUsageWidget extends AppWidgetProvider {
                     String remainingData;
                     if (limit > total) {
                         remaining= limit - total;
-                        remainingData = formatData(remaining / 2, remaining / 2)[2];
+                        remainingData = formatData(context, remaining / 2, remaining / 2)[2];
                         views.setTextViewText(R.id.widget_data_usage_remaining, context.getString(R.string.label_data_remaining, remainingData));
                     }
                     else {
                         remaining= total - limit;
-                        remainingData = formatData(remaining / 2, remaining / 2)[2];
+                        remainingData = formatData(context, remaining / 2, remaining / 2)[2];
                         views.setTextViewText(R.id.widget_data_usage_remaining, context.getString(R.string.label_data_remaining_used_excess, remainingData));
                     }
                     Log.d(TAG, "updateAppWidget: " + remainingData);
@@ -174,12 +174,12 @@ public class DataUsageWidget extends AppWidgetProvider {
                         String remainingData;
                         if (limit > total) {
                             remaining= limit - total;
-                            remainingData = formatData(remaining / 2, remaining / 2)[2];
+                            remainingData = formatData(context, remaining / 2, remaining / 2)[2];
                             views.setTextViewText(R.id.widget_data_usage_remaining, context.getString(R.string.label_data_remaining, remainingData));
                         }
                         else {
                             remaining= total - limit;
-                            remainingData = formatData(remaining / 2, remaining / 2)[2];
+                            remainingData = formatData(context, remaining / 2, remaining / 2)[2];
                             views.setTextViewText(R.id.widget_data_usage_remaining, context.getString(R.string.label_data_remaining_used_excess, remainingData));
                         }
                         Log.d(TAG, "updateAppWidget: " + remainingData);
@@ -196,12 +196,12 @@ public class DataUsageWidget extends AppWidgetProvider {
                     String remainingData;
                     if (limit > total) {
                         remaining= limit - total;
-                        remainingData = formatData(remaining / 2, remaining / 2)[2];
+                        remainingData = formatData(context, remaining / 2, remaining / 2)[2];
                         views.setTextViewText(R.id.widget_data_usage_remaining, context.getString(R.string.label_data_remaining, remainingData));
                     }
                     else {
                         remaining= total - limit;
-                        remainingData = formatData(remaining / 2, remaining / 2)[2];
+                        remainingData = formatData(context, remaining / 2, remaining / 2)[2];
                         views.setTextViewText(R.id.widget_data_usage_remaining, context.getString(R.string.label_data_remaining_used_excess, remainingData));
                     }
                     Log.d(TAG, "updateAppWidget: " + remainingData);

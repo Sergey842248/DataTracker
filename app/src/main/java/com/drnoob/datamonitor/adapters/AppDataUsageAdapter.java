@@ -200,10 +200,10 @@ public class AppDataUsageAdapter extends RecyclerView.Adapter<AppDataUsageAdapte
                     }
 
                     long total = model.getSentMobile() + model.getReceivedMobile() + model.getSentWifi() + model.getReceivedWifi();
-                    String combinedTotal = formatData(0l, total)[2];
+                    String combinedTotal = formatData(mContext, 0l, total)[2];
 
-                    dataSent.setText(formatData(model.getSentMobile(), model.getReceivedMobile())[0]);
-                    dataReceived.setText(formatData(model.getSentMobile(), model.getReceivedMobile())[1]);
+                    dataSent.setText(formatData(mContext, model.getSentMobile(), model.getReceivedMobile())[0]);
+                    dataReceived.setText(formatData(mContext, model.getSentMobile(), model.getReceivedMobile())[1]);
                     appCombinedTotal.setText(setBoldSpan(mContext.getString(R.string.app_label_combined_total, combinedTotal),
                             combinedTotal));
 

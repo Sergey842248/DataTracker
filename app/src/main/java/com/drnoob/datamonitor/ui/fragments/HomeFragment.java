@@ -458,7 +458,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     long dailyQuotaBytes = (long) (quota * 1024 * 1024);
                     long finalQuota = Math.min(dailyQuotaBytes, remainingDataBytes);
 
-                    String dailyQuota = formatData(0L, finalQuota)[2];
+                    String dailyQuota = formatData(getContext(), 0L, finalQuota)[2];
                     mDailyQuota.setText(getString(R.string.label_daily_quota, dailyQuota));
                     mDailyQuota.setVisibility(View.VISIBLE);
                 } else {
@@ -467,11 +467,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
                 if (limit > total) {
                     remaining = limit - total;
-                    remainingData = formatData(remaining / 2, remaining / 2)[2];
+                    remainingData = formatData(getContext(), remaining / 2, remaining / 2)[2];
                     mPlanUsage.setText(getContext().getString(R.string.label_data_remaining, remainingData));
                 } else {
                     remaining = total - limit;
-                    remainingData = formatData(remaining / 2, remaining / 2)[2];
+                    remainingData = formatData(getContext(), remaining / 2, remaining / 2)[2];
                     mPlanUsage.setText(getContext().getString(R.string.label_data_remaining_used_excess, remainingData));
                 }
 
@@ -494,7 +494,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     long dailyQuotaBytes = (long) (quota * 1024 * 1024);
                     long finalQuota = Math.min(dailyQuotaBytes, remainingDataBytes);
 
-                    String dailyQuota = formatData(0L, finalQuota)[2];
+                    String dailyQuota = formatData(getContext(), 0L, finalQuota)[2];
                     mDailyQuota.setText(getString(R.string.label_daily_quota, dailyQuota));
                     mDailyQuota.setVisibility(View.VISIBLE);
                 } else {
@@ -505,16 +505,16 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 Long limit = dataLimit.longValue() * 1048576;
                 Long remaining;
                 String remainingData;
-                String used = formatData(0l, total)[2];
+                String used = formatData(getContext(), 0l, total)[2];
                 if (limit > total) {
                     remaining = limit - total;
                     remainingData = requireContext().getString(R.string.label_data_remaining,
-                            formatData(remaining / 2, remaining / 2)[2]);
+                            formatData(getContext(), remaining / 2, remaining / 2)[2]);
 //                    mDataRemaining.setText(getContext().getString(R.string.label_data_remaining, remainingData));
                 } else {
                     remaining = total - limit;
                     remainingData = requireContext().getString(R.string.label_data_remaining_used_excess,
-                            formatData(remaining / 2, remaining / 2)[2]);
+                            formatData(getContext(), remaining / 2, remaining / 2)[2]);
 //                    mDataRemaining.setText(getContext().getString(R.string.label_data_remaining_used_excess, remainingData));
                 }
 
@@ -537,7 +537,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     long dailyQuotaBytes = (long) (quota * 1024 * 1024);
                     long finalQuota = Math.min(dailyQuotaBytes, remainingDataBytes);
 
-                    String dailyQuota = formatData(0L, finalQuota)[2];
+                    String dailyQuota = formatData(getContext(), 0L, finalQuota)[2];
                     mDailyQuota.setText(getString(R.string.label_daily_quota, dailyQuota));
                     mDailyQuota.setVisibility(View.VISIBLE);
                 } else {
@@ -547,16 +547,16 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 Long limit = dataLimit.longValue() * 1048576;
                 Long remaining;
                 String remainingData;
-                String used = formatData(0l, total)[2];
+                String used = formatData(getContext(), 0l, total)[2];
                 if (limit > total) {
                     remaining = limit - total;
                     remainingData = requireContext().getString(R.string.label_data_remaining,
-                            formatData(remaining / 2, remaining / 2)[2]);
+                            formatData(getContext(), remaining / 2, remaining / 2)[2]);
 //                    mDataRemaining.setText(getContext().getString(R.string.label_data_remaining, remainingData));
                 } else {
                     remaining = total - limit;
                     remainingData = requireContext().getString(R.string.label_data_remaining_used_excess,
-                            formatData(remaining / 2, remaining / 2)[2]);
+                            formatData(getContext(), remaining / 2, remaining / 2)[2]);
 //                    mDataRemaining.setText(getContext().getString(R.string.label_data_remaining_used_excess, remainingData));
                 }
                 String usageDetails = requireContext().getString(R.string.home_plan_usage_details, used, remainingData);
@@ -665,8 +665,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             mobile = getDeviceMobileDataUsage(getContext(), SESSION_TODAY, 1);
             wifi = getDeviceWifiDataUsage(getContext(), SESSION_TODAY);
 
-            String[] mobileData = formatData(mobile[0], mobile[1]);
-            String[] wifiData = formatData(wifi[0], wifi[1]);
+            String[] mobileData = formatData(getContext(), mobile[0], mobile[1]);
+            String[] wifiData = formatData(getContext(), wifi[0], wifi[1]);
             mMobileDataUsage.setText(mobileData[2]);
             mWifiDataUsage.setText(wifiData[2]);
 
@@ -702,8 +702,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             long mobileReceived = mobileSent;
             long wifiSent = (model.getTotalWifi() / 2l) * 1048576;
             long wifiReceived = wifiSent;
-            String data = formatData(mobileSent, mobileReceived)[2];
-            String wifi = formatData(wifiSent, wifiReceived)[2];
+            String data = formatData(mContext, mobileSent, mobileReceived)[2];
+            String wifi = formatData(mContext, wifiSent, wifiReceived)[2];
             if (i == 0) {
                 mMobileMon.setProgress((model.getTotalMobile() / 25) + 2);  // 500 MB is 20 in the progressBar, so divided by 25. Added 2 to fix margin issue
                 mWifiMon.setProgress((model.getTotalWifi() / 25) + 2);
@@ -778,8 +778,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 long mobileReceived = mobileSent;
                 long wifiSent = (model.getTotalWifi() / 2l) * 1048576;
                 long wifiReceived = wifiSent;
-                String data = formatData(mobileSent, mobileReceived)[2];
-                String wifi = formatData(wifiSent, wifiReceived)[2];
+                String data = formatData(mContext, mobileSent, mobileReceived)[2];
+                String wifi = formatData(mContext, wifiSent, wifiReceived)[2];
                 
                 // Dynamic scaling calculation using rounded max value
                 float mobileProgress = calculateProgress(model.getTotalMobile(), roundedMaxValue);
@@ -1102,8 +1102,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             long mobileReceived = mobileSent;
             long wifiSent = (model.getTotalWifi() / 2L) * 1048576;
             long wifiReceived = wifiSent;
-            mobile = formatData(mobileSent, mobileReceived)[2];
-            wifi = formatData(wifiSent, wifiReceived)[2];
+            mobile = formatData(mContext, mobileSent, mobileReceived)[2];
+            wifi = formatData(mContext, wifiSent, wifiReceived)[2];
         } else {
             mobile = getString(R.string.app_data_usage_placeholder);
             wifi = getString(R.string.app_data_usage_placeholder);

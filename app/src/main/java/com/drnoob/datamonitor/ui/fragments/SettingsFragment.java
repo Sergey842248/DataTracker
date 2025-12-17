@@ -26,6 +26,7 @@ import static com.drnoob.datamonitor.core.Values.APP_THEME_SUMMARY;
 import static com.drnoob.datamonitor.core.Values.CONTRIBUTORS_FRAGMENT;
 import static com.drnoob.datamonitor.core.Values.DIAGNOSTICS_SETTINGS_FRAGMENT;
 import static com.drnoob.datamonitor.core.Values.DONATE_FRAGMENT;
+import static com.drnoob.datamonitor.core.Values.DATA_UNIT_BINARY;
 import static com.drnoob.datamonitor.core.Values.GENERAL_FRAGMENT_ID;
 
 import android.content.Intent;
@@ -52,7 +53,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     private static final String TAG = SettingsFragment.class.getSimpleName();
     private Preference mAppThemePicker, mLanguagePicker, mDiagnosticsSettings,
             mAbout, mContributors, mDonate;
-    private SwitchPreferenceCompat mDisableHaptics;
+    private SwitchPreferenceCompat mDisableHaptics, mDataUnitBinary;
     private Snackbar snackbar;
 
     public SettingsFragment() {
@@ -72,6 +73,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         mLanguagePicker = (Preference) findPreference("language_picker");
         mDiagnosticsSettings = (Preference) findPreference("network_diagnostics");
         mDisableHaptics = (SwitchPreferenceCompat) findPreference("disable_haptics");
+        mDataUnitBinary = (SwitchPreferenceCompat) findPreference("data_unit_binary");
         mAbout = (Preference) findPreference("about");
         mContributors = (Preference) findPreference("contributors");
         mDonate = (Preference) findPreference("donate");
@@ -187,6 +189,23 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                     snackbar.show();
                     return false;
                 }
+            });
+        }
+
+        if (mDataUnitBinary != null) {
+            // Set initial summary based on current state
+            boolean useBinary = PreferenceManager.getDefaultSharedPreferences(getContext())
+                    .getBoolean(DATA_UNIT_BINARY, true);
+            mDataUnitBinary.setSummary(useBinary ? 
+                    getString(R.string.data_unit_binary_summary) : 
+                    getString(R.string.data_unit_decimal_summary));
+
+            mDataUnitBinary.setOnPreferenceChangeListener((preference, newValue) -> {
+                boolean isBinary = (Boolean) newValue;
+                mDataUnitBinary.setSummary(isBinary ? 
+                        getString(R.string.data_unit_binary_summary) : 
+                        getString(R.string.data_unit_decimal_summary));
+                return true;
             });
         }
 

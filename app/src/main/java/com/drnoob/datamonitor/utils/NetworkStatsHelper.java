@@ -38,6 +38,7 @@ import static com.drnoob.datamonitor.core.Values.SESSION_LAST_MONTH;
 import static com.drnoob.datamonitor.core.Values.SESSION_MONTHLY;
 import static com.drnoob.datamonitor.core.Values.SESSION_THIS_MONTH;
 import static com.drnoob.datamonitor.core.Values.SESSION_THIS_YEAR;
+import static com.drnoob.datamonitor.core.Values.DATA_UNIT_BINARY;
 import static com.drnoob.datamonitor.core.Values.SESSION_TODAY;
 import static com.drnoob.datamonitor.core.Values.SESSION_YESTERDAY;
 
@@ -407,34 +408,62 @@ public class NetworkStatsHelper {
         return data;
     }
 
+    /**
+     * Get the data unit divisor based on user preference.
+     * @param context Application context
+     * @return 1024 for binary (GiB/MiB), 1000 for decimal (GB/MB)
+     */
+    public static float getDataUnitDivisor(Context context) {
+        boolean useBinary = PreferenceManager.getDefaultSharedPreferences(context)
+                .getBoolean(DATA_UNIT_BINARY, true); // Default to binary (1024)
+        return useBinary ? 1024f : 1000f;
+    }
+
+    /**
+     * Format data with context-aware unit conversion.
+     * Uses user preference for binary (1024) or decimal (1000) conversion.
+     */
+    public static String[] formatData(Context context, Long sent, Long received) {
+        float divisor = getDataUnitDivisor(context);
+        return formatDataWithDivisor(sent, received, divisor);
+    }
+
+    /**
+     * Format data using default binary (1024) conversion.
+     * For backwards compatibility when context is not available.
+     */
     public static String[] formatData(Long sent, Long received) {
+        return formatDataWithDivisor(sent, received, 1024f);
+    }
+
+    private static String[] formatDataWithDivisor(Long sent, Long received, float divisor) {
         Long total = sent + received;
         String[] data;
 
-        Float totalBytes = total / 1024f;
-        Float sentBytes = sent / 1024f;
-        Float receivedBytes = received / 1024f;
-        Float totalMB = totalBytes / 1024f;
+        Float totalBytes = total / divisor;
+        Float sentBytes = sent / divisor;
+        Float receivedBytes = received / divisor;
+        Float totalMB = totalBytes / divisor;
         Float totalGB, sentGB, sentMB, receivedGB, receivedMB;
-        sentMB = sentBytes / 1024f;
-        receivedMB = receivedBytes / 1024f;
+        sentMB = sentBytes / divisor;
+        receivedMB = receivedBytes / divisor;
         String sentData = "", receivedData = "", totalData;
 
-        if (totalMB > 1024) {
-            totalGB = totalMB / 1024f;
+        if (totalMB > divisor) {
+            totalGB = totalMB / divisor;
             totalData = String.format("%.2f", totalGB) + " GB";
         } else {
             totalData = String.format("%.2f", totalMB) + " MB";
         }
-        if (sentMB > 1024) {
-            sentGB = sentMB / 1024f;
+        if (sentMB > divisor) {
+            sentGB = sentMB / divisor;
             sentData = String.format("%.2f", sentGB) + " GB";
         } else {
             sentData = String.format("%.2f", sentMB) + " MB";
         }
 
-        if (receivedMB > 1024) {
-            receivedGB = receivedMB / 1024f;
+        if (receivedMB > divisor) {
+            receivedGB = receivedMB / divisor;
             receivedData = String.format("%.2f", receivedGB) + " GB";
         } else {
             receivedData = String.format("%.2f", receivedMB) + " MB";
