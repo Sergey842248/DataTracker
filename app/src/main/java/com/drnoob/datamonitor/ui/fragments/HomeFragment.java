@@ -750,6 +750,25 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
             OverviewModel model = null;
 
+            // Calculate dynamic maximum value from all days for proper scaling
+            long maxMobileValue = 0;
+            long maxWifiValue = 0;
+            
+            for (int i = 0; i < mList.size(); i++) {
+                model = mList.get(i);
+                maxMobileValue = Math.max(maxMobileValue, model.getTotalMobile());
+                maxWifiValue = Math.max(maxWifiValue, model.getTotalWifi());
+            }
+            
+            // Use the maximum of both mobile and wifi to set scale, ensure minimum of 2000 (2GB) for consistency
+            long maxValue = Math.max(Math.max(maxMobileValue, maxWifiValue), 2000L);
+            
+            // Set max values for ProgressView elements to ensure proper scaling
+            setProgressViewMaxValues(maxValue);
+            
+            // Update Y-axis labels dynamically based on maxValue
+            updateYAxisLabels(maxValue);
+
             for (int i = 0; i < mList.size(); i++) {
                 model = mList.get(i);
                 long mobileSent = (model.getTotalMobile() / 2l) * 1048576;
@@ -758,39 +777,44 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 long wifiReceived = wifiSent;
                 String data = formatData(mobileSent, mobileReceived)[2];
                 String wifi = formatData(wifiSent, wifiReceived)[2];
+                
+                // Dynamic scaling calculation
+                float mobileProgress = calculateProgress(model.getTotalMobile(), maxValue);
+                float wifiProgress = calculateProgress(model.getTotalWifi(), maxValue);
+                
                 if (i == 0) {
-                    mMobileMon.setProgress((model.getTotalMobile() / 25) + 2);  // 500 MB is 20 in the progressBar, so divided by 25. Added 2 to fix margin issue
-                    mWifiMon.setProgress((model.getTotalWifi() / 25) + 2);
+                    mMobileMon.setProgress(mobileProgress);
+                    mWifiMon.setProgress(wifiProgress);
                     mMobileMon.setLabelText("");
                     mWifiMon.setLabelText("");
                 } else if (i == 1) {
-                    mMobileTue.setProgress((model.getTotalMobile() / 25) + 2);
-                    mWifiTue.setProgress((model.getTotalWifi() / 25) + 2);
+                    mMobileTue.setProgress(mobileProgress);
+                    mWifiTue.setProgress(wifiProgress);
                     mMobileTue.setLabelText("");
                     mWifiTue.setLabelText("");
                 } else if (i == 2) {
-                    mMobileWed.setProgress((model.getTotalMobile() / 25) + 2);
-                    mWifiWed.setProgress((model.getTotalWifi() / 25) + 2);
+                    mMobileWed.setProgress(mobileProgress);
+                    mWifiWed.setProgress(wifiProgress);
                     mMobileWed.setLabelText("");
                     mWifiWed.setLabelText("");
                 } else if (i == 3) {
-                    mMobileThurs.setProgress((model.getTotalMobile() / 25) + 2);
-                    mWifiThurs.setProgress((model.getTotalWifi() / 25) + 2);
+                    mMobileThurs.setProgress(mobileProgress);
+                    mWifiThurs.setProgress(wifiProgress);
                     mMobileThurs.setLabelText("");
                     mWifiThurs.setLabelText("");
                 } else if (i == 4) {
-                    mMobileFri.setProgress((model.getTotalMobile() / 25) + 2);
-                    mWifiFri.setProgress((model.getTotalWifi() / 25) + 2);
+                    mMobileFri.setProgress(mobileProgress);
+                    mWifiFri.setProgress(wifiProgress);
                     mMobileFri.setLabelText("");
                     mWifiFri.setLabelText("");
                 } else if (i == 5) {
-                    mMobileSat.setProgress((model.getTotalMobile() / 25) + 2);
-                    mWifiSat.setProgress((model.getTotalWifi() / 25) + 2);
+                    mMobileSat.setProgress(mobileProgress);
+                    mWifiSat.setProgress(wifiProgress);
                     mMobileSat.setLabelText("");
                     mWifiSat.setLabelText("");
                 } else if (i == 6) {
-                    mMobileSun.setProgress((model.getTotalMobile() / 25) + 2);
-                    mWifiSun.setProgress((model.getTotalWifi() / 25) + 2);
+                    mMobileSun.setProgress(mobileProgress);
+                    mWifiSun.setProgress(wifiProgress);
                     mMobileSun.setLabelText("");
                     mWifiSun.setLabelText("");
                 }
@@ -798,6 +822,143 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         } else {
             UpdateOverview updateOverview = new UpdateOverview(MODE_LOAD_OVERVIEW);
             updateOverview.execute();
+        }
+    }
+
+    /**
+     * Calculate progress for ProgressView based on value and maximum
+     * @param value Current value
+     * @param maxValue Maximum value for scaling
+     * @return Progress value for ProgressView (0-100 range + margin)
+     */
+    private static float calculateProgress(long value, long maxValue) {
+        if (maxValue <= 0) {
+            return 2f; // Default margin
+        }
+        // Scale to 0-100 range, then add 2 for margin like original implementation
+        float progress = (value / (float) maxValue) * 100f;
+        return Math.max(progress + 2f, 2f); // Ensure minimum 2 for margin
+    }
+
+    /**
+     * Set maximum values for all ProgressView elements
+     * @param maxValue Maximum value to set for ProgressViews
+     */
+    private static void setProgressViewMaxValues(long maxValue) {
+        try {
+            // For ProgressView library, we work with percentages (0-100)
+            // The actual max value is managed through scaling logic in calculateProgress
+            // We set all ProgressView max to 100 since we work with percentage-based scaling
+            int maxProgress = 100;
+            
+            // Set max value for all ProgressView elements to 100 for percentage calculation
+            mMobileMon.setMax(maxProgress);
+            mWifiMon.setMax(maxProgress);
+            mMobileTue.setMax(maxProgress);
+            mWifiTue.setMax(maxProgress);
+            mMobileWed.setMax(maxProgress);
+            mWifiWed.setMax(maxProgress);
+            mMobileThurs.setMax(maxProgress);
+            mWifiThurs.setMax(maxProgress);
+            mMobileFri.setMax(maxProgress);
+            mWifiFri.setMax(maxProgress);
+            mMobileSat.setMax(maxProgress);
+            mWifiSat.setMax(maxProgress);
+            mMobileSun.setMax(maxProgress);
+            mWifiSun.setMax(maxProgress);
+            
+        } catch (Exception e) {
+            Log.e(TAG, "Error setting ProgressView max values: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Update Y-axis labels dynamically based on the maximum value
+     * @param maxValue Maximum value in MB for scaling
+     */
+    private static void updateYAxisLabels(long maxValue) {
+        try {
+            // Calculate appropriate GB values for Y-axis labels
+            double maxGB = maxValue / 1024.0; // Convert MB to GB
+            
+            // Find appropriate scale intervals
+            double[] intervals = {0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 100, 200, 500, 1000};
+            double selectedInterval = intervals[0];
+            
+            for (double interval : intervals) {
+                if (maxGB <= interval * 6) { // Ensure we have at least 6 intervals
+                    selectedInterval = interval;
+                    break;
+                }
+            }
+            
+            // Ensure we have a reasonable minimum
+            if (selectedInterval < 0.5) {
+                selectedInterval = 0.5;
+            }
+            
+            // Update the TextViews for Y-axis labels
+            updateYAxisLabelTexts(selectedInterval, maxGB);
+            
+        } catch (Exception e) {
+            Log.e(TAG, "Error updating Y-axis labels: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Update the actual Y-axis label text views
+     * @param interval Interval value in GB
+     * @param maxGB Maximum value in GB
+     */
+    private static void updateYAxisLabelTexts(double interval, double maxGB) {
+        try {
+            // Get the overview view to find text views
+            View overviewView = mOverview;
+            if (overviewView == null) return;
+            
+            // Find Y-axis label text views (this assumes specific IDs, may need adjustment)
+            TextView topLabel = overviewView.findViewById(R.id.label_top);
+            TextView secondLabel = overviewView.findViewById(R.id.label_second); 
+            TextView thirdLabel = overviewView.findViewById(R.id.label_third);
+            TextView fourthLabel = overviewView.findViewById(R.id.label_fourth);
+            TextView fifthLabel = overviewView.findViewById(R.id.label_fifth);
+            TextView bottomLabel = overviewView.findViewById(R.id.label_bottom);
+            
+            // Format labels based on interval
+            String topText = formatDataLabel(maxGB, true);
+            String secondText = formatDataLabel(maxGB * 0.8, false);
+            String thirdText = formatDataLabel(maxGB * 0.6, false);
+            String fourthText = formatDataLabel(maxGB * 0.4, false);
+            String fifthText = formatDataLabel(maxGB * 0.2, false);
+            String bottomText = "0 GB";
+            
+            if (topLabel != null) topLabel.setText(topText);
+            if (secondLabel != null) secondLabel.setText(secondText);
+            if (thirdLabel != null) thirdLabel.setText(thirdText);
+            if (fourthLabel != null) fourthLabel.setText(fourthText);
+            if (fifthLabel != null) fifthLabel.setText(fifthText);
+            if (bottomLabel != null) bottomLabel.setText(bottomText);
+            
+        } catch (Exception e) {
+            Log.e(TAG, "Error updating Y-axis label texts: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Format data label for Y-axis
+     * @param gbValue Value in GB
+     * @param isMax Whether this is the maximum value
+     * @return Formatted string
+     */
+    private static String formatDataLabel(double gbValue, boolean isMax) {
+        if (gbValue >= 1000) {
+            return String.format("%.0f TB", gbValue / 1000);
+        } else if (gbValue >= 100) {
+            return String.format("%.0f GB", gbValue);
+        } else if (gbValue >= 10) {
+            return String.format("%.1f GB", gbValue);
+        } else {
+            return String.format("%.2f GB", gbValue);
         }
     }
 
