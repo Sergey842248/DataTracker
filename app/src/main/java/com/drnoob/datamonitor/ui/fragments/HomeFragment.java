@@ -763,11 +763,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             // Use the maximum of both mobile and wifi to set scale, ensure minimum of 2000 (2GB) for consistency
             long maxValue = Math.max(Math.max(maxMobileValue, maxWifiValue), 2000L);
             
-            // Set max values for ProgressView elements to ensure proper scaling
-            setProgressViewMaxValues(maxValue);
+            // Round maxValue to a "nice" number for better Y-axis labels
+            long roundedMaxValue = roundToNiceValue(maxValue);
             
-            // Update Y-axis labels dynamically based on maxValue
-            updateYAxisLabels(maxValue);
+            // Set max values for ProgressView elements to ensure proper scaling
+            setProgressViewMaxValues(roundedMaxValue);
+            
+            // Update Y-axis labels dynamically based on roundedMaxValue
+            updateYAxisLabels(roundedMaxValue);
 
             for (int i = 0; i < mList.size(); i++) {
                 model = mList.get(i);
@@ -778,9 +781,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 String data = formatData(mobileSent, mobileReceived)[2];
                 String wifi = formatData(wifiSent, wifiReceived)[2];
                 
-                // Dynamic scaling calculation
-                float mobileProgress = calculateProgress(model.getTotalMobile(), maxValue);
-                float wifiProgress = calculateProgress(model.getTotalWifi(), maxValue);
+                // Dynamic scaling calculation using rounded max value
+                float mobileProgress = calculateProgress(model.getTotalMobile(), roundedMaxValue);
+                float wifiProgress = calculateProgress(model.getTotalWifi(), roundedMaxValue);
                 
                 if (i == 0) {
                     mMobileMon.setProgress(mobileProgress);
@@ -838,6 +841,45 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         // Scale to 0-100 range, then add 2 for margin like original implementation
         float progress = (value / (float) maxValue) * 100f;
         return Math.max(progress + 2f, 2f); // Ensure minimum 2 for margin
+    }
+
+    /**
+     * Round a value in MB to a "nice" number for better Y-axis display
+     * Examples: 4970 MB -> 5120 MB (5GB), 3200 MB -> 4096 MB (4GB), 7500 MB -> 8192 MB (8GB)
+     * @param valueInMB Value in MB to round
+     * @return Rounded value in MB
+     */
+    private static long roundToNiceValue(long valueInMB) {
+        // Convert to GB for easier calculation
+        double valueInGB = valueInMB / 1024.0;
+        
+        // Round up to nice values
+        double roundedGB;
+        if (valueInGB <= 1) {
+            // Round to nearest 0.5 GB
+            roundedGB = Math.ceil(valueInGB * 2) / 2.0;
+        } else if (valueInGB <= 5) {
+            // Round to nearest 1 GB
+            roundedGB = Math.ceil(valueInGB);
+        } else if (valueInGB <= 10) {
+            // Round to nearest 2 GB
+            roundedGB = Math.ceil(valueInGB / 2.0) * 2.0;
+        } else if (valueInGB <= 50) {
+            // Round to nearest 5 GB
+            roundedGB = Math.ceil(valueInGB / 5.0) * 5.0;
+        } else if (valueInGB <= 100) {
+            // Round to nearest 10 GB
+            roundedGB = Math.ceil(valueInGB / 10.0) * 10.0;
+        } else if (valueInGB <= 500) {
+            // Round to nearest 20 GB
+            roundedGB = Math.ceil(valueInGB / 20.0) * 20.0;
+        } else {
+            // Round to nearest 50 GB
+            roundedGB = Math.ceil(valueInGB / 50.0) * 50.0;
+        }
+        
+        // Convert back to MB
+        return (long) (roundedGB * 1024);
     }
 
     /**
@@ -956,9 +998,28 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         } else if (gbValue >= 100) {
             return String.format("%.0f GB", gbValue);
         } else if (gbValue >= 10) {
-            return String.format("%.1f GB", gbValue);
+            // Show one decimal only if it's not a whole number
+            if (gbValue % 1 == 0) {
+                return String.format("%.0f GB", gbValue);
+            } else {
+                return String.format("%.1f GB", gbValue);
+            }
+        } else if (gbValue >= 1) {
+            // For values 1-10 GB, show one decimal only if needed
+            if (gbValue % 1 == 0) {
+                return String.format("%.0f GB", gbValue);
+            } else if ((gbValue * 10) % 1 == 0) {
+                return String.format("%.1f GB", gbValue);
+            } else {
+                return String.format("%.2f GB", gbValue);
+            }
         } else {
-            return String.format("%.2f GB", gbValue);
+            // For values < 1 GB, always show decimals
+            if (gbValue % 0.1 == 0) {
+                return String.format("%.1f GB", gbValue);
+            } else {
+                return String.format("%.2f GB", gbValue);
+            }
         }
     }
 
