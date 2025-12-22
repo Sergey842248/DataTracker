@@ -86,6 +86,10 @@ public class DataUsageWidget extends AppWidgetProvider {
         String wifiData = null;
         int date = PreferenceManager.getDefaultSharedPreferences(context).getInt(DATA_RESET_DATE, 1);
 
+        // Check if WiFi usage should be shown BEFORE fetching data
+        Boolean showWifiUsage = PreferenceManager.getDefaultSharedPreferences(context)
+                .getBoolean("widget_show_wifi_usage", true);
+
         try {
 
             if (PreferenceManager.getDefaultSharedPreferences(context).getString(DATA_RESET, "null")
@@ -106,8 +110,11 @@ public class DataUsageWidget extends AppWidgetProvider {
 
             mobileData = formatData(context, mobile[0], mobile[1])[2];
 
-            wifi = getDeviceWifiDataUsage(context, SESSION_TODAY);
-            wifiData = formatData(context, wifi[0], wifi[1])[2];
+            // Only fetch WiFi data if it should be shown
+            if (showWifiUsage) {
+                wifi = getDeviceWifiDataUsage(context, SESSION_TODAY);
+                wifiData = formatData(context, wifi[0], wifi[1])[2];
+            }
 
         } catch (ParseException e) {
             e.printStackTrace();
@@ -119,7 +126,15 @@ public class DataUsageWidget extends AppWidgetProvider {
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.data_usage_widget);
 
         views.setTextViewText(R.id.widget_mobile_data_used, mobileData);
-        views.setTextViewText(R.id.widget_wifi_used, wifiData);
+
+        // Only set WiFi text and make it visible if WiFi usage should be shown
+        if (showWifiUsage) {
+            views.setTextViewText(R.id.widget_wifi_used, wifiData);
+            views.setViewVisibility(R.id.layout_wifi, View.VISIBLE);
+        } else {
+            // If WiFi usage is disabled, hide the layout immediately
+            views.setViewVisibility(R.id.layout_wifi, View.GONE);
+        }
 
         if (isManualRefresh()) {
             views.setViewVisibility(R.id.widget_update, View.INVISIBLE);
@@ -131,19 +146,10 @@ public class DataUsageWidget extends AppWidgetProvider {
 
         Boolean showRemaining = PreferenceManager.getDefaultSharedPreferences(context)
                 .getBoolean("remaining_data_info", true);
-        Boolean showWifiUsage = PreferenceManager.getDefaultSharedPreferences(context)
-                .getBoolean("widget_show_wifi_usage", true);
         Float dataLimit = PreferenceManager.getDefaultSharedPreferences(context).getFloat(DATA_LIMIT, -1);
         if (dataLimit < 0) {
             views.setTextViewText(R.id.widget_data_usage_remaining, "");
             views.setViewVisibility(R.id.widget_data_usage_remaining, View.GONE);
-        }
-
-        if (!showWifiUsage) {
-            views.setViewVisibility(R.id.layout_wifi, View.GONE);
-        }
-        else {
-            views.setViewVisibility(R.id.layout_wifi, View.VISIBLE);
         }
 
         if (showRemaining) {
