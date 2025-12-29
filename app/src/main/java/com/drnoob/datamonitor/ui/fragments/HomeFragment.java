@@ -598,6 +598,17 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             endTimeMillis = calendar.getTimeInMillis();
             month = new SimpleDateFormat("MMMM", getCurrentLocale(requireContext())).format(calendar.getTime());
             endDate = planReset;
+
+            // Check if today is the reset date - if so, show full month duration
+            Calendar todayCalendar = Calendar.getInstance();
+            if (todayCalendar.get(Calendar.DAY_OF_MONTH) == planReset &&
+                todayCalendar.get(Calendar.MONTH) == calendar.get(Calendar.MONTH) &&
+                todayCalendar.get(Calendar.YEAR) == calendar.get(Calendar.YEAR)) {
+                // Today is the reset date, so this is the start of a new cycle
+                // Calculate days remaining as a full month (typically 31 days)
+                calendar.add(Calendar.MONTH, 1);
+                endTimeMillis = calendar.getTimeInMillis();
+            }
         }
         else {
             long planEndDateMillis;
