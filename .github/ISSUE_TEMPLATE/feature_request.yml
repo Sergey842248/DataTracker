@@ -1,5 +1,6 @@
 name: Feature request
 description: Suggest an idea for this project
+assignees: sergey842248
 body:
   - type: markdown
     attributes:
