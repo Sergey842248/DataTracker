@@ -82,7 +82,8 @@
     <string name="setup_notification_title">Notification</string>
     <string name="setup_notification_refresh_interval">Refresh interval for notifications</string>
     <string name="setup_show_mobile_usage">Show mobile-data usage</string>
-    <string name="setup_show_wifi_usage">Show Wi-Fi usage</string>
+            <string name="setup_show_wifi_usage">Show Wi-Fi usage</string>
+            <string name="setup_show_remaining_days">Show remaining days</string>
     <string name="monitor_data">Monitor data usage</string>
     <string name="setup_data_alert">Data usage alert</string>
     <string name="data_alert_summary">Notify when the data limit is reached</string>

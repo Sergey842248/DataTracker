@@ -31,6 +31,7 @@ import static com.drnoob.datamonitor.core.Values.SESSION_TODAY;
 import static com.drnoob.datamonitor.utils.NetworkStatsHelper.formatData;
 import static com.drnoob.datamonitor.utils.NetworkStatsHelper.getDeviceMobileDataUsage;
 import static com.drnoob.datamonitor.utils.NetworkStatsHelper.getDeviceWifiDataUsage;
+import static com.drnoob.datamonitor.utils.NetworkStatsHelper.getTimePeriod;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -58,6 +59,8 @@ import com.drnoob.datamonitor.utils.AlarmManagerExt;
 
 import java.text.ParseException;
 import java.util.Calendar;
+
+import com.drnoob.datamonitor.utils.NetworkStatsHelper;
 
 /**
  * Implementation of App Widget functionality.
@@ -126,6 +129,49 @@ public class DataUsageWidget extends AppWidgetProvider {
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.data_usage_widget);
 
         views.setTextViewText(R.id.widget_mobile_data_used, mobileData);
+
+        // Calculate remaining days
+        String remainingDaysText = "";
+        Boolean showRemainingDays = PreferenceManager.getDefaultSharedPreferences(context)
+                .getBoolean("widget_show_remaining_days", false);
+        if (showRemainingDays) {
+            try {
+                Long[] timePeriod;
+                if (PreferenceManager.getDefaultSharedPreferences(context).getString(DATA_RESET, "null")
+                        .equals(DATA_RESET_MONTHLY)) {
+                    timePeriod = getTimePeriod(context, SESSION_MONTHLY, date);
+                }
+                else if (PreferenceManager.getDefaultSharedPreferences(context).getString(DATA_RESET, "null")
+                        .equals(DATA_RESET_DAILY)) {
+                    timePeriod = getTimePeriod(context, SESSION_TODAY, 1);
+                }
+                else if (PreferenceManager.getDefaultSharedPreferences(context).getString(DATA_RESET, "null")
+                        .equals(DATA_RESET_CUSTOM)) {
+                    timePeriod = getTimePeriod(context, SESSION_CUSTOM, -1);
+                }
+                else {
+                    timePeriod = getTimePeriod(context, SESSION_TODAY, -1);
+                }
+
+                long currentTime = System.currentTimeMillis();
+                long endTime = timePeriod[1];
+                long remainingMillis = endTime - currentTime;
+                int remainingDays = (int) Math.ceil(remainingMillis / (1000.0 * 60 * 60 * 24));
+
+                if (remainingDays > 0) {
+                    remainingDaysText = context.getString(R.string.label_days_remaining, String.valueOf(remainingDays));
+                } else if (remainingDays == 0) {
+                    remainingDaysText = context.getString(R.string.label_days_remaining, "1");
+                } else {
+                    remainingDaysText = ""; // Plan expired or invalid
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                remainingDaysText = "";
+            }
+        }
+        views.setTextViewText(R.id.widget_remaining_days, remainingDaysText);
+        views.setViewVisibility(R.id.widget_remaining_days, showRemainingDays ? View.VISIBLE : View.GONE);
 
         // Only set WiFi text and make it visible if WiFi usage should be shown
         if (showWifiUsage) {

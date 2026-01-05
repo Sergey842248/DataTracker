@@ -70,6 +70,18 @@
             android:layout_marginTop="@dimen/margin_extra_small"/>
 
         <TextView
+            android:id="@+id/widget_remaining_days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_small"
+            android:gravity="end|center_vertical"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@id/mobile_data_label"
+            android:layout_marginEnd="@dimen/margin_small"/>
+
+        <TextView
             android:id="@+id/widget_mobile_data_used"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
