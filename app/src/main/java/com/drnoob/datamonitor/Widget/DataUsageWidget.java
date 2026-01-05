@@ -22,6 +22,9 @@ package com.drnoob.datamonitor.Widget;
 import static com.drnoob.datamonitor.core.Values.DATA_LIMIT;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM;
+import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_DATE_END;
+import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_DATE_END_HOUR;
+import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_DATE_END_MIN;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_DAILY;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_DATE;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_MONTHLY;
@@ -136,32 +139,62 @@ public class DataUsageWidget extends AppWidgetProvider {
                 .getBoolean("widget_show_remaining_days", false);
         if (showRemainingDays) {
             try {
-                Long[] timePeriod;
-                if (PreferenceManager.getDefaultSharedPreferences(context).getString(DATA_RESET, "null")
-                        .equals(DATA_RESET_MONTHLY)) {
-                    timePeriod = getTimePeriod(context, SESSION_MONTHLY, date);
-                }
-                else if (PreferenceManager.getDefaultSharedPreferences(context).getString(DATA_RESET, "null")
-                        .equals(DATA_RESET_DAILY)) {
-                    timePeriod = getTimePeriod(context, SESSION_TODAY, 1);
-                }
-                else if (PreferenceManager.getDefaultSharedPreferences(context).getString(DATA_RESET, "null")
-                        .equals(DATA_RESET_CUSTOM)) {
-                    timePeriod = getTimePeriod(context, SESSION_CUSTOM, -1);
-                }
-                else {
-                    timePeriod = getTimePeriod(context, SESSION_TODAY, -1);
+                long currentTime = System.currentTimeMillis();
+                long endTime = 0;
+                String resetType = PreferenceManager.getDefaultSharedPreferences(context).getString(DATA_RESET, "null");
+
+                if (resetType.equals(DATA_RESET_MONTHLY)) {
+                    Calendar cal = Calendar.getInstance();
+                    int resetDate = PreferenceManager.getDefaultSharedPreferences(context).getInt(DATA_RESET_DATE, 1);
+                    cal.set(Calendar.DAY_OF_MONTH, resetDate);
+                    cal.set(Calendar.HOUR_OF_DAY, 0);
+                    cal.set(Calendar.MINUTE, 0);
+                    cal.set(Calendar.SECOND, 0);
+                    cal.set(Calendar.MILLISECOND, 0);
+                    if (cal.getTimeInMillis() <= currentTime) {
+                        cal.add(Calendar.MONTH, 1);
+                    }
+                    endTime = cal.getTimeInMillis();
+                } else if (resetType.equals(DATA_RESET_DAILY)) {
+                    Calendar cal = Calendar.getInstance();
+                    int resetHour = PreferenceManager.getDefaultSharedPreferences(context).getInt("reset_hour", 0);
+                    int resetMin = PreferenceManager.getDefaultSharedPreferences(context).getInt("reset_min", 0);
+                    cal.add(Calendar.DATE, 1);
+                    cal.set(Calendar.HOUR_OF_DAY, resetHour);
+                    cal.set(Calendar.MINUTE, resetMin);
+                    cal.set(Calendar.SECOND, 0);
+                    cal.set(Calendar.MILLISECOND, 0);
+                    endTime = cal.getTimeInMillis();
+                } else if (resetType.equals(DATA_RESET_CUSTOM)) {
+                    Long planEndDateMillis = PreferenceManager.getDefaultSharedPreferences(context)
+                            .getLong(DATA_RESET_CUSTOM_DATE_END, 0L);
+                    int customEndHour = PreferenceManager.getDefaultSharedPreferences(context)
+                            .getInt(DATA_RESET_CUSTOM_DATE_END_HOUR, 11);
+                    int customEndMin = PreferenceManager.getDefaultSharedPreferences(context)
+                            .getInt(DATA_RESET_CUSTOM_DATE_END_MIN, 59);
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTimeInMillis(planEndDateMillis);
+                    cal.set(Calendar.HOUR_OF_DAY, customEndHour);
+                    cal.set(Calendar.MINUTE, customEndMin);
+                    cal.set(Calendar.SECOND, 0);
+                    cal.set(Calendar.MILLISECOND, 0);
+                    endTime = cal.getTimeInMillis();
+                } else {
+                    // Default to today
+                    Calendar cal = Calendar.getInstance();
+                    cal.add(Calendar.DATE, 1);
+                    cal.set(Calendar.HOUR_OF_DAY, 0);
+                    cal.set(Calendar.MINUTE, 0);
+                    cal.set(Calendar.SECOND, 0);
+                    cal.set(Calendar.MILLISECOND, 0);
+                    endTime = cal.getTimeInMillis();
                 }
 
-                long currentTime = System.currentTimeMillis();
-                long endTime = timePeriod[1];
                 long remainingMillis = endTime - currentTime;
                 int remainingDays = (int) Math.ceil(remainingMillis / (1000.0 * 60 * 60 * 24));
 
                 if (remainingDays > 0) {
                     remainingDaysText = context.getString(R.string.label_days_remaining, String.valueOf(remainingDays));
-                } else if (remainingDays == 0) {
-                    remainingDaysText = context.getString(R.string.label_days_remaining, "1");
                 } else {
                     remainingDaysText = ""; // Plan expired or invalid
                 }
