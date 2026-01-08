@@ -95,6 +95,7 @@ public class Values {
     public static final String SETUP_COMPLETED = "is_setup_complete";
     public static final String DATA_LIMIT = "data_limit";
     public static final String DATA_QUOTA = "data_quota";
+    public static final String DATA_QUOTA_CUSTOM = "data_quota_custom";
     public static final String DATA_TYPE = "data_type";
     public static final String LIMIT = "limit";
     public static final String DATA_RESET = "data_reset";

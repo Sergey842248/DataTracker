@@ -28,6 +28,7 @@ import static com.drnoob.datamonitor.core.Values.DAILY_DATA_HOME_ACTION;
 import static com.drnoob.datamonitor.core.Values.DATA_LIMIT;
 import static com.drnoob.datamonitor.core.Values.DATA_PLAN_FRAGMENT;
 import static com.drnoob.datamonitor.core.Values.DATA_QUOTA;
+import static com.drnoob.datamonitor.core.Values.DATA_QUOTA_CUSTOM;
 import static com.drnoob.datamonitor.core.Values.DATA_QUOTA_PERFORMED_RESET;
 import static com.drnoob.datamonitor.core.Values.DATA_QUOTA_SCHEDULED_RESET;
 import static com.drnoob.datamonitor.core.Values.DATA_QUOTA_WARNING_SHOWN;
@@ -462,7 +463,37 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     mDailyQuota.setText(getString(R.string.label_daily_quota, dailyQuota));
                     mDailyQuota.setVisibility(View.VISIBLE);
                 } else {
-                    mDailyQuota.setVisibility(View.GONE);
+                    // Check if custom daily quota is set
+                    float customQuota = preferences.getFloat(DATA_QUOTA_CUSTOM, -1f);
+                    if (customQuota > 0) {
+                        // Get today's mobile data usage
+                        Long[] todayData = null;
+                        try {
+                            todayData = getDeviceMobileDataUsage(getContext(), SESSION_TODAY, 1);
+                        } catch (ParseException | RemoteException e) {
+                            e.printStackTrace();
+                        }
+
+                        if (todayData != null) {
+                            long todayUsage = todayData[2]; // Total mobile data used today in bytes
+                            long customQuotaBytes = (long) (customQuota * 1024 * 1024); // Custom quota in bytes
+
+                            // Available quota = custom quota - today's usage (minimum 0)
+                            long availableQuota = Math.max(0, customQuotaBytes - todayUsage);
+
+                            String dailyQuota = formatData(getContext(), 0L, availableQuota)[2];
+                            mDailyQuota.setText(getString(R.string.label_daily_quota, dailyQuota));
+                            mDailyQuota.setVisibility(View.VISIBLE);
+                        } else {
+                            // Fallback: show the full custom quota
+                            long customQuotaBytes = (long) (customQuota * 1024 * 1024);
+                            String dailyQuota = formatData(getContext(), 0L, customQuotaBytes)[2];
+                            mDailyQuota.setText(getString(R.string.label_daily_quota, dailyQuota));
+                            mDailyQuota.setVisibility(View.VISIBLE);
+                        }
+                    } else {
+                        mDailyQuota.setVisibility(View.GONE);
+                    }
                 }
 
                 if (limit > total) {
@@ -498,7 +529,37 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     mDailyQuota.setText(getString(R.string.label_daily_quota, dailyQuota));
                     mDailyQuota.setVisibility(View.VISIBLE);
                 } else {
-                    mDailyQuota.setVisibility(View.GONE);
+                    // Check if custom daily quota is set
+                    float customQuota = preferences.getFloat(DATA_QUOTA_CUSTOM, -1f);
+                    if (customQuota > 0) {
+                        // Get today's mobile data usage
+                        Long[] todayData = null;
+                        try {
+                            todayData = getDeviceMobileDataUsage(getContext(), SESSION_TODAY, 1);
+                        } catch (ParseException | RemoteException e) {
+                            e.printStackTrace();
+                        }
+
+                        if (todayData != null) {
+                            long todayUsage = todayData[2]; // Total mobile data used today in bytes
+                            long customQuotaBytes = (long) (customQuota * 1024 * 1024); // Custom quota in bytes
+
+                            // Available quota = custom quota - today's usage (minimum 0)
+                            long availableQuota = Math.max(0, customQuotaBytes - todayUsage);
+
+                            String dailyQuota = formatData(getContext(), 0L, availableQuota)[2];
+                            mDailyQuota.setText(getString(R.string.label_daily_quota, dailyQuota));
+                            mDailyQuota.setVisibility(View.VISIBLE);
+                        } else {
+                            // Fallback: show the full custom quota
+                            long customQuotaBytes = (long) (customQuota * 1024 * 1024);
+                            String dailyQuota = formatData(getContext(), 0L, customQuotaBytes)[2];
+                            mDailyQuota.setText(getString(R.string.label_daily_quota, dailyQuota));
+                            mDailyQuota.setVisibility(View.VISIBLE);
+                        }
+                    } else {
+                        mDailyQuota.setVisibility(View.GONE);
+                    }
                 }
 //                Long total = getDeviceMobileDataUsage(getContext(), SESSION_MONTHLY, date)[2];
                 Long total = mobileData[2];
@@ -541,7 +602,37 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     mDailyQuota.setText(getString(R.string.label_daily_quota, dailyQuota));
                     mDailyQuota.setVisibility(View.VISIBLE);
                 } else {
-                    mDailyQuota.setVisibility(View.GONE);
+                    // Check if custom daily quota is set
+                    float customQuota = preferences.getFloat(DATA_QUOTA_CUSTOM, -1f);
+                    if (customQuota > 0) {
+                        // Get today's mobile data usage
+                        Long[] todayData = null;
+                        try {
+                            todayData = getDeviceMobileDataUsage(getContext(), SESSION_TODAY, 1);
+                        } catch (ParseException | RemoteException e) {
+                            e.printStackTrace();
+                        }
+
+                        if (todayData != null) {
+                            long todayUsage = todayData[2]; // Total mobile data used today in bytes
+                            long customQuotaBytes = (long) (customQuota * 1024 * 1024); // Custom quota in bytes
+
+                            // Available quota = custom quota - today's usage (minimum 0)
+                            long availableQuota = Math.max(0, customQuotaBytes - todayUsage);
+
+                            String dailyQuota = formatData(getContext(), 0L, availableQuota)[2];
+                            mDailyQuota.setText(getString(R.string.label_daily_quota, dailyQuota));
+                            mDailyQuota.setVisibility(View.VISIBLE);
+                        } else {
+                            // Fallback: show the full custom quota
+                            long customQuotaBytes = (long) (customQuota * 1024 * 1024);
+                            String dailyQuota = formatData(getContext(), 0L, customQuotaBytes)[2];
+                            mDailyQuota.setText(getString(R.string.label_daily_quota, dailyQuota));
+                            mDailyQuota.setVisibility(View.VISIBLE);
+                        }
+                    } else {
+                        mDailyQuota.setVisibility(View.GONE);
+                    }
                 }
                 Long total = (mobileData[2]);
                 Long limit = dataLimit.longValue() * 1048576;

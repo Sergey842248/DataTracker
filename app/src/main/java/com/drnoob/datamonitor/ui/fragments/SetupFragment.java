@@ -138,7 +138,7 @@ public class SetupFragment extends Fragment {
 
         private Preference mSetupWidget, mWidgetRefreshInterval, mNotificationRefreshInterval,
                 mAddDataPlan, mUsageResetTime, mWidgetRefresh, mDataWarningTrigger, mAppDataLimit,
-                mCombinedNotificationIcon, mExcludeApps;
+                mCombinedNotificationIcon, mExcludeApps, mCustomDailyQuota;
         private SwitchPreferenceCompat mSetupNotification, mRemainingDataInfo, mShowWifiWidget,
                 mShowMobileData, mShowWifi, mShowDataWarning, mNetworkSignalNotification,
                 mAutoHideNetworkSpeed, mCombineNotifications, mLockscreenNotifications, mAlwaysShowTotal,
@@ -221,6 +221,7 @@ public class SetupFragment extends Fragment {
             mAppDataLimit = (Preference) findPreference("app_data_limit");
             mCombinedNotificationIcon = (Preference) findPreference("combined_notification_icon");
             mExcludeApps = (Preference) findPreference("exclude_apps");
+            mCustomDailyQuota = (Preference) findPreference("custom_daily_quota");
 
             mSetupNotification = (SwitchPreferenceCompat) findPreference("setup_notification");
             mNetworkSignalNotification = (SwitchPreferenceCompat) findPreference("network_signal_notification");
@@ -1501,6 +1502,14 @@ public class SetupFragment extends Fragment {
                 }
             });
 
+            mCustomDailyQuota.setOnPreferenceClickListener(new androidx.preference.Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(@NonNull androidx.preference.Preference preference) {
+                    showCustomDailyQuotaDialog();
+                    return false;
+                }
+            });
+
             mSmartDataAllocation.setOnPreferenceClickListener(new androidx.preference.Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(@NonNull androidx.preference.Preference preference) {
@@ -1597,18 +1606,26 @@ public class SetupFragment extends Fragment {
         }
 
         private void refreshQuotaAlertVisibility() {
-            if (preferences.getString(DATA_RESET, "null").equals(DATA_RESET_MONTHLY) ||
-                    preferences.getString(DATA_RESET, "null").equals(DATA_RESET_CUSTOM)) {
-                if (PreferenceManager.getDefaultSharedPreferences(getContext())
-                        .getBoolean("smart_data_allocation", false)) {
+            boolean isMonthlyOrCustom = preferences.getString(DATA_RESET, "null").equals(DATA_RESET_MONTHLY) ||
+                    preferences.getString(DATA_RESET, "null").equals(DATA_RESET_CUSTOM);
+            boolean isSmartAllocationEnabled = PreferenceManager.getDefaultSharedPreferences(getContext())
+                    .getBoolean("smart_data_allocation", false);
+
+            if (isMonthlyOrCustom) {
+                if (isSmartAllocationEnabled) {
                     mDailyQuotaAlert.setVisible(true);
+                    mCustomDailyQuota.setVisible(false);
                 }
                 else {
-                    mDailyQuotaAlert.setVisible(false);
+                    // Check if custom quota is set
+                    float customQuota = preferences.getFloat(Values.DATA_QUOTA_CUSTOM, -1f);
+                    mDailyQuotaAlert.setVisible(customQuota > 0);
+                    mCustomDailyQuota.setVisible(true);
                 }
             }
             else {
                 mDailyQuotaAlert.setVisible(false);
+                mCustomDailyQuota.setVisible(false);
             }
         }
 
@@ -1711,6 +1728,92 @@ public class SetupFragment extends Fragment {
                         smartDataAllocationWorkRequest
                 );
             }
+        }
+
+        private void showCustomDailyQuotaDialog() {
+            BottomSheetDialog dialog = new BottomSheetDialog(getContext(), R.style.BottomSheet);
+            View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.layout_custom_daily_quota, null);
+
+            com.google.android.material.textfield.TextInputEditText quotaInput = dialogView.findViewById(R.id.custom_quota_value);
+            TextView currentQuotaText = dialogView.findViewById(R.id.current_quota_text);
+            ConstraintLayout footer = dialogView.findViewById(R.id.footer);
+            TextView cancel = footer.findViewById(R.id.cancel);
+            TextView ok = footer.findViewById(R.id.ok);
+
+            // Load current custom quota value
+            float currentQuota = preferences.getFloat(Values.DATA_QUOTA_CUSTOM, -1f);
+            if (currentQuota > 0) {
+                currentQuotaText.setText(getString(R.string.label_current_custom_quota, currentQuota));
+                quotaInput.setText(String.valueOf(currentQuota));
+            } else {
+                currentQuotaText.setText(R.string.label_no_custom_quota_set);
+                quotaInput.setText("");
+            }
+
+            cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+
+            ok.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String quotaText = quotaInput.getText().toString().trim();
+                    if (quotaText.isEmpty()) {
+                        snackbar = Snackbar.make(getActivity().findViewById(R.id.main_root),
+                                        getString(R.string.error_invalid_quota_value), Snackbar.LENGTH_SHORT)
+                                .setAnchorView(getActivity().findViewById(R.id.bottomNavigationView));
+                        dismissOnClick(snackbar);
+                        snackbar.show();
+                        return;
+                    }
+
+                    try {
+                        float quotaValue = Float.parseFloat(quotaText);
+                        if (quotaValue <= 0) {
+                            snackbar = Snackbar.make(getActivity().findViewById(R.id.main_root),
+                                            getString(R.string.error_invalid_quota_value), Snackbar.LENGTH_SHORT)
+                                    .setAnchorView(getActivity().findViewById(R.id.bottomNavigationView));
+                            dismissOnClick(snackbar);
+                            snackbar.show();
+                            return;
+                        }
+
+                        // Save the custom quota
+                        preferences.edit().putFloat(Values.DATA_QUOTA_CUSTOM, quotaValue).apply();
+
+                        snackbar = Snackbar.make(getActivity().findViewById(R.id.main_root),
+                                        getString(R.string.custom_quota_saved), Snackbar.LENGTH_SHORT)
+                                .setAnchorView(getActivity().findViewById(R.id.bottomNavigationView));
+                        dismissOnClick(snackbar);
+                        snackbar.show();
+
+                        // Update the visibility of daily quota alert
+                        refreshQuotaAlertVisibility();
+
+                        dialog.dismiss();
+                    } catch (NumberFormatException e) {
+                        snackbar = Snackbar.make(getActivity().findViewById(R.id.main_root),
+                                        getString(R.string.error_invalid_quota_value), Snackbar.LENGTH_SHORT)
+                                .setAnchorView(getActivity().findViewById(R.id.bottomNavigationView));
+                        dismissOnClick(snackbar);
+                        snackbar.show();
+                    }
+                }
+            });
+
+            dialog.setContentView(dialogView);
+            dialog.setOnShowListener(new DialogInterface.OnShowListener() {
+                @Override
+                public void onShow(DialogInterface dialogInterface) {
+                    BottomSheetDialog bottomSheetDialog = (BottomSheetDialog) dialogInterface;
+                    FrameLayout bottomSheet = bottomSheetDialog.findViewById(com.google.android.material.R.id.design_bottom_sheet);
+                    BottomSheetBehavior.from(bottomSheet).setState(BottomSheetBehavior.STATE_EXPANDED);
+                }
+            });
+            dialog.show();
         }
     }
 

@@ -35,6 +35,7 @@ import com.drnoob.datamonitor.Common.postNotification
 import com.drnoob.datamonitor.R
 import com.drnoob.datamonitor.core.Values
 import com.drnoob.datamonitor.core.Values.DATA_QUOTA
+import com.drnoob.datamonitor.core.Values.DATA_QUOTA_CUSTOM
 import com.drnoob.datamonitor.core.Values.DATA_QUOTA_WARNING_SHOWN
 import com.drnoob.datamonitor.core.Values.DATA_USAGE_WARNING_CHANNEL_ID
 import com.drnoob.datamonitor.core.Values.DATA_USAGE_WARNING_NOTIFICATION_ID
@@ -50,9 +51,7 @@ class DailyQuotaAlertReceiver: BroadcastReceiver() {
     }
 
     override fun onReceive(context: Context?, intent: Intent?) {
-        val dataQuota = PreferenceManager.getDefaultSharedPreferences(context!!)
-            .getFloat(DATA_QUOTA, -1f)
-        val preference = PreferenceManager.getDefaultSharedPreferences(context)
+        val preference = PreferenceManager.getDefaultSharedPreferences(context!!)
         val selfIntent = Intent(context, this::class.java)
         val pendingIntent =
             PendingIntent.getBroadcast(context, 1000, selfIntent, PendingIntent.FLAG_IMMUTABLE)
@@ -63,6 +62,13 @@ class DailyQuotaAlertReceiver: BroadcastReceiver() {
             alarmManager.cancel(pendingIntent)
         }
         else {
+            // Get the appropriate quota - either from smart allocation or custom value
+            val dataQuota = if (preference.getBoolean("smart_data_allocation", false)) {
+                preference.getFloat(DATA_QUOTA, -1f)
+            } else {
+                preference.getFloat(DATA_QUOTA_CUSTOM, -1f)
+            }
+
             if (dataQuota > 0) {
                 val dataUsage = round((getDeviceMobileDataUsage(context,
                     SESSION_TODAY, -1)[2] / 1024f / 1024f) * 100) / 100

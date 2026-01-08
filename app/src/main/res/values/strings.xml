@@ -472,6 +472,14 @@
     <string name="daily_quota_alert_summary">Get an alert when your daily quota is exhausted.</string>
     <string name="daily_quota_alert_title">Daily data quota reached!</string>
     <string name="daily_quota_alert_body">You\'ve exhausted your daily data quota.</string>
+    <string name="setup_custom_daily_quota">Custom daily quota</string>
+    <string name="custom_daily_quota_summary">Set a custom daily quota for alerts</string>
+    <string name="title_custom_daily_quota">Set Custom Daily Quota</string>
+    <string name="label_custom_quota_value">Daily quota value (MB)</string>
+    <string name="label_current_custom_quota">Current custom quota: %1$.2f MB</string>
+    <string name="label_no_custom_quota_set">No custom quota set</string>
+    <string name="custom_quota_saved">Custom daily quota saved</string>
+    <string name="error_invalid_quota_value">Please enter a valid quota value</string>
     <string name="label_daily_quota">Daily quota: %1$s</string>
     <string name="rezaalmanda">Reza</string>
     <string name="rezaalmanda_summary">Indonesian</string>
