@@ -32,6 +32,7 @@
     <string name="label_this_month">This month</string>
     <string name="label_last_month">Last month</string>
     <string name="label_this_year">This year</string>
+    <string name="label_week">Week</string>
     <string name="label_all_time">All time</string>
     <string name="title_app_data_usage_type">Select type</string>
     <string name="label_mobile_data">Mobile data</string>

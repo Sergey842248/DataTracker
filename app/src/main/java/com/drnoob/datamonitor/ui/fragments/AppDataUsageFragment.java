@@ -37,9 +37,12 @@ import static com.drnoob.datamonitor.core.Values.SESSION_LAST_MONTH;
 import static com.drnoob.datamonitor.core.Values.SESSION_THIS_MONTH;
 import static com.drnoob.datamonitor.core.Values.SESSION_THIS_YEAR;
 import static com.drnoob.datamonitor.core.Values.SESSION_TODAY;
+import static com.drnoob.datamonitor.core.Values.SESSION_WEEK;
 import static com.drnoob.datamonitor.core.Values.SESSION_YESTERDAY;
 import static com.drnoob.datamonitor.core.Values.TYPE_MOBILE_DATA;
 import static com.drnoob.datamonitor.core.Values.TYPE_WIFI;
+import static com.drnoob.datamonitor.core.Values.PREF_APP_USAGE_SESSION;
+import static com.drnoob.datamonitor.core.Values.PREF_APP_USAGE_TYPE;
 import static com.drnoob.datamonitor.ui.activities.MainActivity.getRefreshAppDataUsage;
 import static com.drnoob.datamonitor.ui.activities.MainActivity.isDataLoading;
 import static com.drnoob.datamonitor.ui.activities.MainActivity.mSystemAppsList;
@@ -148,6 +151,13 @@ public class AppDataUsageFragment extends Fragment {
         super.onAttach(context);
         mContext = context;
         mActivity = getActivity();
+        // Lade gespeicherte Filter-Einstellungen bereits bei der Attachment-Phase
+        if (mContext != null) {
+            selectedSession = PreferenceManager.getDefaultSharedPreferences(mContext)
+                    .getInt(PREF_APP_USAGE_SESSION, SESSION_TODAY);
+            selectedType = PreferenceManager.getDefaultSharedPreferences(mContext)
+                    .getInt(PREF_APP_USAGE_TYPE, TYPE_MOBILE_DATA);
+        }
     }
 
     @Nullable
@@ -168,8 +178,9 @@ public class AppDataUsageFragment extends Fragment {
         mAdapter = new AppDataUsageAdapter(mList, mContext);
         mAdapter.setActivity(getActivity());
 
-        int session = getActivity().getIntent().getIntExtra(DATA_USAGE_SESSION, SESSION_TODAY);
-        int type = getActivity().getIntent().getIntExtra(DATA_USAGE_TYPE, TYPE_MOBILE_DATA);
+        // Überschreibe mit Intent-Extra, falls vorhanden (z.B. vom Home-Screen)
+        int session = getActivity().getIntent().getIntExtra(DATA_USAGE_SESSION, selectedSession);
+        int type = getActivity().getIntent().getIntExtra(DATA_USAGE_TYPE, selectedType);
         fromHome = getActivity().getIntent().getBooleanExtra(DAILY_DATA_HOME_ACTION, false);
         isWeekDayView = getActivity().getIntent().getBooleanExtra(EXTRA_IS_WEEK_DAY_VIEW, false);
 
@@ -288,6 +299,8 @@ public class AppDataUsageFragment extends Fragment {
                     sessionGroup.check(R.id.session_last_month);
                 } else if (session == SESSION_THIS_YEAR) {
                     sessionGroup.check(R.id.session_this_year);
+                } else if (session == SESSION_WEEK) {
+                    sessionGroup.check(R.id.session_week);
                 } else if (session == SESSION_ALL_TIME) {
                     sessionGroup.check(R.id.session_all_time);
                 } else if (session == SESSION_CUSTOM) {
@@ -323,6 +336,8 @@ public class AppDataUsageFragment extends Fragment {
                             selectedSession = SESSION_LAST_MONTH;
                         } else if (checkedSessionId == R.id.session_this_year) {
                             selectedSession = SESSION_THIS_YEAR;
+                        } else if (checkedSessionId == R.id.session_week) {
+                            selectedSession = SESSION_WEEK;
                         } else if (checkedSessionId == R.id.session_all_time) {
                             selectedSession = SESSION_ALL_TIME;
                         } else if (checkedSessionId == R.id.session_current_plan) {
@@ -339,6 +354,13 @@ public class AppDataUsageFragment extends Fragment {
                         } else {
                             selectedType = TYPE_MOBILE_DATA;
                         }
+
+                        // Speichere die ausgewählten Filter-Einstellungen
+                        PreferenceManager.getDefaultSharedPreferences(getContext())
+                                .edit()
+                                .putInt(PREF_APP_USAGE_SESSION, selectedSession)
+                                .putInt(PREF_APP_USAGE_TYPE, selectedType)
+                                .apply();
 
                         if (!MainActivity.isDataLoading()) {
                             refreshData();
@@ -393,23 +415,17 @@ public class AppDataUsageFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        if (mList.size() > 0) {
-            setSession(mList.get(0).getSession());
-            setType(mList.get(0).getType());
-        }
-        else {
-            if (viewModel.getCurrentSession().getValue() != null &&
-                    viewModel.getCurrentType().getValue() != null) {
-                setSession(viewModel.getCurrentSession().getValue());
-                setType(viewModel.getCurrentType().getValue());
-            }
-
-        }
+        // Behalte die gespeicherten Einstellungen, nicht die aus der Liste oder ViewModel
         if (!PreferenceManager.getDefaultSharedPreferences(requireContext())
                 .getString(DATA_RESET, "null")
                 .equals(DATA_RESET_CUSTOM)) {
             if (getSession() == SESSION_CUSTOM) {
                 setSession(SESSION_TODAY);
+                // Speichere die neue Session-Einstellung
+                PreferenceManager.getDefaultSharedPreferences(requireContext())
+                        .edit()
+                        .putInt(PREF_APP_USAGE_SESSION, SESSION_TODAY)
+                        .apply();
                 refreshData();
             }
         }
@@ -468,10 +484,7 @@ public class AppDataUsageFragment extends Fragment {
         if (mList.size() <= 0) {
             mEmptyList.animate().alpha(1.0f);
         }
-        else {
-            setSession(mList.get(0).getSession());
-            setType(mList.get(0).getType());
-        }
+        // Behalte die gespeicherten Einstellungen, nicht die aus der Liste
         if (!fromHome) {
             setRefreshAppDataUsage(false);
         }

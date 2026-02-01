@@ -40,6 +40,7 @@ import static com.drnoob.datamonitor.core.Values.SESSION_THIS_MONTH;
 import static com.drnoob.datamonitor.core.Values.SESSION_THIS_YEAR;
 import static com.drnoob.datamonitor.core.Values.DATA_UNIT_BINARY;
 import static com.drnoob.datamonitor.core.Values.SESSION_TODAY;
+import static com.drnoob.datamonitor.core.Values.SESSION_WEEK;
 import static com.drnoob.datamonitor.core.Values.SESSION_YESTERDAY;
 
 import android.annotation.SuppressLint;
@@ -885,6 +886,22 @@ public class NetworkStatsHelper {
                 resetTimeMillis = filter == null ? 0 : filter.first;
 
                 endTimeMillis = filter == null ? 0 : filter.second;
+                break;
+
+            case SESSION_WEEK:
+                // Calculate week period (last 7 days from today)
+                calendar.setTime(new Date());
+                calendar.set(Calendar.HOUR_OF_DAY, resetHour);
+                calendar.set(Calendar.MINUTE, resetMin);
+                calendar.set(Calendar.SECOND, 0);
+                calendar.set(Calendar.MILLISECOND, 0);
+                
+                // Set end time to start of today
+                endTimeMillis = calendar.getTimeInMillis();
+                
+                // Set start time to 7 days ago
+                calendar.add(Calendar.DAY_OF_MONTH, -7);
+                resetTimeMillis = calendar.getTimeInMillis();
                 break;
         }
 

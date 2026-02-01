@@ -52,6 +52,8 @@ import static com.drnoob.datamonitor.core.Values.SETUP_VALUE;
 import static com.drnoob.datamonitor.core.Values.SHOULD_SHOW_BATTERY_OPTIMISATION_ERROR;
 import static com.drnoob.datamonitor.core.Values.TYPE_MOBILE_DATA;
 import static com.drnoob.datamonitor.core.Values.UPDATE_NOTIFICATION_CHANNEL;
+import static com.drnoob.datamonitor.core.Values.PREF_APP_USAGE_SESSION;
+import static com.drnoob.datamonitor.core.Values.PREF_APP_USAGE_TYPE;
 import static com.drnoob.datamonitor.core.Values.UPDATE_VERSION;
 import static com.drnoob.datamonitor.core.Values.USAGE_ACCESS_DISABLED;
 import static com.drnoob.datamonitor.ui.fragments.AppDataUsageFragment.getAppContext;
@@ -224,7 +226,12 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (value != DATA_USAGE_SYSTEM) {
                     if (!isDataLoading()) {
-                        MainActivity.LoadData loadData = new MainActivity.LoadData(MainActivity.this, SESSION_TODAY, TYPE_MOBILE_DATA);
+                        // Lade gespeicherte Filter-Einstellungen oder nutze Default-Werte
+                        int session = PreferenceManager.getDefaultSharedPreferences(this)
+                                .getInt(PREF_APP_USAGE_SESSION, SESSION_TODAY);
+                        int type = PreferenceManager.getDefaultSharedPreferences(this)
+                                .getInt(PREF_APP_USAGE_TYPE, TYPE_MOBILE_DATA);
+                        MainActivity.LoadData loadData = new MainActivity.LoadData(MainActivity.this, session, type);
                         loadData.execute();
                     }
                 }

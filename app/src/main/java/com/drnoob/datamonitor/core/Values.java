@@ -49,6 +49,7 @@ public class Values {
     public static final int SESSION_ALL_TIME = 0x003C;
     public static final int SESSION_MONTHLY = 0x00A9;
     public static final int SESSION_CUSTOM = 0x00AC;
+    public static final int SESSION_WEEK = 0x00B0;
     public static final int SESSION_CUSTOM_FILTER = 0x00AF;
 
     public static final int TYPE_MOBILE_DATA = 0x0046;
@@ -197,5 +198,8 @@ public class Values {
     public static final String DATA_QUOTA_PERFORMED_RESET = "quota_performed_reset";
 
     public static final String DATA_UNIT_BINARY = "data_unit_binary"; // true = 1024 (binary), false = 1000 (decimal)
+
+    public static final String PREF_APP_USAGE_SESSION = "pref_app_usage_session";
+    public static final String PREF_APP_USAGE_TYPE = "pref_app_usage_type";
 
 }
