@@ -28,7 +28,7 @@ Track all your data usage - at one place
 ## Installation:
 [<img src="https://raw.githubusercontent.com/Sergey842248/DataTracker/refs/heads/master/app/src/main/get-it-on-github.png"
 alt="Get it on GitHub"
-width= "207" height="80">](https://github.com/Sergey842248/DataTracker/releases/latest) [<img src="https://github.com/user-attachments/assets/44045660-c744-4da8-9599-ea752d01e165"
+width= "207" height="80">](https://github.com/Sergey842248/DataTracker/releases/latest) [<img src="https://github.com/Sergey842248/DataTracker/blob/master/images/-obtainium-badge.png"
 alt="Get it on Obtainium"
 width= "207" height="80">](http://apps.obtainium.imranr.dev/redirect.html?r=obtainium://add/https://github.com/Sergey842248/DataTracker)
 
