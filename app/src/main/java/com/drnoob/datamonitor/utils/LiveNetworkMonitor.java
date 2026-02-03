@@ -82,6 +82,13 @@ public class LiveNetworkMonitor extends Service {
     private static boolean serviceRestart = true;
     private static ConnectivityManager connectivityManager;
 
+    // Moving average for speed smoothing
+    private static final int SPEED_SAMPLE_COUNT = 5;
+    private static Long[] upSpeedSamples = new Long[SPEED_SAMPLE_COUNT];
+    private static Long[] downSpeedSamples = new Long[SPEED_SAMPLE_COUNT];
+    private static int sampleIndex = 0;
+    private static boolean samplesFilled = false;
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -301,14 +308,38 @@ public class LiveNetworkMonitor extends Service {
 
             Long currentTotalBytes = currentDownBytes + currentUpBytes;
 
-            Long upSpeed = currentUpBytes - previousUpBytes;
-            Long downSpeed = currentDownBytes - previousDownBytes;
+            Long rawUpSpeed = currentUpBytes - previousUpBytes;
+            Long rawDownSpeed = currentDownBytes - previousDownBytes;
 
-            if (upSpeed < 0) {
-                upSpeed = 0l;
+            if (rawUpSpeed < 0) {
+                rawUpSpeed = 0l;
             }
-            if (downSpeed < 0) {
-                downSpeed = 0l;
+            if (rawDownSpeed < 0) {
+                rawDownSpeed = 0l;
+            }
+
+            // Store raw speeds in circular buffer for moving average
+            upSpeedSamples[sampleIndex] = rawUpSpeed;
+            downSpeedSamples[sampleIndex] = rawDownSpeed;
+            sampleIndex = (sampleIndex + 1) % SPEED_SAMPLE_COUNT;
+            if (sampleIndex == 0) {
+                samplesFilled = true;
+            }
+
+            // Calculate moving average speed
+            Long upSpeed, downSpeed;
+            if (samplesFilled) {
+                long upSum = 0, downSum = 0;
+                for (int i = 0; i < SPEED_SAMPLE_COUNT; i++) {
+                    upSum += upSpeedSamples[i];
+                    downSum += downSpeedSamples[i];
+                }
+                upSpeed = upSum / SPEED_SAMPLE_COUNT;
+                downSpeed = downSum / SPEED_SAMPLE_COUNT;
+            } else {
+                // Use raw values until we have enough samples
+                upSpeed = rawUpSpeed;
+                downSpeed = rawDownSpeed;
             }
 
             Long totalSpeed = upSpeed + downSpeed;
@@ -421,6 +452,18 @@ public class LiveNetworkMonitor extends Service {
         }
 
         previousTotalBytes = previousDownBytes + previousUpBytes;
+
+        // Reset speed samples when initial data is updated
+        resetSpeedSamples();
+    }
+
+    private static void resetSpeedSamples() {
+        for (int i = 0; i < SPEED_SAMPLE_COUNT; i++) {
+            upSpeedSamples[i] = 0L;
+            downSpeedSamples[i] = 0L;
+        }
+        sampleIndex = 0;
+        samplesFilled = false;
     }
 
     private class NetworkChangeMonitor extends ConnectivityManager.NetworkCallback {
@@ -469,6 +512,9 @@ public class LiveNetworkMonitor extends Service {
         public void onAvailable(@NonNull Network network) {
             super.onAvailable(network);
             isNetworkConnected = true;
+
+            // Reset speed samples when network becomes available
+            resetSpeedSamples();
 
             if (isTaskPaused) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
