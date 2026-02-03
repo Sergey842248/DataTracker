@@ -157,11 +157,12 @@ public class CompoundNotification extends Service {
                 if (linkProperties != null) {
                     linkPropertiesHashMap.put(activeNetwork, linkProperties);
                 }
-                updateInitialData();
                 Log.d(TAG, "onCreate: Initial network connected, isNetworkConnected = true");
             } else {
                 Log.d(TAG, "onCreate: No initial network");
             }
+            // Always initialize data counters from TrafficStats, regardless of network state
+            updateInitialData();
         }
 
         totalDataUsage = getString(R.string.title_data_usage_notification,
