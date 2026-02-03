@@ -147,6 +147,23 @@ public class CompoundNotification extends Service {
         mNetworkChangeMonitor = new NetworkChangeMonitor(this);
         mNetworkChangeMonitor.startMonitor();
 
+        // Check initial network connectivity
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm != null) {
+            Network activeNetwork = cm.getActiveNetwork();
+            if (activeNetwork != null) {
+                isNetworkConnected = true;
+                LinkProperties linkProperties = cm.getLinkProperties(activeNetwork);
+                if (linkProperties != null) {
+                    linkPropertiesHashMap.put(activeNetwork, linkProperties);
+                }
+                updateInitialData();
+                Log.d(TAG, "onCreate: Initial network connected, isNetworkConnected = true");
+            } else {
+                Log.d(TAG, "onCreate: No initial network");
+            }
+        }
+
         totalDataUsage = getString(R.string.title_data_usage_notification,
                 getString(R.string.body_data_usage_notification_loading));
         mobileDataUsage = getString(R.string.notification_mobile_data_usage,
@@ -371,7 +388,21 @@ public class CompoundNotification extends Service {
 
         }
 
-        if (isNetworkConnected) {
+        // Check actual network connectivity state
+        boolean actuallyConnected = false;
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm != null) {
+            Network activeNetwork = cm.getActiveNetwork();
+            if (activeNetwork != null) {
+                actuallyConnected = true;
+            }
+        }
+        
+        // If callback says not connected but we have an active network, trust the active network
+        boolean effectiveConnected = isNetworkConnected || actuallyConnected;
+        
+        if (effectiveConnected) {
+            Log.d(TAG, "updateNotification: connected=true, isNetworkConnected=" + isNetworkConnected + ", actuallyConnected=" + actuallyConnected);
             if (!isNotificationReceiverRegistered) {
                 registerNetworkReceiver(context);
             }
@@ -424,6 +455,7 @@ public class CompoundNotification extends Service {
             previousTotalBytes = currentTotalBytes;
         }
         else  {
+            Log.d(TAG, "updateNotification: isNetworkConnected = false, actuallyConnected = " + actuallyConnected);
             speeds = new String[]{"0 KB/s", "0 KB/s", "0 KB/s"};
             serviceRestart = true;
         }
@@ -767,11 +799,13 @@ public class CompoundNotification extends Service {
         public void onAvailable(@NonNull Network network) {
             super.onAvailable(network);
             isNetworkConnected = true;
+            Log.d(TAG, "onAvailable: Network available, setting isNetworkConnected = true");
             
             // Get link properties for the newly available network
             LinkProperties linkProperties = connectivityManager.getLinkProperties(network);
             if (linkProperties != null) {
                 linkPropertiesHashMap.put(network, linkProperties);
+                Log.d(TAG, "onAvailable: Added network with interface: " + linkProperties.getInterfaceName());
             }
             
             // Update initial data when network becomes available to ensure accurate speed calculations
@@ -803,14 +837,23 @@ public class CompoundNotification extends Service {
         @Override
         public void onLost(@NonNull Network network) {
             super.onLost(network);
-            isNetworkConnected = false;
             linkPropertiesHashMap.remove(network);
 
-            // Reset byte counters when network is lost to avoid incorrect speed calculations on reconnection
-            previousUpBytes = 0L;
-            previousDownBytes = 0L;
-            previousTotalBytes = 0L;
-            serviceRestart = true;
+            // Only set isNetworkConnected to false if no networks remain
+            synchronized (linkPropertiesHashMap) {
+                if (linkPropertiesHashMap.isEmpty()) {
+                    isNetworkConnected = false;
+                    Log.d(TAG, "onLost: No networks remaining, setting isNetworkConnected = false");
+                    
+                    // Reset byte counters when network is lost to avoid incorrect speed calculations on reconnection
+                    previousUpBytes = 0L;
+                    previousDownBytes = 0L;
+                    previousTotalBytes = 0L;
+                    serviceRestart = true;
+                } else {
+                    Log.d(TAG, "onLost: Networks still remain: " + linkPropertiesHashMap.size());
+                }
+            }
         }
 
         @Override
