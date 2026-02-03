@@ -567,7 +567,6 @@ public class CompoundNotification extends Service {
         intentFilter.addAction(Intent.ACTION_BOOT_COMPLETED);
         intentFilter.addAction(Intent.ACTION_SCREEN_ON);
         intentFilter.addAction(Intent.ACTION_SCREEN_OFF);
-        intentFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
         intentFilter.setPriority(100);
         if (!isNotificationReceiverRegistered) {
             context.getApplicationContext().registerReceiver(compoundNotificationReceiver, intentFilter);
@@ -603,10 +602,6 @@ public class CompoundNotification extends Service {
                 catch (Exception e) {
                     e.printStackTrace();
                 }
-            }
-            else if (intent.getAction().equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
-                // Connectivity change - restart service to ensure speed calculation is updated
-                restartService(context, false, true);
             }
             else {
                 if (!isServiceRunning) {
@@ -768,8 +763,6 @@ public class CompoundNotification extends Service {
         public void onAvailable(@NonNull Network network) {
             super.onAvailable(network);
             isNetworkConnected = true;
-            // Always restart the service when network becomes available to ensure speed calculation is updated
-            restartService(context, false, true);
             if (isTaskPaused) {
                 try {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
@@ -788,6 +781,7 @@ public class CompoundNotification extends Service {
                     Toast.makeText(context, context.getString(R.string.error_network_monitor_start),
                             Toast.LENGTH_LONG).show();
                 }
+                restartService(context, false, true);
                 isTaskPaused = false;
             }
         }
@@ -795,19 +789,14 @@ public class CompoundNotification extends Service {
         @Override
         public void onLost(@NonNull Network network) {
             super.onLost(network);
-            // Check if there are any remaining active networks
-            isNetworkConnected = !linkPropertiesHashMap.isEmpty() && linkPropertiesHashMap.size() > 1;
+            isNetworkConnected = false;
             linkPropertiesHashMap.remove(network);
-            // If no more networks are available, update the notification to show 0 speed
-            updateNotification(context, 0);
         }
 
         @Override
         public void onLinkPropertiesChanged(@NonNull Network network, @NonNull LinkProperties linkProperties) {
             super.onLinkPropertiesChanged(network, linkProperties);
             linkPropertiesHashMap.put(network, linkProperties);
-            // Restart service to ensure we're tracking the correct network interface
-            restartService(context, false, true);
         }
     }
 }
