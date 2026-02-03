@@ -542,6 +542,10 @@ public class CompoundNotification extends Service {
     }
 
     private static void updateInitialData() {
+        // Reset counters before reading current values
+        previousUpBytes = 0L;
+        previousDownBytes = 0L;
+        
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             synchronized (linkPropertiesHashMap) {
                 for (LinkProperties linkProperties : linkPropertiesHashMap.values()) {
@@ -763,6 +767,16 @@ public class CompoundNotification extends Service {
         public void onAvailable(@NonNull Network network) {
             super.onAvailable(network);
             isNetworkConnected = true;
+            
+            // Get link properties for the newly available network
+            LinkProperties linkProperties = connectivityManager.getLinkProperties(network);
+            if (linkProperties != null) {
+                linkPropertiesHashMap.put(network, linkProperties);
+            }
+            
+            // Update initial data when network becomes available to ensure accurate speed calculations
+            updateInitialData();
+            
             if (isTaskPaused) {
                 try {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
@@ -791,6 +805,12 @@ public class CompoundNotification extends Service {
             super.onLost(network);
             isNetworkConnected = false;
             linkPropertiesHashMap.remove(network);
+
+            // Reset byte counters when network is lost to avoid incorrect speed calculations on reconnection
+            previousUpBytes = 0L;
+            previousDownBytes = 0L;
+            previousTotalBytes = 0L;
+            serviceRestart = true;
         }
 
         @Override
