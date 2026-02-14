@@ -17,6 +17,6 @@ jobs:
       - name: Mirror to GitLab (HTTPS)
         uses: yesolutions/mirror-action@master
         with:
-          REMOTE: 'https://gitlab.com/sergey842248/datatracker.git'
+          REMOTE: 'https://gitlab.com/open-nexor/datatracker.git'
           GIT_USERNAME: ${{ secrets.GITLAB_USER }}
           GIT_PASSWORD: ${{ secrets.GITLAB_PAT }}
