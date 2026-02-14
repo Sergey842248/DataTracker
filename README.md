@@ -1,5 +1,3 @@
-[![Platform](https://shields.io/badge/platform-android-green.svg)](https://github.com/Sergey842248/DataTracker)
-[![License](https://img.shields.io/badge/license-GPL3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 
 <div align="center">
@@ -7,6 +5,12 @@
 
 # Data Tracker
 Track all your data usage - at one place
+<br>
+<br>
+<br>
+[![Platform](https://shields.io/badge/platform-android-green.svg)](https://github.com/Sergey842248/DataTracker)
+[![License](https://img.shields.io/badge/license-GPL3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+
 </div>
 
 ## Features
