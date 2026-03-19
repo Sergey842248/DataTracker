@@ -26,6 +26,7 @@ import static com.drnoob.datamonitor.Common.localToUTC;
 import static com.drnoob.datamonitor.Common.setBoldSpan;
 import static com.drnoob.datamonitor.core.Values.DATA_LIMIT;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET;
+import static com.drnoob.datamonitor.core.Values.DATA_UNIT_BINARY;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_DATE_END;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_DATE_END_HOUR;
@@ -308,8 +309,10 @@ public class DataPlanFragment extends Fragment {
                 .getFloat(DATA_LIMIT, -1);
         if (dataLimit > 0) {
             int dataType = PreferenceManager.getDefaultSharedPreferences(getContext()).getInt(DATA_TYPE, 0);
+            float divisor = PreferenceManager.getDefaultSharedPreferences(getContext())
+                    .getBoolean(DATA_UNIT_BINARY, true) ? 1024f : 1000f;
             if (dataType == 1) { // Is GB
-                String data = String.format(Locale.US, "%.2f", dataLimit / 1024f);
+                String data = String.format(Locale.US, "%.2f", dataLimit / divisor);
                 if (data.endsWith(".00")) {
                     data = data.substring(0, data.length() - 3);
                 } else if (data.endsWith("0") && data.contains(".")) {
@@ -412,9 +415,11 @@ public class DataPlanFragment extends Fragment {
                             dataLimitText = dataLimitText.replace("٫", ".");
                         }
                         Float dataLimit = Float.parseFloat(dataLimitText);
+                        float divisor = PreferenceManager.getDefaultSharedPreferences(getContext())
+                                .getBoolean(DATA_UNIT_BINARY, true) ? 1024f : 1000f;
                         int dataType;
                         if (binding.dataTypeSwitcher.getTabAt(0).isSelected()) {
-                            if (dataLimit >= 1024) {
+                            if (dataLimit >= divisor) {
                                 dataType = 1;
                             } else {
                                 dataLimit = dataLimit;
@@ -422,7 +427,7 @@ public class DataPlanFragment extends Fragment {
                             }
                         }
                         else {
-                            dataLimit = dataLimit * 1024f;
+                            dataLimit = dataLimit * divisor;
                             dataType = binding.dataTypeSwitcher.getSelectedTabPosition();
                         }
                         if (binding.dataReset.getCheckedRadioButtonId() == R.id.daily) {

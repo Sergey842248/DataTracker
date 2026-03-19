@@ -421,6 +421,30 @@ public class NetworkStatsHelper {
     }
 
     /**
+     * Convert data limit from MB to bytes.
+     * The data limit is stored in MB, but needs to be converted to bytes
+     * for comparison with actual data usage.
+     * @param dataLimitMB Data limit in MB (as stored in preferences)
+     * @param context Application context
+     * @return Data limit in bytes
+     */
+    public static long getDataLimitBytes(float dataLimitMB, Context context) {
+        float divisor = getDataUnitDivisor(context);
+        return (long) (dataLimitMB * divisor * divisor);
+    }
+
+    /**
+     * Convert data limit from GB to bytes.
+     * @param context Application context
+     * @param gb Data limit in GB
+     * @return Data limit in bytes
+     */
+    public static long convertGBToBytes(Context context, float gb) {
+        float divisor = getDataUnitDivisor(context);
+        return (long) (gb * divisor * divisor);
+    }
+
+    /**
      * Format data with context-aware unit conversion.
      * Uses user preference for binary (1024) or decimal (1000) conversion.
      */
