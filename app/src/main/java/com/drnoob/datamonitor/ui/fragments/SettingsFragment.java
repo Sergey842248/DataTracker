@@ -213,11 +213,11 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                 if (currentDataLimit > 0) {
                     float convertedDataLimit;
                     if (isBinary) {
-                        // Switching to binary: convert from decimal MB to binary MB
-                        convertedDataLimit = currentDataLimit * 1000f / 1024f;
+                        // Switching to binary: convert from decimal to binary
+                        convertedDataLimit = currentDataLimit * (float) Math.pow(1000.0 / 1024.0, 2);
                     } else {
-                        // Switching to decimal: convert from binary MB to decimal MB
-                        convertedDataLimit = currentDataLimit * 1024f / 1000f;
+                        // Switching to decimal: convert from binary to decimal
+                        convertedDataLimit = currentDataLimit * (float) Math.pow(1024.0 / 1000.0, 2);
                     }
                     PreferenceManager.getDefaultSharedPreferences(getContext())
                             .edit()

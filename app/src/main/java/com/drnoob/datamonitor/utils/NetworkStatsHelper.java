@@ -550,7 +550,8 @@ public class NetworkStatsHelper {
             Long txBytes = mobileBucket.getTxBytes();
             sentMobile = txBytes;
             receivedMobile = rxBytes;
-            totalMobile = ((sentMobile + receivedMobile) / 1024) / 1024;
+            float divisor = getDataUnitDivisor(context);
+            totalMobile = (long) ((sentMobile + receivedMobile) / divisor / divisor);
 
             wifiBucket = networkStatsManager.querySummaryForDevice(ConnectivityManager.TYPE_WIFI,
                     getSubscriberId(context),
@@ -559,7 +560,7 @@ public class NetworkStatsHelper {
 
             receivedWifi = wifiBucket.getRxBytes();
             sentWifi = wifiBucket.getTxBytes();
-            totalWifi = ((sentWifi + receivedWifi) / 1024) / 1024;
+            totalWifi = (long) ((sentWifi + receivedWifi) / divisor / divisor);
 
             list.add(i, new OverviewModel(totalMobile, totalWifi));
         }
