@@ -31,7 +31,9 @@ import static com.drnoob.datamonitor.core.Values.DATA_RESET_MONTHLY;
 import static com.drnoob.datamonitor.core.Values.SESSION_CUSTOM;
 import static com.drnoob.datamonitor.core.Values.SESSION_MONTHLY;
 import static com.drnoob.datamonitor.core.Values.SESSION_TODAY;
+import static com.drnoob.datamonitor.utils.NetworkStatsHelper.convertGBToBytes;
 import static com.drnoob.datamonitor.utils.NetworkStatsHelper.formatData;
+import static com.drnoob.datamonitor.utils.NetworkStatsHelper.getDataLimitBytes;
 import static com.drnoob.datamonitor.utils.NetworkStatsHelper.getDeviceMobileDataUsage;
 import static com.drnoob.datamonitor.utils.NetworkStatsHelper.getDeviceWifiDataUsage;
 import static com.drnoob.datamonitor.utils.NetworkStatsHelper.getTimePeriod;
@@ -114,12 +116,12 @@ public class DataUsageWidget extends AppWidgetProvider {
                 mobile = getDeviceMobileDataUsage(context, SESSION_TODAY, -1);
             }
 
-            mobileData = formatData(context, mobile[0], mobile[1])[2];
+            mobileData = formatData(mobile[0], mobile[1])[2];
 
             // Only fetch WiFi data if it should be shown
             if (showWifiUsage) {
                 wifi = getDeviceWifiDataUsage(context, SESSION_TODAY);
-                wifiData = formatData(context, wifi[0], wifi[1])[2];
+                wifiData = formatData(wifi[0], wifi[1])[2];
             }
 
         } catch (ParseException e) {
@@ -236,7 +238,7 @@ public class DataUsageWidget extends AppWidgetProvider {
                 if (PreferenceManager.getDefaultSharedPreferences(context).getString(DATA_RESET, null)
                         .equals(DATA_RESET_DAILY)) {
                     Long total = (mobile[2]);
-                    Long limit = dataLimit.longValue() * 1048576;
+                    Long limit = convertGBToBytes(context, dataLimit);
                     Long remaining;
                     String remainingData;
                     if (limit > total) {
@@ -254,7 +256,7 @@ public class DataUsageWidget extends AppWidgetProvider {
                         .equals(DATA_RESET_MONTHLY)) {
                     try {
                         Long total = getDeviceMobileDataUsage(context, SESSION_MONTHLY, date)[2];
-                        Long limit = dataLimit.longValue() * 1048576;
+                        Long limit = convertGBToBytes(context, dataLimit);
                         Long remaining;
                         String remainingData;
                         if (limit > total) {
@@ -276,7 +278,7 @@ public class DataUsageWidget extends AppWidgetProvider {
                 }
                 else {
                     Long total = (mobile[2]);
-                    Long limit = dataLimit.longValue() * 1048576;
+                    Long limit = convertGBToBytes(context, dataLimit);
                     Long remaining;
                     String remainingData;
                     if (limit > total) {

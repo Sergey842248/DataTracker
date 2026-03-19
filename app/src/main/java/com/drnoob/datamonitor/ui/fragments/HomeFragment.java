@@ -51,7 +51,10 @@ import static com.drnoob.datamonitor.core.Values.SHOW_ADD_PLAN_BANNER;
 import static com.drnoob.datamonitor.core.Values.TYPE_MOBILE_DATA;
 import static com.drnoob.datamonitor.core.Values.TYPE_WIFI;
 import static com.drnoob.datamonitor.ui.activities.MainActivity.setRefreshAppDataUsage;
+import static com.drnoob.datamonitor.utils.NetworkStatsHelper.convertGBToBytes;
 import static com.drnoob.datamonitor.utils.NetworkStatsHelper.formatData;
+import static com.drnoob.datamonitor.utils.NetworkStatsHelper.getDataLimitBytes;
+import static com.drnoob.datamonitor.utils.NetworkStatsHelper.getDataUnitDivisor;
 import static com.drnoob.datamonitor.utils.NetworkStatsHelper.getDeviceMobileDataUsage;
 import static com.drnoob.datamonitor.utils.NetworkStatsHelper.getDeviceWifiDataUsage;
 import static com.drnoob.datamonitor.utils.NetworkStatsHelper.updateOverview;
@@ -440,7 +443,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 //                }
 
                 Long total = (mobileData[2]);
-                Long limit = dataLimit.longValue() * 1048576;
+                Long limit = convertGBToBytes(getContext(), dataLimit);
                 Long remaining;
                 String remainingData;
                 mPlanValidity.setVisibility(View.GONE);
@@ -450,7 +453,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     long remainingDataBytes = 0L;
                     if (dataLimit > 0 && mobileData != null) {
                         long totalUsage = mobileData[2];
-                        long limitBytes = (long) (dataLimit * 1024 * 1024);
+                        long limitBytes = convertGBToBytes(getContext(), dataLimit);
                         if (limitBytes > totalUsage) {
                             remainingDataBytes = limitBytes - totalUsage;
                         }
@@ -516,7 +519,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     long remainingDataBytes = 0L;
                     if (dataLimit > 0 && mobileData != null) {
                         long totalUsage = mobileData[2];
-                        long limitBytes = (long) (dataLimit * 1024 * 1024);
+                        long limitBytes = convertGBToBytes(getContext(), dataLimit);
                         if (limitBytes > totalUsage) {
                             remainingDataBytes = limitBytes - totalUsage;
                         }
@@ -542,7 +545,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
                         if (todayData != null) {
                             long todayUsage = todayData[2]; // Total mobile data used today in bytes
-                            long customQuotaBytes = (long) (customQuota * 1024 * 1024); // Custom quota in bytes
+                            float divisor = getDataUnitDivisor(getContext());
+                            long customQuotaBytes = (long) (customQuota * divisor * divisor); // Custom quota in bytes
 
                             // Available quota = custom quota - today's usage (minimum 0)
                             long availableQuota = Math.max(0, customQuotaBytes - todayUsage);
@@ -552,7 +556,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                             mDailyQuota.setVisibility(View.VISIBLE);
                         } else {
                             // Fallback: show the full custom quota
-                            long customQuotaBytes = (long) (customQuota * 1024 * 1024);
+                            float divisor = getDataUnitDivisor(getContext());
+                            long customQuotaBytes = (long) (customQuota * divisor * divisor);
                             String dailyQuota = formatData(getContext(), 0L, customQuotaBytes)[2];
                             mDailyQuota.setText(getString(R.string.label_daily_quota, dailyQuota));
                             mDailyQuota.setVisibility(View.VISIBLE);
@@ -563,10 +568,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 }
 //                Long total = getDeviceMobileDataUsage(getContext(), SESSION_MONTHLY, date)[2];
                 Long total = mobileData[2];
-                Long limit = dataLimit.longValue() * 1048576;
+                Long limit = convertGBToBytes(getContext(), dataLimit);
                 Long remaining;
                 String remainingData;
-                String used = formatData(getContext(), 0l, total)[2];
+                String used = formatData(0l, total)[2];
                 if (limit > total) {
                     remaining = limit - total;
                     remainingData = requireContext().getString(R.string.label_data_remaining,
@@ -589,13 +594,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     long remainingDataBytes = 0L;
                     if (dataLimit > 0 && mobileData != null) {
                         long totalUsage = mobileData[2];
-                        long limitBytes = (long) (dataLimit * 1024 * 1024);
+                        long limitBytes = convertGBToBytes(getContext(), dataLimit);
                         if (limitBytes > totalUsage) {
                             remainingDataBytes = limitBytes - totalUsage;
                         }
                     }
 
-                    long dailyQuotaBytes = (long) (quota * 1024 * 1024);
+                    float divisor = getDataUnitDivisor(getContext());
+                    long dailyQuotaBytes = (long) (quota * divisor * divisor);
                     long finalQuota = Math.min(dailyQuotaBytes, remainingDataBytes);
 
                     String dailyQuota = formatData(getContext(), 0L, finalQuota)[2];
@@ -615,7 +621,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
                         if (todayData != null) {
                             long todayUsage = todayData[2]; // Total mobile data used today in bytes
-                            long customQuotaBytes = (long) (customQuota * 1024 * 1024); // Custom quota in bytes
+                            float divisor = getDataUnitDivisor(getContext());
+                            long customQuotaBytes = (long) (customQuota * divisor * divisor); // Custom quota in bytes
 
                             // Available quota = custom quota - today's usage (minimum 0)
                             long availableQuota = Math.max(0, customQuotaBytes - todayUsage);
@@ -625,7 +632,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                             mDailyQuota.setVisibility(View.VISIBLE);
                         } else {
                             // Fallback: show the full custom quota
-                            long customQuotaBytes = (long) (customQuota * 1024 * 1024);
+                            float divisor = getDataUnitDivisor(getContext());
+                            long customQuotaBytes = (long) (customQuota * divisor * divisor);
                             String dailyQuota = formatData(getContext(), 0L, customQuotaBytes)[2];
                             mDailyQuota.setText(getString(R.string.label_daily_quota, dailyQuota));
                             mDailyQuota.setVisibility(View.VISIBLE);
@@ -635,10 +643,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     }
                 }
                 Long total = (mobileData[2]);
-                Long limit = dataLimit.longValue() * 1048576;
+                Long limit = convertGBToBytes(getContext(), dataLimit);
                 Long remaining;
                 String remainingData;
-                String used = formatData(getContext(), 0l, total)[2];
+                String used = formatData(0l, total)[2];
                 if (limit > total) {
                     remaining = limit - total;
                     remainingData = requireContext().getString(R.string.label_data_remaining,
@@ -767,8 +775,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             mobile = getDeviceMobileDataUsage(getContext(), SESSION_TODAY, 1);
             wifi = getDeviceWifiDataUsage(getContext(), SESSION_TODAY);
 
-            String[] mobileData = formatData(getContext(), mobile[0], mobile[1]);
-            String[] wifiData = formatData(getContext(), wifi[0], wifi[1]);
+            String[] mobileData = formatData(mobile[0], mobile[1]);
+            String[] wifiData = formatData(wifi[0], wifi[1]);
             mMobileDataUsage.setText(mobileData[2]);
             mWifiDataUsage.setText(wifiData[2]);
 

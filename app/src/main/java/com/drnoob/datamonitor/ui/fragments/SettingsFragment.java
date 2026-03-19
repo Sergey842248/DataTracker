@@ -24,6 +24,7 @@ import static com.drnoob.datamonitor.core.Values.APP_LANGUAGE_FRAGMENT;
 import static com.drnoob.datamonitor.core.Values.APP_THEME;
 import static com.drnoob.datamonitor.core.Values.APP_THEME_SUMMARY;
 import static com.drnoob.datamonitor.core.Values.CONTRIBUTORS_FRAGMENT;
+import static com.drnoob.datamonitor.core.Values.DATA_LIMIT;
 import static com.drnoob.datamonitor.core.Values.DIAGNOSTICS_SETTINGS_FRAGMENT;
 import static com.drnoob.datamonitor.core.Values.DONATE_FRAGMENT;
 import static com.drnoob.datamonitor.core.Values.DATA_UNIT_BINARY;
@@ -202,9 +203,28 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
             mDataUnitBinary.setOnPreferenceChangeListener((preference, newValue) -> {
                 boolean isBinary = (Boolean) newValue;
-                mDataUnitBinary.setSummary(isBinary ? 
-                        getString(R.string.data_unit_binary_summary) : 
+                mDataUnitBinary.setSummary(isBinary ?
+                        getString(R.string.data_unit_binary_summary) :
                         getString(R.string.data_unit_decimal_summary));
+
+                // Convert data limit when unit changes
+                float currentDataLimit = PreferenceManager.getDefaultSharedPreferences(getContext())
+                        .getFloat(DATA_LIMIT, -1);
+                if (currentDataLimit > 0) {
+                    float convertedDataLimit;
+                    if (isBinary) {
+                        // Switching to binary: convert from decimal MB to binary MB
+                        convertedDataLimit = currentDataLimit * 1000f / 1024f;
+                    } else {
+                        // Switching to decimal: convert from binary MB to decimal MB
+                        convertedDataLimit = currentDataLimit * 1024f / 1000f;
+                    }
+                    PreferenceManager.getDefaultSharedPreferences(getContext())
+                            .edit()
+                            .putFloat(DATA_LIMIT, convertedDataLimit)
+                            .apply();
+                }
+
                 return true;
             });
         }
