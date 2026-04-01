@@ -36,6 +36,7 @@ import androidx.fragment.app.Fragment
 import androidx.preference.PreferenceManager
 import com.drnoob.datamonitor.Common
 import com.drnoob.datamonitor.R
+import com.drnoob.datamonitor.core.Values
 import com.drnoob.datamonitor.databinding.FragmentCustomSessionBinding
 import com.drnoob.datamonitor.utils.VibrationUtils
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -91,10 +92,10 @@ class CustomSessionFragment: Fragment() {
         baseActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding.containerToolbar.setBackgroundColor(android.graphics.Color.TRANSPARENT)
 
-        val date = Date()
-        val time = DateFormat.getTimeInstance(DateFormat.SHORT).format(date.time).lowercase()
-        is12HourView = time.contains("am") || time.contains("pm") ||
-                time.contains("a.m") || time.contains("p.m")
+        // Read time format preference (true = 24h, false = 12h)
+        val use24h = PreferenceManager.getDefaultSharedPreferences(requireContext())
+                .getBoolean(Values.TIME_FORMAT_24H, true)
+        is12HourView = !use24h
 
         updateTime()
 
@@ -244,6 +245,11 @@ class CustomSessionFragment: Fragment() {
         val footer = dialogView.findViewById<ConstraintLayout>(R.id.footer)
         val cancel = footer.findViewById<TextView>(R.id.cancel)
         val ok = footer.findViewById<TextView>(R.id.ok)
+
+        // Set time picker to 24h mode if preference is set
+        val use24h = PreferenceManager.getDefaultSharedPreferences(requireContext())
+                .getBoolean(Values.TIME_FORMAT_24H, true)
+        timePicker.setIs24HourView(use24h)
 
         ((timePicker.getChildAt(0) as LinearLayout).getChildAt(0) as LinearLayout)
             .getChildAt(0).isVerticalScrollBarEnabled = false

@@ -27,6 +27,7 @@ import static com.drnoob.datamonitor.Common.setBoldSpan;
 import static com.drnoob.datamonitor.core.Values.DATA_LIMIT;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET;
 import static com.drnoob.datamonitor.core.Values.DATA_UNIT_BINARY;
+import static com.drnoob.datamonitor.core.Values.TIME_FORMAT_24H;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_DATE_END;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_DATE_END_HOUR;
@@ -166,10 +167,10 @@ public class DataPlanFragment extends Fragment {
         Calendar calendar = Calendar.getInstance();
         int daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
 
-        Date date = new Date();
-        String time = DateFormat.getTimeInstance(DateFormat.SHORT).format(date.getTime()).toLowerCase(Locale.ROOT);
-        is12HourView = time.contains("am") || time.contains("pm") ||
-                time.contains("a.m") || time.contains("p.m");
+        // Read time format preference (true = 24h, false = 12h)
+        boolean use24h = PreferenceManager.getDefaultSharedPreferences(requireContext())
+                .getBoolean(TIME_FORMAT_24H, true);
+        is12HourView = !use24h;
 
         try {
             planStartDateMillis = PreferenceManager.getDefaultSharedPreferences(requireContext())
@@ -742,6 +743,11 @@ public class DataPlanFragment extends Fragment {
         ConstraintLayout footer = dialogView.findViewById(R.id.footer);
         TextView cancel = footer.findViewById(R.id.cancel);
         TextView ok = footer.findViewById(R.id.ok);
+
+        // Set time picker to 24h mode if preference is set
+        boolean use24h = PreferenceManager.getDefaultSharedPreferences(requireContext())
+                .getBoolean(TIME_FORMAT_24H, true);
+        timePicker.setIs24HourView(use24h);
 
         (((LinearLayout) ((LinearLayout) timePicker.getChildAt(0)).getChildAt(0)).getChildAt(0)).setVerticalScrollBarEnabled(false);
         (((LinearLayout) ((LinearLayout) timePicker.getChildAt(0)).getChildAt(0)).getChildAt(2)).setVerticalScrollBarEnabled(false);

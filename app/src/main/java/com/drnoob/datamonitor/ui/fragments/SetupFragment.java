@@ -32,6 +32,7 @@ import static com.drnoob.datamonitor.core.Values.DATA_LIMIT;
 import static com.drnoob.datamonitor.core.Values.DATA_PLAN_FRAGMENT;
 import static com.drnoob.datamonitor.core.Values.DATA_QUOTA_WARNING_SHOWN;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET;
+import static com.drnoob.datamonitor.core.Values.TIME_FORMAT_24H;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_DAILY;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_DATE;
@@ -1160,6 +1161,11 @@ public class SetupFragment extends Fragment {
                         TextView cancel = footer.findViewById(R.id.cancel);
                         TextView ok = footer.findViewById(R.id.ok);
 
+                        // Set time picker to 24h mode if preference is set
+                        boolean use24h = PreferenceManager.getDefaultSharedPreferences(getContext())
+                                .getBoolean(TIME_FORMAT_24H, true);
+                        timePicker.setIs24HourView(use24h);
+
                         (((LinearLayout) ((LinearLayout) timePicker.getChildAt(0)).getChildAt(0)).getChildAt(0)).setVerticalScrollBarEnabled(false);
                         (((LinearLayout) ((LinearLayout) timePicker.getChildAt(0)).getChildAt(0)).getChildAt(2)).setVerticalScrollBarEnabled(false);
 
@@ -1718,45 +1724,63 @@ public class SetupFragment extends Fragment {
                 minute = PreferenceManager.getDefaultSharedPreferences(getContext())
                         .getInt(DATA_RESET_MIN, 0);
 
-                int h, m;
-                m = minute;
-
-
-                // Conversion to 12h clock xD :)
-
-                if (hour >= 12) {
-                    if (hour == 12) {
-                        h = 12;
+                // Use time format preference (24h or 12h)
+                boolean use24h = PreferenceManager.getDefaultSharedPreferences(getContext())
+                        .getBoolean(TIME_FORMAT_24H, true);
+                
+                if (use24h) {
+                    // 24h format
+                    String formattedHour, formattedMinute;
+                    if (hour < 10) {
+                        formattedHour = "0" + hour;
                     } else {
-                        h = (hour - 12);
+                        formattedHour = "" + hour;
                     }
-                    if (m < 10) {
-                        resetSummary = h + ":0" + m + " pm";
+                    if (minute < 10) {
+                        formattedMinute = "0" + minute;
                     } else {
-                        resetSummary = h + ":" + m + " pm";
+                        formattedMinute = "" + minute;
                     }
+                    resetSummary = formattedHour + ":" + formattedMinute;
                 } else {
-                    if (hour == 0) {
-                        h = 12;
-                    } else if (hour < 10) {
-                        h = hour;
-                        if (m < 10) {
-                            resetSummary = "0" + h + ":0" + m + " pm";
+                    // 12h format
+                    int h, m;
+                    m = minute;
+
+                    if (hour >= 12) {
+                        if (hour == 12) {
+                            h = 12;
                         } else {
-                            resetSummary = "0" + h + ":" + m + " pm";
+                            h = (hour - 12);
+                        }
+                        if (m < 10) {
+                            resetSummary = h + ":0" + m + " pm";
+                        } else {
+                            resetSummary = h + ":" + m + " pm";
                         }
                     } else {
-                        h = hour;
-                    }
-                    if (h < 10) {
-                        resetSummary = "0" + h + ":" + m + " am";
-                    } else {
-                        resetSummary = h + " : " + m + " am";
-                    }
-                    if (m < 10) {
-                        resetSummary = h + ":0" + m + " am";
-                    } else {
-                        resetSummary = h + ":" + m + " am";
+                        if (hour == 0) {
+                            h = 12;
+                        } else if (hour < 10) {
+                            h = hour;
+                            if (m < 10) {
+                                resetSummary = "0" + h + ":0" + m + " am";
+                            } else {
+                                resetSummary = "0" + h + ":" + m + " am";
+                            }
+                        } else {
+                            h = hour;
+                        }
+                        if (h < 10) {
+                            resetSummary = "0" + h + ":" + m + " am";
+                        } else {
+                            resetSummary = h + " : " + m + " am";
+                        }
+                        if (m < 10) {
+                            resetSummary = h + ":0" + m + " am";
+                        } else {
+                            resetSummary = h + ":" + m + " am";
+                        }
                     }
                 }
             }

@@ -378,6 +378,12 @@
     <string name="data_unit_decimal">Decimal (1000)</string>
     <string name="data_unit_binary_summary">1 GB = 1024 MB (IEC standard)</string>
     <string name="data_unit_decimal_summary">1 GB = 1000 MB (SI standard)</string>
+    <string name="settings_time_format">Time format</string>
+    <string name="time_format_summary">Choose between 12-hour and 24-hour time format</string>
+    <string name="time_format_12h">12-hour</string>
+    <string name="time_format_24h">24-hour</string>
+    <string name="time_format_12h_summary">12-hour format (AM/PM)</string>
+    <string name="time_format_24h_summary">24-hour format</string>
     <string name="action_dismiss">Dismiss</string>
     <string name="action_add_data_plan_home_summary">No data plan found! Add a data plan to start tracking it.</string>
     <string name="label_select_start_date">Select start date</string>

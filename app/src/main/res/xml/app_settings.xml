@@ -45,6 +45,13 @@
             app:summary="@string/data_unit_binary_summary"
             app:defaultValue="true"/>
 
+        <com.drnoob.datamonitor.core.base.SwitchPreferenceCompat
+            android:icon="@drawable/ic_notification"
+            android:key="time_format_24h"
+            android:title="@string/settings_time_format"
+            app:summary="@string/time_format_24h_summary"
+            app:defaultValue="true"/>
+
     </com.drnoob.datamonitor.core.base.PreferenceCategory>
 
     <com.drnoob.datamonitor.core.base.PreferenceCategory

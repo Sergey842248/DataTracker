@@ -28,6 +28,7 @@ import static com.drnoob.datamonitor.core.Values.DAILY_DATA_HOME_ACTION;
 import static com.drnoob.datamonitor.core.Values.DATA_LIMIT;
 import static com.drnoob.datamonitor.core.Values.DATA_PLAN_FRAGMENT;
 import static com.drnoob.datamonitor.core.Values.DATA_QUOTA;
+import static com.drnoob.datamonitor.core.Values.TIME_FORMAT_24H;
 import static com.drnoob.datamonitor.core.Values.DATA_QUOTA_CUSTOM;
 import static com.drnoob.datamonitor.core.Values.DATA_QUOTA_PERFORMED_RESET;
 import static com.drnoob.datamonitor.core.Values.DATA_QUOTA_SCHEDULED_RESET;
@@ -721,8 +722,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                         resetCal.add(Calendar.DAY_OF_YEAR, 1);
                     }
                     
-                    // Use 12-hour format with am/pm
-                    String timeStr = new SimpleDateFormat("h:mm a", getCurrentLocale(requireContext())).format(resetCal.getTime());
+                    // Use time format preference (24h or 12h)
+                    boolean use24h = preferences.getBoolean(TIME_FORMAT_24H, true);
+                    String timeFormat = use24h ? "HH:mm" : "h:mm a";
+                    String timeStr = new SimpleDateFormat(timeFormat, getCurrentLocale(requireContext())).format(resetCal.getTime());
                     mPlanValidity.setText(requireContext().getString(R.string.label_plan_validity_daily_unlimited, timeStr));
                     mPlanValidity.setVisibility(View.VISIBLE);
                 }

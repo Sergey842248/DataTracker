@@ -28,6 +28,7 @@ import static com.drnoob.datamonitor.core.Values.DATA_LIMIT;
 import static com.drnoob.datamonitor.core.Values.DIAGNOSTICS_SETTINGS_FRAGMENT;
 import static com.drnoob.datamonitor.core.Values.DONATE_FRAGMENT;
 import static com.drnoob.datamonitor.core.Values.DATA_UNIT_BINARY;
+import static com.drnoob.datamonitor.core.Values.TIME_FORMAT_24H;
 import static com.drnoob.datamonitor.core.Values.GENERAL_FRAGMENT_ID;
 
 import android.content.Intent;
@@ -54,7 +55,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     private static final String TAG = SettingsFragment.class.getSimpleName();
     private Preference mAppThemePicker, mLanguagePicker, mDiagnosticsSettings,
             mAbout, mContributors, mDonate;
-    private SwitchPreferenceCompat mDisableHaptics, mDataUnitBinary;
+    private SwitchPreferenceCompat mDisableHaptics, mDataUnitBinary, mTimeFormat24h;
     private Snackbar snackbar;
 
     public SettingsFragment() {
@@ -75,6 +76,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         mDiagnosticsSettings = (Preference) findPreference("network_diagnostics");
         mDisableHaptics = (SwitchPreferenceCompat) findPreference("disable_haptics");
         mDataUnitBinary = (SwitchPreferenceCompat) findPreference("data_unit_binary");
+        mTimeFormat24h = (SwitchPreferenceCompat) findPreference("time_format_24h");
         mAbout = (Preference) findPreference("about");
         mContributors = (Preference) findPreference("contributors");
         mDonate = (Preference) findPreference("donate");
@@ -197,8 +199,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
             // Set initial summary based on current state
             boolean useBinary = PreferenceManager.getDefaultSharedPreferences(getContext())
                     .getBoolean(DATA_UNIT_BINARY, true);
-            mDataUnitBinary.setSummary(useBinary ? 
-                    getString(R.string.data_unit_binary_summary) : 
+            mDataUnitBinary.setSummary(useBinary ?
+                    getString(R.string.data_unit_binary_summary) :
                     getString(R.string.data_unit_decimal_summary));
 
             mDataUnitBinary.setOnPreferenceChangeListener((preference, newValue) -> {
@@ -225,6 +227,23 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                             .apply();
                 }
 
+                return true;
+            });
+        }
+
+        if (mTimeFormat24h != null) {
+            // Set initial summary based on current state
+            boolean use24h = PreferenceManager.getDefaultSharedPreferences(getContext())
+                    .getBoolean(TIME_FORMAT_24H, true);
+            mTimeFormat24h.setSummary(use24h ?
+                    getString(R.string.time_format_24h_summary) :
+                    getString(R.string.time_format_12h_summary));
+
+            mTimeFormat24h.setOnPreferenceChangeListener((preference, newValue) -> {
+                boolean is24h = (Boolean) newValue;
+                mTimeFormat24h.setSummary(is24h ?
+                        getString(R.string.time_format_24h_summary) :
+                        getString(R.string.time_format_12h_summary));
                 return true;
             });
         }

@@ -199,6 +199,7 @@ public class Values {
     public static final String DATA_QUOTA_PERFORMED_RESET = "quota_performed_reset";
 
     public static final String DATA_UNIT_BINARY = "data_unit_binary"; // true = 1024 (binary), false = 1000 (decimal)
+    public static final String TIME_FORMAT_24H = "time_format_24h"; // true = 24h format, false = 12h format
 
     public static final String PREF_APP_USAGE_SESSION = "pref_app_usage_session";
     public static final String PREF_APP_USAGE_TYPE = "pref_app_usage_type";
