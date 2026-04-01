@@ -24,6 +24,7 @@ import static com.drnoob.datamonitor.core.Values.ADD_CUSTOM_SESSION_FRAGMENT;
 import static com.drnoob.datamonitor.core.Values.DAILY_DATA_HOME_ACTION;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM;
+import static com.drnoob.datamonitor.core.Values.DATA_RESET_DAILY;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_DATE;
 import static com.drnoob.datamonitor.core.Values.DATA_USAGE_SESSION;
 import static com.drnoob.datamonitor.core.Values.DATA_USAGE_TYPE;
@@ -39,10 +40,12 @@ import static com.drnoob.datamonitor.core.Values.SESSION_THIS_YEAR;
 import static com.drnoob.datamonitor.core.Values.SESSION_TODAY;
 import static com.drnoob.datamonitor.core.Values.SESSION_WEEK;
 import static com.drnoob.datamonitor.core.Values.SESSION_YESTERDAY;
+import static com.drnoob.datamonitor.core.Values.SESSION_UNLIMITED_TIME_SLOT;
 import static com.drnoob.datamonitor.core.Values.TYPE_MOBILE_DATA;
 import static com.drnoob.datamonitor.core.Values.TYPE_WIFI;
 import static com.drnoob.datamonitor.core.Values.PREF_APP_USAGE_SESSION;
 import static com.drnoob.datamonitor.core.Values.PREF_APP_USAGE_TYPE;
+import static com.drnoob.datamonitor.core.Values.UNLIMITED_TIME_SLOT_ENABLED;
 import static com.drnoob.datamonitor.ui.activities.MainActivity.getRefreshAppDataUsage;
 import static com.drnoob.datamonitor.ui.activities.MainActivity.isDataLoading;
 import static com.drnoob.datamonitor.ui.activities.MainActivity.mSystemAppsList;
@@ -237,6 +240,7 @@ public class AppDataUsageFragment extends Fragment {
 
                 Chip sessionCurrentPlan = sessionGroup.findViewById(R.id.session_current_plan);
                 Chip sessionCustom = sessionGroup.findViewById(R.id.session_custom);
+                Chip sessionUnlimitedTimeSlot = sessionGroup.findViewById(R.id.session_unlimited_time_slot);
 
                 if (PreferenceManager.getDefaultSharedPreferences(getContext())
                         .getString(DATA_RESET, "null")
@@ -245,6 +249,17 @@ public class AppDataUsageFragment extends Fragment {
                 }
                 else {
                     sessionCurrentPlan.setVisibility(View.GONE);
+                }
+
+                // Show unlimited time slot filter only if it's enabled and daily data plan is selected
+                boolean isUnlimitedTimeSlotEnabled = PreferenceManager.getDefaultSharedPreferences(getContext())
+                        .getBoolean(UNLIMITED_TIME_SLOT_ENABLED, false);
+                String dataResetType = PreferenceManager.getDefaultSharedPreferences(getContext())
+                        .getString(DATA_RESET, "null");
+                if (isUnlimitedTimeSlotEnabled && dataResetType.equals(DATA_RESET_DAILY)) {
+                    sessionUnlimitedTimeSlot.setVisibility(View.VISIBLE);
+                } else {
+                    sessionUnlimitedTimeSlot.setVisibility(View.GONE);
                 }
 
                 String sessionText = customFilterDate.getValue() == null ? getString(R.string.add_custom_session)
@@ -307,6 +322,8 @@ public class AppDataUsageFragment extends Fragment {
                     sessionGroup.check(R.id.session_current_plan);
                 } else if (session == SESSION_CUSTOM_FILTER) {
                     sessionGroup.check(R.id.session_custom);
+                } else if (session == SESSION_UNLIMITED_TIME_SLOT) {
+                    sessionGroup.check(R.id.session_unlimited_time_slot);
                 }
 
                 int type = getType();
@@ -344,6 +361,8 @@ public class AppDataUsageFragment extends Fragment {
                             selectedSession = SESSION_CUSTOM;
                         } else if (checkedSessionId == R.id.session_custom) {
                             selectedSession = SESSION_CUSTOM_FILTER;
+                        } else if (checkedSessionId == R.id.session_unlimited_time_slot) {
+                            selectedSession = SESSION_UNLIMITED_TIME_SLOT;
                         } else {
                             selectedSession = SESSION_TODAY;
                         }

@@ -39,6 +39,7 @@ import static com.drnoob.datamonitor.core.Values.DATA_RESET_HOUR;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_MIN;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_MONTHLY;
 import static com.drnoob.datamonitor.core.Values.DATA_TYPE;
+import static com.drnoob.datamonitor.core.Values.UNLIMITED_TIME_SLOT_ENABLED;
 import static com.drnoob.datamonitor.core.Values.DATA_USAGE_ALERT;
 import static com.drnoob.datamonitor.core.Values.DATA_USAGE_WARNING_SHOWN;
 import static com.drnoob.datamonitor.core.Values.DATA_WARNING_TRIGGER_LEVEL;
@@ -697,7 +698,8 @@ public class SetupFragment extends Fragment {
                 public boolean onPreferenceClick(androidx.preference.Preference preference) {
                     Boolean isChecked = PreferenceManager.getDefaultSharedPreferences(getContext())
                             .getBoolean("remaining_data_info", true);
-                    if (PreferenceManager.getDefaultSharedPreferences(getContext()).getFloat(DATA_LIMIT, -1) > 0) {
+                    Float dataLimit = PreferenceManager.getDefaultSharedPreferences(getContext()).getFloat(DATA_LIMIT, -1);
+                    if (dataLimit > 0) {
 //                    Log.d(TAG, "onPreferenceClick: " + PreferenceManager.getDefaultSharedPreferences(getContext()).getInt("data_limit", -1) );
                         if (isChecked) {
                             snackbar = Snackbar.make(getActivity().findViewById(R.id.main_root),
@@ -714,6 +716,12 @@ public class SetupFragment extends Fragment {
                         intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
                         intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
                         getContext().sendBroadcast(intent);
+                    } else if (dataLimit == 0) {
+                        // Unlimited data plan - remaining data info not applicable
+                        mRemainingDataInfo.setChecked(false);
+                        snackbar = Snackbar.make(getActivity().findViewById(R.id.main_root),
+                                getString(R.string.label_monitoring_unlimited_plan), Snackbar.LENGTH_SHORT)
+                                .setAnchorView(getActivity().findViewById(R.id.bottomNavigationView));
                     } else {
                         mRemainingDataInfo.setChecked(false);
                         snackbar = Snackbar.make(getActivity().findViewById(R.id.main_root),
@@ -1133,6 +1141,17 @@ public class SetupFragment extends Fragment {
                     }
                     else if (PreferenceManager.getDefaultSharedPreferences(getContext()).getString(DATA_RESET, "null")
                             .equals(DATA_RESET_DAILY)) {
+                        // Check if unlimited time slot is enabled - if so, don't allow changing reset time
+                        boolean isUnlimitedTimeSlotEnabled = PreferenceManager.getDefaultSharedPreferences(getContext())
+                                .getBoolean(UNLIMITED_TIME_SLOT_ENABLED, false);
+                        if (isUnlimitedTimeSlotEnabled) {
+                            snackbar = Snackbar.make(getActivity().findViewById(R.id.main_root),
+                                    getString(R.string.error_unlimited_time_slot_reset_time_disabled), Snackbar.LENGTH_SHORT)
+                                    .setAnchorView(getActivity().findViewById(R.id.bottomNavigationView));
+                            dismissOnClick(snackbar);
+                            snackbar.show();
+                            return false;
+                        }
                         BottomSheetDialog dialog = new BottomSheetDialog(getContext(), R.style.BottomSheet);
                         View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.layout_time_picker, null);
 
@@ -1306,6 +1325,13 @@ public class SetupFragment extends Fragment {
                                             getString(R.string.label_add_data_plan_first), Snackbar.LENGTH_SHORT)
                                     .setAnchorView(getActivity().findViewById(R.id.bottomNavigationView));
                             snackbar.show();
+                        } else if (dataLimit == 0) {
+                            // Unlimited data plan - data usage alert not applicable
+                            mShowDataWarning.setChecked(false);
+                            snackbar = Snackbar.make(getActivity().findViewById(R.id.main_root),
+                                            getString(R.string.label_data_alert_unlimited_plan), Snackbar.LENGTH_SHORT)
+                                    .setAnchorView(getActivity().findViewById(R.id.bottomNavigationView));
+                            snackbar.show();
                         }
                         else {
                             if (isChecked) {
@@ -1348,10 +1374,12 @@ public class SetupFragment extends Fragment {
                         triggerDataLevelValue = String.format("%.2f", triggerDataLevel.floatValue()) + " MB";
                     }
 
-                    if (PreferenceManager.getDefaultSharedPreferences(getContext())
-                            .getFloat(DATA_LIMIT, -1) > 0) {
+                    if (dataLimit > 0) {
                         currentLevel.setText(getContext().getString(R.string.label_current_data_warning_trigger_level_limit_set,
                                 level, triggerDataLevelValue));
+                    } else if (dataLimit == 0) {
+                        // Unlimited data plan - show message
+                        currentLevel.setText(getContext().getString(R.string.label_current_data_warning_trigger_level_unlimited));
                     }
                     else {
                         currentLevel.setText(getContext().getString(R.string.label_current_data_warning_trigger_level_limit_not_set,
@@ -1505,7 +1533,17 @@ public class SetupFragment extends Fragment {
             mCustomDailyQuota.setOnPreferenceClickListener(new androidx.preference.Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(@NonNull androidx.preference.Preference preference) {
-                    showCustomDailyQuotaDialog();
+                    Float dataLimit = PreferenceManager.getDefaultSharedPreferences(getContext())
+                            .getFloat(DATA_LIMIT, -1);
+                    if (dataLimit == 0) {
+                        // Unlimited data plan - custom daily quota not applicable
+                        snackbar = Snackbar.make(getActivity().findViewById(R.id.main_root),
+                                        getString(R.string.label_custom_daily_quota_unlimited_plan), Snackbar.LENGTH_SHORT)
+                                .setAnchorView(getActivity().findViewById(R.id.bottomNavigationView));
+                        snackbar.show();
+                    } else {
+                        showCustomDailyQuotaDialog();
+                    }
                     return false;
                 }
             });
@@ -1522,6 +1560,13 @@ public class SetupFragment extends Fragment {
                         mSmartDataAllocation.setChecked(false);
                         snackbar = Snackbar.make(getActivity().findViewById(R.id.main_root),
                                         getString(R.string.label_add_data_plan_first), Snackbar.LENGTH_SHORT)
+                                .setAnchorView(getActivity().findViewById(R.id.bottomNavigationView));
+                        snackbar.show();
+                    } else if (dataLimit == 0) {
+                        // Unlimited data plan - smart data allocation not applicable
+                        mSmartDataAllocation.setChecked(false);
+                        snackbar = Snackbar.make(getActivity().findViewById(R.id.main_root),
+                                        getString(R.string.label_smart_allocation_unlimited_plan), Snackbar.LENGTH_SHORT)
                                 .setAnchorView(getActivity().findViewById(R.id.bottomNavigationView));
                         snackbar.show();
                     }
@@ -1561,6 +1606,13 @@ public class SetupFragment extends Fragment {
                         mDailyQuotaAlert.setChecked(false);
                         snackbar = Snackbar.make(getActivity().findViewById(R.id.main_root),
                                         getString(R.string.label_add_data_plan_first), Snackbar.LENGTH_SHORT)
+                                .setAnchorView(getActivity().findViewById(R.id.bottomNavigationView));
+                        snackbar.show();
+                    } else if (dataLimit == 0) {
+                        // Unlimited data plan - daily quota alert not applicable
+                        mDailyQuotaAlert.setChecked(false);
+                        snackbar = Snackbar.make(getActivity().findViewById(R.id.main_root),
+                                        getString(R.string.label_daily_quota_alert_unlimited_plan), Snackbar.LENGTH_SHORT)
                                 .setAnchorView(getActivity().findViewById(R.id.bottomNavigationView));
                         snackbar.show();
                     }

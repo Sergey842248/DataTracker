@@ -75,6 +75,13 @@ class SmartDataAllocationService(context: Context, workerParams: WorkerParameter
         val dataRemaining: Float
         val millisPerDay = 1000 * 60 * 60 * 24.toFloat()
 
+        // Skip smart data allocation if data limit is unlimited (0 or -1)
+        if (dataLimit <= 0) {
+            Log.d(TAG, "Data limit is unlimited ($dataLimit), skipping smart data allocation")
+            preferences.edit().putFloat(DATA_QUOTA, 0f).apply()
+            return Result.success()
+        }
+
         if (getResetTimeDelay() == null) {
             preferences.edit().putFloat(DATA_QUOTA, 0f).apply()
             return Result.failure()

@@ -183,6 +183,7 @@ public class NotificationService extends Service {
 
             if (isChecked && !isCombined) {
                 Float dataLimit = PreferenceManager.getDefaultSharedPreferences(context).getFloat(DATA_LIMIT, -1);
+                // Don't show percent for unlimited data plan (dataLimit <= 0)
                 showPercent = dataLimit > 0;
                 Float mobileMB;
                 int percent = 0;

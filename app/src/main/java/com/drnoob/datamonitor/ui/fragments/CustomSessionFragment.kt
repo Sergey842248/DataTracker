@@ -250,8 +250,6 @@ class CustomSessionFragment: Fragment() {
         ((timePicker.getChildAt(0) as LinearLayout).getChildAt(0) as LinearLayout)
             .getChildAt(2).isVerticalScrollBarEnabled = false
 
-        timePicker.setIs24HourView(!is12HourView)
-
         if (type == TYPE_START) {
             title.text = getString(R.string.label_select_start_time)
             timePicker.hour = startHour

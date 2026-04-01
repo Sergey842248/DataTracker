@@ -170,6 +170,11 @@ public class DataUsageMonitor extends Service {
                 int trigger = PreferenceManager.getDefaultSharedPreferences(context).getInt(DATA_WARNING_TRIGGER_LEVEL, 85);
                 Float dataLimit = PreferenceManager.getDefaultSharedPreferences(context).getFloat(DATA_LIMIT, -1);
 
+                // Skip data usage alert for unlimited data plan (dataLimit <= 0)
+                if (dataLimit <= 0) {
+                    return;
+                }
+
                 Double triggerLevel = 0d;
                 if (dataLimit > 0) {
                     triggerLevel = dataLimit.doubleValue() * trigger / 100;

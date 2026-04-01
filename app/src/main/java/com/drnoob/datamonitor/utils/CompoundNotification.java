@@ -321,6 +321,7 @@ public class CompoundNotification extends Service {
 
         if (interval == 0 || interval == elapsedTime) {
             Float dataLimit = PreferenceManager.getDefaultSharedPreferences(context).getFloat(DATA_LIMIT, -1);
+            // Don't show percent for unlimited data plan (dataLimit <= 0)
             showPercent = dataLimit > 0;
             Float mobileMB;
 

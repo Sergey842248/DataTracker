@@ -39,6 +39,8 @@ import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_DATE_END_HOUR
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_CUSTOM_DATE_END_MIN;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_DAILY;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_DATE;
+import static com.drnoob.datamonitor.core.Values.DATA_RESET_HOUR;
+import static com.drnoob.datamonitor.core.Values.DATA_RESET_MIN;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_MONTHLY;
 import static com.drnoob.datamonitor.core.Values.DATA_USAGE_SESSION;
 import static com.drnoob.datamonitor.core.Values.DATA_USAGE_TODAY;
@@ -665,6 +667,69 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             mDataRemaining.setVisibility(View.GONE);
             mPlanDetailsView.setVisibility(View.VISIBLE);
             mPlanDetailsTitle.setText(planDetailsTitle);
+        } else if (dataLimit == 0) {
+            // Unlimited data plan (no limit set). Show only usage, hide remaining data.
+            Long total = (mobileData != null) ? mobileData[2] : 0L;
+            String used = formatData(0l, total)[2];
+            
+            // Hide daily quota and remaining data views for unlimited plan
+            mDailyQuota.setVisibility(View.GONE);
+            mDataRemaining.setVisibility(View.GONE);
+            
+            // Show only usage details without remaining data
+            String usageDetails = requireContext().getString(R.string.home_plan_usage_details_unlimited, used);
+            mPlanUsage.setText(usageDetails);
+            
+            // Always hide validity first, then show only if needed
+            mPlanValidity.setText("");
+            mPlanValidity.setVisibility(View.GONE);
+            
+            // Handle plan validity for unlimited plan
+            String planType = preferences.getString(DATA_RESET, null);
+            
+            if (planType != null) {
+                if (planType.equals(DATA_RESET_MONTHLY)) {
+                    String validity = getPlanValidity(SESSION_MONTHLY);
+                    mPlanValidity.setText(validity);
+                    mPlanValidity.setVisibility(View.VISIBLE);
+                } else if (planType.equals(DATA_RESET_CUSTOM)) {
+                    String validity = getPlanValidity(SESSION_CUSTOM);
+                    mPlanValidity.setText(validity);
+                    mPlanValidity.setVisibility(View.VISIBLE);
+                } else if (planType.equals(DATA_RESET_DAILY)) {
+                    // For daily plans with unlimited data
+                    boolean isUnlimitedTimeSlotEnabled = preferences.getBoolean("unlimited_time_slot_enabled", false);
+                    int resetHour, resetMin;
+                    
+                    if (isUnlimitedTimeSlotEnabled) {
+                        // When unlimited time slot is enabled, show next start time of unlimited period
+                        resetHour = preferences.getInt("unlimited_time_slot_start_hour", 0);
+                        resetMin = preferences.getInt("unlimited_time_slot_start_min", 0);
+                    } else {
+                        // When unlimited time slot is disabled, show the regular reset time
+                        resetHour = preferences.getInt(DATA_RESET_HOUR, 0);
+                        resetMin = preferences.getInt(DATA_RESET_MIN, 0);
+                    }
+                    
+                    Calendar resetCal = Calendar.getInstance();
+                    resetCal.set(Calendar.HOUR_OF_DAY, resetHour);
+                    resetCal.set(Calendar.MINUTE, resetMin);
+                    resetCal.set(Calendar.SECOND, 0);
+                    
+                    // If reset time has already passed today, show tomorrow's reset time
+                    if (resetCal.getTimeInMillis() <= System.currentTimeMillis()) {
+                        resetCal.add(Calendar.DAY_OF_YEAR, 1);
+                    }
+                    
+                    // Use 12-hour format with am/pm
+                    String timeStr = new SimpleDateFormat("h:mm a", getCurrentLocale(requireContext())).format(resetCal.getTime());
+                    mPlanValidity.setText(requireContext().getString(R.string.label_plan_validity_daily_unlimited, timeStr));
+                    mPlanValidity.setVisibility(View.VISIBLE);
+                }
+            }
+            
+            mPlanDetailsView.setVisibility(View.VISIBLE);
+            mPlanDetailsTitle.setText(planDetailsTitle);
         } else {
             // No data plan is set. Hide mDataRemaining view.
             mDataRemaining.setVisibility(View.GONE);
@@ -690,24 +755,24 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         if (session == SESSION_MONTHLY) {
             int planReset = preferences.getInt(DATA_RESET_DATE, 1);
+            Calendar todayCalendar = Calendar.getInstance();
+            int todayDay = todayCalendar.get(Calendar.DAY_OF_MONTH);
+            
+            // Set calendar to this month's reset date at end of day
             calendar.set(Calendar.DAY_OF_MONTH, planReset);
-            if (calendar.getTimeInMillis() < currentTimeMillis) {
+            calendar.set(Calendar.HOUR_OF_DAY, 23);
+            calendar.set(Calendar.MINUTE, 59);
+            calendar.set(Calendar.SECOND, 59);
+            
+            // If today is past the reset date (day of month is greater than reset day), move to next month
+            // Or if today is the reset day but it's already past 23:59:59 (unlikely but handle it)
+            if (todayDay > planReset || calendar.getTimeInMillis() <= currentTimeMillis) {
                 calendar.add(Calendar.MONTH, 1);
             }
+            
             endTimeMillis = calendar.getTimeInMillis();
             month = new SimpleDateFormat("MMMM", getCurrentLocale(requireContext())).format(calendar.getTime());
-            endDate = planReset;
-
-            // Check if today is the reset date - if so, show full month duration
-            Calendar todayCalendar = Calendar.getInstance();
-            if (todayCalendar.get(Calendar.DAY_OF_MONTH) == planReset &&
-                todayCalendar.get(Calendar.MONTH) == calendar.get(Calendar.MONTH) &&
-                todayCalendar.get(Calendar.YEAR) == calendar.get(Calendar.YEAR)) {
-                // Today is the reset date, so this is the start of a new cycle
-                // Calculate days remaining as a full month (typically 31 days)
-                calendar.add(Calendar.MONTH, 1);
-                endTimeMillis = calendar.getTimeInMillis();
-            }
+            endDate = calendar.get(Calendar.DAY_OF_MONTH);
         }
         else {
             long planEndDateMillis;

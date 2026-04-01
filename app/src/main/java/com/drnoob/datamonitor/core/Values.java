@@ -51,6 +51,7 @@ public class Values {
     public static final int SESSION_CUSTOM = 0x00AC;
     public static final int SESSION_WEEK = 0x00B0;
     public static final int SESSION_CUSTOM_FILTER = 0x00AF;
+    public static final int SESSION_UNLIMITED_TIME_SLOT = 0x00B1;
 
     public static final int TYPE_MOBILE_DATA = 0x0046;
     public static final int TYPE_WIFI = 0x0050;
@@ -201,5 +202,14 @@ public class Values {
 
     public static final String PREF_APP_USAGE_SESSION = "pref_app_usage_session";
     public static final String PREF_APP_USAGE_TYPE = "pref_app_usage_type";
+
+    // Unlimited time slot settings
+    public static final String UNLIMITED_TIME_SLOT_ENABLED = "unlimited_time_slot_enabled";
+    public static final String UNLIMITED_TIME_SLOT_START_HOUR = "unlimited_time_slot_start_hour";
+    public static final String UNLIMITED_TIME_SLOT_START_MIN = "unlimited_time_slot_start_min";
+    public static final String UNLIMITED_TIME_SLOT_END_HOUR = "unlimited_time_slot_end_hour";
+    public static final String UNLIMITED_TIME_SLOT_END_MIN = "unlimited_time_slot_end_min";
+    public static final String UNLIMITED_TIME_SLOT_START_ENABLED = "unlimited_time_slot_start_enabled";
+    public static final String UNLIMITED_TIME_SLOT_END_ENABLED = "unlimited_time_slot_end_enabled";
 
 }

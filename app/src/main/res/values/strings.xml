@@ -150,6 +150,12 @@
     <string name="remaining_data_info_enabled">Remaining data info enabled</string>
     <string name="remaining_data_info_disabled">Remaining data info disabled</string>
     <string name="label_monitoring_no_plan">Add a data plan to start monitoring</string>
+    <string name="label_monitoring_unlimited_plan">Remaining data info not applicable for unlimited plan</string>
+    <string name="label_data_alert_unlimited_plan">Data usage alert not applicable for unlimited plan</string>
+    <string name="label_current_data_warning_trigger_level_unlimited">Not applicable for unlimited plan</string>
+    <string name="label_smart_allocation_unlimited_plan">Smart data allocation not applicable for unlimited plan</string>
+    <string name="label_daily_quota_alert_unlimited_plan">Daily quota alert not applicable for unlimited plan</string>
+    <string name="label_custom_daily_quota_unlimited_plan">Custom daily quota not applicable for unlimited plan</string>
     <string name="label_widget_refreshed">Widget refreshed</string>
     <string name="label_notification_enabled">Data Tracker notification enabled</string>
     <string name="label_notification_cannot_disable_both">Cannot turn off both elements</string>
@@ -167,6 +173,8 @@
     <string name="label_data_remaining_used_excess">%1$s extra used</string>
     <string name="label_days_remaining">%1$s day(s) remaining</string>
     <string name="label_hours_remaining">%1$s hour(s) remaining</string>
+    <string name="label_plan_validity_daily_unlimited">Valid till %1$s</string>
+    <string name="error_unlimited_time_slot_reset_time_disabled">Cannot change reset time when unlimited time slot is enabled</string>
     <string name="disable_battery_optimisation">Turn off battery optimisation</string>
     <string name="disable_battery_optimisation_body">Prevents killing Data Tracker when running in the background.\nOtherwise values might be incorrect.</string>
     <string name="extra_optimisation_tips">Extra optimisation tips</string>
@@ -294,6 +302,14 @@
     <string name="heading_data_reset_custom_counter">Plan validity</string>
     <string name="label_custom_start_date">Start date: %1$s</string>
     <string name="label_custom_end_date">End date: %1$s</string>
+    <string name="label_unlimited_time_slot">Enable time slot</string>
+    <string name="label_unlimited_start_time">Start time (optional)</string>
+    <string name="label_unlimited_end_time">End time (optional)</string>
+    <string name="label_set_start_time">Set start time</string>
+    <string name="label_set_end_time">Set end time</string>
+    <string name="label_unlimited_start_time_set">Start time: %1$s</string>
+    <string name="label_unlimited_end_time_set">End time: %1$s</string>
+    <string name="label_unlimited_time_slot_filter">Unlimited time slot</string>
     <string name="setup_usage_reset_date_custom_selected">Custom data plan is active</string>
     <string name="title_data_plan_expired">Data plan expired!</string>
     <string name="summary_data_plan_expired">You might want to update your plan</string>
@@ -436,6 +452,7 @@
     <string name="label_filter">Filter</string>
     <string name="label_current_plan">Current Plan</string>
     <string name="home_plan_usage_details">%1$s used | %2$s</string>
+    <string name="home_plan_usage_details_unlimited">%1$s used</string>
     <string name="label_plan_validity">Valid till %1$s | %2$s</string>
     <string name="always_show_total">Always show total</string>
     <string name="always_show_total_summary">Always show total data used in notification irrespective of selected options.</string>

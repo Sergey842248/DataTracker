@@ -40,6 +40,13 @@ import static com.drnoob.datamonitor.core.Values.DATA_RESET_DAILY;
 import static com.drnoob.datamonitor.core.Values.DATA_RESET_MONTHLY;
 import static com.drnoob.datamonitor.core.Values.DATA_TYPE;
 import static com.drnoob.datamonitor.core.Values.LIMIT;
+import static com.drnoob.datamonitor.core.Values.UNLIMITED_TIME_SLOT_ENABLED;
+import static com.drnoob.datamonitor.core.Values.UNLIMITED_TIME_SLOT_START_HOUR;
+import static com.drnoob.datamonitor.core.Values.UNLIMITED_TIME_SLOT_START_MIN;
+import static com.drnoob.datamonitor.core.Values.UNLIMITED_TIME_SLOT_END_HOUR;
+import static com.drnoob.datamonitor.core.Values.UNLIMITED_TIME_SLOT_END_MIN;
+import static com.drnoob.datamonitor.core.Values.UNLIMITED_TIME_SLOT_START_ENABLED;
+import static com.drnoob.datamonitor.core.Values.UNLIMITED_TIME_SLOT_END_ENABLED;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -108,6 +115,14 @@ public class DataPlanFragment extends Fragment {
     private int startHour, startMinute, endHour, endMinute;
     private long startMillis, endMillis; // Absolute start and end time in millis
     private boolean is12HourView, isRecurring;
+    
+    // Unlimited time slot variables
+    private boolean isUnlimitedTimeSlotEnabled;
+    private boolean isUnlimitedStartTimeEnabled;
+    private boolean isUnlimitedEndTimeEnabled;
+    private int unlimitedStartHour, unlimitedStartMinute, unlimitedEndHour, unlimitedEndMinute;
+    private static final int TYPE_UNLIMITED_START = 2;
+    private static final int TYPE_UNLIMITED_END = 3;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -189,6 +204,22 @@ public class DataPlanFragment extends Fragment {
             endHour = 23;
             endMinute = 59;
         }
+
+        // Initialize unlimited time slot settings
+        isUnlimitedTimeSlotEnabled = PreferenceManager.getDefaultSharedPreferences(getContext())
+                .getBoolean(UNLIMITED_TIME_SLOT_ENABLED, false);
+        isUnlimitedStartTimeEnabled = PreferenceManager.getDefaultSharedPreferences(getContext())
+                .getBoolean(UNLIMITED_TIME_SLOT_START_ENABLED, false);
+        isUnlimitedEndTimeEnabled = PreferenceManager.getDefaultSharedPreferences(getContext())
+                .getBoolean(UNLIMITED_TIME_SLOT_END_ENABLED, false);
+        unlimitedStartHour = PreferenceManager.getDefaultSharedPreferences(getContext())
+                .getInt(UNLIMITED_TIME_SLOT_START_HOUR, 0);
+        unlimitedStartMinute = PreferenceManager.getDefaultSharedPreferences(getContext())
+                .getInt(UNLIMITED_TIME_SLOT_START_MIN, 0);
+        unlimitedEndHour = PreferenceManager.getDefaultSharedPreferences(getContext())
+                .getInt(UNLIMITED_TIME_SLOT_END_HOUR, 23);
+        unlimitedEndMinute = PreferenceManager.getDefaultSharedPreferences(getContext())
+                .getInt(UNLIMITED_TIME_SLOT_END_MIN, 59);
 
         updateDateViews();
 
@@ -368,56 +399,157 @@ public class DataPlanFragment extends Fragment {
             }
         });
 
+        // Initialize unlimited time slot section visibility based on data reset type
+        if (binding.dataReset.getCheckedRadioButtonId() == R.id.daily) {
+            binding.unlimitedTimeSlotView.setVisibility(View.VISIBLE);
+        } else {
+            binding.unlimitedTimeSlotView.setVisibility(View.GONE);
+        }
+
+        // Update unlimited time slot section visibility when data reset type changes
+        binding.dataReset.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (i == R.id.custom_reset) {
+                    binding.customDateView.setAlpha(0f);
+                    binding.customDateView.setVisibility(View.VISIBLE);
+                    binding.customDateView.animate()
+                            .alpha(1f)
+                            .setDuration(350)
+                            .start();
+                    binding.unlimitedTimeSlotView.setVisibility(View.GONE);
+                }
+                else {
+                    binding.customDateView.animate()
+                            .alpha(0f)
+                            .setDuration(350)
+                            .start();
+                    new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            binding.customDateView.setVisibility(View.GONE);
+                        }
+                    }, 150);
+
+                    // Show unlimited time slot view only for daily data plan
+                    if (i == R.id.daily) {
+                        binding.unlimitedTimeSlotView.setVisibility(View.VISIBLE);
+                    } else {
+                        binding.unlimitedTimeSlotView.setVisibility(View.GONE);
+                    }
+                }
+            }
+        });
+
+        // Initialize unlimited time slot switch
+        binding.unlimitedTimeSlotSwitch.setChecked(isUnlimitedTimeSlotEnabled);
+        binding.unlimitedTimeSlotSettings.setVisibility(isUnlimitedTimeSlotEnabled ? View.VISIBLE : View.GONE);
+
+        binding.unlimitedTimeSlotSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            isUnlimitedTimeSlotEnabled = isChecked;
+            binding.unlimitedTimeSlotSettings.setVisibility(isChecked ? View.VISIBLE : View.GONE);
+            if (!PreferenceManager.getDefaultSharedPreferences(requireContext())
+                    .getBoolean("disable_haptics", false)) {
+                VibrationUtils.hapticMinor(getContext());
+            }
+        });
+
+        // Initialize unlimited start time switch
+        binding.unlimitedStartTimeSwitch.setChecked(isUnlimitedStartTimeEnabled);
+        binding.unlimitedStartTime.setEnabled(isUnlimitedStartTimeEnabled);
+        updateUnlimitedStartTimeView();
+
+        binding.unlimitedStartTimeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            isUnlimitedStartTimeEnabled = isChecked;
+            binding.unlimitedStartTime.setEnabled(isChecked);
+            if (!PreferenceManager.getDefaultSharedPreferences(requireContext())
+                    .getBoolean("disable_haptics", false)) {
+                VibrationUtils.hapticMinor(getContext());
+            }
+        });
+
+        // Initialize unlimited end time switch
+        binding.unlimitedEndTimeSwitch.setChecked(isUnlimitedEndTimeEnabled);
+        binding.unlimitedEndTime.setEnabled(isUnlimitedEndTimeEnabled);
+        updateUnlimitedEndTimeView();
+
+        binding.unlimitedEndTimeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            isUnlimitedEndTimeEnabled = isChecked;
+            binding.unlimitedEndTime.setEnabled(isChecked);
+            if (!PreferenceManager.getDefaultSharedPreferences(requireContext())
+                    .getBoolean("disable_haptics", false)) {
+                VibrationUtils.hapticMinor(getContext());
+            }
+        });
+
+        // Set click listeners for unlimited time slot time pickers
+        binding.unlimitedStartTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showTimePicker(TYPE_UNLIMITED_START);
+            }
+        });
+
+        binding.unlimitedEndTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showTimePicker(TYPE_UNLIMITED_END);
+            }
+        });
+
         binding.toolbarSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String previousPlanType = PreferenceManager.getDefaultSharedPreferences(requireContext())
                         .getString(DATA_RESET, "null");
-                if (binding.dataLimit.getText().toString().length() <= 0) {
-                    binding.dataLimitView.setError(getString(R.string.error_invalid_plan));
+                // Data limit is now optional - if empty, treat as unlimited
+                String dataLimitText = binding.dataLimit.getText().toString().trim();
+                boolean isUnlimited = dataLimitText.isEmpty();
+                
+                // The planStartDateMillis and planEndDateMillis are already correctly set by the interactive logic.
+                // We just need to get the absolute start/end millis for the final validation check.
+                String startDate = new SimpleDateFormat("yyyy/MM/dd").format(planStartDateMillis);
+                String endDate = new SimpleDateFormat("yyyy/MM/dd").format(planEndDateMillis);
+                String start = startDate + " " + startHour + ":" + startMinute + ":00";
+                String end = endDate + " " + endHour + ":" + endMinute + ":00";
+
+                Date date;
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                try {
+                    date = dateFormat.parse(start);
+                    startMillis = date.getTime();
+                    date = dateFormat.parse(end);
+                    endMillis = date.getTime();
+                }
+                catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                // Validation: If not recurring, end date must not be in the past.
+                // Skip this validation for unlimited plans
+                if (!isUnlimited && binding.dataReset.getCheckedRadioButtonId() == R.id.custom_reset &&
+                        !binding.recurringSwitch.isChecked() &&
+                        endMillis < System.currentTimeMillis()) {
+                    Snackbar snackbar = Snackbar.make(binding.getRoot(),
+                            requireContext().getString(R.string.error_invalid_plan_duration),
+                            Snackbar.LENGTH_SHORT);
+                    dismissOnClick(snackbar);
+                    snackbar.show();
                 }
                 else {
-                    // The planStartDateMillis and planEndDateMillis are already correctly set by the interactive logic.
-                    // We just need to get the absolute start/end millis for the final validation check.
-                    String startDate = new SimpleDateFormat("yyyy/MM/dd").format(planStartDateMillis);
-                    String endDate = new SimpleDateFormat("yyyy/MM/dd").format(planEndDateMillis);
-                    String start = startDate + " " + startHour + ":" + startMinute + ":00";
-                    String end = endDate + " " + endHour + ":" + endMinute + ":00";
-
-                    Date date;
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-                    try {
-                        date = dateFormat.parse(start);
-                        startMillis = date.getTime();
-                        date = dateFormat.parse(end);
-                        endMillis = date.getTime();
-                    }
-                    catch (ParseException e) {
-                        e.printStackTrace();
-                    }
-
-                    // Validation: If not recurring, end date must not be in the past.
-                    if ((binding.dataReset.getCheckedRadioButtonId() == R.id.custom_reset &&
-                            !binding.recurringSwitch.isChecked() &&
-                            endMillis < System.currentTimeMillis())) {
-                        Snackbar snackbar = Snackbar.make(binding.getRoot(),
-                                requireContext().getString(R.string.error_invalid_plan_duration),
-                                Snackbar.LENGTH_SHORT);
-                        dismissOnClick(snackbar);
-                        snackbar.show();
-                    }
-                    else {
-                        String dataLimitText = binding.dataLimit.getText().toString();
+                    Float dataLimit = 0f;
+                    int dataType = 0;
+                    
+                    if (!isUnlimited) {
                         if (dataLimitText.contains(",")) {
                             dataLimitText = dataLimitText.replace(",", ".");
                         }
                         if (dataLimitText.contains("٫")) {
                             dataLimitText = dataLimitText.replace("٫", ".");
                         }
-                        Float dataLimit = Float.parseFloat(dataLimitText);
+                        dataLimit = Float.parseFloat(dataLimitText);
                         float divisor = PreferenceManager.getDefaultSharedPreferences(getContext())
                                 .getBoolean(DATA_UNIT_BINARY, true) ? 1024f : 1000f;
-                        int dataType;
                         if (binding.dataTypeSwitcher.getTabAt(0).isSelected()) {
                             if (dataLimit >= divisor) {
                                 dataType = 1;
@@ -430,50 +562,57 @@ public class DataPlanFragment extends Fragment {
                             dataLimit = dataLimit * divisor;
                             dataType = binding.dataTypeSwitcher.getSelectedTabPosition();
                         }
-                        if (binding.dataReset.getCheckedRadioButtonId() == R.id.daily) {
-                            PreferenceManager.getDefaultSharedPreferences(getContext()).edit()
-                                    .putString(DATA_RESET, DATA_RESET_DAILY).apply();
-                        }
-                        else if (binding.dataReset.getCheckedRadioButtonId() == R.id.monthly) {
-                            PreferenceManager.getDefaultSharedPreferences(getContext()).edit()
-                                    .putString(DATA_RESET, DATA_RESET_MONTHLY).apply();
-                        }
-                        else if (binding.dataReset.getCheckedRadioButtonId() == R.id.custom_reset) {
-                            calendar.setTimeInMillis(planEndDateMillis);
-                            calendar.add(Calendar.DATE, 1);
-
-                            PreferenceManager.getDefaultSharedPreferences(getContext()).edit()
-                                    .putString(DATA_RESET, DATA_RESET_CUSTOM)
-                                    .putLong(DATA_RESET_CUSTOM_DATE_START, planStartDateMillis)
-                                    .putLong(DATA_RESET_CUSTOM_DATE_END, planEndDateMillis)
-                                    .putLong(DATA_RESET_CUSTOM_DATE_RESTART, calendar.getTimeInMillis())
-                                    .putBoolean(DATA_RESET_CUSTOM_RECURRING, binding.recurringSwitch.isChecked())
-                                    .apply();
-                        }
+                    }
+                    if (binding.dataReset.getCheckedRadioButtonId() == R.id.daily) {
+                        PreferenceManager.getDefaultSharedPreferences(getContext()).edit()
+                                .putString(DATA_RESET, DATA_RESET_DAILY).apply();
+                    }
+                    else if (binding.dataReset.getCheckedRadioButtonId() == R.id.monthly) {
+                        PreferenceManager.getDefaultSharedPreferences(getContext()).edit()
+                                .putString(DATA_RESET, DATA_RESET_MONTHLY).apply();
+                    }
+                    else if (binding.dataReset.getCheckedRadioButtonId() == R.id.custom_reset) {
+                        calendar.setTimeInMillis(planEndDateMillis);
+                        calendar.add(Calendar.DATE, 1);
 
                         PreferenceManager.getDefaultSharedPreferences(getContext()).edit()
-                                .putFloat(DATA_LIMIT, dataLimit)
-                                .putString(LIMIT, binding.dataLimit.getText().toString())
-                                .putInt(DATA_TYPE, dataType)
-                                .putInt(DATA_RESET_CUSTOM_DATE_START_HOUR, startHour)
-                                .putInt(DATA_RESET_CUSTOM_DATE_START_MIN, startMinute)
-                                .putInt(DATA_RESET_CUSTOM_DATE_END_HOUR, endHour)
-                                .putInt(DATA_RESET_CUSTOM_DATE_END_MIN, endMinute)
+                                .putString(DATA_RESET, DATA_RESET_CUSTOM)
+                                .putLong(DATA_RESET_CUSTOM_DATE_START, planStartDateMillis)
+                                .putLong(DATA_RESET_CUSTOM_DATE_END, planEndDateMillis)
+                                .putLong(DATA_RESET_CUSTOM_DATE_RESTART, calendar.getTimeInMillis())
+                                .putBoolean(DATA_RESET_CUSTOM_RECURRING, binding.recurringSwitch.isChecked())
                                 .apply();
-
-                        if (previousPlanType.equals(DATA_RESET_CUSTOM)) {
-                            Log.d(TAG, "onClick: Previously set custom plan found, cancelling refresh alarm" );
-                            cancelDataPlanNotification(requireContext());
-                        }
-                        if (PreferenceManager.getDefaultSharedPreferences(requireContext())
-                                .getBoolean("data_usage_alert", false)) {
-                            DataUsageMonitor.updateServiceRestart(requireContext());
-                        }
-
-                        Intent resultData = new Intent();
-                        requireActivity().setResult(Activity.RESULT_OK, resultData);
-                        requireActivity().finish();
                     }
+
+                    PreferenceManager.getDefaultSharedPreferences(getContext()).edit()
+                            .putFloat(DATA_LIMIT, isUnlimited ? 0f : dataLimit)
+                            .putString(LIMIT, isUnlimited ? "" : binding.dataLimit.getText().toString())
+                            .putInt(DATA_TYPE, dataType)
+                            .putInt(DATA_RESET_CUSTOM_DATE_START_HOUR, startHour)
+                            .putInt(DATA_RESET_CUSTOM_DATE_START_MIN, startMinute)
+                            .putInt(DATA_RESET_CUSTOM_DATE_END_HOUR, endHour)
+                            .putInt(DATA_RESET_CUSTOM_DATE_END_MIN, endMinute)
+                            .putBoolean(UNLIMITED_TIME_SLOT_ENABLED, isUnlimitedTimeSlotEnabled)
+                            .putBoolean(UNLIMITED_TIME_SLOT_START_ENABLED, isUnlimitedStartTimeEnabled)
+                            .putBoolean(UNLIMITED_TIME_SLOT_END_ENABLED, isUnlimitedEndTimeEnabled)
+                            .putInt(UNLIMITED_TIME_SLOT_START_HOUR, unlimitedStartHour)
+                            .putInt(UNLIMITED_TIME_SLOT_START_MIN, unlimitedStartMinute)
+                            .putInt(UNLIMITED_TIME_SLOT_END_HOUR, unlimitedEndHour)
+                            .putInt(UNLIMITED_TIME_SLOT_END_MIN, unlimitedEndMinute)
+                            .apply();
+
+                    if (previousPlanType.equals(DATA_RESET_CUSTOM)) {
+                        Log.d(TAG, "onClick: Previously set custom plan found, cancelling refresh alarm" );
+                        cancelDataPlanNotification(requireContext());
+                    }
+                    if (PreferenceManager.getDefaultSharedPreferences(requireContext())
+                            .getBoolean("data_usage_alert", false)) {
+                        DataUsageMonitor.updateServiceRestart(requireContext());
+                    }
+
+                    Intent resultData = new Intent();
+                    requireActivity().setResult(Activity.RESULT_OK, resultData);
+                    requireActivity().finish();
                 }
             }
         });
@@ -486,9 +625,8 @@ public class DataPlanFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (binding.dataLimit.getText().toString().length() > 0) {
-                    binding.dataLimitView.setError(null);
-                }
+                // Clear error when user starts typing (data limit is now optional)
+                binding.dataLimitView.setError(null);
             }
 
             @Override
@@ -570,6 +708,30 @@ public class DataPlanFragment extends Fragment {
         binding.customEndDate.setText(setBoldSpan(endDateToday, planEnd));
         binding.customStartTime.setText(setBoldSpan(startTimeString, startTime));
         binding.customEndTime.setText(setBoldSpan(endTimeString, endTime));
+        
+        // Update unlimited time slot views
+        updateUnlimitedStartTimeView();
+        updateUnlimitedEndTimeView();
+    }
+
+    private void updateUnlimitedStartTimeView() {
+        if (isUnlimitedStartTimeEnabled) {
+            String startTime = getTime(unlimitedStartHour, unlimitedStartMinute, is12HourView);
+            String startTimeString = getContext().getString(R.string.label_unlimited_start_time_set, startTime);
+            binding.unlimitedStartTime.setText(setBoldSpan(startTimeString, startTime));
+        } else {
+            binding.unlimitedStartTime.setText(R.string.label_set_start_time);
+        }
+    }
+
+    private void updateUnlimitedEndTimeView() {
+        if (isUnlimitedEndTimeEnabled) {
+            String endTime = getTime(unlimitedEndHour, unlimitedEndMinute, is12HourView);
+            String endTimeString = getContext().getString(R.string.label_unlimited_end_time_set, endTime);
+            binding.unlimitedEndTime.setText(setBoldSpan(endTimeString, endTime));
+        } else {
+            binding.unlimitedEndTime.setText(R.string.label_set_end_time);
+        }
     }
 
     private void showTimePicker(int type) {
@@ -584,15 +746,21 @@ public class DataPlanFragment extends Fragment {
         (((LinearLayout) ((LinearLayout) timePicker.getChildAt(0)).getChildAt(0)).getChildAt(0)).setVerticalScrollBarEnabled(false);
         (((LinearLayout) ((LinearLayout) timePicker.getChildAt(0)).getChildAt(0)).getChildAt(2)).setVerticalScrollBarEnabled(false);
 
-        timePicker.setIs24HourView(!is12HourView);
-
         if (type == TYPE_PLAN_START) {
             timePicker.setHour(startHour);
             timePicker.setMinute(startMinute);
         }
-        else {
+        else if (type == TYPE_PLAN_END) {
             timePicker.setHour(endHour);
             timePicker.setMinute(endMinute);
+        }
+        else if (type == TYPE_UNLIMITED_START) {
+            timePicker.setHour(unlimitedStartHour);
+            timePicker.setMinute(unlimitedStartMinute);
+        }
+        else if (type == TYPE_UNLIMITED_END) {
+            timePicker.setHour(unlimitedEndHour);
+            timePicker.setMinute(unlimitedEndMinute);
         }
 
         timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
@@ -619,9 +787,17 @@ public class DataPlanFragment extends Fragment {
                     startHour = timePicker.getHour();
                     startMinute = timePicker.getMinute();
                 }
-                else {
+                else if (type == TYPE_PLAN_END) {
                     endHour = timePicker.getHour();
                     endMinute = timePicker.getMinute();
+                }
+                else if (type == TYPE_UNLIMITED_START) {
+                    unlimitedStartHour = timePicker.getHour();
+                    unlimitedStartMinute = timePicker.getMinute();
+                }
+                else if (type == TYPE_UNLIMITED_END) {
+                    unlimitedEndHour = timePicker.getHour();
+                    unlimitedEndMinute = timePicker.getMinute();
                 }
 
                 if (isRecurring) {

@@ -42,6 +42,7 @@ import static com.drnoob.datamonitor.core.Values.DATA_UNIT_BINARY;
 import static com.drnoob.datamonitor.core.Values.SESSION_TODAY;
 import static com.drnoob.datamonitor.core.Values.SESSION_WEEK;
 import static com.drnoob.datamonitor.core.Values.SESSION_YESTERDAY;
+import static com.drnoob.datamonitor.core.Values.SESSION_UNLIMITED_TIME_SLOT;
 
 import android.annotation.SuppressLint;
 import android.app.usage.NetworkStats;
@@ -927,6 +928,23 @@ public class NetworkStatsHelper {
                 // Set start time to 7 days ago
                 calendar.add(Calendar.DAY_OF_MONTH, -7);
                 resetTimeMillis = calendar.getTimeInMillis();
+                break;
+
+            case SESSION_UNLIMITED_TIME_SLOT:
+                // Calculate time period excluding unlimited time slots
+                // For now, we'll use the same logic as SESSION_TODAY
+                // The actual filtering will be done in the data loading logic
+                year = Integer.parseInt(yearFormat.format(date));
+                month = Integer.parseInt(monthFormat.format(date));
+                day = Integer.parseInt(dayFormat.format(date));
+
+                startTime = context.getResources().getString(R.string.reset_time, year, month, day, resetHour, resetMin);
+                resetDate = dateFormat.parse(startTime);
+                resetTimeMillis = resetDate.getTime();
+                day = Integer.parseInt(dayFormat.format(date)) + 1;
+                endTime = context.getResources().getString(R.string.reset_time, year, month, day, resetHour, resetMin);
+                endDate = dateFormat.parse(endTime);
+                endTimeMillis = endDate.getTime();
                 break;
         }
 

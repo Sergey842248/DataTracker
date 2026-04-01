@@ -13,8 +13,8 @@ android {
         applicationId "com.future.datatracker"
         minSdkVersion 23
         targetSdkVersion 36
-        versionCode 289
-        versionName '2.8.9'
+        versionCode 290
+        versionName '2.9.0'
         resConfigs "en", "ar", "cs", "de", "es", "fr", "hi", "in", "it", "iw", "ja", "ko", "ml", "mr", "ms",
                 "nb-rNO", "nl", "pl", "pt-rBR", "ro", "ru", "tr", "uk", "uz", "vi", "zh-rCN", "zh-rTW"
 
