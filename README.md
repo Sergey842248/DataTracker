@@ -1,3 +1,5 @@
+> [!Important]
+> **This project is discontinued, feel free to fork it.**
 
 
 <div align="center">
